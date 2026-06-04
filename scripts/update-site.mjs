@@ -816,7 +816,6 @@ function renderPage(data, translations) {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      align-self: end;
     }
 
     .links a {
@@ -837,6 +836,22 @@ function renderPage(data, translations) {
     }
 
     .distance { color: var(--accent); font-weight: 760; }
+
+    .card-footer {
+      display: flex;
+      gap: 10px;
+      align-items: end;
+      justify-content: space-between;
+      align-self: end;
+    }
+
+    .updated-at {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-align: end;
+      white-space: nowrap;
+    }
 
     .no-results {
       display: none;
@@ -1139,20 +1154,17 @@ function renderPage(data, translations) {
       const distanceText = Number.isFinite(distance) ? '<span class="distance">' + Math.round(distance) + ' ' + t("distanceKm") + '</span> · ' : "";
       const title = item.city || item.name;
       const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
-      const cardLocations = item.nearestLocation ? [item.nearestLocation] : getLocations(item);
-      const locationDetails = cardLocations.map((location) => renderLocationDetails(location, item.updatedAt)).filter(Boolean).join("");
+      const locationDetails = getLocations(item).map((location) => renderLocationDetails(location)).filter(Boolean).join("");
+      const updatedAt = item.updatedAt ? '<span class="updated-at">' + escapeHtml(t("updatedLabel") + ": " + formatDate(item.updatedAt)) + '</span>' : "";
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
         '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationDetails + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
-        '<div class="links">' + links.join("") + '</div>' +
+        '<div class="card-footer"><div class="links">' + links.join("") + '</div>' + updatedAt + '</div>' +
         '</article>';
     }
 
-    function renderLocationDetails(location, updatedAt) {
+    function renderLocationDetails(location) {
       const title = [location.name, location.address].filter(Boolean).join(" · ");
-      const details = [
-        location.openingHours ? t("openingHoursLabel") + ": " + location.openingHours : "",
-        updatedAt ? t("updatedLabel") + ": " + formatDate(updatedAt) : ""
-      ].filter(Boolean).join(" · ");
+      const details = location.openingHours ? t("openingHoursLabel") + ": " + location.openingHours : "";
       if (!title && !details) return "";
       return '<p class="location-name">' + escapeHtml(title) + '</p>' +
         (details ? '<p class="location-details">' + escapeHtml(details) + '</p>' : "");
@@ -1321,7 +1333,6 @@ function renderPage(data, translations) {
         (location.name ? escapeHtml(location.name) + '<br>' : "") +
         escapeHtml(locationLabel) +
         (location.openingHours ? '<br>' + escapeHtml(t("openingHoursLabel") + ": " + location.openingHours) : "") +
-        (item.updatedAt ? '<br>' + escapeHtml(t("updatedLabel") + ": " + formatDate(item.updatedAt)) : "") +
         (item.url ? '<br><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>' : "");
     }
 
