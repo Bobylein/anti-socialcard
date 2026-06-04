@@ -1103,7 +1103,7 @@ function renderPage(data, translations) {
           distance: distanceInKm(origin.lat, origin.lon, item.coordinates.lat, item.coordinates.lon)
         }))
         .sort((a, b) => a.distance - b.distance)
-        .slice(0, 12);
+        .slice(0, 5);
 
       nearestGrid.innerHTML = ranked.map((item) => renderCard(item, item.distance)).join("");
       nearestCount.textContent = formatEntries(ranked.length);
