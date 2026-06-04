@@ -773,6 +773,15 @@ function renderPage(data, translations) {
       gap: 8px;
     }
 
+    #nearest-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    #nearest-grid > .initiative:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+
     .initiative {
       display: grid;
       gap: 10px;
@@ -804,12 +813,27 @@ function renderPage(data, translations) {
       font-weight: 650;
     }
 
+    .locations {
+      display: grid;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .location {
+      padding: 9px 10px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      background: var(--accent-soft);
+    }
+
     .initiative .location-name {
-      margin-top: 5px;
+      color: var(--ink);
+      font-weight: 690;
     }
 
     .initiative .location-details {
-      margin-top: 5px;
+      margin-top: 3px;
+      font-size: 0.84rem;
     }
 
     .links {
@@ -893,7 +917,8 @@ function renderPage(data, translations) {
       button { width: 100%; }
       .language-switcher button { width: auto; }
       #map { min-height: 340px; }
-      .grid { grid-template-columns: 1fr; }
+      .grid, #nearest-grid { grid-template-columns: 1fr; }
+      #nearest-grid > .initiative:last-child:nth-child(odd) { grid-column: auto; }
     }
   </style>
 </head>
@@ -1154,7 +1179,8 @@ function renderPage(data, translations) {
       const distanceText = Number.isFinite(distance) ? '<span class="distance">' + Math.round(distance) + ' ' + t("distanceKm") + '</span> · ' : "";
       const title = item.city || item.name;
       const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
-      const locationDetails = getLocations(item).map((location) => renderLocationDetails(location)).filter(Boolean).join("");
+      const locations = getLocations(item).map((location) => renderLocationDetails(location)).filter(Boolean).join("");
+      const locationDetails = locations ? '<div class="locations">' + locations + '</div>' : "";
       const updatedAt = item.updatedAt ? '<span class="updated-at">' + escapeHtml(t("updatedLabel") + ": " + formatDate(item.updatedAt)) + '</span>' : "";
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
         '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationDetails + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
@@ -1166,8 +1192,8 @@ function renderPage(data, translations) {
       const title = [location.name, location.address].filter(Boolean).join(" · ");
       const details = location.openingHours ? t("openingHoursLabel") + ": " + location.openingHours : "";
       if (!title && !details) return "";
-      return '<p class="location-name">' + escapeHtml(title) + '</p>' +
-        (details ? '<p class="location-details">' + escapeHtml(details) + '</p>' : "");
+      return '<div class="location"><p class="location-name">' + escapeHtml(title) + '</p>' +
+        (details ? '<p class="location-details">' + escapeHtml(details) + '</p>' : "") + '</div>';
     }
 
     function formatDate(value) {
