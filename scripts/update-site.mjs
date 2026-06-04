@@ -1227,8 +1227,9 @@ function renderPage(data, translations) {
     }
 
     function renderPopup(item) {
+      const locationLabel = item.coordinates?.label || [item.city, item.region].filter(Boolean).join(" · ");
       return '<strong>' + escapeHtml(item.name) + '</strong><br>' +
-        escapeHtml([item.city, item.region].filter(Boolean).join(" · ")) +
+        escapeHtml(locationLabel) +
         (item.url ? '<br><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>' : "");
     }
 

@@ -47,10 +47,7 @@ initiatives:
     coordinates:
       lat: 54.1325038
       lon: 10.6132233
-      label: Eutin, Deutschland
-    sources:
-      - label: Manuell
-        url: https://linktr.ee/AntiSocialCardOH
+
 
 # Example for future curated additions:
 # initiatives:
@@ -63,7 +60,7 @@ initiatives:
 #     coordinates:
 #       lat: 52.0
 #       lon: 13.0
-#       label: Stadt, Deutschland
+#       label: Musterstraße 1, 12345 Stadt, Deutschland
 #     transitLinks:
 #       - label: Lokaler ÖPNV
 #         url: https://example.org/transit
