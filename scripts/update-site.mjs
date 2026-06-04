@@ -782,6 +782,11 @@ function renderPage(data, translations) {
       grid-column: 1 / -1;
     }
 
+    .load-more {
+      display: block;
+      margin: 14px auto 0;
+    }
+
     .initiative {
       display: grid;
       gap: 10px;
@@ -952,6 +957,7 @@ function renderPage(data, translations) {
           <span class="count" id="nearest-count"></span>
         </div>
         <div class="grid" id="nearest-grid"></div>
+        <button type="button" class="secondary load-more" id="load-more" data-i18n="loadMore">Mehr laden</button>
       </section>
 
       <section class="section map-panel">
@@ -1020,6 +1026,7 @@ function renderPage(data, translations) {
     const nearest = document.getElementById("nearest");
     const nearestGrid = document.getElementById("nearest-grid");
     const nearestCount = document.getElementById("nearest-count");
+    const loadMoreButton = document.getElementById("load-more");
     const showMapButton = document.getElementById("show-map");
     const mapStatus = document.getElementById("map-status");
     const mapElement = document.getElementById("map");
@@ -1036,6 +1043,8 @@ function renderPage(data, translations) {
     let originLayer = null;
     let leafletLoading = null;
     let locationRequestPending = false;
+    let rankedNearest = [];
+    let nearestVisibleCount = 5;
 
     init();
 
@@ -1050,6 +1059,10 @@ function renderPage(data, translations) {
       search.addEventListener("input", applyFilters);
       region.addEventListener("change", applyFilters);
       filters.addEventListener("reset", () => requestAnimationFrame(applyFilters));
+      loadMoreButton.addEventListener("click", () => {
+        nearestVisibleCount += 5;
+        renderNearest();
+      });
       locator.addEventListener("submit", async (event) => {
         event.preventDefault();
         const place = locationInput.value.trim();
@@ -1214,7 +1227,7 @@ function renderPage(data, translations) {
 
     function showNearest(origin, label, options = {}) {
       currentOrigin = { ...origin, label };
-      const ranked = initiatives
+      rankedNearest = initiatives
         .map((item) => {
           const nearestLocation = getLocations(item)
             .filter((location) => location.coordinates)
@@ -1226,15 +1239,21 @@ function renderPage(data, translations) {
           return nearestLocation ? { ...item, nearestLocation, distance: nearestLocation.distance } : null;
         })
         .filter(Boolean)
-        .sort((a, b) => a.distance - b.distance)
-        .slice(0, 5);
+        .sort((a, b) => a.distance - b.distance);
+      if (!options.preserveScroll) nearestVisibleCount = 5;
+      renderNearest();
 
-      nearestGrid.innerHTML = ranked.map((item) => renderCard(item, item.distance)).join("");
-      nearestCount.textContent = formatEntries(ranked.length);
       results.hidden = false;
       locationStatus.textContent = t("statusSortedPrefix") + " " + label + ".";
-      if (map) updateMap(ranked, origin);
       if (!options.preserveScroll) nearest.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+
+    function renderNearest() {
+      const visible = rankedNearest.slice(0, nearestVisibleCount);
+      nearestGrid.innerHTML = visible.map((item) => renderCard(item, item.distance)).join("");
+      nearestCount.textContent = formatEntries(visible.length);
+      loadMoreButton.hidden = visible.length >= rankedNearest.length;
+      if (map && currentOrigin) updateMap(visible, currentOrigin);
     }
 
     async function geocodePlace(place) {

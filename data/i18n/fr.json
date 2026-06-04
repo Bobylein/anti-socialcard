@@ -40,5 +40,6 @@
   "useLocation": "Utiliser le lieu",
   "website": "Site web",
   "yourLocation": "votre lieu",
-  "openingHoursLabel": "Horaires d’ouverture"
+  "openingHoursLabel": "Horaires d’ouverture",
+  "loadMore": "Afficher plus"
 }
