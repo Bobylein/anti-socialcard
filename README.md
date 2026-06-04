@@ -16,7 +16,13 @@ Use `data/catalog.yml` for initiatives missing from the scraper, corrections to 
 
 If a curated initiative has the same `city`, `region`, and `country` as a scraped initiative, it automatically replaces the scraped entry. The generated `seebruecke-...` ID is not needed in the catalog.
 
-For exact map locations, add one or more entries with `name`, `address`, and optional free-text `openingHours` under `locations`. Curated initiatives maintain one `updatedAt` date at initiative level; scraped initiatives receive the current scrape date automatically. The updater geocodes addresses, stores the resulting coordinates in `data/geocodes.json`, and displays every named location on the map. Legacy single `address` and manually supplied `coordinates` remain supported.
+For exact map locations, add one or more entries with `name`, `address`, and optional `openingHours` under `locations`. Keep the manually maintained text in `data/catalog.yml` in English and write all times in 24-hour `HH:MM` format. Use semicolons or line breaks to create separate displayed rows. The website displays recognized times in both 24-hour and 12-hour formats.
+
+```yaml
+openingHours: "Every Wednesday, 17:00–19:00; Every first Friday, 16:00–18:00"
+```
+
+Optional generated translations live in `data/opening-hours-i18n.json`. They are used only when their stored source text still exactly matches the current catalog value; otherwise the original text is displayed. Curated initiatives maintain one `updatedAt` date at initiative level; scraped initiatives receive the current scrape date automatically. The updater geocodes addresses, stores the resulting coordinates in `data/geocodes.json`, and displays every named location on the map. Legacy single `address` and manually supplied `coordinates` remain supported.
 
 UI translations live in `data/i18n/*.json`. All translation files must contain the same keys.
 

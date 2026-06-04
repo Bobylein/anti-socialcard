@@ -9,6 +9,7 @@ const WEBSITE_CHECK_CONCURRENCY = 4;
 const DATA_PATH = new URL("../data/initiatives.json", import.meta.url);
 const CATALOG_PATH = new URL("../data/catalog.yml", import.meta.url);
 const I18N_DIR = new URL("../data/i18n/", import.meta.url);
+const OPENING_HOURS_I18N_PATH = new URL("../data/opening-hours-i18n.json", import.meta.url);
 const GEOCODE_CACHE_PATH = new URL("../data/geocodes.json", import.meta.url);
 const INDEX_PATH = new URL("../index.html", import.meta.url);
 const LEAFLET_DIST = new URL("../node_modules/leaflet/dist/", import.meta.url);
@@ -68,14 +69,17 @@ const SOCIAL_MEDIA_DOMAINS = [
 ];
 
 async function main() {
-  const [html, catalog, translations, geocodeCache] = await Promise.all([
+  const [html, catalog, translations, openingHoursTranslations, geocodeCache] = await Promise.all([
     fetchSource(),
     readCatalog(),
     readTranslations(),
+    readOpeningHoursTranslations(),
     readGeocodeCache()
   ]);
   const scraped = parseInitiatives(html);
   const initiatives = mergeInitiatives(scraped, catalog);
+  addOpeningHoursKeys(initiatives);
+  const validOpeningHoursTranslations = normalizeOpeningHoursTranslations(initiatives, openingHoursTranslations);
 
   if (scraped.length < 20) {
     throw new Error(`Parsed only ${scraped.length} initiatives; source structure may have changed.`);
@@ -96,8 +100,9 @@ async function main() {
   await mkdir(new URL("../data/", import.meta.url), { recursive: true });
   await copyLeafletAssets();
   await writeFile(GEOCODE_CACHE_PATH, `${JSON.stringify(geocodeCache, null, 2)}\n`);
+  await writeFile(OPENING_HOURS_I18N_PATH, `${JSON.stringify(validOpeningHoursTranslations, null, 2)}\n`);
   await writeFile(DATA_PATH, `${JSON.stringify(data, null, 2)}\n`);
-  await writeFile(INDEX_PATH, renderPage(data, translations));
+  await writeFile(INDEX_PATH, renderPage(data, translations, validOpeningHoursTranslations));
 
   console.log(`Updated ${initiatives.length} initiatives (${scraped.length} scraped, ${catalog.initiatives.length} curated).`);
 }
@@ -147,6 +152,15 @@ async function readTranslations() {
   }
 
   return translations;
+}
+
+async function readOpeningHoursTranslations() {
+  try {
+    return JSON.parse(await readFile(OPENING_HOURS_I18N_PATH, "utf8"));
+  } catch (error) {
+    if (error.code === "ENOENT") return {};
+    throw error;
+  }
 }
 
 async function readGeocodeCache() {
@@ -288,6 +302,39 @@ function normalizeLocations(raw) {
     .filter((location) => location.name || location.address || location.openingHours || location.coordinates);
 }
 
+function addOpeningHoursKeys(initiatives) {
+  for (const initiative of initiatives) {
+    for (const location of initiative.locations) {
+      if (!location.openingHours) continue;
+      location.openingHoursKey = [
+        openingHoursKeyPart(initiative.id),
+        openingHoursKeyPart(location.name || "location"),
+        openingHoursKeyPart(location.address || "no-address")
+      ].join("|");
+    }
+  }
+}
+
+function openingHoursKeyPart(value) {
+  return slugify(String(value).replaceAll("ß", "ss"));
+}
+
+function normalizeOpeningHoursTranslations(initiatives, values) {
+  const sources = new Map(initiatives.flatMap((initiative) =>
+    initiative.locations
+      .filter((location) => location.openingHoursKey)
+      .map((location) => [location.openingHoursKey, location.openingHours])
+  ));
+  return Object.fromEntries(Object.entries(values ?? {}).flatMap(([key, entry]) => {
+    const source = sources.get(key);
+    if (!source || entry?.source !== source) return [];
+    const translations = Object.fromEntries(Object.entries(entry.translations ?? {})
+      .filter(([code, text]) => LANGUAGES.some((language) => language.code === code) && String(text).trim())
+      .map(([code, text]) => [code, String(text).trim()]));
+    return Object.keys(translations).length ? [[key, { source, translations }]] : [];
+  }));
+}
+
 function normalizeLinks(value) {
   if (!Array.isArray(value)) return [];
   return value
@@ -349,6 +396,11 @@ function validateInitiatives(initiatives) {
     ids.add(item.id);
     for (const link of [item.url, ...item.sources.map((source) => source.url), ...item.transitLinks.map((link) => link.url)].filter(Boolean)) {
       new URL(link);
+    }
+    for (const location of item.locations) {
+      if (/\b\d{1,2}(?::\d{2})?\s*[ap]\.?m\.?\b/i.test(location.openingHours)) {
+        throw new Error(`Opening hours must use 24-hour HH:MM format in catalog data: ${item.id}`);
+      }
     }
   }
 }
@@ -542,7 +594,7 @@ async function fetchGeocode(params) {
   return result ?? null;
 }
 
-function renderPage(data, translations) {
+function renderPage(data, translations, openingHoursTranslations) {
   const regions = [...new Set(data.initiatives.map((item) => item.region))].sort((a, b) => a.localeCompare(b, "de"));
   const geocodedCount = data.initiatives.filter((item) => item.coordinates).length;
   const updated = new Intl.DateTimeFormat("de-DE", {
@@ -844,9 +896,38 @@ function renderPage(data, translations) {
       font-weight: 690;
     }
 
-    .initiative .location-details {
-      margin-top: 3px;
+    .opening-hours {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 7px;
+      align-items: start;
+      margin-top: 7px;
+      padding-top: 7px;
+      border-top: 1px solid rgba(15, 103, 96, 0.18);
+    }
+
+    .initiative .opening-hours-label {
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 760;
+      line-height: 1.55;
+      white-space: nowrap;
+    }
+
+    .initiative .opening-hours-value {
+      display: grid;
+      gap: 3px;
+      color: var(--ink);
       font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .initiative .opening-hours-row + .opening-hours-row {
+      padding-top: 3px;
+      border-top: 1px dashed rgba(15, 103, 96, 0.18);
     }
 
     .links {
@@ -1020,10 +1101,12 @@ function renderPage(data, translations) {
 
   <script type="application/json" id="initiative-data">${escapeScriptJson(toPageInitiatives(data.initiatives))}</script>
   <script type="application/json" id="translation-data">${escapeScriptJson(translations)}</script>
+  <script type="application/json" id="opening-hours-translation-data">${escapeScriptJson(openingHoursTranslations)}</script>
   <script type="application/json" id="language-data">${escapeScriptJson(LANGUAGES)}</script>
   <script>
     const initiatives = JSON.parse(document.getElementById("initiative-data").textContent);
     const translations = JSON.parse(document.getElementById("translation-data").textContent);
+    const openingHoursTranslations = JSON.parse(document.getElementById("opening-hours-translation-data").textContent);
     const languages = JSON.parse(document.getElementById("language-data").textContent);
     const languageSwitcher = document.getElementById("language-switcher");
     const locator = document.getElementById("locator");
@@ -1211,10 +1294,79 @@ function renderPage(data, translations) {
 
     function renderLocationDetails(location) {
       const title = [location.name, location.address].filter(Boolean).join(" · ");
-      const details = location.openingHours ? t("openingHoursLabel") + ": " + location.openingHours : "";
-      if (!title && !details) return "";
+      const openingHourRows = formatOpeningHours(translatedOpeningHours(location));
+      const openingHours = openingHourRows.length
+        ? '<div class="opening-hours"><span class="opening-hours-label">' + escapeHtml(t("openingHoursLabel")) + '</span><span class="opening-hours-value">' +
+          openingHourRows.map((row) => '<span class="opening-hours-row">' + escapeHtml(row) + '</span>').join("") + '</span></div>'
+        : "";
+      if (!title && !openingHours) return "";
       return '<div class="location"><p class="location-name">' + escapeHtml(title) + '</p>' +
-        (details ? '<p class="location-details">' + escapeHtml(details) + '</p>' : "") + '</div>';
+        openingHours + '</div>';
+    }
+
+    function formatOpeningHours(value) {
+      if (!value) return [];
+      return value.split(/[;\\n]+/).map((row) => row.trim()).filter(Boolean).map((row) => {
+        const ranges = [];
+        const withRangePlaceholders = row.replace(
+          /\\b([01]?\\d|2[0-3]):([0-5]\\d)\\s*[–—-]\\s*([01]?\\d|2[0-3]):([0-5]\\d)\\b/g,
+          (_, startHour, startMinute, endHour, endMinute) => {
+            ranges.push(formatTimeRange(Number(startHour), Number(startMinute), Number(endHour), Number(endMinute)));
+            return "__OPENING_HOURS_RANGE_" + (ranges.length - 1) + "__";
+          }
+        );
+        const withTimes = withRangePlaceholders.replace(
+          /\\b([01]?\\d|2[0-3]):([0-5]\\d)\\b/g,
+          (_, hour, minute) => formatTime(Number(hour), Number(minute))
+        );
+        return withTimes.replace(/__OPENING_HOURS_RANGE_(\\d+)__/g, (_, index) => ranges[Number(index)]);
+      });
+    }
+
+    function translatedOpeningHours(location) {
+      const entry = openingHoursTranslations[location.openingHoursKey];
+      return entry?.source === location.openingHours && entry.translations?.[currentLanguage]
+        ? entry.translations[currentLanguage]
+        : location.openingHours;
+    }
+
+    function formatTime(hour, minute) {
+      const value = timeValue(hour, minute);
+      return timeFormatter24().format(value) + " / " + timeFormatter12().format(value);
+    }
+
+    function formatTimeRange(startHour, startMinute, endHour, endMinute) {
+      const start = timeValue(startHour, startMinute);
+      const end = timeValue(endHour, endMinute, endHour * 60 + endMinute <= startHour * 60 + startMinute ? 2 : 1);
+      return formatRange(timeFormatter24(), start, end) + " / " + formatRange(timeFormatter12(), start, end);
+    }
+
+    function formatRange(formatter, start, end) {
+      return typeof formatter.formatRange === "function"
+        ? formatter.formatRange(start, end)
+        : formatter.format(start) + "–" + formatter.format(end);
+    }
+
+    function timeFormatter24() {
+      return new Intl.DateTimeFormat("en-GB", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23",
+        timeZone: "UTC"
+      });
+    }
+
+    function timeFormatter12() {
+      return new Intl.DateTimeFormat("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hourCycle: "h12",
+        timeZone: "UTC"
+      });
+    }
+
+    function timeValue(hour, minute, day = 1) {
+      return new Date(Date.UTC(2000, 0, day, hour, minute));
     }
 
     function formatDate(value) {
@@ -1226,7 +1378,7 @@ function renderPage(data, translations) {
       const term = normalize(search.value.trim());
       const selectedRegion = region.value;
       const filtered = initiatives.filter((item) => {
-        const haystack = normalize([item.name, item.city, item.region, item.country, item.domain, ...getLocations(item).flatMap((location) => [location.name, location.address])].join(" "));
+        const haystack = normalize([item.name, item.city, item.region, item.country, item.domain, ...getLocations(item).flatMap((location) => [location.name, location.address, translatedOpeningHours(location)])].join(" "));
         return (!term || haystack.includes(term)) && (!selectedRegion || item.region === selectedRegion);
       });
       renderList(filtered);
@@ -1382,10 +1534,11 @@ function renderPage(data, translations) {
 
     function renderPopup(item, location) {
       const locationLabel = location.coordinates?.label || location.address || [item.city, item.region].filter(Boolean).join(" · ");
+      const openingHours = formatOpeningHours(translatedOpeningHours(location));
       return '<strong>' + escapeHtml(item.name) + '</strong><br>' +
         (location.name ? escapeHtml(location.name) + '<br>' : "") +
         escapeHtml(locationLabel) +
-        (location.openingHours ? '<br>' + escapeHtml(t("openingHoursLabel") + ": " + location.openingHours) : "") +
+        (openingHours.length ? '<br><br><strong>' + escapeHtml(t("openingHoursLabel")) + '</strong><br>' + openingHours.map(escapeHtml).join("<br>") : "") +
         (item.url ? '<br><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>' : "");
     }
 
