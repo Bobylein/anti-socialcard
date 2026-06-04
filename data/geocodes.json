@@ -1623,5 +1623,10 @@
     "lat": 52.5136844,
     "lon": 13.3939867,
     "label": "Berlin-Brandenburgische Akademie der Wissenschaften, Friedrichstadt, Mitte, Berlin, Deutschland"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Eutin": {
+    "lat": 54.1364642,
+    "lon": 10.6159077,
+    "label": "Eutin, Kreis Ostholstein, Schleswig-Holstein, Deutschland"
   }
 }

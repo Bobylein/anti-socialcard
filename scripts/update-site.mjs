@@ -254,6 +254,7 @@ function normalizeInitiative(raw) {
     region: String(region ?? "").trim(),
     country,
     address: String(raw.address ?? "").trim(),
+    updatedAt: String(raw.updatedAt ?? "").trim(),
     url,
     domain: url ? new URL(url).hostname.replace(/^www\./, "") : "",
     coordinates: normalizeCoordinates(raw.coordinates),
@@ -268,16 +269,15 @@ function normalizeInitiative(raw) {
 function normalizeLocations(raw) {
   const values = Array.isArray(raw.locations) && raw.locations.length
     ? raw.locations
-    : [{ address: raw.address, coordinates: raw.coordinates, updatedAt: raw.updatedAt }];
+    : [{ address: raw.address, coordinates: raw.coordinates }];
   return values
     .map((location) => ({
       name: String(location?.name ?? "").trim(),
       address: String(location?.address ?? "").trim(),
       openingHours: String(location?.openingHours ?? "").trim(),
-      updatedAt: String(location?.updatedAt ?? "").trim(),
       coordinates: normalizeCoordinates(location?.coordinates)
     }))
-    .filter((location) => location.name || location.address || location.openingHours || location.updatedAt || location.coordinates);
+    .filter((location) => location.name || location.address || location.openingHours || location.coordinates);
 }
 
 function normalizeLinks(value) {
@@ -348,7 +348,7 @@ function validateInitiatives(initiatives) {
 async function addCoordinates(initiatives, cache) {
   for (const initiative of initiatives) {
     if (!initiative.locations.length) {
-      initiative.locations.push({ name: "", address: "", openingHours: "", updatedAt: "", coordinates: initiative.coordinates });
+      initiative.locations.push({ name: "", address: "", openingHours: "", coordinates: initiative.coordinates });
     }
     for (const location of initiative.locations) {
       if (location.coordinates) continue;
@@ -1140,18 +1140,18 @@ function renderPage(data, translations) {
       const title = item.city || item.name;
       const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
       const cardLocations = item.nearestLocation ? [item.nearestLocation] : getLocations(item);
-      const locationDetails = cardLocations.map((location) => renderLocationDetails(location)).filter(Boolean).join("");
+      const locationDetails = cardLocations.map((location) => renderLocationDetails(location, item.updatedAt)).filter(Boolean).join("");
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
         '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationDetails + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
         '<div class="links">' + links.join("") + '</div>' +
         '</article>';
     }
 
-    function renderLocationDetails(location) {
+    function renderLocationDetails(location, updatedAt) {
       const title = [location.name, location.address].filter(Boolean).join(" · ");
       const details = [
         location.openingHours ? t("openingHoursLabel") + ": " + location.openingHours : "",
-        location.updatedAt ? t("updatedLabel") + ": " + formatDate(location.updatedAt) : ""
+        updatedAt ? t("updatedLabel") + ": " + formatDate(updatedAt) : ""
       ].filter(Boolean).join(" · ");
       if (!title && !details) return "";
       return '<p class="location-name">' + escapeHtml(title) + '</p>' +
@@ -1259,7 +1259,7 @@ function renderPage(data, translations) {
 
     function getLocations(item) {
       if (item.locations?.length) return item.locations;
-      return item.coordinates ? [{ name: "", address: item.address || "", openingHours: "", updatedAt: "", coordinates: item.coordinates }] : [];
+      return item.coordinates ? [{ name: "", address: item.address || "", openingHours: "", coordinates: item.coordinates }] : [];
     }
 
     async function enableMap() {
@@ -1321,7 +1321,7 @@ function renderPage(data, translations) {
         (location.name ? escapeHtml(location.name) + '<br>' : "") +
         escapeHtml(locationLabel) +
         (location.openingHours ? '<br>' + escapeHtml(t("openingHoursLabel") + ": " + location.openingHours) : "") +
-        (location.updatedAt ? '<br>' + escapeHtml(t("updatedLabel") + ": " + formatDate(location.updatedAt)) : "") +
+        (item.updatedAt ? '<br>' + escapeHtml(t("updatedLabel") + ": " + formatDate(item.updatedAt)) : "") +
         (item.url ? '<br><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>' : "");
     }
 

@@ -43,12 +43,12 @@ initiatives:
     city: Eutin
     region: Schleswig-Holstein
     country: Deutschland
+    updatedAt: 2026-06-04
     url: https://linktr.ee/AntiSocialCardOH
     locations:
       - name: Alberta!
         address: Albert-Mahlstedt Str. 65, 23701 Eutin
         openingHours: Freitags, 15:00 – 18:00 Uhr
-        updatedAt: 2026-06-04
       - name: Forum e.V.
         adress: Bismarckstr. 2, 23701 Eutin
         openingHours: Jeden 1. Dienstag im Monat 10:00 – 12:00 Uhr
@@ -61,15 +61,14 @@ initiatives:
 #     city: Stadt
 #     region: Bundesland
 #     country: Deutschland
+#     updatedAt: 2026-06-04
 #     locations:
 #       - name: Ladenname
 #         address: Musterstraße 1, 12345 Stadt
 #         openingHours: Montag bis Freitag, 10:00–18:00 Uhr
-#         updatedAt: 2026-06-04
 #       - name: Zweiter Tauschort
 #         address: Beispielweg 2, 12345 Stadt
 #         openingHours: Nach Vereinbarung
-#         updatedAt: 2026-06-04
 #     url: https://example.org/
 #     transitLinks:
 #       - label: Lokaler ÖPNV

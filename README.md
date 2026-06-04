@@ -14,7 +14,7 @@ The updater fetches the Seebrücke Bezahlkarte campaign page, merges curated add
 
 Use `data/catalog.yml` for initiatives missing from the scraper, corrections to scraped entries, and manually checked local public transport links. Keep `id` values stable for curated initiatives.
 
-For exact map locations, add one or more entries with `name`, `address`, optional free-text `openingHours`, and a manually maintained `updatedAt` date under `locations`. The updater geocodes addresses, stores the resulting coordinates in `data/geocodes.json`, and displays every named location on the map. Scraped locations receive the current scrape date automatically. Legacy single `address` and manually supplied `coordinates` remain supported.
+For exact map locations, add one or more entries with `name`, `address`, and optional free-text `openingHours` under `locations`. Curated initiatives maintain one `updatedAt` date at initiative level; scraped initiatives receive the current scrape date automatically. The updater geocodes addresses, stores the resulting coordinates in `data/geocodes.json`, and displays every named location on the map. Legacy single `address` and manually supplied `coordinates` remain supported.
 
 UI translations live in `data/i18n/*.json`. All translation files must contain the same keys.
 
