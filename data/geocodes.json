@@ -1613,5 +1613,10 @@
     "lat": 47.0708678,
     "lon": 15.4382786,
     "label": "Graz, Steiermark, Österreich"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Albert-Mahlstedt Str. 65, 23701 Eutin": {
+    "lat": 54.1325779,
+    "lon": 10.6131515,
+    "label": "65, Albert-Mahlstedt-Straße, Dosenredder, Neudorf, Eutin, Kreis Ostholstein, Schleswig-Holstein, 23701, Deutschland"
   }
 }

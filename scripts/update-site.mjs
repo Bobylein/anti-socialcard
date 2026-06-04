@@ -243,6 +243,7 @@ function normalizeInitiative(raw) {
   const city = raw.city ?? raw.name;
   const sources = normalizeLinks(raw.sources);
   const transitLinks = normalizeLinks(raw.transitLinks);
+  const locations = normalizeLocations(raw);
 
   return {
     id: raw.id ? String(raw.id) : `manual-${slugify(country)}-${slugify(region)}-${slugify(raw.name)}`,
@@ -254,11 +255,25 @@ function normalizeInitiative(raw) {
     url,
     domain: url ? new URL(url).hostname.replace(/^www\./, "") : "",
     coordinates: normalizeCoordinates(raw.coordinates),
+    locations,
     transitLinks,
     sources,
     aliases: Array.isArray(raw.aliases) ? raw.aliases.map(String) : [],
     websiteCheck: normalizeWebsiteCheck(raw.websiteCheck)
   };
+}
+
+function normalizeLocations(raw) {
+  const values = Array.isArray(raw.locations) && raw.locations.length
+    ? raw.locations
+    : [{ address: raw.address, coordinates: raw.coordinates }];
+  return values
+    .map((location) => ({
+      name: String(location?.name ?? "").trim(),
+      address: String(location?.address ?? "").trim(),
+      coordinates: normalizeCoordinates(location?.coordinates)
+    }))
+    .filter((location) => location.name || location.address || location.coordinates);
 }
 
 function normalizeLinks(value) {
@@ -328,19 +343,25 @@ function validateInitiatives(initiatives) {
 
 async function addCoordinates(initiatives, cache) {
   for (const initiative of initiatives) {
-    if (initiative.coordinates) continue;
-    const location = initiative.address || initiative.city || initiative.name;
-    const key = `${GEOCODE_CACHE_VERSION}|${initiative.country}|${initiative.region}|${location}`;
-    if (!(key in cache)) {
-      const legacyKey = `v2|${initiative.country}|${initiative.region}|${initiative.name}`;
-      if (!initiative.address && legacyKey in cache) {
-        cache[key] = cache[legacyKey];
-      } else {
-        cache[key] = await geocodeInitiative(initiative);
-        await delay(1100);
-      }
+    if (!initiative.locations.length) {
+      initiative.locations.push({ name: "", address: "", coordinates: initiative.coordinates });
     }
-    initiative.coordinates = cache[key];
+    for (const location of initiative.locations) {
+      if (location.coordinates) continue;
+      const query = location.address || initiative.city || initiative.name;
+      const key = `${GEOCODE_CACHE_VERSION}|${initiative.country}|${initiative.region}|${query}`;
+      if (!(key in cache)) {
+        const legacyKey = `v2|${initiative.country}|${initiative.region}|${initiative.name}`;
+        if (!location.address && legacyKey in cache) {
+          cache[key] = cache[legacyKey];
+        } else {
+          cache[key] = await geocodeInitiative(initiative, location.address);
+          await delay(1100);
+        }
+      }
+      location.coordinates = cache[key];
+    }
+    initiative.coordinates = initiative.locations.find((location) => location.coordinates)?.coordinates ?? null;
   }
 }
 
@@ -437,12 +458,12 @@ function isSocialMediaUrl(value) {
   return SOCIAL_MEDIA_DOMAINS.some((domain) => hostname === domain || hostname.endsWith(`.${domain}`));
 }
 
-async function geocodeInitiative(initiative) {
+async function geocodeInitiative(initiative, address = "") {
   const country = initiative.country === "Österreich" ? "Austria" : "Germany";
-  if (initiative.address) {
+  if (address) {
     try {
       const result = await fetchGeocode(new URLSearchParams({
-        q: [initiative.address, initiative.city, initiative.region, country].filter(Boolean).join(", "),
+        q: [address, initiative.city, initiative.region, country].filter(Boolean).join(", "),
         format: "jsonv2",
         limit: "1",
         addressdetails: "0"
@@ -779,6 +800,10 @@ function renderPage(data, translations) {
       font-weight: 650;
     }
 
+    .initiative .location-name {
+      margin-top: 5px;
+    }
+
     .links {
       display: flex;
       flex-wrap: wrap;
@@ -1106,8 +1131,12 @@ function renderPage(data, translations) {
       const distanceText = Number.isFinite(distance) ? '<span class="distance">' + Math.round(distance) + ' ' + t("distanceKm") + '</span> · ' : "";
       const title = item.city || item.name;
       const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
+      const locationText = item.nearestLocation
+        ? [item.nearestLocation.name, item.nearestLocation.address].filter(Boolean).join(" · ")
+        : getLocations(item).map((location) => location.name).filter(Boolean).join(" · ");
+      const locationName = locationText ? '<p class="location-name">' + escapeHtml(locationText) + '</p>' : "";
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
-        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
+        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationName + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
         '<div class="links">' + links.join("") + '</div>' +
         '</article>';
     }
@@ -1116,7 +1145,7 @@ function renderPage(data, translations) {
       const term = normalize(search.value.trim());
       const selectedRegion = region.value;
       const filtered = initiatives.filter((item) => {
-        const haystack = normalize([item.name, item.city, item.region, item.country, item.domain].join(" "));
+        const haystack = normalize([item.name, item.city, item.region, item.country, item.domain, ...getLocations(item).flatMap((location) => [location.name, location.address])].join(" "));
         return (!term || haystack.includes(term)) && (!selectedRegion || item.region === selectedRegion);
       });
       renderList(filtered);
@@ -1126,11 +1155,17 @@ function renderPage(data, translations) {
     function showNearest(origin, label, options = {}) {
       currentOrigin = { ...origin, label };
       const ranked = initiatives
-        .filter((item) => item.coordinates)
-        .map((item) => ({
-          ...item,
-          distance: distanceInKm(origin.lat, origin.lon, item.coordinates.lat, item.coordinates.lon)
-        }))
+        .map((item) => {
+          const nearestLocation = getLocations(item)
+            .filter((location) => location.coordinates)
+            .map((location) => ({
+              ...location,
+              distance: distanceInKm(origin.lat, origin.lon, location.coordinates.lat, location.coordinates.lon)
+            }))
+            .sort((a, b) => a.distance - b.distance)[0];
+          return nearestLocation ? { ...item, nearestLocation, distance: nearestLocation.distance } : null;
+        })
+        .filter(Boolean)
         .sort((a, b) => a.distance - b.distance)
         .slice(0, 5);
 
@@ -1168,13 +1203,13 @@ function renderPage(data, translations) {
       if (!query) return null;
 
       const exactMatch = initiatives.find((item) => {
-        if (!item.coordinates) return false;
+        if (!getLocations(item).some((location) => location.coordinates)) return false;
         return localPlaceKeys(item).some((key) => normalizePlace(key) === query);
       });
       if (exactMatch) return localOrigin(exactMatch);
 
       const partialMatch = initiatives.find((item) => {
-        if (!item.coordinates || query.length < 4) return false;
+        if (query.length < 4 || !getLocations(item).some((location) => location.coordinates)) return false;
         return localPlaceKeys(item).some((key) => normalizePlace(key).includes(query));
       });
       return partialMatch ? localOrigin(partialMatch) : null;
@@ -1185,17 +1220,24 @@ function renderPage(data, translations) {
         item.name,
         item.city,
         item.region,
-        item.coordinates?.label,
+        ...getLocations(item).flatMap((location) => [location.name, location.address, location.coordinates?.label]),
         ...(item.aliases || [])
       ].filter(Boolean);
     }
 
     function localOrigin(item) {
+      const location = getLocations(item).find((entry) => entry.coordinates);
+      if (!location) return null;
       return {
-        lat: item.coordinates.lat,
-        lon: item.coordinates.lon,
+        lat: location.coordinates.lat,
+        lon: location.coordinates.lon,
         label: item.city || item.name
       };
+    }
+
+    function getLocations(item) {
+      if (item.locations?.length) return item.locations;
+      return item.coordinates ? [{ name: "", address: item.address || "", coordinates: item.coordinates }] : [];
     }
 
     async function enableMap() {
@@ -1223,10 +1265,12 @@ function renderPage(data, translations) {
     function updateMap(items, origin) {
       if (!map) return;
       const visible = items ?? initiatives
-        .filter((item) => item.coordinates)
+        .filter((item) => getLocations(item).some((location) => location.coordinates))
         .map((item) => currentOrigin ? {
           ...item,
-          distance: distanceInKm(currentOrigin.lat, currentOrigin.lon, item.coordinates.lat, item.coordinates.lon)
+          distance: Math.min(...getLocations(item)
+            .filter((location) => location.coordinates)
+            .map((location) => distanceInKm(currentOrigin.lat, currentOrigin.lon, location.coordinates.lat, location.coordinates.lon)))
         } : item)
         .sort((a, b) => (a.distance ?? 0) - (b.distance ?? 0))
         .slice(0, currentOrigin ? 80 : 200);
@@ -1234,10 +1278,12 @@ function renderPage(data, translations) {
       originLayer.clearLayers();
       const bounds = [];
       for (const item of visible) {
-        if (!item.coordinates) continue;
-        const latLng = [item.coordinates.lat, item.coordinates.lon];
-        bounds.push(latLng);
-        L.marker(latLng).addTo(markerLayer).bindPopup(renderPopup(item));
+        for (const location of getLocations(item)) {
+          if (!location.coordinates) continue;
+          const latLng = [location.coordinates.lat, location.coordinates.lon];
+          bounds.push(latLng);
+          L.marker(latLng).addTo(markerLayer).bindPopup(renderPopup(item, location));
+        }
       }
       if (origin) {
         const originLatLng = [origin.lat, origin.lon];
@@ -1247,9 +1293,10 @@ function renderPage(data, translations) {
       if (bounds.length) map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
     }
 
-    function renderPopup(item) {
-      const locationLabel = item.coordinates?.label || [item.city, item.region].filter(Boolean).join(" · ");
+    function renderPopup(item, location) {
+      const locationLabel = location.coordinates?.label || location.address || [item.city, item.region].filter(Boolean).join(" · ");
       return '<strong>' + escapeHtml(item.name) + '</strong><br>' +
+        (location.name ? escapeHtml(location.name) + '<br>' : "") +
         escapeHtml(locationLabel) +
         (item.url ? '<br><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>' : "");
     }
