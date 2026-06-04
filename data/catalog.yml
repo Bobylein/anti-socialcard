@@ -1,5 +1,6 @@
 # Curated additions and corrections for initiatives not fully covered by the
-# Seebrücke scraper. Keep ids stable; they are used for overrides and links.
+# Seebrücke scraper. A curated initiative replaces scraped entries with the
+# same city, region, and country. Keep curated ids stable.
 
 overrides:
   - match:
@@ -38,6 +39,17 @@ overrides:
         url: https://www.verbundlinie.at/
 
 initiatives:
+  - id: kiel
+    name: Anti-SocialCard Kiel
+    city: Kiel
+    region: Schleswig-Holstein
+    country: Deutschland
+    updatedAt: 2026-06-04
+    url: https://stadtteilladen.gaarden.net/anti-socialcard/get-cash/
+    locations:
+      - name: stadtteilladen Anni Wadle
+        address: Kieler Str. 12, 24143 Kiel - Gaarden
+        openingHours: Jeden Mittwoch, 17–19 Uhr, ersten Montag im Monat 18-20 Uhr, ersten Freitag im Monat 16-18 Uhr
   - id: eutin
     name: Anti-SocialCard OH
     city: Eutin
@@ -50,8 +62,10 @@ initiatives:
         address: Albert-Mahlstedt Str. 65, 23701 Eutin
         openingHours: Freitags, 15:00 – 18:00 Uhr
       - name: Forum e.V.
-        adress: Bismarckstr. 2, 23701 Eutin
+        address: Bismarckstr. 2, 23701 Eutin
         openingHours: Jeden 1. Dienstag im Monat 10:00 – 12:00 Uhr
+
+
 
 
 # Example for future curated additions:

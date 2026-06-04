@@ -1628,5 +1628,15 @@
     "lat": 54.1364642,
     "lon": 10.6159077,
     "label": "Eutin, Kreis Ostholstein, Schleswig-Holstein, Deutschland"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Bismarckstr. 2, 23701 Eutin": {
+    "lat": 54.1383415,
+    "lon": 10.6083038,
+    "label": "2, Bismarckstraße, Hochkamp, Fissau, Eutin, Kreis Ostholstein, Schleswig-Holstein, 23701, Deutschland"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Kieler Str. 12, 24143 Kiel - Gaarden": {
+    "lat": 54.3143769,
+    "lon": 10.143578,
+    "label": "12, Kieler Straße, Gaarden-Ost, Kiel, Schleswig-Holstein, 24143, Deutschland"
   }
 }

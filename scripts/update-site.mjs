@@ -214,6 +214,7 @@ function parseInitiatives(html) {
 
 function mergeInitiatives(scraped, catalog) {
   const byId = new Map(scraped.map((item) => [item.id, item]));
+  const scrapedIds = new Set(byId.keys());
 
   for (const rawOverride of catalog.overrides) {
     const { match, ...fields } = rawOverride ?? {};
@@ -227,15 +228,22 @@ function mergeInitiatives(scraped, catalog) {
 
   for (const rawInitiative of catalog.initiatives) {
     const item = normalizeInitiative(rawInitiative);
-    const existing = byId.get(item.id) ?? findInitiative(byId, {
-      name: item.name,
-      region: item.region,
-      country: item.country
-    });
-    byId.set(existing?.id ?? item.id, normalizeInitiative(deepMerge(existing ?? {}, item)));
+    const existing = byId.get(item.id);
+    for (const candidate of byId.values()) {
+      if (scrapedIds.has(candidate.id) && samePlace(candidate, item)) {
+        byId.delete(candidate.id);
+      }
+    }
+    byId.set(item.id, normalizeInitiative(deepMerge(existing ?? {}, item)));
   }
 
   return [...byId.values()];
+}
+
+function samePlace(left, right) {
+  return normalizeComparable(left.city) === normalizeComparable(right.city) &&
+    normalizeComparable(left.region) === normalizeComparable(right.region) &&
+    normalizeComparable(left.country) === normalizeComparable(right.country);
 }
 
 function normalizeInitiative(raw) {
