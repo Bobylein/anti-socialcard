@@ -752,6 +752,12 @@ function renderPage(data, translations) {
       overflow-wrap: anywhere;
     }
 
+    .initiative .initiative-name {
+      margin-top: 2px;
+      color: var(--ink);
+      font-weight: 650;
+    }
+
     .links {
       display: flex;
       flex-wrap: wrap;
@@ -1077,8 +1083,10 @@ function renderPage(data, translations) {
         links.push('<a href="' + escapeHtml(link.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(link.label || t("transit")) + '</a>');
       }
       const distanceText = Number.isFinite(distance) ? '<span class="distance">' + Math.round(distance) + ' ' + t("distanceKm") + '</span> · ' : "";
+      const title = item.city || item.name;
+      const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
-        '<div><h3>' + escapeHtml(item.name) + '</h3><p>' + distanceText + escapeHtml([item.city, item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
+        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
         '<div class="links">' + links.join("") + '</div>' +
         '</article>';
     }
