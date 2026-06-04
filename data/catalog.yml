@@ -1,0 +1,72 @@
+# Curated additions and corrections for initiatives not fully covered by the
+# Seebrücke scraper. Keep ids stable; they are used for overrides and links.
+
+overrides:
+  - match:
+      name: Fürth
+      region: Bayern
+      country: Deutschland
+    coordinates:
+      lat: 49.4771169
+      lon: 10.988667
+      label: Fürth, Bayern, Deutschland
+    transitLinks:
+      - label: VGN
+        url: https://www.vgn.de/
+
+  - match:
+      name: Berlin/Brandenburg
+      region: Berlin
+      country: Deutschland
+    city: Berlin
+    coordinates:
+      lat: 52.520008
+      lon: 13.404954
+      label: Berlin, Deutschland
+    transitLinks:
+      - label: BVG
+        url: https://www.bvg.de/
+      - label: VBB
+        url: https://www.vbb.de/
+
+  - match:
+      name: Graz
+      region: Österreich
+      country: Österreich
+    transitLinks:
+      - label: Verbund Linie
+        url: https://www.verbundlinie.at/
+
+initiatives:
+  - id: eutin
+    name: Anti-SocialCard OH
+    city: Eutin
+    region: Schleswig-Holstein
+    country: Deutschland
+    url: https://linktr.ee/AntiSocialCardOH
+    coordinates:
+      lat: 54.1325038
+      lon: 10.6132233
+      label: Eutin, Deutschland
+    sources:
+      - label: Manuell
+        url: https://linktr.ee/AntiSocialCardOH
+
+# Example for future curated additions:
+# initiatives:
+#   - id: manual-city-name
+#     name: Initiative Name
+#     city: Stadt
+#     region: Bundesland
+#     country: Deutschland
+#     url: https://example.org/
+#     coordinates:
+#       lat: 52.0
+#       lon: 13.0
+#       label: Stadt, Deutschland
+#     transitLinks:
+#       - label: Lokaler ÖPNV
+#         url: https://example.org/transit
+#     sources:
+#       - label: Manuell
+#         url: https://example.org/

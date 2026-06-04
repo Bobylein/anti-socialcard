@@ -1,0 +1,1617 @@
+{
+  "Deutschland|Baden-Württemberg|Esslingen": {
+    "lat": 48.7427584,
+    "lon": 9.3071685,
+    "label": "Esslingen am Neckar, Landkreis Esslingen, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Freiburg": {
+    "lat": 47.9960901,
+    "lon": 7.8494005,
+    "label": "Freiburg im Breisgau, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Heidelberg": {
+    "lat": 49.4093582,
+    "lon": 8.694724,
+    "label": "Heidelberg, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Karlsruhe": {
+    "lat": 49.0068705,
+    "lon": 8.4034195,
+    "label": "Karlsruhe, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Ludwigsburg": {
+    "lat": 48.8953937,
+    "lon": 9.1895147,
+    "label": "Ludwigsburg, Landkreis Ludwigsburg, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Mannheim": {
+    "lat": 49.4892913,
+    "lon": 8.4673098,
+    "label": "Mannheim, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Mössingen": {
+    "lat": 48.4069119,
+    "lon": 9.0602912,
+    "label": "Mössingen, VVG der Stadt Mössingen, Landkreis Tübingen, Baden-Württemberg, 72116, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Nürtingen": {
+    "lat": 48.6265854,
+    "lon": 9.3365463,
+    "label": "Nürtingen, VVG der Stadt Nürtingen, Landkreis Esslingen, Baden-Württemberg, 72622, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Stuttgart": {
+    "lat": 48.7784485,
+    "lon": 9.1800132,
+    "label": "Stuttgart, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Tübingen": {
+    "lat": 48.5203263,
+    "lon": 9.053596,
+    "label": "Tübingen, Landkreis Tübingen, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Baden-Württemberg|Ulm": {
+    "lat": 48.3984968,
+    "lon": 9.9912458,
+    "label": "Ulm, Baden-Württemberg, Deutschland"
+  },
+  "Deutschland|Bayern|Aschaffenburg": {
+    "lat": 49.9706701,
+    "lon": 9.1384857,
+    "label": "Aschaffenburg, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Augsburg": {
+    "lat": 48.3690341,
+    "lon": 10.8979522,
+    "label": "Augsburg, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Bamberg": {
+    "lat": 49.8916044,
+    "lon": 10.8868478,
+    "label": "Bamberg, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Bayreuth": {
+    "lat": 49.9446345,
+    "lon": 11.5743543,
+    "label": "Bayreuth, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Ebersberg": {
+    "lat": 48.0782763,
+    "lon": 11.9694372,
+    "label": "Ebersberg, Baiern (VGem Glonn), Landkreis Ebersberg, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Eichstätt": {
+    "lat": 48.8863328,
+    "lon": 11.1989396,
+    "label": "Eichstätt, Landkreis Eichstätt, Bayern, 85072, Deutschland"
+  },
+  "Deutschland|Bayern|Erlangen": {
+    "lat": 49.5891571,
+    "lon": 10.9812072,
+    "label": "Erlangen, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Freising": {
+    "lat": 48.4008273,
+    "lon": 11.7439565,
+    "label": "Freising, Landkreis Freising, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Fürth": {
+    "lat": 49.4885711,
+    "lon": 10.9587203,
+    "label": "Fürth, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Herzogenaurach": {
+    "lat": 49.5738171,
+    "lon": 10.8926968,
+    "label": "Herzogenaurach, Landkreis Erlangen-Höchstadt, Bayern, 91074, Deutschland"
+  },
+  "Deutschland|Bayern|Ingolstadt": {
+    "lat": 48.7630165,
+    "lon": 11.4250395,
+    "label": "Ingolstadt, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Kempten": {
+    "lat": 47.7267063,
+    "lon": 10.3168835,
+    "label": "Kempten (Allgäu), Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Landshut": {
+    "lat": 48.536217,
+    "lon": 12.1516551,
+    "label": "Landshut, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|München": {
+    "lat": 48.1371079,
+    "lon": 11.5753822,
+    "label": "München, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Nürnberg": {
+    "lat": 49.453872,
+    "lon": 11.077298,
+    "label": "Nürnberg, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Nürnberg Süd": {
+    "lat": 49.3788932,
+    "lon": 11.0484444,
+    "label": "Nürnberg-Süd, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Passau": {
+    "lat": 48.5748229,
+    "lon": 13.4609744,
+    "label": "Passau, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Regensburg": {
+    "lat": 49.0195333,
+    "lon": 12.0974869,
+    "label": "Regensburg, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Rosenheim": {
+    "lat": 47.8557873,
+    "lon": 12.1272983,
+    "label": "Rosenheim, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Weilheim-Schongau - Landkreis": {
+    "lat": 47.8059338,
+    "lon": 11.0315421,
+    "label": "Landkreis Weilheim-Schongau, Bayern, Deutschland"
+  },
+  "Deutschland|Bayern|Würzburg": {
+    "lat": 49.7780356,
+    "lon": 9.9434769,
+    "label": "Würzburg, Bayern, Deutschland"
+  },
+  "Deutschland|Berlin|Berlin/Brandenburg": {
+    "lat": 52.5079418,
+    "lon": 13.2766281,
+    "label": "Haus des Rundfunks, 8-14, Masurenallee, Villenkolonie Westend, Westend, Charlottenburg-Wilmersdorf, Berlin, 14057, Deutschland"
+  },
+  "Deutschland|Brandenburg|Brandenburg": {
+    "lat": 52.4108261,
+    "lon": 12.5497933,
+    "label": "Brandenburg an der Havel, Brandenburg, Deutschland"
+  },
+  "Deutschland|Brandenburg|Brück": {
+    "lat": 52.1923564,
+    "lon": 12.7584313,
+    "label": "Brück, Potsdam-Mittelmark, Brandenburg, 14822, Deutschland"
+  },
+  "Deutschland|Brandenburg|Cottbus": {
+    "lat": 51.7567447,
+    "lon": 14.3357307,
+    "label": "Cottbus - Chóśebuz, Brandenburg, Deutschland"
+  },
+  "Deutschland|Brandenburg|Eberswalde": {
+    "lat": 52.8350807,
+    "lon": 13.7996542,
+    "label": "Eberswalde, Barnim, Brandenburg, Deutschland"
+  },
+  "Deutschland|Brandenburg|Perleberg": {
+    "lat": 53.0762716,
+    "lon": 11.8627933,
+    "label": "Perleberg, Prignitz, Brandenburg, 19348, Deutschland"
+  },
+  "Deutschland|Brandenburg|Potsdam": {
+    "lat": 52.4009309,
+    "lon": 13.0591397,
+    "label": "Potsdam, Brandenburg, Deutschland"
+  },
+  "Deutschland|Brandenburg|Seelow": {
+    "lat": 52.5318238,
+    "lon": 14.380704,
+    "label": "Seelow, Märkisch-Oderland, Brandenburg, Deutschland"
+  },
+  "Deutschland|Brandenburg|Strausberg": {
+    "lat": 52.5814009,
+    "lon": 13.8833952,
+    "label": "Strausberg, Märkisch-Oderland, Brandenburg, Deutschland"
+  },
+  "Deutschland|Brandenburg|Teltow": {
+    "lat": 52.3805562,
+    "lon": 13.2685278,
+    "label": "Teltow, Potsdam-Mittelmark, Brandenburg, 14513, Deutschland"
+  },
+  "Deutschland|Brandenburg|Wittenberge": {
+    "lat": 53.0112877,
+    "lon": 11.7374296,
+    "label": "Wittenberge, Prignitz, Brandenburg, 19322, Deutschland"
+  },
+  "Deutschland|Bremen|Bremen": {
+    "lat": 53.0758196,
+    "lon": 8.8071646,
+    "label": "Bremen, Deutschland"
+  },
+  "Deutschland|Hamburg|Hamburg": {
+    "lat": 53.5909051,
+    "lon": 9.9753758,
+    "label": "Universität Hamburg, Rothenburgsort, Hamburg-Mitte, Hamburg, 20539, Deutschland"
+  },
+  "Deutschland|Hessen|Darmstadt": {
+    "lat": 49.872775,
+    "lon": 8.651177,
+    "label": "Darmstadt, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Frankfurt am Main": {
+    "lat": 50.1106444,
+    "lon": 8.6820917,
+    "label": "Frankfurt am Main, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Gießen": {
+    "lat": 50.5862066,
+    "lon": 8.6742306,
+    "label": "Gießen, Landkreis Gießen, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Hanau": {
+    "lat": 50.132881,
+    "lon": 8.9169797,
+    "label": "Hanau, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Hessen": {
+    "lat": 50.0707444,
+    "lon": 8.2520476,
+    "label": "Statistisches Bundesamt, 11, Gustav-Stresemann-Ring, Südost, Wiesbaden, Hessen, 65189, Deutschland"
+  },
+  "Deutschland|Hessen|Idstein": {
+    "lat": 50.2147,
+    "lon": 8.2902,
+    "label": "Idstein, Rheingau-Taunus-Kreis, Hessen, 65510, Deutschland"
+  },
+  "Deutschland|Hessen|Kassel": {
+    "lat": 51.3157833,
+    "lon": 9.4978479,
+    "label": "Kassel, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Limburg": {
+    "lat": 50.3880447,
+    "lon": 8.063531,
+    "label": "Limburg an der Lahn, Landkreis Limburg-Weilburg, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Main-Taunus-Kreis": {
+    "lat": 50.0995751,
+    "lon": 8.4264122,
+    "label": "Main-Taunus-Kreis, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Marburg": {
+    "lat": 50.8090106,
+    "lon": 8.7704695,
+    "label": "Marburg, Landkreis Marburg-Biedenkopf, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Offenbach": {
+    "lat": 50.1055002,
+    "lon": 8.7610698,
+    "label": "Offenbach am Main, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Wetterau": {
+    "lat": 50.3551,
+    "lon": 8.8621,
+    "label": "Reichelsheim (Wetterau), Wetteraukreis, Hessen, 61203, Deutschland"
+  },
+  "Deutschland|Hessen|Wiesbaden": {
+    "lat": 50.0820384,
+    "lon": 8.2416556,
+    "label": "Wiesbaden, Hessen, Deutschland"
+  },
+  "Deutschland|Hessen|Witzenhausen": {
+    "lat": 51.3331901,
+    "lon": 9.8434192,
+    "label": "Witzenhausen, Werra-Meißner-Kreis, Hessen, Deutschland"
+  },
+  "Deutschland|Mecklenburg-Vorpommern|Greifswald": {
+    "lat": 54.095791,
+    "lon": 13.3815238,
+    "label": "Greifswald, Vorpommern-Greifswald, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "Deutschland|Mecklenburg-Vorpommern|Mecklenburg-Vorpommern": {
+    "lat": 53.7735136,
+    "lon": 12.5755573,
+    "label": "Mecklenburg-Vorpommern, Marktplatz, Teschower Siedlung, Teterow, Landkreis Rostock, Mecklenburg-Vorpommern, 17166, Deutschland"
+  },
+  "Deutschland|Mecklenburg-Vorpommern|Mecklenburgische Seenplatte - Landkreis": {
+    "lat": 53.5838993,
+    "lon": 13.0638679,
+    "label": "Mecklenburgische Seenplatte, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "Deutschland|Mecklenburg-Vorpommern|Parchim": {
+    "lat": 53.4258455,
+    "lon": 11.8475244,
+    "label": "Parchim, Ludwigslust-Parchim, Mecklenburg-Vorpommern, 19370, Deutschland"
+  },
+  "Deutschland|Mecklenburg-Vorpommern|Rostock": {
+    "lat": 54.0886707,
+    "lon": 12.1400211,
+    "label": "Rostock, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "Deutschland|Mecklenburg-Vorpommern|Schwerin": {
+    "lat": 53.6288297,
+    "lon": 11.4148038,
+    "label": "Schwerin, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "Deutschland|Mecklenburg-Vorpommern|Stralsund": {
+    "lat": 54.3096314,
+    "lon": 13.0820846,
+    "label": "Stralsund, Vorpommern-Rügen, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Braunschweig": {
+    "lat": 52.2646577,
+    "lon": 10.5236066,
+    "label": "Braunschweig, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Emden": {
+    "lat": 53.3670541,
+    "lon": 7.2058304,
+    "label": "Emden, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Göttingen": {
+    "lat": 51.5328328,
+    "lon": 9.9351811,
+    "label": "Göttingen, Landkreis Göttingen, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Hannover": {
+    "lat": 52.3744779,
+    "lon": 9.7385532,
+    "label": "Hannover, Region Hannover, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Hildesheim": {
+    "lat": 52.1527188,
+    "lon": 9.9518083,
+    "label": "Hildesheim, Landkreis Hildesheim, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Leer": {
+    "lat": 53.2049511,
+    "lon": 7.4595298,
+    "label": "Landkreis Leer, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Lingen": {
+    "lat": 52.5224659,
+    "lon": 7.316584,
+    "label": "Lingen (Ems), Landkreis Emsland, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Lüneburg": {
+    "lat": 53.248706,
+    "lon": 10.407855,
+    "label": "Lüneburg, Landkreis Lüneburg, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Niedersachsen": {
+    "lat": 51.9869477,
+    "lon": 9.8253376,
+    "label": "Alfeld (Leine), Landkreis Hildesheim, Niedersachsen, 31061, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Oldenburg": {
+    "lat": 53.1389753,
+    "lon": 8.2146017,
+    "label": "Oldenburg, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Osnabrück": {
+    "lat": 52.2719595,
+    "lon": 8.047635,
+    "label": "Osnabrück, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Salzderhelden": {
+    "lat": 51.7977841,
+    "lon": 9.9127987,
+    "label": "Salzderhelden, Einbeck, Landkreis Northeim, Niedersachsen, Deutschland"
+  },
+  "Deutschland|Niedersachsen|Wendland": {
+    "lat": 52.0741231,
+    "lon": 9.7234452,
+    "label": "Wendland, 7, Bantelner Straße, Dunsen, Eime, Samtgemeinde Leinebergland, Landkreis Hildesheim, Niedersachsen, 31036, Deutschland"
+  },
+  "Deutschland|Nordrhein-Westfalen|Bonn": {
+    "lat": 50.7352621,
+    "lon": 7.1024635,
+    "label": "Bonn, Nordrhein-Westfalen, Deutschland"
+  },
+  "Deutschland|Nordrhein-Westfalen|Essen": {
+    "lat": 51.4582235,
+    "lon": 7.0158171,
+    "label": "Essen, Nordrhein-Westfalen, Deutschland"
+  },
+  "Deutschland|Nordrhein-Westfalen|Hamm": {
+    "lat": 51.681281,
+    "lon": 7.8191185,
+    "label": "Hamm, Nordrhein-Westfalen, Deutschland"
+  },
+  "Deutschland|Nordrhein-Westfalen|Köln": {
+    "lat": 50.938361,
+    "lon": 6.959974,
+    "label": "Köln, Nordrhein-Westfalen, Deutschland"
+  },
+  "Deutschland|Nordrhein-Westfalen|Münster": {
+    "lat": 51.9625101,
+    "lon": 7.6251879,
+    "label": "Münster, Nordrhein-Westfalen, Deutschland"
+  },
+  "Deutschland|Nordrhein-Westfalen|Wuppertal": {
+    "lat": 51.264018,
+    "lon": 7.1780374,
+    "label": "Wuppertal, Nordrhein-Westfalen, Deutschland"
+  },
+  "Deutschland|Saarland|Saarland": {
+    "lat": 49.2542421,
+    "lon": 7.0415117,
+    "label": "Universität des Saarlandes, L 252, Universität, St. Johann, Bezirk Mitte, Saarbrücken, Regionalverband Saarbrücken, Saarland, 66123, Deutschland"
+  },
+  "Deutschland|Sachsen|Chemnitz": {
+    "lat": 50.8323531,
+    "lon": 12.918914,
+    "label": "Chemnitz, Lichtenau, Sachsen, Deutschland"
+  },
+  "Deutschland|Sachsen|Dresden": {
+    "lat": 51.0493286,
+    "lon": 13.7381437,
+    "label": "Dresden, Sachsen, Deutschland"
+  },
+  "Deutschland|Sachsen|Freiberg": {
+    "lat": 50.9169415,
+    "lon": 13.3428889,
+    "label": "Freiberg, Mittelsachsen, Sachsen, 09599, Deutschland"
+  },
+  "Deutschland|Sachsen|Leipzig": {
+    "lat": 51.3406321,
+    "lon": 12.3747329,
+    "label": "Leipzig, Sachsen, Deutschland"
+  },
+  "Deutschland|Sachsen|Zwickau": {
+    "lat": 50.7185043,
+    "lon": 12.4939267,
+    "label": "Zwickau, Langenweißbach, Zwickau, Sachsen, 08134, Deutschland"
+  },
+  "Deutschland|Sachsen-Anhalt|Bernburg": {
+    "lat": 51.7939656,
+    "lon": 11.7373854,
+    "label": "Bernburg, Salzlandkreis, Sachsen-Anhalt, 06406, Deutschland"
+  },
+  "Deutschland|Sachsen-Anhalt|Dessau": {
+    "lat": 51.8309956,
+    "lon": 12.2430723,
+    "label": "Dessau, Dessau-Roßlau, Sachsen-Anhalt, 06842, Deutschland"
+  },
+  "Deutschland|Sachsen-Anhalt|Halle": {
+    "lat": 51.4824354,
+    "lon": 11.9712985,
+    "label": "Halle (Saale), Sachsen-Anhalt, Deutschland"
+  },
+  "Deutschland|Sachsen-Anhalt|Magdeburg": {
+    "lat": 52.1314783,
+    "lon": 11.6400789,
+    "label": "Magdeburg, Sachsen-Anhalt, Deutschland"
+  },
+  "Deutschland|Sachsen-Anhalt|Salzwedel": {
+    "lat": 52.8528456,
+    "lon": 11.1539699,
+    "label": "Salzwedel, Altmarkkreis Salzwedel, Sachsen-Anhalt, 29410, Deutschland"
+  },
+  "Deutschland|Schleswig-Holstein|Bargteheide": {
+    "lat": 53.7279671,
+    "lon": 10.2618075,
+    "label": "Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
+  },
+  "Deutschland|Schleswig-Holstein|Kiel": {
+    "lat": 54.3227085,
+    "lon": 10.135555,
+    "label": "Kiel, Schleswig-Holstein, Deutschland"
+  },
+  "Deutschland|Schleswig-Holstein|Meldorf": {
+    "lat": 54.08988,
+    "lon": 9.070633,
+    "label": "Meldorf, Mitteldithmarschen, Kreis Dithmarschen, Schleswig-Holstein, 25704, Deutschland"
+  },
+  "Deutschland|Thüringen|Erfurt": {
+    "lat": 50.9777974,
+    "lon": 11.0287364,
+    "label": "Erfurt, Thüringen, Deutschland"
+  },
+  "Deutschland|Thüringen|Gera": {
+    "lat": 50.8765528,
+    "lon": 12.0832674,
+    "label": "Gera, Thüringen, Deutschland"
+  },
+  "Deutschland|Thüringen|Greiz": {
+    "lat": 50.7783814,
+    "lon": 12.0763533,
+    "label": "Greiz, Thüringen, Deutschland"
+  },
+  "Deutschland|Thüringen|Jena": {
+    "lat": 50.9281717,
+    "lon": 11.5879359,
+    "label": "Jena, Thüringen, Deutschland"
+  },
+  "Deutschland|Thüringen|Mühlhausen": {
+    "lat": 51.2094255,
+    "lon": 10.4589044,
+    "label": "Mühlhausen/Thüringen, Unstrut-Hainich-Kreis, Thüringen, Deutschland"
+  },
+  "Deutschland|Thüringen|Nordhausen": {
+    "lat": 51.5051574,
+    "lon": 10.7925317,
+    "label": "Nordhausen, Landkreis Nordhausen, Thüringen, 99734, Deutschland"
+  },
+  "Deutschland|Thüringen|Thüringen": {
+    "lat": 51.2094255,
+    "lon": 10.4589044,
+    "label": "Mühlhausen/Thüringen, Unstrut-Hainich-Kreis, Thüringen, Deutschland"
+  },
+  "Deutschland|Thüringen|Weimar": {
+    "lat": 50.9793301,
+    "lon": 11.3297921,
+    "label": "Weimar, Thüringen, Deutschland"
+  },
+  "Österreich|Österreich|Graz": {
+    "lat": 48.2518494,
+    "lon": 14.3799053,
+    "label": "TVG Klimageräte & Klimaanlagen in Wien, Linz und Graz, 10, Deggendorfstraße, Südpark Linz, Pichling, Linz, Oberösterreich, 4030, Österreich"
+  },
+  "v2|Deutschland|Baden-Württemberg|Esslingen": {
+    "lat": 48.7427584,
+    "lon": 9.3071685,
+    "label": "Esslingen am Neckar, Landkreis Esslingen, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Freiburg": {
+    "lat": 47.9960901,
+    "lon": 7.8494005,
+    "label": "Freiburg im Breisgau, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Heidelberg": {
+    "lat": 49.4093582,
+    "lon": 8.694724,
+    "label": "Heidelberg, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Karlsruhe": {
+    "lat": 49.0068705,
+    "lon": 8.4034195,
+    "label": "Karlsruhe, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Ludwigsburg": {
+    "lat": 48.8953937,
+    "lon": 9.1895147,
+    "label": "Ludwigsburg, Landkreis Ludwigsburg, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Mannheim": {
+    "lat": 49.4892913,
+    "lon": 8.4673098,
+    "label": "Mannheim, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Mössingen": {
+    "lat": 48.4069119,
+    "lon": 9.0602912,
+    "label": "Mössingen, VVG der Stadt Mössingen, Landkreis Tübingen, Baden-Württemberg, 72116, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Nürtingen": {
+    "lat": 48.6265854,
+    "lon": 9.3365463,
+    "label": "Nürtingen, VVG der Stadt Nürtingen, Landkreis Esslingen, Baden-Württemberg, 72622, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Stuttgart": {
+    "lat": 48.7784485,
+    "lon": 9.1800132,
+    "label": "Stuttgart, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Tübingen": {
+    "lat": 48.5203263,
+    "lon": 9.053596,
+    "label": "Tübingen, Landkreis Tübingen, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Baden-Württemberg|Ulm": {
+    "lat": 48.3984968,
+    "lon": 9.9912458,
+    "label": "Ulm, Baden-Württemberg, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Aschaffenburg": {
+    "lat": 49.9738133,
+    "lon": 9.1446665,
+    "label": "Aschaffenburg, Bayern, 63739, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Augsburg": {
+    "lat": 48.3690341,
+    "lon": 10.8979522,
+    "label": "Augsburg, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Bamberg": {
+    "lat": 49.8916044,
+    "lon": 10.8868478,
+    "label": "Bamberg, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Bayreuth": {
+    "lat": 49.9446345,
+    "lon": 11.5743543,
+    "label": "Bayreuth, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Ebersberg": {
+    "lat": 48.0782763,
+    "lon": 11.9694372,
+    "label": "Ebersberg, Baiern (VGem Glonn), Landkreis Ebersberg, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Eichstätt": {
+    "lat": 48.8863328,
+    "lon": 11.1989396,
+    "label": "Eichstätt, Landkreis Eichstätt, Bayern, 85072, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Erlangen": {
+    "lat": 49.5977469,
+    "lon": 11.0037372,
+    "label": "Erlangen, Bayern, 91054, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Freising": {
+    "lat": 48.4008273,
+    "lon": 11.7439565,
+    "label": "Freising, Landkreis Freising, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Fürth": {
+    "lat": 48.5915163,
+    "lon": 12.0212216,
+    "label": "Furth, Furth (VGem), Landkreis Landshut, Bayern, 84095, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Herzogenaurach": {
+    "lat": 49.5738171,
+    "lon": 10.8926968,
+    "label": "Herzogenaurach, Landkreis Erlangen-Höchstadt, Bayern, 91074, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Ingolstadt": {
+    "lat": 48.7630165,
+    "lon": 11.4250395,
+    "label": "Ingolstadt, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Kempten": {
+    "lat": 47.7267063,
+    "lon": 10.3168835,
+    "label": "Kempten (Allgäu), Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Landshut": {
+    "lat": 48.536217,
+    "lon": 12.1516551,
+    "label": "Landshut, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|München": {
+    "lat": 48.1371079,
+    "lon": 11.5753822,
+    "label": "München, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Nürnberg": {
+    "lat": 49.453872,
+    "lon": 11.077298,
+    "label": "Nürnberg, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Nürnberg Süd": {
+    "lat": 49.453872,
+    "lon": 11.077298,
+    "label": "Nürnberg, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Passau": {
+    "lat": 48.5748229,
+    "lon": 13.4609744,
+    "label": "Passau, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Regensburg": {
+    "lat": 49.0195333,
+    "lon": 12.0974869,
+    "label": "Regensburg, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Rosenheim": {
+    "lat": 47.8557873,
+    "lon": 12.1272983,
+    "label": "Rosenheim, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Weilheim-Schongau - Landkreis": {
+    "lat": 47.8059338,
+    "lon": 11.0315421,
+    "label": "Landkreis Weilheim-Schongau, Bayern, Deutschland"
+  },
+  "v2|Deutschland|Bayern|Würzburg": {
+    "lat": 49.7933723,
+    "lon": 9.9309779,
+    "label": "Würzburg, Bayern, 97070, Deutschland"
+  },
+  "v2|Deutschland|Berlin|Berlin/Brandenburg": {
+    "lat": 52.5136844,
+    "lon": 13.3939867,
+    "label": "Berlin-Brandenburgische Akademie der Wissenschaften, Friedrichstadt, Mitte, Berlin, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Brandenburg": {
+    "lat": 52.8455492,
+    "lon": 13.2461296,
+    "label": "Brandenburg, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Brück": {
+    "lat": 52.1923564,
+    "lon": 12.7584313,
+    "label": "Brück, Potsdam-Mittelmark, Brandenburg, 14822, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Cottbus": {
+    "lat": 51.7567447,
+    "lon": 14.3357307,
+    "label": "Cottbus - Chóśebuz, Brandenburg, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Eberswalde": {
+    "lat": 52.8350807,
+    "lon": 13.7996542,
+    "label": "Eberswalde, Barnim, Brandenburg, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Perleberg": {
+    "lat": 53.0762716,
+    "lon": 11.8627933,
+    "label": "Perleberg, Prignitz, Brandenburg, 19348, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Potsdam": {
+    "lat": 52.4009309,
+    "lon": 13.0591397,
+    "label": "Potsdam, Brandenburg, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Seelow": {
+    "lat": 52.5318238,
+    "lon": 14.380704,
+    "label": "Seelow, Märkisch-Oderland, Brandenburg, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Strausberg": {
+    "lat": 52.5814009,
+    "lon": 13.8833952,
+    "label": "Strausberg, Märkisch-Oderland, Brandenburg, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Teltow": {
+    "lat": 52.3805562,
+    "lon": 13.2685278,
+    "label": "Teltow, Potsdam-Mittelmark, Brandenburg, 14513, Deutschland"
+  },
+  "v2|Deutschland|Brandenburg|Wittenberge": {
+    "lat": 53.0112877,
+    "lon": 11.7374296,
+    "label": "Wittenberge, Prignitz, Brandenburg, 19322, Deutschland"
+  },
+  "v2|Deutschland|Bremen|Bremen": {
+    "lat": 53.144869,
+    "lon": 8.6932343,
+    "label": "Bremen, Deutschland"
+  },
+  "v2|Deutschland|Hamburg|Hamburg": {
+    "lat": 53.5501721,
+    "lon": 10.0013165,
+    "label": "Hamburg, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Darmstadt": {
+    "lat": 49.872775,
+    "lon": 8.651177,
+    "label": "Darmstadt, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Frankfurt am Main": {
+    "lat": 50.1106444,
+    "lon": 8.6820917,
+    "label": "Frankfurt am Main, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Gießen": {
+    "lat": 50.5862066,
+    "lon": 8.6742306,
+    "label": "Gießen, Landkreis Gießen, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Hanau": {
+    "lat": 50.132881,
+    "lon": 8.9169797,
+    "label": "Hanau, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Hessen": {
+    "lat": 50.6080651,
+    "lon": 9.0284647,
+    "label": "Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Idstein": {
+    "lat": 50.2147,
+    "lon": 8.2902,
+    "label": "Idstein, Rheingau-Taunus-Kreis, Hessen, 65510, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Kassel": {
+    "lat": 51.3157833,
+    "lon": 9.4978479,
+    "label": "Kassel, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Limburg": {
+    "lat": 50.3880447,
+    "lon": 8.063531,
+    "label": "Limburg an der Lahn, Landkreis Limburg-Weilburg, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Main-Taunus-Kreis": {
+    "lat": 50.0995751,
+    "lon": 8.4264122,
+    "label": "Main-Taunus-Kreis, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Marburg": {
+    "lat": 50.8090106,
+    "lon": 8.7704695,
+    "label": "Marburg, Landkreis Marburg-Biedenkopf, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Offenbach": {
+    "lat": 50.1055002,
+    "lon": 8.7610698,
+    "label": "Offenbach am Main, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Wetterau": {
+    "lat": 50.3551,
+    "lon": 8.8621,
+    "label": "Reichelsheim (Wetterau), Wetteraukreis, Hessen, 61203, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Wiesbaden": {
+    "lat": 50.0820384,
+    "lon": 8.2416556,
+    "label": "Wiesbaden, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Hessen|Witzenhausen": {
+    "lat": 51.3331901,
+    "lon": 9.8434192,
+    "label": "Witzenhausen, Werra-Meißner-Kreis, Hessen, Deutschland"
+  },
+  "v2|Deutschland|Mecklenburg-Vorpommern|Greifswald": {
+    "lat": 54.095791,
+    "lon": 13.3815238,
+    "label": "Greifswald, Vorpommern-Greifswald, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v2|Deutschland|Mecklenburg-Vorpommern|Mecklenburg-Vorpommern": {
+    "lat": 53.7735064,
+    "lon": 12.5755471,
+    "label": "Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v2|Deutschland|Mecklenburg-Vorpommern|Mecklenburgische Seenplatte - Landkreis": {
+    "lat": 53.5838993,
+    "lon": 13.0638679,
+    "label": "Mecklenburgische Seenplatte, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v2|Deutschland|Mecklenburg-Vorpommern|Parchim": {
+    "lat": 53.4258455,
+    "lon": 11.8475244,
+    "label": "Parchim, Ludwigslust-Parchim, Mecklenburg-Vorpommern, 19370, Deutschland"
+  },
+  "v2|Deutschland|Mecklenburg-Vorpommern|Rostock": {
+    "lat": 54.0886707,
+    "lon": 12.1400211,
+    "label": "Rostock, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v2|Deutschland|Mecklenburg-Vorpommern|Schwerin": {
+    "lat": 53.6288297,
+    "lon": 11.4148038,
+    "label": "Schwerin, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v2|Deutschland|Mecklenburg-Vorpommern|Stralsund": {
+    "lat": 54.3096314,
+    "lon": 13.0820846,
+    "label": "Stralsund, Vorpommern-Rügen, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Braunschweig": {
+    "lat": 52.2646577,
+    "lon": 10.5236066,
+    "label": "Braunschweig, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Emden": {
+    "lat": 53.3670541,
+    "lon": 7.2058304,
+    "label": "Emden, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Göttingen": {
+    "lat": 51.5328328,
+    "lon": 9.9351811,
+    "label": "Göttingen, Landkreis Göttingen, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Hannover": {
+    "lat": 52.3744779,
+    "lon": 9.7385532,
+    "label": "Hannover, Region Hannover, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Hildesheim": {
+    "lat": 52.1527188,
+    "lon": 9.9518083,
+    "label": "Hildesheim, Landkreis Hildesheim, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Leer": {
+    "lat": 53.2332168,
+    "lon": 7.4567555,
+    "label": "Leer (Ostfriesland), Landkreis Leer, Niedersachsen, 26789, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Lingen": {
+    "lat": 52.5224659,
+    "lon": 7.316584,
+    "label": "Lingen (Ems), Landkreis Emsland, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Lüneburg": {
+    "lat": 53.248706,
+    "lon": 10.407855,
+    "label": "Lüneburg, Landkreis Lüneburg, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Niedersachsen": {
+    "lat": 52.8398531,
+    "lon": 9.075962,
+    "label": "Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Oldenburg": {
+    "lat": 53.1389753,
+    "lon": 8.2146017,
+    "label": "Oldenburg, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Osnabrück": {
+    "lat": 52.2719595,
+    "lon": 8.047635,
+    "label": "Osnabrück, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Salzderhelden": {
+    "lat": 51.7977841,
+    "lon": 9.9127987,
+    "label": "Salzderhelden, Einbeck, Landkreis Northeim, Niedersachsen, Deutschland"
+  },
+  "v2|Deutschland|Niedersachsen|Wendland": {
+    "lat": 52.9233083,
+    "lon": 11.12666,
+    "label": "Wustrow, Samtgemeinde Lüchow (Wendland), Landkreis Lüchow-Dannenberg, Niedersachsen, 29462, Deutschland"
+  },
+  "v2|Deutschland|Nordrhein-Westfalen|Bonn": {
+    "lat": 50.7352621,
+    "lon": 7.1024635,
+    "label": "Bonn, Nordrhein-Westfalen, Deutschland"
+  },
+  "v2|Deutschland|Nordrhein-Westfalen|Essen": {
+    "lat": 51.4582235,
+    "lon": 7.0158171,
+    "label": "Essen, Nordrhein-Westfalen, Deutschland"
+  },
+  "v2|Deutschland|Nordrhein-Westfalen|Hamm": {
+    "lat": 51.681281,
+    "lon": 7.8191185,
+    "label": "Hamm, Nordrhein-Westfalen, Deutschland"
+  },
+  "v2|Deutschland|Nordrhein-Westfalen|Köln": {
+    "lat": 50.938361,
+    "lon": 6.959974,
+    "label": "Köln, Nordrhein-Westfalen, Deutschland"
+  },
+  "v2|Deutschland|Nordrhein-Westfalen|Münster": {
+    "lat": 51.9625101,
+    "lon": 7.6251879,
+    "label": "Münster, Nordrhein-Westfalen, Deutschland"
+  },
+  "v2|Deutschland|Nordrhein-Westfalen|Wuppertal": {
+    "lat": 51.264018,
+    "lon": 7.1780374,
+    "label": "Wuppertal, Nordrhein-Westfalen, Deutschland"
+  },
+  "v2|Deutschland|Saarland|Saarland": {
+    "lat": 49.3841872,
+    "lon": 6.9537369,
+    "label": "Saarland, Deutschland"
+  },
+  "v2|Deutschland|Sachsen|Chemnitz": {
+    "lat": 50.8323531,
+    "lon": 12.918914,
+    "label": "Chemnitz, Lichtenau, Sachsen, Deutschland"
+  },
+  "v2|Deutschland|Sachsen|Dresden": {
+    "lat": 51.0493286,
+    "lon": 13.7381437,
+    "label": "Dresden, Sachsen, Deutschland"
+  },
+  "v2|Deutschland|Sachsen|Freiberg": {
+    "lat": 50.9169415,
+    "lon": 13.3428889,
+    "label": "Freiberg, Mittelsachsen, Sachsen, 09599, Deutschland"
+  },
+  "v2|Deutschland|Sachsen|Leipzig": {
+    "lat": 51.3406321,
+    "lon": 12.3747329,
+    "label": "Leipzig, Sachsen, Deutschland"
+  },
+  "v2|Deutschland|Sachsen|Zwickau": {
+    "lat": 50.7185043,
+    "lon": 12.4939267,
+    "label": "Zwickau, Langenweißbach, Zwickau, Sachsen, 08134, Deutschland"
+  },
+  "v2|Deutschland|Sachsen-Anhalt|Bernburg": {
+    "lat": 51.7939656,
+    "lon": 11.7373854,
+    "label": "Bernburg, Salzlandkreis, Sachsen-Anhalt, 06406, Deutschland"
+  },
+  "v2|Deutschland|Sachsen-Anhalt|Dessau": {
+    "lat": 51.8309956,
+    "lon": 12.2430723,
+    "label": "Dessau, Dessau-Roßlau, Sachsen-Anhalt, 06842, Deutschland"
+  },
+  "v2|Deutschland|Sachsen-Anhalt|Halle": {
+    "lat": 51.4824354,
+    "lon": 11.9712985,
+    "label": "Halle (Saale), Sachsen-Anhalt, Deutschland"
+  },
+  "v2|Deutschland|Sachsen-Anhalt|Magdeburg": {
+    "lat": 52.1314783,
+    "lon": 11.6400789,
+    "label": "Magdeburg, Sachsen-Anhalt, Deutschland"
+  },
+  "v2|Deutschland|Sachsen-Anhalt|Salzwedel": {
+    "lat": 52.8528456,
+    "lon": 11.1539699,
+    "label": "Salzwedel, Altmarkkreis Salzwedel, Sachsen-Anhalt, 29410, Deutschland"
+  },
+  "v2|Deutschland|Schleswig-Holstein|Bargteheide": {
+    "lat": 53.7279671,
+    "lon": 10.2618075,
+    "label": "Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
+  },
+  "v2|Deutschland|Schleswig-Holstein|Kiel": {
+    "lat": 54.3227085,
+    "lon": 10.135555,
+    "label": "Kiel, Schleswig-Holstein, Deutschland"
+  },
+  "v2|Deutschland|Schleswig-Holstein|Meldorf": {
+    "lat": 54.08988,
+    "lon": 9.070633,
+    "label": "Meldorf, Mitteldithmarschen, Kreis Dithmarschen, Schleswig-Holstein, 25704, Deutschland"
+  },
+  "v2|Deutschland|Thüringen|Erfurt": {
+    "lat": 50.9777974,
+    "lon": 11.0287364,
+    "label": "Erfurt, Thüringen, Deutschland"
+  },
+  "v2|Deutschland|Thüringen|Gera": {
+    "lat": 50.8765528,
+    "lon": 12.0832674,
+    "label": "Gera, Thüringen, Deutschland"
+  },
+  "v2|Deutschland|Thüringen|Greiz": {
+    "lat": 50.6477963,
+    "lon": 12.1734848,
+    "label": "Greiz, Thüringen, 07973, Deutschland"
+  },
+  "v2|Deutschland|Thüringen|Jena": {
+    "lat": 50.9281717,
+    "lon": 11.5879359,
+    "label": "Jena, Thüringen, Deutschland"
+  },
+  "v2|Deutschland|Thüringen|Mühlhausen": {
+    "lat": 51.2094255,
+    "lon": 10.4589044,
+    "label": "Mühlhausen/Thüringen, Unstrut-Hainich-Kreis, Thüringen, Deutschland"
+  },
+  "v2|Deutschland|Thüringen|Nordhausen": {
+    "lat": 51.5051574,
+    "lon": 10.7925317,
+    "label": "Nordhausen, Landkreis Nordhausen, Thüringen, 99734, Deutschland"
+  },
+  "v2|Deutschland|Thüringen|Thüringen": {
+    "lat": 50.9014721,
+    "lon": 11.0377839,
+    "label": "Thüringen, Deutschland"
+  },
+  "v2|Deutschland|Thüringen|Weimar": {
+    "lat": 50.9793301,
+    "lon": 11.3297921,
+    "label": "Weimar, Thüringen, Deutschland"
+  },
+  "v2|Österreich|Österreich|Graz": {
+    "lat": 47.0708678,
+    "lon": 15.4382786,
+    "label": "Graz, Steiermark, Österreich"
+  },
+  "v3|Deutschland|Baden-Württemberg|Esslingen": {
+    "lat": 48.7427584,
+    "lon": 9.3071685,
+    "label": "Esslingen am Neckar, Landkreis Esslingen, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Freiburg": {
+    "lat": 47.9960901,
+    "lon": 7.8494005,
+    "label": "Freiburg im Breisgau, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Heidelberg": {
+    "lat": 49.4093582,
+    "lon": 8.694724,
+    "label": "Heidelberg, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Karlsruhe": {
+    "lat": 49.0068705,
+    "lon": 8.4034195,
+    "label": "Karlsruhe, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Ludwigsburg": {
+    "lat": 48.8953937,
+    "lon": 9.1895147,
+    "label": "Ludwigsburg, Landkreis Ludwigsburg, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Mannheim": {
+    "lat": 49.4892913,
+    "lon": 8.4673098,
+    "label": "Mannheim, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Mössingen": {
+    "lat": 48.4069119,
+    "lon": 9.0602912,
+    "label": "Mössingen, VVG der Stadt Mössingen, Landkreis Tübingen, Baden-Württemberg, 72116, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Nürtingen": {
+    "lat": 48.6265854,
+    "lon": 9.3365463,
+    "label": "Nürtingen, VVG der Stadt Nürtingen, Landkreis Esslingen, Baden-Württemberg, 72622, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Stuttgart": {
+    "lat": 48.7784485,
+    "lon": 9.1800132,
+    "label": "Stuttgart, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Tübingen": {
+    "lat": 48.5203263,
+    "lon": 9.053596,
+    "label": "Tübingen, Landkreis Tübingen, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Baden-Württemberg|Ulm": {
+    "lat": 48.3984968,
+    "lon": 9.9912458,
+    "label": "Ulm, Baden-Württemberg, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Aschaffenburg": {
+    "lat": 49.9738133,
+    "lon": 9.1446665,
+    "label": "Aschaffenburg, Bayern, 63739, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Augsburg": {
+    "lat": 48.3690341,
+    "lon": 10.8979522,
+    "label": "Augsburg, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Bamberg": {
+    "lat": 49.8916044,
+    "lon": 10.8868478,
+    "label": "Bamberg, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Bayreuth": {
+    "lat": 49.9446345,
+    "lon": 11.5743543,
+    "label": "Bayreuth, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Ebersberg": {
+    "lat": 48.0782763,
+    "lon": 11.9694372,
+    "label": "Ebersberg, Baiern (VGem Glonn), Landkreis Ebersberg, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Eichstätt": {
+    "lat": 48.8863328,
+    "lon": 11.1989396,
+    "label": "Eichstätt, Landkreis Eichstätt, Bayern, 85072, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Erlangen": {
+    "lat": 49.5977469,
+    "lon": 11.0037372,
+    "label": "Erlangen, Bayern, 91054, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Freising": {
+    "lat": 48.4008273,
+    "lon": 11.7439565,
+    "label": "Freising, Landkreis Freising, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Fürth": {
+    "lat": 48.5915163,
+    "lon": 12.0212216,
+    "label": "Furth, Furth (VGem), Landkreis Landshut, Bayern, 84095, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Herzogenaurach": {
+    "lat": 49.5738171,
+    "lon": 10.8926968,
+    "label": "Herzogenaurach, Landkreis Erlangen-Höchstadt, Bayern, 91074, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Ingolstadt": {
+    "lat": 48.7630165,
+    "lon": 11.4250395,
+    "label": "Ingolstadt, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Kempten": {
+    "lat": 47.7267063,
+    "lon": 10.3168835,
+    "label": "Kempten (Allgäu), Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Landshut": {
+    "lat": 48.536217,
+    "lon": 12.1516551,
+    "label": "Landshut, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|München": {
+    "lat": 48.1371079,
+    "lon": 11.5753822,
+    "label": "München, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Nürnberg": {
+    "lat": 49.453872,
+    "lon": 11.077298,
+    "label": "Nürnberg, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Nürnberg Süd": {
+    "lat": 49.453872,
+    "lon": 11.077298,
+    "label": "Nürnberg, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Passau": {
+    "lat": 48.5748229,
+    "lon": 13.4609744,
+    "label": "Passau, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Regensburg": {
+    "lat": 49.0195333,
+    "lon": 12.0974869,
+    "label": "Regensburg, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Rosenheim": {
+    "lat": 47.8557873,
+    "lon": 12.1272983,
+    "label": "Rosenheim, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Weilheim-Schongau - Landkreis": {
+    "lat": 47.8059338,
+    "lon": 11.0315421,
+    "label": "Landkreis Weilheim-Schongau, Bayern, Deutschland"
+  },
+  "v3|Deutschland|Bayern|Würzburg": {
+    "lat": 49.7933723,
+    "lon": 9.9309779,
+    "label": "Würzburg, Bayern, 97070, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Brandenburg": {
+    "lat": 52.8455492,
+    "lon": 13.2461296,
+    "label": "Brandenburg, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Brück": {
+    "lat": 52.1923564,
+    "lon": 12.7584313,
+    "label": "Brück, Potsdam-Mittelmark, Brandenburg, 14822, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Cottbus": {
+    "lat": 51.7567447,
+    "lon": 14.3357307,
+    "label": "Cottbus - Chóśebuz, Brandenburg, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Eberswalde": {
+    "lat": 52.8350807,
+    "lon": 13.7996542,
+    "label": "Eberswalde, Barnim, Brandenburg, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Perleberg": {
+    "lat": 53.0762716,
+    "lon": 11.8627933,
+    "label": "Perleberg, Prignitz, Brandenburg, 19348, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Potsdam": {
+    "lat": 52.4009309,
+    "lon": 13.0591397,
+    "label": "Potsdam, Brandenburg, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Seelow": {
+    "lat": 52.5318238,
+    "lon": 14.380704,
+    "label": "Seelow, Märkisch-Oderland, Brandenburg, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Strausberg": {
+    "lat": 52.5814009,
+    "lon": 13.8833952,
+    "label": "Strausberg, Märkisch-Oderland, Brandenburg, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Teltow": {
+    "lat": 52.3805562,
+    "lon": 13.2685278,
+    "label": "Teltow, Potsdam-Mittelmark, Brandenburg, 14513, Deutschland"
+  },
+  "v3|Deutschland|Brandenburg|Wittenberge": {
+    "lat": 53.0112877,
+    "lon": 11.7374296,
+    "label": "Wittenberge, Prignitz, Brandenburg, 19322, Deutschland"
+  },
+  "v3|Deutschland|Bremen|Bremen": {
+    "lat": 53.144869,
+    "lon": 8.6932343,
+    "label": "Bremen, Deutschland"
+  },
+  "v3|Deutschland|Hamburg|Hamburg": {
+    "lat": 53.5501721,
+    "lon": 10.0013165,
+    "label": "Hamburg, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Darmstadt": {
+    "lat": 49.872775,
+    "lon": 8.651177,
+    "label": "Darmstadt, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Frankfurt am Main": {
+    "lat": 50.1106444,
+    "lon": 8.6820917,
+    "label": "Frankfurt am Main, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Gießen": {
+    "lat": 50.5862066,
+    "lon": 8.6742306,
+    "label": "Gießen, Landkreis Gießen, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Hanau": {
+    "lat": 50.132881,
+    "lon": 8.9169797,
+    "label": "Hanau, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Hessen": {
+    "lat": 50.6080651,
+    "lon": 9.0284647,
+    "label": "Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Idstein": {
+    "lat": 50.2147,
+    "lon": 8.2902,
+    "label": "Idstein, Rheingau-Taunus-Kreis, Hessen, 65510, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Kassel": {
+    "lat": 51.3157833,
+    "lon": 9.4978479,
+    "label": "Kassel, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Limburg": {
+    "lat": 50.3880447,
+    "lon": 8.063531,
+    "label": "Limburg an der Lahn, Landkreis Limburg-Weilburg, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Main-Taunus-Kreis": {
+    "lat": 50.0995751,
+    "lon": 8.4264122,
+    "label": "Main-Taunus-Kreis, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Marburg": {
+    "lat": 50.8090106,
+    "lon": 8.7704695,
+    "label": "Marburg, Landkreis Marburg-Biedenkopf, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Offenbach": {
+    "lat": 50.1055002,
+    "lon": 8.7610698,
+    "label": "Offenbach am Main, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Wetterau": {
+    "lat": 50.3551,
+    "lon": 8.8621,
+    "label": "Reichelsheim (Wetterau), Wetteraukreis, Hessen, 61203, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Wiesbaden": {
+    "lat": 50.0820384,
+    "lon": 8.2416556,
+    "label": "Wiesbaden, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Hessen|Witzenhausen": {
+    "lat": 51.3331901,
+    "lon": 9.8434192,
+    "label": "Witzenhausen, Werra-Meißner-Kreis, Hessen, Deutschland"
+  },
+  "v3|Deutschland|Mecklenburg-Vorpommern|Greifswald": {
+    "lat": 54.095791,
+    "lon": 13.3815238,
+    "label": "Greifswald, Vorpommern-Greifswald, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v3|Deutschland|Mecklenburg-Vorpommern|Mecklenburg-Vorpommern": {
+    "lat": 53.7735064,
+    "lon": 12.5755471,
+    "label": "Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v3|Deutschland|Mecklenburg-Vorpommern|Mecklenburgische Seenplatte - Landkreis": {
+    "lat": 53.5838993,
+    "lon": 13.0638679,
+    "label": "Mecklenburgische Seenplatte, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v3|Deutschland|Mecklenburg-Vorpommern|Parchim": {
+    "lat": 53.4258455,
+    "lon": 11.8475244,
+    "label": "Parchim, Ludwigslust-Parchim, Mecklenburg-Vorpommern, 19370, Deutschland"
+  },
+  "v3|Deutschland|Mecklenburg-Vorpommern|Rostock": {
+    "lat": 54.0886707,
+    "lon": 12.1400211,
+    "label": "Rostock, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v3|Deutschland|Mecklenburg-Vorpommern|Schwerin": {
+    "lat": 53.6288297,
+    "lon": 11.4148038,
+    "label": "Schwerin, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v3|Deutschland|Mecklenburg-Vorpommern|Stralsund": {
+    "lat": 54.3096314,
+    "lon": 13.0820846,
+    "label": "Stralsund, Vorpommern-Rügen, Mecklenburg-Vorpommern, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Braunschweig": {
+    "lat": 52.2646577,
+    "lon": 10.5236066,
+    "label": "Braunschweig, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Emden": {
+    "lat": 53.3670541,
+    "lon": 7.2058304,
+    "label": "Emden, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Göttingen": {
+    "lat": 51.5328328,
+    "lon": 9.9351811,
+    "label": "Göttingen, Landkreis Göttingen, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Hannover": {
+    "lat": 52.3744779,
+    "lon": 9.7385532,
+    "label": "Hannover, Region Hannover, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Hildesheim": {
+    "lat": 52.1527188,
+    "lon": 9.9518083,
+    "label": "Hildesheim, Landkreis Hildesheim, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Leer": {
+    "lat": 53.2332168,
+    "lon": 7.4567555,
+    "label": "Leer (Ostfriesland), Landkreis Leer, Niedersachsen, 26789, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Lingen": {
+    "lat": 52.5224659,
+    "lon": 7.316584,
+    "label": "Lingen (Ems), Landkreis Emsland, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Lüneburg": {
+    "lat": 53.248706,
+    "lon": 10.407855,
+    "label": "Lüneburg, Landkreis Lüneburg, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Niedersachsen": {
+    "lat": 52.8398531,
+    "lon": 9.075962,
+    "label": "Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Oldenburg": {
+    "lat": 53.1389753,
+    "lon": 8.2146017,
+    "label": "Oldenburg, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Osnabrück": {
+    "lat": 52.2719595,
+    "lon": 8.047635,
+    "label": "Osnabrück, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Salzderhelden": {
+    "lat": 51.7977841,
+    "lon": 9.9127987,
+    "label": "Salzderhelden, Einbeck, Landkreis Northeim, Niedersachsen, Deutschland"
+  },
+  "v3|Deutschland|Niedersachsen|Wendland": {
+    "lat": 52.9233083,
+    "lon": 11.12666,
+    "label": "Wustrow, Samtgemeinde Lüchow (Wendland), Landkreis Lüchow-Dannenberg, Niedersachsen, 29462, Deutschland"
+  },
+  "v3|Deutschland|Nordrhein-Westfalen|Bonn": {
+    "lat": 50.7352621,
+    "lon": 7.1024635,
+    "label": "Bonn, Nordrhein-Westfalen, Deutschland"
+  },
+  "v3|Deutschland|Nordrhein-Westfalen|Essen": {
+    "lat": 51.4582235,
+    "lon": 7.0158171,
+    "label": "Essen, Nordrhein-Westfalen, Deutschland"
+  },
+  "v3|Deutschland|Nordrhein-Westfalen|Hamm": {
+    "lat": 51.681281,
+    "lon": 7.8191185,
+    "label": "Hamm, Nordrhein-Westfalen, Deutschland"
+  },
+  "v3|Deutschland|Nordrhein-Westfalen|Köln": {
+    "lat": 50.938361,
+    "lon": 6.959974,
+    "label": "Köln, Nordrhein-Westfalen, Deutschland"
+  },
+  "v3|Deutschland|Nordrhein-Westfalen|Münster": {
+    "lat": 51.9625101,
+    "lon": 7.6251879,
+    "label": "Münster, Nordrhein-Westfalen, Deutschland"
+  },
+  "v3|Deutschland|Nordrhein-Westfalen|Wuppertal": {
+    "lat": 51.264018,
+    "lon": 7.1780374,
+    "label": "Wuppertal, Nordrhein-Westfalen, Deutschland"
+  },
+  "v3|Deutschland|Saarland|Saarland": {
+    "lat": 49.3841872,
+    "lon": 6.9537369,
+    "label": "Saarland, Deutschland"
+  },
+  "v3|Deutschland|Sachsen|Chemnitz": {
+    "lat": 50.8323531,
+    "lon": 12.918914,
+    "label": "Chemnitz, Lichtenau, Sachsen, Deutschland"
+  },
+  "v3|Deutschland|Sachsen|Dresden": {
+    "lat": 51.0493286,
+    "lon": 13.7381437,
+    "label": "Dresden, Sachsen, Deutschland"
+  },
+  "v3|Deutschland|Sachsen|Freiberg": {
+    "lat": 50.9169415,
+    "lon": 13.3428889,
+    "label": "Freiberg, Mittelsachsen, Sachsen, 09599, Deutschland"
+  },
+  "v3|Deutschland|Sachsen|Leipzig": {
+    "lat": 51.3406321,
+    "lon": 12.3747329,
+    "label": "Leipzig, Sachsen, Deutschland"
+  },
+  "v3|Deutschland|Sachsen|Zwickau": {
+    "lat": 50.7185043,
+    "lon": 12.4939267,
+    "label": "Zwickau, Langenweißbach, Zwickau, Sachsen, 08134, Deutschland"
+  },
+  "v3|Deutschland|Sachsen-Anhalt|Bernburg": {
+    "lat": 51.7939656,
+    "lon": 11.7373854,
+    "label": "Bernburg, Salzlandkreis, Sachsen-Anhalt, 06406, Deutschland"
+  },
+  "v3|Deutschland|Sachsen-Anhalt|Dessau": {
+    "lat": 51.8309956,
+    "lon": 12.2430723,
+    "label": "Dessau, Dessau-Roßlau, Sachsen-Anhalt, 06842, Deutschland"
+  },
+  "v3|Deutschland|Sachsen-Anhalt|Halle": {
+    "lat": 51.4824354,
+    "lon": 11.9712985,
+    "label": "Halle (Saale), Sachsen-Anhalt, Deutschland"
+  },
+  "v3|Deutschland|Sachsen-Anhalt|Magdeburg": {
+    "lat": 52.1314783,
+    "lon": 11.6400789,
+    "label": "Magdeburg, Sachsen-Anhalt, Deutschland"
+  },
+  "v3|Deutschland|Sachsen-Anhalt|Salzwedel": {
+    "lat": 52.8528456,
+    "lon": 11.1539699,
+    "label": "Salzwedel, Altmarkkreis Salzwedel, Sachsen-Anhalt, 29410, Deutschland"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Bargteheide": {
+    "lat": 53.7279671,
+    "lon": 10.2618075,
+    "label": "Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Kiel": {
+    "lat": 54.3227085,
+    "lon": 10.135555,
+    "label": "Kiel, Schleswig-Holstein, Deutschland"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Meldorf": {
+    "lat": 54.08988,
+    "lon": 9.070633,
+    "label": "Meldorf, Mitteldithmarschen, Kreis Dithmarschen, Schleswig-Holstein, 25704, Deutschland"
+  },
+  "v3|Deutschland|Thüringen|Erfurt": {
+    "lat": 50.9777974,
+    "lon": 11.0287364,
+    "label": "Erfurt, Thüringen, Deutschland"
+  },
+  "v3|Deutschland|Thüringen|Gera": {
+    "lat": 50.8765528,
+    "lon": 12.0832674,
+    "label": "Gera, Thüringen, Deutschland"
+  },
+  "v3|Deutschland|Thüringen|Greiz": {
+    "lat": 50.6477963,
+    "lon": 12.1734848,
+    "label": "Greiz, Thüringen, 07973, Deutschland"
+  },
+  "v3|Deutschland|Thüringen|Jena": {
+    "lat": 50.9281717,
+    "lon": 11.5879359,
+    "label": "Jena, Thüringen, Deutschland"
+  },
+  "v3|Deutschland|Thüringen|Mühlhausen": {
+    "lat": 51.2094255,
+    "lon": 10.4589044,
+    "label": "Mühlhausen/Thüringen, Unstrut-Hainich-Kreis, Thüringen, Deutschland"
+  },
+  "v3|Deutschland|Thüringen|Nordhausen": {
+    "lat": 51.5051574,
+    "lon": 10.7925317,
+    "label": "Nordhausen, Landkreis Nordhausen, Thüringen, 99734, Deutschland"
+  },
+  "v3|Deutschland|Thüringen|Thüringen": {
+    "lat": 50.9014721,
+    "lon": 11.0377839,
+    "label": "Thüringen, Deutschland"
+  },
+  "v3|Deutschland|Thüringen|Weimar": {
+    "lat": 50.9793301,
+    "lon": 11.3297921,
+    "label": "Weimar, Thüringen, Deutschland"
+  },
+  "v3|Österreich|Österreich|Graz": {
+    "lat": 47.0708678,
+    "lon": 15.4382786,
+    "label": "Graz, Steiermark, Österreich"
+  }
+}

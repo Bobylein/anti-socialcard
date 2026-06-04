@@ -1,0 +1,3158 @@
+{
+  "sourceUrl": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte",
+  "updatedAt": "2026-06-04T12:08:28.890Z",
+  "languages": [
+    {
+      "code": "de",
+      "label": "Deutsch",
+      "dir": "ltr"
+    },
+    {
+      "code": "en",
+      "label": "English",
+      "dir": "ltr"
+    },
+    {
+      "code": "ar",
+      "label": "العربية",
+      "dir": "rtl"
+    },
+    {
+      "code": "ru",
+      "label": "Русский",
+      "dir": "ltr"
+    },
+    {
+      "code": "ti",
+      "label": "ትግርኛ",
+      "dir": "ltr"
+    },
+    {
+      "code": "fa",
+      "label": "فارسی",
+      "dir": "rtl"
+    },
+    {
+      "code": "kmr",
+      "label": "Kurmancî",
+      "dir": "ltr"
+    },
+    {
+      "code": "tr",
+      "label": "Türkçe",
+      "dir": "ltr"
+    },
+    {
+      "code": "fr",
+      "label": "Français",
+      "dir": "ltr"
+    },
+    {
+      "code": "uk",
+      "label": "Українська",
+      "dir": "ltr"
+    }
+  ],
+  "initiatives": [
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-esslingen",
+      "name": "Esslingen",
+      "city": "Esslingen",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/neinzurbezahlkarteesslingen",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 48.7427584,
+        "lon": 9.3071685,
+        "label": "Esslingen am Neckar, Landkreis Esslingen, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-freiburg",
+      "name": "Freiburg",
+      "city": "Freiburg",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://bezahlkarte-stoppen.org/",
+      "domain": "bezahlkarte-stoppen.org",
+      "coordinates": {
+        "lat": 47.9960901,
+        "lon": 7.8494005,
+        "label": "Freiburg im Breisgau, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bezahlkarte-stoppen.org/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-heidelberg",
+      "name": "Heidelberg",
+      "city": "Heidelberg",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://bezahlkarte-stoppen.de/de/",
+      "domain": "bezahlkarte-stoppen.de",
+      "coordinates": {
+        "lat": 49.4093582,
+        "lon": 8.694724,
+        "label": "Heidelberg, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bezahlkarte-stoppen.de/de/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-karlsruhe",
+      "name": "Karlsruhe",
+      "city": "Karlsruhe",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte-karlsruhe.de/",
+      "domain": "nein-zur-bezahlkarte-karlsruhe.de",
+      "coordinates": {
+        "lat": 49.0068705,
+        "lon": 8.4034195,
+        "label": "Karlsruhe, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte-karlsruhe.de/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-ludwigsburg",
+      "name": "Ludwigsburg",
+      "city": "Ludwigsburg",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkar.wixsite.com/neinzurbezahlkartelb",
+      "domain": "nein-zur-bezahlkar.wixsite.com",
+      "coordinates": {
+        "lat": 48.8953937,
+        "lon": 9.1895147,
+        "label": "Ludwigsburg, Landkreis Ludwigsburg, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkar.wixsite.com/neinzurbezahlkartelb",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-mannheim",
+      "name": "Mannheim",
+      "city": "Mannheim",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/bezahlkartestoppen_ma",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 49.4892913,
+        "lon": 8.4673098,
+        "label": "Mannheim, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-mossingen",
+      "name": "Mössingen",
+      "city": "Mössingen",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://kartentausch.epistello.org/",
+      "domain": "kartentausch.epistello.org",
+      "coordinates": {
+        "lat": 48.4069119,
+        "lon": 9.0602912,
+        "label": "Mössingen, VVG der Stadt Mössingen, Landkreis Tübingen, Baden-Württemberg, 72116, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://kartentausch.epistello.org/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-nurtingen",
+      "name": "Nürtingen",
+      "city": "Nürtingen",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://connectosn.noblogs.org/",
+      "domain": "connectosn.noblogs.org",
+      "coordinates": {
+        "lat": 48.6265854,
+        "lon": 9.3365463,
+        "label": "Nürtingen, VVG der Stadt Nürtingen, Landkreis Esslingen, Baden-Württemberg, 72622, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://connectosn.noblogs.org/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-stuttgart",
+      "name": "Stuttgart",
+      "city": "Stuttgart",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://nobezahlkartestgt.noblogs.org/",
+      "domain": "nobezahlkartestgt.noblogs.org",
+      "coordinates": {
+        "lat": 48.7784485,
+        "lon": 9.1800132,
+        "label": "Stuttgart, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nobezahlkartestgt.noblogs.org/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-tubingen",
+      "name": "Tübingen",
+      "city": "Tübingen",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://keep.tuebingen.social/bezahlkarte/de",
+      "domain": "keep.tuebingen.social",
+      "coordinates": {
+        "lat": 48.5203263,
+        "lon": 9.053596,
+        "label": "Tübingen, Landkreis Tübingen, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://keep.tuebingen.social/bezahlkarte/de",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-baden-wurttemberg-ulm",
+      "name": "Ulm",
+      "city": "Ulm",
+      "region": "Baden-Württemberg",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/neinzurbezahlkarte_ulm",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 48.3984968,
+        "lon": 9.9912458,
+        "label": "Ulm, Baden-Württemberg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-aschaffenburg",
+      "name": "Aschaffenburg",
+      "city": "Aschaffenburg",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.de/aschaffenburg/",
+      "domain": "neinzurbezahlkarte.de",
+      "coordinates": {
+        "lat": 49.9738133,
+        "lon": 9.1446665,
+        "label": "Aschaffenburg, Bayern, 63739, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.de/aschaffenburg/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-augsburg",
+      "name": "Augsburg",
+      "city": "Augsburg",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://augsburgerfluechtlingsrat.blogspot.com/p/bezahlkarte-tauschaktion.html",
+      "domain": "augsburgerfluechtlingsrat.blogspot.com",
+      "coordinates": {
+        "lat": 48.3690341,
+        "lon": 10.8979522,
+        "label": "Augsburg, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://augsburgerfluechtlingsrat.blogspot.com/p/bezahlkarte-tauschaktion.html",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-bamberg",
+      "name": "Bamberg",
+      "city": "Bamberg",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/kartentausch_bamberg",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 49.8916044,
+        "lon": 10.8868478,
+        "label": "Bamberg, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-bayreuth",
+      "name": "Bayreuth",
+      "city": "Bayreuth",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/kartentausch.bt/",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 49.9446345,
+        "lon": 11.5743543,
+        "label": "Bayreuth, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-ebersberg",
+      "name": "Ebersberg",
+      "city": "Ebersberg",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://offen-muenchen.de/",
+      "domain": "offen-muenchen.de",
+      "coordinates": {
+        "lat": 48.0782763,
+        "lon": 11.9694372,
+        "label": "Ebersberg, Baiern (VGem Glonn), Landkreis Ebersberg, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": false,
+        "status": null,
+        "finalUrl": "",
+        "method": "",
+        "error": "timeout"
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-eichstatt",
+      "name": "Eichstätt",
+      "city": "Eichstätt",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/offen_eichstaett",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 48.8863328,
+        "lon": 11.1989396,
+        "label": "Eichstätt, Landkreis Eichstätt, Bayern, 85072, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-erlangen",
+      "name": "Erlangen",
+      "city": "Erlangen",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/kartentausch_er",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 49.5977469,
+        "lon": 11.0037372,
+        "label": "Erlangen, Bayern, 91054, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-freising",
+      "name": "Freising",
+      "city": "Freising",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://offen-muenchen.de/",
+      "domain": "offen-muenchen.de",
+      "coordinates": {
+        "lat": 48.4008273,
+        "lon": 11.7439565,
+        "label": "Freising, Landkreis Freising, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": false,
+        "status": null,
+        "finalUrl": "",
+        "method": "",
+        "error": "timeout"
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-furth",
+      "name": "Fürth",
+      "city": "Fürth",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/kartentausch_fuerth",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 49.4771169,
+        "lon": 10.988667,
+        "label": "Fürth, Bayern, Deutschland"
+      },
+      "transitLinks": [
+        {
+          "label": "VGN",
+          "url": "https://www.vgn.de/"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-herzogenaurach",
+      "name": "Herzogenaurach",
+      "city": "Herzogenaurach",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://kartentausch-herzo.de/",
+      "domain": "kartentausch-herzo.de",
+      "coordinates": {
+        "lat": 49.5738171,
+        "lon": 10.8926968,
+        "label": "Herzogenaurach, Landkreis Erlangen-Höchstadt, Bayern, 91074, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": false,
+        "status": null,
+        "finalUrl": "",
+        "method": "",
+        "error": "timeout"
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-ingolstadt",
+      "name": "Ingolstadt",
+      "city": "Ingolstadt",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://offen-muenchen.de/",
+      "domain": "offen-muenchen.de",
+      "coordinates": {
+        "lat": 48.7630165,
+        "lon": 11.4250395,
+        "label": "Ingolstadt, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": false,
+        "status": null,
+        "finalUrl": "",
+        "method": "",
+        "error": "timeout"
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-kempten",
+      "name": "Kempten",
+      "city": "Kempten",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/seebruecke.kempten",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 47.7267063,
+        "lon": 10.3168835,
+        "label": "Kempten (Allgäu), Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-landshut",
+      "name": "Landshut",
+      "city": "Landshut",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/solidarische_wechselstube_la",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 48.536217,
+        "lon": 12.1516551,
+        "label": "Landshut, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-munchen",
+      "name": "München",
+      "city": "München",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://offen-muenchen.de/",
+      "domain": "offen-muenchen.de",
+      "coordinates": {
+        "lat": 48.1371079,
+        "lon": 11.5753822,
+        "label": "München, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": false,
+        "status": null,
+        "finalUrl": "",
+        "method": "",
+        "error": "timeout"
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-nurnberg",
+      "name": "Nürnberg",
+      "city": "Nürnberg",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-bayern.de/vorstellung-initiative-gegen-die-bezahlkarte-nuernberg",
+      "domain": "fluechtlingsrat-bayern.de",
+      "coordinates": {
+        "lat": 49.453872,
+        "lon": 11.077298,
+        "label": "Nürnberg, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": false,
+        "status": null,
+        "finalUrl": "",
+        "method": "",
+        "error": "timeout"
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-nurnberg-sud",
+      "name": "Nürnberg Süd",
+      "city": "Nürnberg Süd",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "http://instagram.com/kartentausch_nbg_sued",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 49.453872,
+        "lon": 11.077298,
+        "label": "Nürnberg, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-passau",
+      "name": "Passau",
+      "city": "Passau",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://seebruecke-passau.de/kartentauschaktion",
+      "domain": "seebruecke-passau.de",
+      "coordinates": {
+        "lat": 48.5748229,
+        "lon": 13.4609744,
+        "label": "Passau, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": false,
+        "status": null,
+        "finalUrl": "",
+        "method": "",
+        "error": "timeout"
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-regensburg",
+      "name": "Regensburg",
+      "city": "Regensburg",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://www.kartentausch-regensburg.de/",
+      "domain": "kartentausch-regensburg.de",
+      "coordinates": {
+        "lat": 49.0195333,
+        "lon": 12.0974869,
+        "label": "Regensburg, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.kartentausch-regensburg.de/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-rosenheim",
+      "name": "Rosenheim",
+      "city": "Rosenheim",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://bktrosenheim.noblogs.org/",
+      "domain": "bktrosenheim.noblogs.org",
+      "coordinates": {
+        "lat": 47.8557873,
+        "lon": 12.1272983,
+        "label": "Rosenheim, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bktrosenheim.noblogs.org/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-weilheim-schongau-landkreis",
+      "name": "Weilheim-Schongau - Landkreis",
+      "city": "Weilheim-Schongau - Landkreis",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://bezahlkarte.kulturladen.org/",
+      "domain": "bezahlkarte.kulturladen.org",
+      "coordinates": {
+        "lat": 47.8059338,
+        "lon": 11.0315421,
+        "label": "Landkreis Weilheim-Schongau, Bayern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bezahlkarte.kulturladen.org/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bayern-wurzburg",
+      "name": "Würzburg",
+      "city": "Würzburg",
+      "region": "Bayern",
+      "country": "Deutschland",
+      "url": "https://wuerzburg-nein-bezahlkarte.de/",
+      "domain": "wuerzburg-nein-bezahlkarte.de",
+      "coordinates": {
+        "lat": 49.7933723,
+        "lon": 9.9309779,
+        "label": "Würzburg, Bayern, 97070, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": false,
+        "status": null,
+        "finalUrl": "",
+        "method": "",
+        "error": "timeout"
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-berlin-berlin-brandenburg",
+      "name": "Berlin/Brandenburg",
+      "city": "Berlin",
+      "region": "Berlin",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 52.520008,
+        "lon": 13.404954,
+        "label": "Berlin, Deutschland"
+      },
+      "transitLinks": [
+        {
+          "label": "BVG",
+          "url": "https://www.bvg.de/"
+        },
+        {
+          "label": "VBB",
+          "url": "https://www.vbb.de/"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-brandenburg",
+      "name": "Brandenburg",
+      "city": "Brandenburg",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 52.8455492,
+        "lon": 13.2461296,
+        "label": "Brandenburg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-bruck",
+      "name": "Brück",
+      "city": "Brück",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 52.1923564,
+        "lon": 12.7584313,
+        "label": "Brück, Potsdam-Mittelmark, Brandenburg, 14822, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-cottbus",
+      "name": "Cottbus",
+      "city": "Cottbus",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 51.7567447,
+        "lon": 14.3357307,
+        "label": "Cottbus - Chóśebuz, Brandenburg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-eberswalde",
+      "name": "Eberswalde",
+      "city": "Eberswalde",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 52.8350807,
+        "lon": 13.7996542,
+        "label": "Eberswalde, Barnim, Brandenburg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-perleberg",
+      "name": "Perleberg",
+      "city": "Perleberg",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 53.0762716,
+        "lon": 11.8627933,
+        "label": "Perleberg, Prignitz, Brandenburg, 19348, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-potsdam",
+      "name": "Potsdam",
+      "city": "Potsdam",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/en/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 52.4009309,
+        "lon": 13.0591397,
+        "label": "Potsdam, Brandenburg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/en/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-seelow",
+      "name": "Seelow",
+      "city": "Seelow",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 52.5318238,
+        "lon": 14.380704,
+        "label": "Seelow, Märkisch-Oderland, Brandenburg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-strausberg",
+      "name": "Strausberg",
+      "city": "Strausberg",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 52.5814009,
+        "lon": 13.8833952,
+        "label": "Strausberg, Märkisch-Oderland, Brandenburg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-teltow",
+      "name": "Teltow",
+      "city": "Teltow",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 52.3805562,
+        "lon": 13.2685278,
+        "label": "Teltow, Potsdam-Mittelmark, Brandenburg, 14513, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-brandenburg-wittenberge",
+      "name": "Wittenberge",
+      "city": "Wittenberge",
+      "region": "Brandenburg",
+      "country": "Deutschland",
+      "url": "https://nein-zur-bezahlkarte.de/how-to/",
+      "domain": "nein-zur-bezahlkarte.de",
+      "coordinates": {
+        "lat": 53.0112877,
+        "lon": 11.7374296,
+        "label": "Wittenberge, Prignitz, Brandenburg, 19322, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-bremen-bremen",
+      "name": "Bremen",
+      "city": "Bremen",
+      "region": "Bremen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/nein_zur_schikanekarte_bremen/",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 53.144869,
+        "lon": 8.6932343,
+        "label": "Bremen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-hamburg-hamburg",
+      "name": "Hamburg",
+      "city": "Hamburg",
+      "region": "Hamburg",
+      "country": "Deutschland",
+      "url": "https://www.bezahlkarte-nein.de/",
+      "domain": "bezahlkarte-nein.de",
+      "coordinates": {
+        "lat": 53.5501721,
+        "lon": 10.0013165,
+        "label": "Hamburg, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.bezahlkarte-nein.de/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-darmstadt",
+      "name": "Darmstadt",
+      "city": "Darmstadt",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/darmstadt/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 49.872775,
+        "lon": 8.651177,
+        "label": "Darmstadt, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/darmstadt/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-frankfurt-am-main",
+      "name": "Frankfurt am Main",
+      "city": "Frankfurt am Main",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/frankfurt/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.1106444,
+        "lon": 8.6820917,
+        "label": "Frankfurt am Main, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/frankfurt/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-gie-en",
+      "name": "Gießen",
+      "city": "Gießen",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/giessen/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.5862066,
+        "lon": 8.6742306,
+        "label": "Gießen, Landkreis Gießen, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/giessen/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-hanau",
+      "name": "Hanau",
+      "city": "Hanau",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/hanau/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.132881,
+        "lon": 8.9169797,
+        "label": "Hanau, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/hanau/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-hessen",
+      "name": "Hessen",
+      "city": "Hessen",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.6080651,
+        "lon": 9.0284647,
+        "label": "Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-idstein",
+      "name": "Idstein",
+      "city": "Idstein",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/idstein/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.2147,
+        "lon": 8.2902,
+        "label": "Idstein, Rheingau-Taunus-Kreis, Hessen, 65510, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/idstein/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-kassel",
+      "name": "Kassel",
+      "city": "Kassel",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/kassel/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 51.3157833,
+        "lon": 9.4978479,
+        "label": "Kassel, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/kassel/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-limburg",
+      "name": "Limburg",
+      "city": "Limburg",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/limburg/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.3880447,
+        "lon": 8.063531,
+        "label": "Limburg an der Lahn, Landkreis Limburg-Weilburg, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/limburg/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-main-taunus-kreis",
+      "name": "Main-Taunus-Kreis",
+      "city": "Main-Taunus-Kreis",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/mtk/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.0995751,
+        "lon": 8.4264122,
+        "label": "Main-Taunus-Kreis, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/mtk/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-marburg",
+      "name": "Marburg",
+      "city": "Marburg",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/marburg-solidarisch/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.8090106,
+        "lon": 8.7704695,
+        "label": "Marburg, Landkreis Marburg-Biedenkopf, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/marburg-solidarisch/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-offenbach",
+      "name": "Offenbach",
+      "city": "Offenbach",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/offenbach/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.1055002,
+        "lon": 8.7610698,
+        "label": "Offenbach am Main, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/offenbach/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-wetterau",
+      "name": "Wetterau",
+      "city": "Wetterau",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/wetterau/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.3551,
+        "lon": 8.8621,
+        "label": "Reichelsheim (Wetterau), Wetteraukreis, Hessen, 61203, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/wetterau/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-wiesbaden",
+      "name": "Wiesbaden",
+      "city": "Wiesbaden",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/wiesbaden/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 50.0820384,
+        "lon": 8.2416556,
+        "label": "Wiesbaden, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/wiesbaden/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-hessen-witzenhausen",
+      "name": "Witzenhausen",
+      "city": "Witzenhausen",
+      "region": "Hessen",
+      "country": "Deutschland",
+      "url": "https://hessensagtnein.de/t/witzenhausen/",
+      "domain": "hessensagtnein.de",
+      "coordinates": {
+        "lat": 51.3331901,
+        "lon": 9.8434192,
+        "label": "Witzenhausen, Werra-Meißner-Kreis, Hessen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hessensagtnein.de/t/witzenhausen/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-mecklenburg-vorpommern-greifswald",
+      "name": "Greifswald",
+      "city": "Greifswald",
+      "region": "Mecklenburg-Vorpommern",
+      "country": "Deutschland",
+      "url": "https://hgwhilft.de/bezahlkarte/",
+      "domain": "hgwhilft.de",
+      "coordinates": {
+        "lat": 54.095791,
+        "lon": 13.3815238,
+        "label": "Greifswald, Vorpommern-Greifswald, Mecklenburg-Vorpommern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://hgwhilft.de/bezahlkarte/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-mecklenburg-vorpommern-mecklenburg-vorpommern",
+      "name": "Mecklenburg-Vorpommern",
+      "city": "Mecklenburg-Vorpommern",
+      "region": "Mecklenburg-Vorpommern",
+      "country": "Deutschland",
+      "url": "https://www.bleiberecht-mv.org/bezahlkarte-stoppen",
+      "domain": "bleiberecht-mv.org",
+      "coordinates": {
+        "lat": 53.7735064,
+        "lon": 12.5755471,
+        "label": "Mecklenburg-Vorpommern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bleiberecht-mv.org/de/bezahlkarte-stoppen/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-mecklenburg-vorpommern-mecklenburgische-seenplatte-landkreis",
+      "name": "Mecklenburgische Seenplatte - Landkreis",
+      "city": "Mecklenburgische Seenplatte - Landkreis",
+      "region": "Mecklenburg-Vorpommern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/tausch_initiative_mse/",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 53.5838993,
+        "lon": 13.0638679,
+        "label": "Mecklenburgische Seenplatte, Mecklenburg-Vorpommern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-mecklenburg-vorpommern-parchim",
+      "name": "Parchim",
+      "city": "Parchim",
+      "region": "Mecklenburg-Vorpommern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/netzwerk_fluechtlinge_pch/",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 53.4258455,
+        "lon": 11.8475244,
+        "label": "Parchim, Ludwigslust-Parchim, Mecklenburg-Vorpommern, 19370, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-mecklenburg-vorpommern-rostock",
+      "name": "Rostock",
+      "city": "Rostock",
+      "region": "Mecklenburg-Vorpommern",
+      "country": "Deutschland",
+      "url": "https://bezahlkarterostock.bleiberecht-mv.org/",
+      "domain": "bezahlkarterostock.bleiberecht-mv.org",
+      "coordinates": {
+        "lat": 54.0886707,
+        "lon": 12.1400211,
+        "label": "Rostock, Mecklenburg-Vorpommern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bezahlkarterostock.bleiberecht-mv.org/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-mecklenburg-vorpommern-schwerin",
+      "name": "Schwerin",
+      "city": "Schwerin",
+      "region": "Mecklenburg-Vorpommern",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/neinzurbezahlkarteschwerin",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 53.6288297,
+        "lon": 11.4148038,
+        "label": "Schwerin, Mecklenburg-Vorpommern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-mecklenburg-vorpommern-stralsund",
+      "name": "Stralsund",
+      "city": "Stralsund",
+      "region": "Mecklenburg-Vorpommern",
+      "country": "Deutschland",
+      "url": "https://tauschtreff-stralsund.de/de",
+      "domain": "tauschtreff-stralsund.de",
+      "coordinates": {
+        "lat": 54.3096314,
+        "lon": 13.0820846,
+        "label": "Stralsund, Vorpommern-Rügen, Mecklenburg-Vorpommern, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://tauschtreff-stralsund.de/de",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-braunschweig",
+      "name": "Braunschweig",
+      "city": "Braunschweig",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte-bs.org/",
+      "domain": "neinzurbezahlkarte-bs.org",
+      "coordinates": {
+        "lat": 52.2646577,
+        "lon": 10.5236066,
+        "label": "Braunschweig, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte-bs.org/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-emden",
+      "name": "Emden",
+      "city": "Emden",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/neinzurbezahlkarteostfriesland",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 53.3670541,
+        "lon": 7.2058304,
+        "label": "Emden, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-gottingen",
+      "name": "Göttingen",
+      "city": "Göttingen",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/neinzurbezahlkarte.goettingen",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 51.5328328,
+        "lon": 9.9351811,
+        "label": "Göttingen, Landkreis Göttingen, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-hannover",
+      "name": "Hannover",
+      "city": "Hannover",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hannover:Hauptseite",
+      "domain": "niedersachsen.bezahlkarte-nein.de",
+      "coordinates": {
+        "lat": 52.3744779,
+        "lon": 9.7385532,
+        "label": "Hannover, Region Hannover, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hannover:Hauptseite",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-hildesheim",
+      "name": "Hildesheim",
+      "city": "Hildesheim",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hildesheim:Hauptseite",
+      "domain": "niedersachsen.bezahlkarte-nein.de",
+      "coordinates": {
+        "lat": 52.1527188,
+        "lon": 9.9518083,
+        "label": "Hildesheim, Landkreis Hildesheim, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hildesheim:Hauptseite",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-leer",
+      "name": "Leer",
+      "city": "Leer",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.de/leer/",
+      "domain": "neinzurbezahlkarte.de",
+      "coordinates": {
+        "lat": 53.2332168,
+        "lon": 7.4567555,
+        "label": "Leer (Ostfriesland), Landkreis Leer, Niedersachsen, 26789, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.de/leer/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-lingen",
+      "name": "Lingen",
+      "city": "Lingen",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://www.whatsapp.com/channel/0029Vb77lMm60eBac4pWL33C",
+      "domain": "whatsapp.com",
+      "coordinates": {
+        "lat": 52.5224659,
+        "lon": 7.316584,
+        "label": "Lingen (Ems), Landkreis Emsland, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-luneburg",
+      "name": "Lüneburg",
+      "city": "Lüneburg",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://wonderl.ink/@neinzurbezahlkartelueneburg",
+      "domain": "wonderl.ink",
+      "coordinates": {
+        "lat": 53.248706,
+        "lon": 10.407855,
+        "label": "Lüneburg, Landkreis Lüneburg, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://wonderl.ink/@neinzurbezahlkartelueneburg",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-niedersachsen",
+      "name": "Niedersachsen",
+      "city": "Niedersachsen",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://www.nds-fluerat.org/aktionen/aktionsseite-gegen-die-diskriminierende-bezahlkarte-in-niedersachsen-und-anderswo/",
+      "domain": "nds-fluerat.org",
+      "coordinates": {
+        "lat": 52.8398531,
+        "lon": 9.075962,
+        "label": "Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.nds-fluerat.org/aktionen/aktionsseite-gegen-die-diskriminierende-bezahlkarte-in-niedersachsen-und-anderswo/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-oldenburg",
+      "name": "Oldenburg",
+      "city": "Oldenburg",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.de/oldenburg/",
+      "domain": "neinzurbezahlkarte.de",
+      "coordinates": {
+        "lat": 53.1389753,
+        "lon": 8.2146017,
+        "label": "Oldenburg, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.de/oldenburg/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-osnabruck",
+      "name": "Osnabrück",
+      "city": "Osnabrück",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://linktr.ee/neinzurbezahlkarteos",
+      "domain": "linktr.ee",
+      "coordinates": {
+        "lat": 52.2719595,
+        "lon": 8.047635,
+        "label": "Osnabrück, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://linktr.ee/neinzurbezahlkarteos",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-salzderhelden",
+      "name": "Salzderhelden",
+      "city": "Salzderhelden",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://niedersachsen.bezahlkarte-nein.de/wiki/Salzderhelden:Hauptseite",
+      "domain": "niedersachsen.bezahlkarte-nein.de",
+      "coordinates": {
+        "lat": 51.7977841,
+        "lon": 9.9127987,
+        "label": "Salzderhelden, Einbeck, Landkreis Northeim, Niedersachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Salzderhelden:Hauptseite",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-niedersachsen-wendland",
+      "name": "Wendland",
+      "city": "Wendland",
+      "region": "Niedersachsen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/bk_nein_danke",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 52.9233083,
+        "lon": 11.12666,
+        "label": "Wustrow, Samtgemeinde Lüchow (Wendland), Landkreis Lüchow-Dannenberg, Niedersachsen, 29462, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-nordrhein-westfalen-bonn",
+      "name": "Bonn",
+      "city": "Bonn",
+      "region": "Nordrhein-Westfalen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/abolish.bezahlkarte.bonn/",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 50.7352621,
+        "lon": 7.1024635,
+        "label": "Bonn, Nordrhein-Westfalen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-nordrhein-westfalen-essen",
+      "name": "Essen",
+      "city": "Essen",
+      "region": "Nordrhein-Westfalen",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.de/essen/",
+      "domain": "neinzurbezahlkarte.de",
+      "coordinates": {
+        "lat": 51.4582235,
+        "lon": 7.0158171,
+        "label": "Essen, Nordrhein-Westfalen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.de/essen/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-nordrhein-westfalen-hamm",
+      "name": "Hamm",
+      "city": "Hamm",
+      "region": "Nordrhein-Westfalen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/tauschsystem.hammersache",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 51.681281,
+        "lon": 7.8191185,
+        "label": "Hamm, Nordrhein-Westfalen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-nordrhein-westfalen-koln",
+      "name": "Köln",
+      "city": "Köln",
+      "region": "Nordrhein-Westfalen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/neinzurbezahlkarte_koeln/",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 50.938361,
+        "lon": 6.959974,
+        "label": "Köln, Nordrhein-Westfalen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-nordrhein-westfalen-munster",
+      "name": "Münster",
+      "city": "Münster",
+      "region": "Nordrhein-Westfalen",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.de/muenster/",
+      "domain": "neinzurbezahlkarte.de",
+      "coordinates": {
+        "lat": 51.9625101,
+        "lon": 7.6251879,
+        "label": "Münster, Nordrhein-Westfalen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.de/muenster/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-nordrhein-westfalen-wuppertal",
+      "name": "Wuppertal",
+      "city": "Wuppertal",
+      "region": "Nordrhein-Westfalen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/bergischesgegenbezahlkarte/",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 51.264018,
+        "lon": 7.1780374,
+        "label": "Wuppertal, Nordrhein-Westfalen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-saarland-saarland",
+      "name": "Saarland",
+      "city": "Saarland",
+      "region": "Saarland",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.saarland/",
+      "domain": "neinzurbezahlkarte.saarland",
+      "coordinates": {
+        "lat": 49.3841872,
+        "lon": 6.9537369,
+        "label": "Saarland, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.saarland/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-chemnitz",
+      "name": "Chemnitz",
+      "city": "Chemnitz",
+      "region": "Sachsen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/cashfuralle/",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 50.8323531,
+        "lon": 12.918914,
+        "label": "Chemnitz, Lichtenau, Sachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-dresden",
+      "name": "Dresden",
+      "city": "Dresden",
+      "region": "Sachsen",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.de/dresden/",
+      "domain": "neinzurbezahlkarte.de",
+      "coordinates": {
+        "lat": 51.0493286,
+        "lon": 13.7381437,
+        "label": "Dresden, Sachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.de/dresden/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-freiberg",
+      "name": "Freiberg",
+      "city": "Freiberg",
+      "region": "Sachsen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/gegendiebezahlkarte_fg?igsh=d2Zpamxwb21kcnhy",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 50.9169415,
+        "lon": 13.3428889,
+        "label": "Freiberg, Mittelsachsen, Sachsen, 09599, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-leipzig",
+      "name": "Leipzig",
+      "city": "Leipzig",
+      "region": "Sachsen",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.de/leipzig/",
+      "domain": "neinzurbezahlkarte.de",
+      "coordinates": {
+        "lat": 51.3406321,
+        "lon": 12.3747329,
+        "label": "Leipzig, Sachsen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.de/leipzig/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-zwickau",
+      "name": "Zwickau",
+      "city": "Zwickau",
+      "region": "Sachsen",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/bezahlkartentausch.zwickau?igsh=ODhldDVpaGV1ODdx",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 50.7185043,
+        "lon": 12.4939267,
+        "label": "Zwickau, Langenweißbach, Zwickau, Sachsen, 08134, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-anhalt-bernburg",
+      "name": "Bernburg",
+      "city": "Bernburg",
+      "region": "Sachsen-Anhalt",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-lsa.de/wp-content/uploads/2025/12/document.pdf",
+      "domain": "fluechtlingsrat-lsa.de",
+      "coordinates": {
+        "lat": 51.7939656,
+        "lon": 11.7373854,
+        "label": "Bernburg, Salzlandkreis, Sachsen-Anhalt, 06406, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.fluechtlingsrat-lsa.de/wp-content/uploads/2025/12/document.pdf",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-anhalt-dessau",
+      "name": "Dessau",
+      "city": "Dessau",
+      "region": "Sachsen-Anhalt",
+      "country": "Deutschland",
+      "url": "https://dessaunazifrei.wordpress.com/bezahlkarte/",
+      "domain": "dessaunazifrei.wordpress.com",
+      "coordinates": {
+        "lat": 51.8309956,
+        "lon": 12.2430723,
+        "label": "Dessau, Dessau-Roßlau, Sachsen-Anhalt, 06842, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://dessaunazifrei.wordpress.com/bezahlkarte/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-anhalt-halle",
+      "name": "Halle",
+      "city": "Halle",
+      "region": "Sachsen-Anhalt",
+      "country": "Deutschland",
+      "url": "https://bezahlkarte-halle.de/",
+      "domain": "bezahlkarte-halle.de",
+      "coordinates": {
+        "lat": 51.4824354,
+        "lon": 11.9712985,
+        "label": "Halle (Saale), Sachsen-Anhalt, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bezahlkarte-halle.de/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-anhalt-magdeburg",
+      "name": "Magdeburg",
+      "city": "Magdeburg",
+      "region": "Sachsen-Anhalt",
+      "country": "Deutschland",
+      "url": "https://www.dielinke-magdeburg.de/die-linke-hilft/bezahlkarte-information-in-english/",
+      "domain": "dielinke-magdeburg.de",
+      "coordinates": {
+        "lat": 52.1314783,
+        "lon": 11.6400789,
+        "label": "Magdeburg, Sachsen-Anhalt, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.dielinke-magdeburg.de/die-linke-hilft/bezahlkarte-information-in-english/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-sachsen-anhalt-salzwedel",
+      "name": "Salzwedel",
+      "city": "Salzwedel",
+      "region": "Sachsen-Anhalt",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-lsa.de/bezahlkarte/",
+      "domain": "fluechtlingsrat-lsa.de",
+      "coordinates": {
+        "lat": 52.8528456,
+        "lon": 11.1539699,
+        "label": "Salzwedel, Altmarkkreis Salzwedel, Sachsen-Anhalt, 29410, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.fluechtlingsrat-lsa.de/bezahlkarte/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "eutin",
+      "name": "Anti-SocialCard OH",
+      "city": "Eutin",
+      "region": "Schleswig-Holstein",
+      "country": "Deutschland",
+      "url": "https://linktr.ee/AntiSocialCardOH",
+      "domain": "linktr.ee",
+      "coordinates": {
+        "lat": 54.1325038,
+        "lon": 10.6132233,
+        "label": "Eutin, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Manuell",
+          "url": "https://linktr.ee/AntiSocialCardOH"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://linktr.ee/AntiSocialCardOH",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-schleswig-holstein-bargteheide",
+      "name": "Bargteheide",
+      "city": "Bargteheide",
+      "region": "Schleswig-Holstein",
+      "country": "Deutschland",
+      "url": "https://www.instagram.com/bezahlbar_bargteheide?igsh=N3IzOGE2c3p3bnJr",
+      "domain": "instagram.com",
+      "coordinates": {
+        "lat": 53.7279671,
+        "lon": 10.2618075,
+        "label": "Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": null
+    },
+    {
+      "id": "seebruecke-deutschland-schleswig-holstein-kiel",
+      "name": "Kiel",
+      "city": "Kiel",
+      "region": "Schleswig-Holstein",
+      "country": "Deutschland",
+      "url": "https://stadtteilladen.gaarden.net/anti-socialcard/get-cash/",
+      "domain": "stadtteilladen.gaarden.net",
+      "coordinates": {
+        "lat": 54.3227085,
+        "lon": 10.135555,
+        "label": "Kiel, Schleswig-Holstein, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://stadtteilladen.gaarden.net/anti-socialcard/get-cash/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-schleswig-holstein-meldorf",
+      "name": "Meldorf",
+      "city": "Meldorf",
+      "region": "Schleswig-Holstein",
+      "country": "Deutschland",
+      "url": "https://linke-dithmarschen.de/termine/infostand-bezahlkarte-so-nicht-in-meldorf/",
+      "domain": "linke-dithmarschen.de",
+      "coordinates": {
+        "lat": 54.08988,
+        "lon": 9.070633,
+        "label": "Meldorf, Mitteldithmarschen, Kreis Dithmarschen, Schleswig-Holstein, 25704, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://linke-dithmarschen.de/termine/infostand-bezahlkarte-so-nicht-in-meldorf/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-thuringen-erfurt",
+      "name": "Erfurt",
+      "city": "Erfurt",
+      "region": "Thüringen",
+      "country": "Deutschland",
+      "url": "https://neinzurbezahlkarte.de/erfurt/",
+      "domain": "neinzurbezahlkarte.de",
+      "coordinates": {
+        "lat": 50.9777974,
+        "lon": 11.0287364,
+        "label": "Erfurt, Thüringen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://neinzurbezahlkarte.de/erfurt/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-thuringen-gera",
+      "name": "Gera",
+      "city": "Gera",
+      "region": "Thüringen",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte#tabs-0-18434900-1756830376-5",
+      "domain": "fluechtlingsrat-thr.de",
+      "coordinates": {
+        "lat": 50.8765528,
+        "lon": 12.0832674,
+        "label": "Gera, Thüringen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-thuringen-greiz",
+      "name": "Greiz",
+      "city": "Greiz",
+      "region": "Thüringen",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte#tabs-0-18434900-1756830376-5",
+      "domain": "fluechtlingsrat-thr.de",
+      "coordinates": {
+        "lat": 50.6477963,
+        "lon": 12.1734848,
+        "label": "Greiz, Thüringen, 07973, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-thuringen-jena",
+      "name": "Jena",
+      "city": "Jena",
+      "region": "Thüringen",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+      "domain": "fluechtlingsrat-thr.de",
+      "coordinates": {
+        "lat": 50.9281717,
+        "lon": 11.5879359,
+        "label": "Jena, Thüringen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-thuringen-muhlhausen",
+      "name": "Mühlhausen",
+      "city": "Mühlhausen",
+      "region": "Thüringen",
+      "country": "Deutschland",
+      "url": "https://www.seebruecke.org/mach-mit/deutschland/thueringen/erfurt",
+      "domain": "seebruecke.org",
+      "coordinates": {
+        "lat": 51.2094255,
+        "lon": 10.4589044,
+        "label": "Mühlhausen/Thüringen, Unstrut-Hainich-Kreis, Thüringen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.seebruecke.org/mach-mit/deutschland/thueringen/erfurt",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-thuringen-nordhausen",
+      "name": "Nordhausen",
+      "city": "Nordhausen",
+      "region": "Thüringen",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+      "domain": "fluechtlingsrat-thr.de",
+      "coordinates": {
+        "lat": 51.5051574,
+        "lon": 10.7925317,
+        "label": "Nordhausen, Landkreis Nordhausen, Thüringen, 99734, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-thuringen-thuringen",
+      "name": "Thüringen",
+      "city": "Thüringen",
+      "region": "Thüringen",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+      "domain": "fluechtlingsrat-thr.de",
+      "coordinates": {
+        "lat": 50.9014721,
+        "lon": 11.0377839,
+        "label": "Thüringen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-deutschland-thuringen-weimar",
+      "name": "Weimar",
+      "city": "Weimar",
+      "region": "Thüringen",
+      "country": "Deutschland",
+      "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+      "domain": "fluechtlingsrat-thr.de",
+      "coordinates": {
+        "lat": 50.9793301,
+        "lon": 11.3297921,
+        "label": "Weimar, Thüringen, Deutschland"
+      },
+      "transitLinks": [],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "seebruecke-osterreich-osterreich-graz",
+      "name": "Graz",
+      "city": "Graz",
+      "region": "Österreich",
+      "country": "Österreich",
+      "url": "https://linksvondermur.noblogs.org/initiative-gegen-bezahlkarte",
+      "domain": "linksvondermur.noblogs.org",
+      "coordinates": {
+        "lat": 47.0708678,
+        "lon": 15.4382786,
+        "label": "Graz, Steiermark, Österreich"
+      },
+      "transitLinks": [
+        {
+          "label": "Verbund Linie",
+          "url": "https://www.verbundlinie.at/"
+        }
+      ],
+      "sources": [
+        {
+          "label": "Seebrücke",
+          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
+        }
+      ],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T12:07:46.277Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://linksvondermur.noblogs.org/initiative-gegen-bezahlkarte/",
+        "method": "HEAD",
+        "error": ""
+      }
+    }
+  ]
+}

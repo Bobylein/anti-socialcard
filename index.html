@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="de" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mehrsprachige Übersicht von Initiativen und Tauschaktionen gegen die Bezahlkarte für Geflüchtete.">
+  <title>Anti-SocialCard.de</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #151515;
+      --muted: #626262;
+      --paper: #f8f8f5;
+      --panel: #ffffff;
+      --line: #ddddda;
+      --accent: #0f6760;
+      --accent-soft: #e7f0ee;
+      --focus: #123c69;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.45;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      display: grid;
+      gap: 22px;
+      padding: 34px 0 24px;
+    }
+
+    .topline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .brand {
+      margin: 0;
+      font-weight: 760;
+      font-size: 1rem;
+    }
+
+    .language-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .language-switcher button {
+      min-height: 34px;
+      padding: 0 10px;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-weight: 650;
+    }
+
+    .language-switcher button[aria-pressed="true"] {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 4.35rem);
+      line-height: 1.02;
+      letter-spacing: 0;
+      font-weight: 780;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.14rem);
+    }
+
+    .quick-start {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 10px;
+      align-items: end;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 690;
+    }
+
+    input, select, button {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--ink);
+      font: inherit;
+    }
+
+    input, select { width: 100%; padding: 0 12px; }
+
+    button {
+      padding: 0 14px;
+      cursor: pointer;
+      font-weight: 720;
+      background: var(--ink);
+      color: #fff;
+      border-color: var(--ink);
+    }
+
+    button.secondary {
+      background: var(--panel);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    main { padding: 20px 0 56px; }
+
+    .status {
+      min-height: 22px;
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .section {
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.25rem, 3vw, 1.8rem);
+      line-height: 1.12;
+      font-weight: 760;
+      letter-spacing: 0;
+    }
+
+    .count, .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .map-panel {
+      display: grid;
+      gap: 10px;
+    }
+
+    .map-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    #map {
+      display: none;
+      min-height: 430px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #e9ece8;
+    }
+
+    .filters {
+      position: sticky;
+      top: 0;
+      z-index: 3;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr auto;
+      gap: 10px;
+      align-items: end;
+      padding: 12px 0;
+      background: rgba(248, 248, 245, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 8px;
+    }
+
+    .initiative {
+      display: grid;
+      gap: 10px;
+      min-height: 126px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .initiative h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.25;
+      font-weight: 760;
+      overflow-wrap: anywhere;
+    }
+
+    .initiative p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      overflow-wrap: anywhere;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-self: end;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 690;
+    }
+
+    .links a:hover, .links a:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .distance { color: var(--accent); font-weight: 760; }
+
+    .no-results {
+      display: none;
+      padding: 22px 0;
+      color: var(--muted);
+    }
+
+    .all-initiatives {
+      margin-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .all-initiatives > summary {
+      padding: 18px 0;
+      cursor: pointer;
+      font-size: 1.08rem;
+      font-weight: 760;
+    }
+
+    .all-initiatives[open] > summary {
+      border-bottom: 1px solid var(--line);
+    }
+
+    footer {
+      padding: 24px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 20px, 1120px); }
+      .hero { padding: 22px 0 18px; }
+      .quick-start, .filters { grid-template-columns: 1fr; padding-left: 0; padding-right: 0; }
+      .quick-start { padding: 14px; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      button { width: 100%; }
+      .language-switcher button { width: auto; }
+      #map { min-height: 340px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div class="topline">
+        <p class="brand">Anti-SocialCard.de</p>
+        <nav class="language-switcher" id="language-switcher" aria-label="Language"></nav>
+      </div>
+      <h1 data-i18n="title">Initiativen gegen die Bezahlkarte</h1>
+      <p class="intro" data-i18n="intro">Eine Übersicht lokaler Gruppen und Tauschaktionen.</p>
+      <form class="quick-start" id="locator">
+        <label>
+          <span data-i18n="locationLabel">Dein Ort</span>
+          <input id="location" autocomplete="off" data-i18n-placeholder="locationPlaceholder">
+        </label>
+        <button type="submit" data-i18n="findNearest">Nächste finden</button>
+        <button class="secondary" type="button" id="use-location" data-i18n="useLocation">Standort nutzen</button>
+      </form>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="status" id="location-status" role="status" aria-live="polite" data-i18n="statusDefault"></p>
+
+    <div id="results" hidden>
+      <section class="section" id="nearest" aria-live="polite">
+        <div class="section-head">
+          <h2 data-i18n="nearestTitle">Nächste Initiativen</h2>
+          <span class="count" id="nearest-count"></span>
+        </div>
+        <div class="grid" id="nearest-grid"></div>
+      </section>
+
+      <section class="section map-panel">
+        <div class="section-head">
+          <h2 data-i18n="mapTitle">Karte</h2>
+          <span class="meta" data-i18n="mapOptIn">Die Karte lädt erst nach Aktivierung.</span>
+        </div>
+        <div class="map-actions">
+          <button type="button" id="show-map" class="secondary" data-i18n="showMap">Karte anzeigen</button>
+          <span class="meta" id="map-status"></span>
+        </div>
+        <div id="map" role="region" aria-label="Map"></div>
+      </section>
+
+      <details class="all-initiatives">
+        <summary data-i18n="allTitle">Alle Initiativen</summary>
+        <form class="filters" id="filters">
+          <label>
+            <span data-i18n="searchLabel">Suche</span>
+            <input id="search" type="search" autocomplete="off" data-i18n-placeholder="searchPlaceholder">
+          </label>
+          <label>
+            <span data-i18n="regionLabel">Region</span>
+            <select id="region">
+              <option value="" data-i18n="allRegions">Alle Regionen</option>
+              <option value="Baden-Württemberg">Baden-Württemberg</option><option value="Bayern">Bayern</option><option value="Berlin">Berlin</option><option value="Brandenburg">Brandenburg</option><option value="Bremen">Bremen</option><option value="Hamburg">Hamburg</option><option value="Hessen">Hessen</option><option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option><option value="Niedersachsen">Niedersachsen</option><option value="Nordrhein-Westfalen">Nordrhein-Westfalen</option><option value="Österreich">Österreich</option><option value="Saarland">Saarland</option><option value="Sachsen">Sachsen</option><option value="Sachsen-Anhalt">Sachsen-Anhalt</option><option value="Schleswig-Holstein">Schleswig-Holstein</option><option value="Thüringen">Thüringen</option>
+            </select>
+          </label>
+          <button type="reset" class="secondary" data-i18n="reset">Zurücksetzen</button>
+        </form>
+
+        <p class="meta">
+          <span data-i18n="updatedLabel">Zuletzt aktualisiert</span>:
+          <time datetime="2026-06-04T12:08:28.890Z">4. Juni 2026 um 14:08</time>.
+        </p>
+
+        <section class="section">
+          <div class="section-head">
+            <h2 data-i18n="allTitle">Alle Initiativen</h2>
+            <span class="count" id="list-count"></span>
+          </div>
+          <div id="list"></div>
+          <p class="no-results" id="no-results" data-i18n="noResults">Keine passenden Initiativen gefunden.</p>
+        </section>
+      </details>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap" data-i18n="footer"></div>
+  </footer>
+
+  <script type="application/json" id="initiative-data">[{"id":"seebruecke-deutschland-baden-wurttemberg-esslingen","name":"Esslingen","city":"Esslingen","region":"Baden-Württemberg","country":"Deutschland","url":"https://www.instagram.com/neinzurbezahlkarteesslingen","domain":"instagram.com","coordinates":{"lat":48.7427584,"lon":9.3071685,"label":"Esslingen am Neckar, Landkreis Esslingen, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-freiburg","name":"Freiburg","city":"Freiburg","region":"Baden-Württemberg","country":"Deutschland","url":"https://bezahlkarte-stoppen.org/","domain":"bezahlkarte-stoppen.org","coordinates":{"lat":47.9960901,"lon":7.8494005,"label":"Freiburg im Breisgau, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-heidelberg","name":"Heidelberg","city":"Heidelberg","region":"Baden-Württemberg","country":"Deutschland","url":"https://bezahlkarte-stoppen.de/de/","domain":"bezahlkarte-stoppen.de","coordinates":{"lat":49.4093582,"lon":8.694724,"label":"Heidelberg, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-karlsruhe","name":"Karlsruhe","city":"Karlsruhe","region":"Baden-Württemberg","country":"Deutschland","url":"https://nein-zur-bezahlkarte-karlsruhe.de/","domain":"nein-zur-bezahlkarte-karlsruhe.de","coordinates":{"lat":49.0068705,"lon":8.4034195,"label":"Karlsruhe, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-ludwigsburg","name":"Ludwigsburg","city":"Ludwigsburg","region":"Baden-Württemberg","country":"Deutschland","url":"https://nein-zur-bezahlkar.wixsite.com/neinzurbezahlkartelb","domain":"nein-zur-bezahlkar.wixsite.com","coordinates":{"lat":48.8953937,"lon":9.1895147,"label":"Ludwigsburg, Landkreis Ludwigsburg, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-mannheim","name":"Mannheim","city":"Mannheim","region":"Baden-Württemberg","country":"Deutschland","url":"https://www.instagram.com/bezahlkartestoppen_ma","domain":"instagram.com","coordinates":{"lat":49.4892913,"lon":8.4673098,"label":"Mannheim, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-mossingen","name":"Mössingen","city":"Mössingen","region":"Baden-Württemberg","country":"Deutschland","url":"https://kartentausch.epistello.org/","domain":"kartentausch.epistello.org","coordinates":{"lat":48.4069119,"lon":9.0602912,"label":"Mössingen, VVG der Stadt Mössingen, Landkreis Tübingen, Baden-Württemberg, 72116, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-nurtingen","name":"Nürtingen","city":"Nürtingen","region":"Baden-Württemberg","country":"Deutschland","url":"https://connectosn.noblogs.org/","domain":"connectosn.noblogs.org","coordinates":{"lat":48.6265854,"lon":9.3365463,"label":"Nürtingen, VVG der Stadt Nürtingen, Landkreis Esslingen, Baden-Württemberg, 72622, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-stuttgart","name":"Stuttgart","city":"Stuttgart","region":"Baden-Württemberg","country":"Deutschland","url":"https://nobezahlkartestgt.noblogs.org/","domain":"nobezahlkartestgt.noblogs.org","coordinates":{"lat":48.7784485,"lon":9.1800132,"label":"Stuttgart, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-tubingen","name":"Tübingen","city":"Tübingen","region":"Baden-Württemberg","country":"Deutschland","url":"https://keep.tuebingen.social/bezahlkarte/de","domain":"keep.tuebingen.social","coordinates":{"lat":48.5203263,"lon":9.053596,"label":"Tübingen, Landkreis Tübingen, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-baden-wurttemberg-ulm","name":"Ulm","city":"Ulm","region":"Baden-Württemberg","country":"Deutschland","url":"https://www.instagram.com/neinzurbezahlkarte_ulm","domain":"instagram.com","coordinates":{"lat":48.3984968,"lon":9.9912458,"label":"Ulm, Baden-Württemberg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-aschaffenburg","name":"Aschaffenburg","city":"Aschaffenburg","region":"Bayern","country":"Deutschland","url":"https://neinzurbezahlkarte.de/aschaffenburg/","domain":"neinzurbezahlkarte.de","coordinates":{"lat":49.9738133,"lon":9.1446665,"label":"Aschaffenburg, Bayern, 63739, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-augsburg","name":"Augsburg","city":"Augsburg","region":"Bayern","country":"Deutschland","url":"https://augsburgerfluechtlingsrat.blogspot.com/p/bezahlkarte-tauschaktion.html","domain":"augsburgerfluechtlingsrat.blogspot.com","coordinates":{"lat":48.3690341,"lon":10.8979522,"label":"Augsburg, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-bamberg","name":"Bamberg","city":"Bamberg","region":"Bayern","country":"Deutschland","url":"https://www.instagram.com/kartentausch_bamberg","domain":"instagram.com","coordinates":{"lat":49.8916044,"lon":10.8868478,"label":"Bamberg, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-bayreuth","name":"Bayreuth","city":"Bayreuth","region":"Bayern","country":"Deutschland","url":"https://www.instagram.com/kartentausch.bt/","domain":"instagram.com","coordinates":{"lat":49.9446345,"lon":11.5743543,"label":"Bayreuth, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-ebersberg","name":"Ebersberg","city":"Ebersberg","region":"Bayern","country":"Deutschland","url":"https://offen-muenchen.de/","domain":"offen-muenchen.de","coordinates":{"lat":48.0782763,"lon":11.9694372,"label":"Ebersberg, Baiern (VGem Glonn), Landkreis Ebersberg, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-eichstatt","name":"Eichstätt","city":"Eichstätt","region":"Bayern","country":"Deutschland","url":"https://www.instagram.com/offen_eichstaett","domain":"instagram.com","coordinates":{"lat":48.8863328,"lon":11.1989396,"label":"Eichstätt, Landkreis Eichstätt, Bayern, 85072, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-erlangen","name":"Erlangen","city":"Erlangen","region":"Bayern","country":"Deutschland","url":"https://www.instagram.com/kartentausch_er","domain":"instagram.com","coordinates":{"lat":49.5977469,"lon":11.0037372,"label":"Erlangen, Bayern, 91054, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-freising","name":"Freising","city":"Freising","region":"Bayern","country":"Deutschland","url":"https://offen-muenchen.de/","domain":"offen-muenchen.de","coordinates":{"lat":48.4008273,"lon":11.7439565,"label":"Freising, Landkreis Freising, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-furth","name":"Fürth","city":"Fürth","region":"Bayern","country":"Deutschland","url":"https://www.instagram.com/kartentausch_fuerth","domain":"instagram.com","coordinates":{"lat":49.4771169,"lon":10.988667,"label":"Fürth, Bayern, Deutschland"},"transitLinks":[{"label":"VGN","url":"https://www.vgn.de/"}],"aliases":[]},{"id":"seebruecke-deutschland-bayern-herzogenaurach","name":"Herzogenaurach","city":"Herzogenaurach","region":"Bayern","country":"Deutschland","url":"https://kartentausch-herzo.de/","domain":"kartentausch-herzo.de","coordinates":{"lat":49.5738171,"lon":10.8926968,"label":"Herzogenaurach, Landkreis Erlangen-Höchstadt, Bayern, 91074, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-ingolstadt","name":"Ingolstadt","city":"Ingolstadt","region":"Bayern","country":"Deutschland","url":"https://offen-muenchen.de/","domain":"offen-muenchen.de","coordinates":{"lat":48.7630165,"lon":11.4250395,"label":"Ingolstadt, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-kempten","name":"Kempten","city":"Kempten","region":"Bayern","country":"Deutschland","url":"https://www.instagram.com/seebruecke.kempten","domain":"instagram.com","coordinates":{"lat":47.7267063,"lon":10.3168835,"label":"Kempten (Allgäu), Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-landshut","name":"Landshut","city":"Landshut","region":"Bayern","country":"Deutschland","url":"https://www.instagram.com/solidarische_wechselstube_la","domain":"instagram.com","coordinates":{"lat":48.536217,"lon":12.1516551,"label":"Landshut, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-munchen","name":"München","city":"München","region":"Bayern","country":"Deutschland","url":"https://offen-muenchen.de/","domain":"offen-muenchen.de","coordinates":{"lat":48.1371079,"lon":11.5753822,"label":"München, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-nurnberg","name":"Nürnberg","city":"Nürnberg","region":"Bayern","country":"Deutschland","url":"https://www.fluechtlingsrat-bayern.de/vorstellung-initiative-gegen-die-bezahlkarte-nuernberg","domain":"fluechtlingsrat-bayern.de","coordinates":{"lat":49.453872,"lon":11.077298,"label":"Nürnberg, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-nurnberg-sud","name":"Nürnberg Süd","city":"Nürnberg Süd","region":"Bayern","country":"Deutschland","url":"http://instagram.com/kartentausch_nbg_sued","domain":"instagram.com","coordinates":{"lat":49.453872,"lon":11.077298,"label":"Nürnberg, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-passau","name":"Passau","city":"Passau","region":"Bayern","country":"Deutschland","url":"https://seebruecke-passau.de/kartentauschaktion","domain":"seebruecke-passau.de","coordinates":{"lat":48.5748229,"lon":13.4609744,"label":"Passau, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-regensburg","name":"Regensburg","city":"Regensburg","region":"Bayern","country":"Deutschland","url":"https://www.kartentausch-regensburg.de/","domain":"kartentausch-regensburg.de","coordinates":{"lat":49.0195333,"lon":12.0974869,"label":"Regensburg, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-rosenheim","name":"Rosenheim","city":"Rosenheim","region":"Bayern","country":"Deutschland","url":"https://bktrosenheim.noblogs.org/","domain":"bktrosenheim.noblogs.org","coordinates":{"lat":47.8557873,"lon":12.1272983,"label":"Rosenheim, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-weilheim-schongau-landkreis","name":"Weilheim-Schongau - Landkreis","city":"Weilheim-Schongau - Landkreis","region":"Bayern","country":"Deutschland","url":"https://bezahlkarte.kulturladen.org/","domain":"bezahlkarte.kulturladen.org","coordinates":{"lat":47.8059338,"lon":11.0315421,"label":"Landkreis Weilheim-Schongau, Bayern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bayern-wurzburg","name":"Würzburg","city":"Würzburg","region":"Bayern","country":"Deutschland","url":"https://wuerzburg-nein-bezahlkarte.de/","domain":"wuerzburg-nein-bezahlkarte.de","coordinates":{"lat":49.7933723,"lon":9.9309779,"label":"Würzburg, Bayern, 97070, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-berlin-berlin-brandenburg","name":"Berlin/Brandenburg","city":"Berlin","region":"Berlin","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":52.520008,"lon":13.404954,"label":"Berlin, Deutschland"},"transitLinks":[{"label":"BVG","url":"https://www.bvg.de/"},{"label":"VBB","url":"https://www.vbb.de/"}],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-brandenburg","name":"Brandenburg","city":"Brandenburg","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":52.8455492,"lon":13.2461296,"label":"Brandenburg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-bruck","name":"Brück","city":"Brück","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":52.1923564,"lon":12.7584313,"label":"Brück, Potsdam-Mittelmark, Brandenburg, 14822, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-cottbus","name":"Cottbus","city":"Cottbus","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":51.7567447,"lon":14.3357307,"label":"Cottbus - Chóśebuz, Brandenburg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-eberswalde","name":"Eberswalde","city":"Eberswalde","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":52.8350807,"lon":13.7996542,"label":"Eberswalde, Barnim, Brandenburg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-perleberg","name":"Perleberg","city":"Perleberg","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":53.0762716,"lon":11.8627933,"label":"Perleberg, Prignitz, Brandenburg, 19348, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-potsdam","name":"Potsdam","city":"Potsdam","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/en/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":52.4009309,"lon":13.0591397,"label":"Potsdam, Brandenburg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-seelow","name":"Seelow","city":"Seelow","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":52.5318238,"lon":14.380704,"label":"Seelow, Märkisch-Oderland, Brandenburg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-strausberg","name":"Strausberg","city":"Strausberg","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":52.5814009,"lon":13.8833952,"label":"Strausberg, Märkisch-Oderland, Brandenburg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-teltow","name":"Teltow","city":"Teltow","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":52.3805562,"lon":13.2685278,"label":"Teltow, Potsdam-Mittelmark, Brandenburg, 14513, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-brandenburg-wittenberge","name":"Wittenberge","city":"Wittenberge","region":"Brandenburg","country":"Deutschland","url":"https://nein-zur-bezahlkarte.de/how-to/","domain":"nein-zur-bezahlkarte.de","coordinates":{"lat":53.0112877,"lon":11.7374296,"label":"Wittenberge, Prignitz, Brandenburg, 19322, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-bremen-bremen","name":"Bremen","city":"Bremen","region":"Bremen","country":"Deutschland","url":"https://www.instagram.com/nein_zur_schikanekarte_bremen/","domain":"instagram.com","coordinates":{"lat":53.144869,"lon":8.6932343,"label":"Bremen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hamburg-hamburg","name":"Hamburg","city":"Hamburg","region":"Hamburg","country":"Deutschland","url":"https://www.bezahlkarte-nein.de/","domain":"bezahlkarte-nein.de","coordinates":{"lat":53.5501721,"lon":10.0013165,"label":"Hamburg, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-darmstadt","name":"Darmstadt","city":"Darmstadt","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/darmstadt/","domain":"hessensagtnein.de","coordinates":{"lat":49.872775,"lon":8.651177,"label":"Darmstadt, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-frankfurt-am-main","name":"Frankfurt am Main","city":"Frankfurt am Main","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/frankfurt/","domain":"hessensagtnein.de","coordinates":{"lat":50.1106444,"lon":8.6820917,"label":"Frankfurt am Main, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-gie-en","name":"Gießen","city":"Gießen","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/giessen/","domain":"hessensagtnein.de","coordinates":{"lat":50.5862066,"lon":8.6742306,"label":"Gießen, Landkreis Gießen, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-hanau","name":"Hanau","city":"Hanau","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/hanau/","domain":"hessensagtnein.de","coordinates":{"lat":50.132881,"lon":8.9169797,"label":"Hanau, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-hessen","name":"Hessen","city":"Hessen","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/","domain":"hessensagtnein.de","coordinates":{"lat":50.6080651,"lon":9.0284647,"label":"Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-idstein","name":"Idstein","city":"Idstein","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/idstein/","domain":"hessensagtnein.de","coordinates":{"lat":50.2147,"lon":8.2902,"label":"Idstein, Rheingau-Taunus-Kreis, Hessen, 65510, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-kassel","name":"Kassel","city":"Kassel","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/kassel/","domain":"hessensagtnein.de","coordinates":{"lat":51.3157833,"lon":9.4978479,"label":"Kassel, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-limburg","name":"Limburg","city":"Limburg","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/limburg/","domain":"hessensagtnein.de","coordinates":{"lat":50.3880447,"lon":8.063531,"label":"Limburg an der Lahn, Landkreis Limburg-Weilburg, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-main-taunus-kreis","name":"Main-Taunus-Kreis","city":"Main-Taunus-Kreis","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/mtk/","domain":"hessensagtnein.de","coordinates":{"lat":50.0995751,"lon":8.4264122,"label":"Main-Taunus-Kreis, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-marburg","name":"Marburg","city":"Marburg","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/marburg-solidarisch/","domain":"hessensagtnein.de","coordinates":{"lat":50.8090106,"lon":8.7704695,"label":"Marburg, Landkreis Marburg-Biedenkopf, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-offenbach","name":"Offenbach","city":"Offenbach","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/offenbach/","domain":"hessensagtnein.de","coordinates":{"lat":50.1055002,"lon":8.7610698,"label":"Offenbach am Main, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-wetterau","name":"Wetterau","city":"Wetterau","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/wetterau/","domain":"hessensagtnein.de","coordinates":{"lat":50.3551,"lon":8.8621,"label":"Reichelsheim (Wetterau), Wetteraukreis, Hessen, 61203, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-wiesbaden","name":"Wiesbaden","city":"Wiesbaden","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/wiesbaden/","domain":"hessensagtnein.de","coordinates":{"lat":50.0820384,"lon":8.2416556,"label":"Wiesbaden, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-hessen-witzenhausen","name":"Witzenhausen","city":"Witzenhausen","region":"Hessen","country":"Deutschland","url":"https://hessensagtnein.de/t/witzenhausen/","domain":"hessensagtnein.de","coordinates":{"lat":51.3331901,"lon":9.8434192,"label":"Witzenhausen, Werra-Meißner-Kreis, Hessen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-mecklenburg-vorpommern-greifswald","name":"Greifswald","city":"Greifswald","region":"Mecklenburg-Vorpommern","country":"Deutschland","url":"https://hgwhilft.de/bezahlkarte/","domain":"hgwhilft.de","coordinates":{"lat":54.095791,"lon":13.3815238,"label":"Greifswald, Vorpommern-Greifswald, Mecklenburg-Vorpommern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-mecklenburg-vorpommern-mecklenburg-vorpommern","name":"Mecklenburg-Vorpommern","city":"Mecklenburg-Vorpommern","region":"Mecklenburg-Vorpommern","country":"Deutschland","url":"https://www.bleiberecht-mv.org/bezahlkarte-stoppen","domain":"bleiberecht-mv.org","coordinates":{"lat":53.7735064,"lon":12.5755471,"label":"Mecklenburg-Vorpommern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-mecklenburg-vorpommern-mecklenburgische-seenplatte-landkreis","name":"Mecklenburgische Seenplatte - Landkreis","city":"Mecklenburgische Seenplatte - Landkreis","region":"Mecklenburg-Vorpommern","country":"Deutschland","url":"https://www.instagram.com/tausch_initiative_mse/","domain":"instagram.com","coordinates":{"lat":53.5838993,"lon":13.0638679,"label":"Mecklenburgische Seenplatte, Mecklenburg-Vorpommern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-mecklenburg-vorpommern-parchim","name":"Parchim","city":"Parchim","region":"Mecklenburg-Vorpommern","country":"Deutschland","url":"https://www.instagram.com/netzwerk_fluechtlinge_pch/","domain":"instagram.com","coordinates":{"lat":53.4258455,"lon":11.8475244,"label":"Parchim, Ludwigslust-Parchim, Mecklenburg-Vorpommern, 19370, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-mecklenburg-vorpommern-rostock","name":"Rostock","city":"Rostock","region":"Mecklenburg-Vorpommern","country":"Deutschland","url":"https://bezahlkarterostock.bleiberecht-mv.org/","domain":"bezahlkarterostock.bleiberecht-mv.org","coordinates":{"lat":54.0886707,"lon":12.1400211,"label":"Rostock, Mecklenburg-Vorpommern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-mecklenburg-vorpommern-schwerin","name":"Schwerin","city":"Schwerin","region":"Mecklenburg-Vorpommern","country":"Deutschland","url":"https://www.instagram.com/neinzurbezahlkarteschwerin","domain":"instagram.com","coordinates":{"lat":53.6288297,"lon":11.4148038,"label":"Schwerin, Mecklenburg-Vorpommern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-mecklenburg-vorpommern-stralsund","name":"Stralsund","city":"Stralsund","region":"Mecklenburg-Vorpommern","country":"Deutschland","url":"https://tauschtreff-stralsund.de/de","domain":"tauschtreff-stralsund.de","coordinates":{"lat":54.3096314,"lon":13.0820846,"label":"Stralsund, Vorpommern-Rügen, Mecklenburg-Vorpommern, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-braunschweig","name":"Braunschweig","city":"Braunschweig","region":"Niedersachsen","country":"Deutschland","url":"https://neinzurbezahlkarte-bs.org/","domain":"neinzurbezahlkarte-bs.org","coordinates":{"lat":52.2646577,"lon":10.5236066,"label":"Braunschweig, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-emden","name":"Emden","city":"Emden","region":"Niedersachsen","country":"Deutschland","url":"https://www.instagram.com/neinzurbezahlkarteostfriesland","domain":"instagram.com","coordinates":{"lat":53.3670541,"lon":7.2058304,"label":"Emden, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-gottingen","name":"Göttingen","city":"Göttingen","region":"Niedersachsen","country":"Deutschland","url":"https://www.instagram.com/neinzurbezahlkarte.goettingen","domain":"instagram.com","coordinates":{"lat":51.5328328,"lon":9.9351811,"label":"Göttingen, Landkreis Göttingen, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-hannover","name":"Hannover","city":"Hannover","region":"Niedersachsen","country":"Deutschland","url":"https://niedersachsen.bezahlkarte-nein.de/wiki/Hannover:Hauptseite","domain":"niedersachsen.bezahlkarte-nein.de","coordinates":{"lat":52.3744779,"lon":9.7385532,"label":"Hannover, Region Hannover, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-hildesheim","name":"Hildesheim","city":"Hildesheim","region":"Niedersachsen","country":"Deutschland","url":"https://niedersachsen.bezahlkarte-nein.de/wiki/Hildesheim:Hauptseite","domain":"niedersachsen.bezahlkarte-nein.de","coordinates":{"lat":52.1527188,"lon":9.9518083,"label":"Hildesheim, Landkreis Hildesheim, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-leer","name":"Leer","city":"Leer","region":"Niedersachsen","country":"Deutschland","url":"https://neinzurbezahlkarte.de/leer/","domain":"neinzurbezahlkarte.de","coordinates":{"lat":53.2332168,"lon":7.4567555,"label":"Leer (Ostfriesland), Landkreis Leer, Niedersachsen, 26789, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-lingen","name":"Lingen","city":"Lingen","region":"Niedersachsen","country":"Deutschland","url":"https://www.whatsapp.com/channel/0029Vb77lMm60eBac4pWL33C","domain":"whatsapp.com","coordinates":{"lat":52.5224659,"lon":7.316584,"label":"Lingen (Ems), Landkreis Emsland, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-luneburg","name":"Lüneburg","city":"Lüneburg","region":"Niedersachsen","country":"Deutschland","url":"https://wonderl.ink/@neinzurbezahlkartelueneburg","domain":"wonderl.ink","coordinates":{"lat":53.248706,"lon":10.407855,"label":"Lüneburg, Landkreis Lüneburg, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-niedersachsen","name":"Niedersachsen","city":"Niedersachsen","region":"Niedersachsen","country":"Deutschland","url":"https://www.nds-fluerat.org/aktionen/aktionsseite-gegen-die-diskriminierende-bezahlkarte-in-niedersachsen-und-anderswo/","domain":"nds-fluerat.org","coordinates":{"lat":52.8398531,"lon":9.075962,"label":"Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-oldenburg","name":"Oldenburg","city":"Oldenburg","region":"Niedersachsen","country":"Deutschland","url":"https://neinzurbezahlkarte.de/oldenburg/","domain":"neinzurbezahlkarte.de","coordinates":{"lat":53.1389753,"lon":8.2146017,"label":"Oldenburg, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-osnabruck","name":"Osnabrück","city":"Osnabrück","region":"Niedersachsen","country":"Deutschland","url":"https://linktr.ee/neinzurbezahlkarteos","domain":"linktr.ee","coordinates":{"lat":52.2719595,"lon":8.047635,"label":"Osnabrück, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-salzderhelden","name":"Salzderhelden","city":"Salzderhelden","region":"Niedersachsen","country":"Deutschland","url":"https://niedersachsen.bezahlkarte-nein.de/wiki/Salzderhelden:Hauptseite","domain":"niedersachsen.bezahlkarte-nein.de","coordinates":{"lat":51.7977841,"lon":9.9127987,"label":"Salzderhelden, Einbeck, Landkreis Northeim, Niedersachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-niedersachsen-wendland","name":"Wendland","city":"Wendland","region":"Niedersachsen","country":"Deutschland","url":"https://www.instagram.com/bk_nein_danke","domain":"instagram.com","coordinates":{"lat":52.9233083,"lon":11.12666,"label":"Wustrow, Samtgemeinde Lüchow (Wendland), Landkreis Lüchow-Dannenberg, Niedersachsen, 29462, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-nordrhein-westfalen-bonn","name":"Bonn","city":"Bonn","region":"Nordrhein-Westfalen","country":"Deutschland","url":"https://www.instagram.com/abolish.bezahlkarte.bonn/","domain":"instagram.com","coordinates":{"lat":50.7352621,"lon":7.1024635,"label":"Bonn, Nordrhein-Westfalen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-nordrhein-westfalen-essen","name":"Essen","city":"Essen","region":"Nordrhein-Westfalen","country":"Deutschland","url":"https://neinzurbezahlkarte.de/essen/","domain":"neinzurbezahlkarte.de","coordinates":{"lat":51.4582235,"lon":7.0158171,"label":"Essen, Nordrhein-Westfalen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-nordrhein-westfalen-hamm","name":"Hamm","city":"Hamm","region":"Nordrhein-Westfalen","country":"Deutschland","url":"https://www.instagram.com/tauschsystem.hammersache","domain":"instagram.com","coordinates":{"lat":51.681281,"lon":7.8191185,"label":"Hamm, Nordrhein-Westfalen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-nordrhein-westfalen-koln","name":"Köln","city":"Köln","region":"Nordrhein-Westfalen","country":"Deutschland","url":"https://www.instagram.com/neinzurbezahlkarte_koeln/","domain":"instagram.com","coordinates":{"lat":50.938361,"lon":6.959974,"label":"Köln, Nordrhein-Westfalen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-nordrhein-westfalen-munster","name":"Münster","city":"Münster","region":"Nordrhein-Westfalen","country":"Deutschland","url":"https://neinzurbezahlkarte.de/muenster/","domain":"neinzurbezahlkarte.de","coordinates":{"lat":51.9625101,"lon":7.6251879,"label":"Münster, Nordrhein-Westfalen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-nordrhein-westfalen-wuppertal","name":"Wuppertal","city":"Wuppertal","region":"Nordrhein-Westfalen","country":"Deutschland","url":"https://www.instagram.com/bergischesgegenbezahlkarte/","domain":"instagram.com","coordinates":{"lat":51.264018,"lon":7.1780374,"label":"Wuppertal, Nordrhein-Westfalen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-saarland-saarland","name":"Saarland","city":"Saarland","region":"Saarland","country":"Deutschland","url":"https://neinzurbezahlkarte.saarland/","domain":"neinzurbezahlkarte.saarland","coordinates":{"lat":49.3841872,"lon":6.9537369,"label":"Saarland, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-chemnitz","name":"Chemnitz","city":"Chemnitz","region":"Sachsen","country":"Deutschland","url":"https://www.instagram.com/cashfuralle/","domain":"instagram.com","coordinates":{"lat":50.8323531,"lon":12.918914,"label":"Chemnitz, Lichtenau, Sachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-dresden","name":"Dresden","city":"Dresden","region":"Sachsen","country":"Deutschland","url":"https://neinzurbezahlkarte.de/dresden/","domain":"neinzurbezahlkarte.de","coordinates":{"lat":51.0493286,"lon":13.7381437,"label":"Dresden, Sachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-freiberg","name":"Freiberg","city":"Freiberg","region":"Sachsen","country":"Deutschland","url":"https://www.instagram.com/gegendiebezahlkarte_fg?igsh=d2Zpamxwb21kcnhy","domain":"instagram.com","coordinates":{"lat":50.9169415,"lon":13.3428889,"label":"Freiberg, Mittelsachsen, Sachsen, 09599, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-leipzig","name":"Leipzig","city":"Leipzig","region":"Sachsen","country":"Deutschland","url":"https://neinzurbezahlkarte.de/leipzig/","domain":"neinzurbezahlkarte.de","coordinates":{"lat":51.3406321,"lon":12.3747329,"label":"Leipzig, Sachsen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-zwickau","name":"Zwickau","city":"Zwickau","region":"Sachsen","country":"Deutschland","url":"https://www.instagram.com/bezahlkartentausch.zwickau?igsh=ODhldDVpaGV1ODdx","domain":"instagram.com","coordinates":{"lat":50.7185043,"lon":12.4939267,"label":"Zwickau, Langenweißbach, Zwickau, Sachsen, 08134, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-anhalt-bernburg","name":"Bernburg","city":"Bernburg","region":"Sachsen-Anhalt","country":"Deutschland","url":"https://www.fluechtlingsrat-lsa.de/wp-content/uploads/2025/12/document.pdf","domain":"fluechtlingsrat-lsa.de","coordinates":{"lat":51.7939656,"lon":11.7373854,"label":"Bernburg, Salzlandkreis, Sachsen-Anhalt, 06406, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-anhalt-dessau","name":"Dessau","city":"Dessau","region":"Sachsen-Anhalt","country":"Deutschland","url":"https://dessaunazifrei.wordpress.com/bezahlkarte/","domain":"dessaunazifrei.wordpress.com","coordinates":{"lat":51.8309956,"lon":12.2430723,"label":"Dessau, Dessau-Roßlau, Sachsen-Anhalt, 06842, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-anhalt-halle","name":"Halle","city":"Halle","region":"Sachsen-Anhalt","country":"Deutschland","url":"https://bezahlkarte-halle.de/","domain":"bezahlkarte-halle.de","coordinates":{"lat":51.4824354,"lon":11.9712985,"label":"Halle (Saale), Sachsen-Anhalt, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-anhalt-magdeburg","name":"Magdeburg","city":"Magdeburg","region":"Sachsen-Anhalt","country":"Deutschland","url":"https://www.dielinke-magdeburg.de/die-linke-hilft/bezahlkarte-information-in-english/","domain":"dielinke-magdeburg.de","coordinates":{"lat":52.1314783,"lon":11.6400789,"label":"Magdeburg, Sachsen-Anhalt, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-sachsen-anhalt-salzwedel","name":"Salzwedel","city":"Salzwedel","region":"Sachsen-Anhalt","country":"Deutschland","url":"https://www.fluechtlingsrat-lsa.de/bezahlkarte/","domain":"fluechtlingsrat-lsa.de","coordinates":{"lat":52.8528456,"lon":11.1539699,"label":"Salzwedel, Altmarkkreis Salzwedel, Sachsen-Anhalt, 29410, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"eutin","name":"Anti-SocialCard OH","city":"Eutin","region":"Schleswig-Holstein","country":"Deutschland","url":"https://linktr.ee/AntiSocialCardOH","domain":"linktr.ee","coordinates":{"lat":54.1325038,"lon":10.6132233,"label":"Eutin, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-schleswig-holstein-bargteheide","name":"Bargteheide","city":"Bargteheide","region":"Schleswig-Holstein","country":"Deutschland","url":"https://www.instagram.com/bezahlbar_bargteheide?igsh=N3IzOGE2c3p3bnJr","domain":"instagram.com","coordinates":{"lat":53.7279671,"lon":10.2618075,"label":"Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-schleswig-holstein-kiel","name":"Kiel","city":"Kiel","region":"Schleswig-Holstein","country":"Deutschland","url":"https://stadtteilladen.gaarden.net/anti-socialcard/get-cash/","domain":"stadtteilladen.gaarden.net","coordinates":{"lat":54.3227085,"lon":10.135555,"label":"Kiel, Schleswig-Holstein, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-schleswig-holstein-meldorf","name":"Meldorf","city":"Meldorf","region":"Schleswig-Holstein","country":"Deutschland","url":"https://linke-dithmarschen.de/termine/infostand-bezahlkarte-so-nicht-in-meldorf/","domain":"linke-dithmarschen.de","coordinates":{"lat":54.08988,"lon":9.070633,"label":"Meldorf, Mitteldithmarschen, Kreis Dithmarschen, Schleswig-Holstein, 25704, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-thuringen-erfurt","name":"Erfurt","city":"Erfurt","region":"Thüringen","country":"Deutschland","url":"https://neinzurbezahlkarte.de/erfurt/","domain":"neinzurbezahlkarte.de","coordinates":{"lat":50.9777974,"lon":11.0287364,"label":"Erfurt, Thüringen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-thuringen-gera","name":"Gera","city":"Gera","region":"Thüringen","country":"Deutschland","url":"https://www.fluechtlingsrat-thr.de/themen/bezahlkarte#tabs-0-18434900-1756830376-5","domain":"fluechtlingsrat-thr.de","coordinates":{"lat":50.8765528,"lon":12.0832674,"label":"Gera, Thüringen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-thuringen-greiz","name":"Greiz","city":"Greiz","region":"Thüringen","country":"Deutschland","url":"https://www.fluechtlingsrat-thr.de/themen/bezahlkarte#tabs-0-18434900-1756830376-5","domain":"fluechtlingsrat-thr.de","coordinates":{"lat":50.6477963,"lon":12.1734848,"label":"Greiz, Thüringen, 07973, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-thuringen-jena","name":"Jena","city":"Jena","region":"Thüringen","country":"Deutschland","url":"https://www.fluechtlingsrat-thr.de/themen/bezahlkarte","domain":"fluechtlingsrat-thr.de","coordinates":{"lat":50.9281717,"lon":11.5879359,"label":"Jena, Thüringen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-thuringen-muhlhausen","name":"Mühlhausen","city":"Mühlhausen","region":"Thüringen","country":"Deutschland","url":"https://www.seebruecke.org/mach-mit/deutschland/thueringen/erfurt","domain":"seebruecke.org","coordinates":{"lat":51.2094255,"lon":10.4589044,"label":"Mühlhausen/Thüringen, Unstrut-Hainich-Kreis, Thüringen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-thuringen-nordhausen","name":"Nordhausen","city":"Nordhausen","region":"Thüringen","country":"Deutschland","url":"https://www.fluechtlingsrat-thr.de/themen/bezahlkarte","domain":"fluechtlingsrat-thr.de","coordinates":{"lat":51.5051574,"lon":10.7925317,"label":"Nordhausen, Landkreis Nordhausen, Thüringen, 99734, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-thuringen-thuringen","name":"Thüringen","city":"Thüringen","region":"Thüringen","country":"Deutschland","url":"https://www.fluechtlingsrat-thr.de/themen/bezahlkarte","domain":"fluechtlingsrat-thr.de","coordinates":{"lat":50.9014721,"lon":11.0377839,"label":"Thüringen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-deutschland-thuringen-weimar","name":"Weimar","city":"Weimar","region":"Thüringen","country":"Deutschland","url":"https://www.fluechtlingsrat-thr.de/themen/bezahlkarte","domain":"fluechtlingsrat-thr.de","coordinates":{"lat":50.9793301,"lon":11.3297921,"label":"Weimar, Thüringen, Deutschland"},"transitLinks":[],"aliases":[]},{"id":"seebruecke-osterreich-osterreich-graz","name":"Graz","city":"Graz","region":"Österreich","country":"Österreich","url":"https://linksvondermur.noblogs.org/initiative-gegen-bezahlkarte","domain":"linksvondermur.noblogs.org","coordinates":{"lat":47.0708678,"lon":15.4382786,"label":"Graz, Steiermark, Österreich"},"transitLinks":[{"label":"Verbund Linie","url":"https://www.verbundlinie.at/"}],"aliases":[]}]</script>
+  <script type="application/json" id="translation-data">{"de":{"allRegions":"Alle Regionen","allTitle":"Alle Initiativen","distanceKm":"km","entries":"Einträge","findNearest":"Nächste finden","footer":"Diese Seite aggregiert öffentlich verlinkte Initiativen. Ergänzungen und Korrekturen können im kuratierten Katalog gepflegt werden.","initiativesCount":"Initiativen","intro":"Finde lokale Gruppen, Tauschaktionen und Kampagnen gegen die Bezahlkarte.","locatedCount":"mit Standort","locationLabel":"Dein Ort","locationPlaceholder":"z. B. Leipzig, Bremen oder 12043","mapLoading":"Karte wird geladen...","mapOptIn":"Die Karte lädt erst nach Aktivierung externe OpenStreetMap-Kacheln.","mapReady":"Karte ist geladen.","mapTitle":"Karte","nearestTitle":"Nächste Initiativen","noResults":"Keine passenden Initiativen gefunden.","oneEntry":"1 Eintrag","regionLabel":"Region","regionsCount":"Regionen","reset":"Zurücksetzen","searchLabel":"Suche","searchPlaceholder":"Ort, Region oder Website","showMap":"Karte anzeigen","statusDefault":"Wähle eine Sprache und gib deinen Ort ein, um die nächsten Initiativen zu finden.","statusLocationFailed":"Standort konnte nicht ermittelt werden. Du kannst stattdessen einen Ort eingeben.","statusLocationDenied":"Standortzugriff wurde abgelehnt. Erlaube ihn in den Browser-Einstellungen oder gib einen Ort ein.","statusLocationInsecure":"Standortzugriff funktioniert nur über eine sichere HTTPS-Verbindung.","statusLocationTimeout":"Die Standortbestimmung dauert zu lange. Versuche es erneut oder gib einen Ort ein.","statusLocationUnsupported":"Dein Browser unterstützt Standortfreigabe nicht.","statusPlaceError":"Ort konnte nicht gesucht werden.","statusPlaceNotFound":"Ort nicht gefunden.","statusSearchingPlace":"Suche Ort...","statusSortedPrefix":"Sortiert nach Entfernung zu","statusWaitingLocation":"Warte auf Standortfreigabe...","title":"Initiativen gegen die Bezahlkarte","transit":"ÖPNV","updatedLabel":"Zuletzt aktualisiert","useLocation":"Standort nutzen","website":"Website","yourLocation":"deinem Standort"},"en":{"allRegions":"All regions","allTitle":"All initiatives","distanceKm":"km","entries":"entries","findNearest":"Find nearest","footer":"This page aggregates publicly linked initiatives. Additions and corrections can be maintained in the curated catalog.","initiativesCount":"Initiatives","intro":"Find local groups, exchange actions and campaigns against the social card.","locatedCount":"with location","locationLabel":"Your location","locationPlaceholder":"e.g. Leipzig, Bremen or 12043","mapLoading":"Loading map...","mapOptIn":"The map loads external OpenStreetMap tiles only after activation.","mapReady":"Map loaded.","mapTitle":"Map","nearestTitle":"Nearest initiatives","noResults":"No matching initiatives found.","oneEntry":"1 entry","regionLabel":"Region","regionsCount":"Regions","reset":"Reset","searchLabel":"Search","searchPlaceholder":"Place, region or website","showMap":"Show map","statusDefault":"Choose a language and enter your location to find nearby initiatives.","statusLocationFailed":"Location could not be detected. You can enter a place instead.","statusLocationDenied":"Location access was denied. Allow it in your browser settings or enter a place.","statusLocationInsecure":"Location access only works over a secure HTTPS connection.","statusLocationTimeout":"Location detection is taking too long. Try again or enter a place.","statusLocationUnsupported":"Your browser does not support location access.","statusPlaceError":"The place could not be searched.","statusPlaceNotFound":"Place not found.","statusSearchingPlace":"Searching place...","statusSortedPrefix":"Sorted by distance to","statusWaitingLocation":"Waiting for location permission...","title":"Initiatives against the social card","transit":"Public transport","updatedLabel":"Last updated","useLocation":"Use location","website":"Website","yourLocation":"your location"},"ar":{"allRegions":"كل المناطق","allTitle":"كل المبادرات","distanceKm":"كم","entries":"إدخالات","findNearest":"ابحث عن الأقرب","footer":"تجمع هذه الصفحة مبادرات وروابط عامة. يمكن إضافة التصحيحات في الكتالوج المنسق.","initiativesCount":"مبادرات","intro":"اعثر على مجموعات محلية وحملات تبادل ضد بطاقة الدفع.","locatedCount":"مع موقع","locationLabel":"موقعك","locationPlaceholder":"مثلا Leipzig أو Bremen أو 12043","mapLoading":"يتم تحميل الخريطة...","mapOptIn":"تُحمّل الخريطة مربعات OpenStreetMap الخارجية فقط بعد التفعيل.","mapReady":"تم تحميل الخريطة.","mapTitle":"الخريطة","nearestTitle":"أقرب المبادرات","noResults":"لم يتم العثور على مبادرات مناسبة.","oneEntry":"إدخال واحد","regionLabel":"المنطقة","regionsCount":"مناطق","reset":"إعادة ضبط","searchLabel":"بحث","searchPlaceholder":"مدينة أو منطقة أو موقع","showMap":"عرض الخريطة","statusDefault":"اختر لغة وأدخل موقعك للعثور على المبادرات القريبة.","statusLocationFailed":"تعذر تحديد الموقع. يمكنك إدخال مدينة بدلا من ذلك.","statusLocationDenied":"تم رفض الوصول إلى الموقع. اسمح به في إعدادات المتصفح أو أدخل مكانا.","statusLocationInsecure":"لا يعمل الوصول إلى الموقع إلا عبر اتصال HTTPS آمن.","statusLocationTimeout":"يستغرق تحديد الموقع وقتا طويلا. حاول مرة أخرى أو أدخل مكانا.","statusLocationUnsupported":"متصفحك لا يدعم مشاركة الموقع.","statusPlaceError":"تعذر البحث عن المكان.","statusPlaceNotFound":"لم يتم العثور على المكان.","statusSearchingPlace":"جار البحث عن المكان...","statusSortedPrefix":"مرتبة حسب المسافة إلى","statusWaitingLocation":"بانتظار إذن الموقع...","title":"مبادرات ضد بطاقة الدفع","transit":"المواصلات العامة","updatedLabel":"آخر تحديث","useLocation":"استخدم الموقع","website":"الموقع","yourLocation":"موقعك"},"ru":{"allRegions":"Все регионы","allTitle":"Все инициативы","distanceKm":"км","entries":"записей","findNearest":"Найти ближайшие","footer":"Эта страница собирает публичные ссылки на инициативы. Добавления и исправления можно вести в курируемом каталоге.","initiativesCount":"Инициативы","intro":"Найдите местные группы, акции обмена и кампании против платежной карты.","locatedCount":"с координатами","locationLabel":"Ваше место","locationPlaceholder":"например Leipzig, Bremen или 12043","mapLoading":"Карта загружается...","mapOptIn":"Карта загружает внешние тайлы OpenStreetMap только после включения.","mapReady":"Карта загружена.","mapTitle":"Карта","nearestTitle":"Ближайшие инициативы","noResults":"Подходящие инициативы не найдены.","oneEntry":"1 запись","regionLabel":"Регион","regionsCount":"Регионы","reset":"Сбросить","searchLabel":"Поиск","searchPlaceholder":"Город, регион или сайт","showMap":"Показать карту","statusDefault":"Выберите язык и введите место, чтобы найти ближайшие инициативы.","statusLocationFailed":"Не удалось определить местоположение. Можно ввести город вручную.","statusLocationDenied":"Доступ к местоположению запрещен. Разрешите его в настройках браузера или введите место.","statusLocationInsecure":"Доступ к местоположению работает только через безопасное HTTPS-соединение.","statusLocationTimeout":"Определение местоположения занимает слишком много времени. Попробуйте снова или введите место.","statusLocationUnsupported":"Ваш браузер не поддерживает доступ к местоположению.","statusPlaceError":"Не удалось выполнить поиск места.","statusPlaceNotFound":"Место не найдено.","statusSearchingPlace":"Идет поиск места...","statusSortedPrefix":"Отсортировано по расстоянию до","statusWaitingLocation":"Ожидание разрешения на местоположение...","title":"Инициативы против платежной карты","transit":"Общественный транспорт","updatedLabel":"Последнее обновление","useLocation":"Использовать место","website":"Сайт","yourLocation":"вашего места"},"ti":{"allRegions":"ኩሉ ክልላት","allTitle":"ኩለን ተበግሶታት","distanceKm":"ኪ.ሜ","entries":"መዝገባት","findNearest":"ቀረባ ድለ","footer":"እዚ ገጽ ብግልጺ ዝተዘርግሑ ተበግሶታት ይእክብ። ምውሳኽን ምእራምን ኣብ ካታሎግ ክካየድ ይኽእል።","initiativesCount":"ተበግሶታት","intro":"ናይ ከባቢ ጉጅለታትን ኣንጻር ናይ ክፍሊት ካርድ ዘለዉ ወፍርታትን ርኸብ።","locatedCount":"ምስ ቦታ","locationLabel":"ቦታኻ","locationPlaceholder":"ንኣብነት Leipzig, Bremen ወይ 12043","mapLoading":"ካርታ ይጽዓን ኣሎ...","mapOptIn":"ካርታ ደጋዊ OpenStreetMap ድሕሪ ምንቃሕ ጥራይ ይጽዕን።","mapReady":"ካርታ ተጻዒኑ።","mapTitle":"ካርታ","nearestTitle":"ቀረባ ተበግሶታት","noResults":"ዝሰማማዕ ተበግሶ ኣይተረኽበን።","oneEntry":"1 መዝገብ","regionLabel":"ክልል","regionsCount":"ክልላት","reset":"ዳግም ጀምር","searchLabel":"ድለ","searchPlaceholder":"ከተማ፣ ክልል ወይ መርበብ","showMap":"ካርታ ኣርኢ","statusDefault":"ቋንቋ ምረጽን ቦታኻ ኣእቱን ቀረባ ተበግሶታት ንምርካብ።","statusLocationFailed":"ቦታ ክፍለጥ ኣይከኣለን። ከተማ ብኢድካ ኣእቱ።","statusLocationDenied":"ናይ ቦታ ፍቓድ ተነጺጉ። ኣብ ቅንብር መዳህሰሲ ፍቐድ ወይ ቦታ ኣእቱ።","statusLocationInsecure":"ናይ ቦታ ፍቓድ ኣብ ውሑስ HTTPS ጥራይ ይሰርሕ።","statusLocationTimeout":"ቦታ ምፍላጥ ነዊሕ ግዜ ይወስድ ኣሎ። ደጊምካ ፈትን ወይ ቦታ ኣእቱ።","statusLocationUnsupported":"መዳህሰሲኻ ናይ ቦታ ፍቓድ ኣይድግፍን።","statusPlaceError":"ቦታ ክድለ ኣይከኣለን።","statusPlaceNotFound":"ቦታ ኣይተረኽበን።","statusSearchingPlace":"ቦታ ይድለ ኣሎ...","statusSortedPrefix":"ብርሕቀት ተሰሪዑ ናብ","statusWaitingLocation":"ፍቓድ ቦታ ይጽበ ኣሎ...","title":"ኣንጻር ናይ ክፍሊት ካርድ ተበግሶታት","transit":"ህዝባዊ መጓዓዝያ","updatedLabel":"መወዳእታ ዝተሓደሰ","useLocation":"ቦታ ተጠቐም","website":"መርበብ","yourLocation":"ቦታኻ"},"fa":{"allRegions":"همه منطقه‌ها","allTitle":"همه ابتکارها","distanceKm":"کیلومتر","entries":"مورد","findNearest":"نزدیک‌ترین‌ها","footer":"این صفحه ابتکارهای عمومی را گردآوری می‌کند. افزودن و اصلاح می‌تواند در فهرست دستی انجام شود.","initiativesCount":"ابتکارها","intro":"گروه‌های محلی، برنامه‌های تبادل و کمپین‌ها علیه کارت پرداخت را پیدا کنید.","locatedCount":"دارای مکان","locationLabel":"مکان شما","locationPlaceholder":"مثلا Leipzig، Bremen یا 12043","mapLoading":"نقشه در حال بارگذاری است...","mapOptIn":"نقشه فقط پس از فعال‌سازی کاشی‌های خارجی OpenStreetMap را بارگذاری می‌کند.","mapReady":"نقشه بارگذاری شد.","mapTitle":"نقشه","nearestTitle":"نزدیک‌ترین ابتکارها","noResults":"ابتکار مناسبی پیدا نشد.","oneEntry":"1 مورد","regionLabel":"منطقه","regionsCount":"منطقه‌ها","reset":"بازنشانی","searchLabel":"جستجو","searchPlaceholder":"شهر، منطقه یا وب‌سایت","showMap":"نمایش نقشه","statusDefault":"زبان را انتخاب کنید و مکان خود را وارد کنید تا ابتکارهای نزدیک را ببینید.","statusLocationFailed":"مکان مشخص نشد. می‌توانید شهر را دستی وارد کنید.","statusLocationDenied":"دسترسی به مکان رد شد. آن را در تنظیمات مرورگر مجاز کنید یا مکانی وارد کنید.","statusLocationInsecure":"دسترسی به مکان فقط از طریق اتصال امن HTTPS کار می‌کند.","statusLocationTimeout":"تعیین مکان بیش از حد طول کشید. دوباره تلاش کنید یا مکانی وارد کنید.","statusLocationUnsupported":"مرورگر شما دسترسی به مکان را پشتیبانی نمی‌کند.","statusPlaceError":"جستجوی مکان ممکن نبود.","statusPlaceNotFound":"مکان پیدا نشد.","statusSearchingPlace":"در حال جستجوی مکان...","statusSortedPrefix":"مرتب‌شده بر اساس فاصله تا","statusWaitingLocation":"در انتظار اجازه مکان...","title":"ابتکارها علیه کارت پرداخت","transit":"حمل‌ونقل عمومی","updatedLabel":"آخرین به‌روزرسانی","useLocation":"استفاده از مکان","website":"وب‌سایت","yourLocation":"مکان شما"},"kmr":{"allRegions":"Hemû herêm","allTitle":"Hemû destpêşxerî","distanceKm":"km","entries":"tomar","findNearest":"Yên herî nêzîk bibîne","footer":"Ev rûpel girêdanên giştî yên destpêşxeriyan kom dike. Zêdekirin û sererastkirin dikarin di katalogê de bên parastin.","initiativesCount":"Destpêşxerî","intro":"Komên herêmî, çalakiyên guherandinê û kampanyayên li dijî karta dravdanê bibîne.","locatedCount":"bi cih","locationLabel":"Cihê te","locationPlaceholder":"mînak Leipzig, Bremen an 12043","mapLoading":"Nexşe tê barkirin...","mapOptIn":"Nexşe tenê piştî çalakirinê tileên derveyî OpenStreetMap bar dike.","mapReady":"Nexşe amade ye.","mapTitle":"Nexşe","nearestTitle":"Destpêşxeriyên herî nêzîk","noResults":"Destpêşxeriyek lihevhatî nehat dîtin.","oneEntry":"1 tomar","regionLabel":"Herêm","regionsCount":"Herêm","reset":"Ji nû ve bike","searchLabel":"Lêgerîn","searchPlaceholder":"Bajar, herêm an malper","showMap":"Nexşeyê nîşan bide","statusDefault":"Zimanek hilbijêre û cihê xwe binivîse da ku destpêşxeriyên nêzîk bibînî.","statusLocationFailed":"Cih nehat dîtin. Tu dikarî bajarekî binivîsî.","statusLocationDenied":"Destûra cihê hate redkirin. Di mîhengên gerokê de destûr bide an cihekî binivîse.","statusLocationInsecure":"Gihîştina cihê tenê bi girêdana HTTPS ya ewle dixebite.","statusLocationTimeout":"Dîtina cihê pir dirêj dike. Dîsa biceribîne an cihekî binivîse.","statusLocationUnsupported":"Geroka te gihîştina cihê piştgirî nake.","statusPlaceError":"Lêgerîna cihê nekarî.","statusPlaceNotFound":"Cih nehat dîtin.","statusSearchingPlace":"Cih tê lêgerîn...","statusSortedPrefix":"Li gor dûrbûnê hat rêzkirin ji","statusWaitingLocation":"Li benda destûra cihê ye...","title":"Destpêşxerî li dijî karta dravdanê","transit":"Veguhestina giştî","updatedLabel":"Rojanekirina dawî","useLocation":"Cih bikar bîne","website":"Malper","yourLocation":"cihê te"},"tr":{"allRegions":"Tüm bölgeler","allTitle":"Tüm girişimler","distanceKm":"km","entries":"kayıt","findNearest":"En yakınları bul","footer":"Bu sayfa herkese açık bağlantılı girişimleri toplar. Eklemeler ve düzeltmeler düzenlenmiş katalogda tutulabilir.","initiativesCount":"Girişimler","intro":"Ödeme kartına karşı yerel grupları, takas eylemlerini ve kampanyaları bulun.","locatedCount":"konumlu","locationLabel":"Konumunuz","locationPlaceholder":"örn. Leipzig, Bremen veya 12043","mapLoading":"Harita yükleniyor...","mapOptIn":"Harita dış OpenStreetMap döşemelerini yalnızca etkinleştirmeden sonra yükler.","mapReady":"Harita yüklendi.","mapTitle":"Harita","nearestTitle":"En yakın girişimler","noResults":"Uygun girişim bulunamadı.","oneEntry":"1 kayıt","regionLabel":"Bölge","regionsCount":"Bölgeler","reset":"Sıfırla","searchLabel":"Ara","searchPlaceholder":"Yer, bölge veya web sitesi","showMap":"Haritayı göster","statusDefault":"Yakındaki girişimleri bulmak için bir dil seçin ve konumunuzu girin.","statusLocationFailed":"Konum belirlenemedi. Bunun yerine bir yer girebilirsiniz.","statusLocationDenied":"Konum erişimi reddedildi. Tarayıcı ayarlarından izin verin veya bir yer girin.","statusLocationInsecure":"Konum erişimi yalnızca güvenli bir HTTPS bağlantısı üzerinden çalışır.","statusLocationTimeout":"Konum belirleme çok uzun sürüyor. Tekrar deneyin veya bir yer girin.","statusLocationUnsupported":"Tarayıcınız konum erişimini desteklemiyor.","statusPlaceError":"Yer araması yapılamadı.","statusPlaceNotFound":"Yer bulunamadı.","statusSearchingPlace":"Yer aranıyor...","statusSortedPrefix":"Mesafeye göre sıralandı:","statusWaitingLocation":"Konum izni bekleniyor...","title":"Ödeme kartına karşı girişimler","transit":"Toplu taşıma","updatedLabel":"Son güncelleme","useLocation":"Konumu kullan","website":"Web sitesi","yourLocation":"konumunuz"},"fr":{"allRegions":"Toutes les régions","allTitle":"Toutes les initiatives","distanceKm":"km","entries":"entrées","findNearest":"Trouver les plus proches","footer":"Cette page regroupe des initiatives liées publiquement. Les ajouts et corrections peuvent être maintenus dans le catalogue éditorial.","initiativesCount":"Initiatives","intro":"Trouvez des groupes locaux, des actions d’échange et des campagnes contre la carte de paiement.","locatedCount":"avec lieu","locationLabel":"Votre lieu","locationPlaceholder":"par ex. Leipzig, Bremen ou 12043","mapLoading":"Chargement de la carte...","mapOptIn":"La carte ne charge les tuiles OpenStreetMap externes qu’après activation.","mapReady":"Carte chargée.","mapTitle":"Carte","nearestTitle":"Initiatives les plus proches","noResults":"Aucune initiative correspondante trouvée.","oneEntry":"1 entrée","regionLabel":"Région","regionsCount":"Régions","reset":"Réinitialiser","searchLabel":"Recherche","searchPlaceholder":"Lieu, région ou site web","showMap":"Afficher la carte","statusDefault":"Choisissez une langue et indiquez votre lieu pour trouver les initiatives proches.","statusLocationFailed":"Le lieu n’a pas pu être détecté. Vous pouvez saisir une ville.","statusLocationDenied":"L’accès à la position a été refusé. Autorisez-le dans les réglages du navigateur ou saisissez un lieu.","statusLocationInsecure":"L’accès à la position fonctionne uniquement avec une connexion HTTPS sécurisée.","statusLocationTimeout":"La localisation prend trop de temps. Réessayez ou saisissez un lieu.","statusLocationUnsupported":"Votre navigateur ne prend pas en charge l’accès au lieu.","statusPlaceError":"Le lieu n’a pas pu être recherché.","statusPlaceNotFound":"Lieu introuvable.","statusSearchingPlace":"Recherche du lieu...","statusSortedPrefix":"Trié par distance de","statusWaitingLocation":"En attente de l’autorisation de localisation...","title":"Initiatives contre la carte de paiement","transit":"Transports publics","updatedLabel":"Dernière mise à jour","useLocation":"Utiliser le lieu","website":"Site web","yourLocation":"votre lieu"},"uk":{"allRegions":"Усі регіони","allTitle":"Усі ініціативи","distanceKm":"км","entries":"записів","findNearest":"Знайти найближчі","footer":"Ця сторінка збирає публічні посилання на ініціативи. Додавання й виправлення можна вести в кураторському каталозі.","initiativesCount":"Ініціативи","intro":"Знайдіть місцеві групи, акції обміну та кампанії проти платіжної картки.","locatedCount":"з координатами","locationLabel":"Ваше місце","locationPlaceholder":"наприклад Leipzig, Bremen або 12043","mapLoading":"Мапа завантажується...","mapOptIn":"Мапа завантажує зовнішні тайли OpenStreetMap лише після активації.","mapReady":"Мапу завантажено.","mapTitle":"Мапа","nearestTitle":"Найближчі ініціативи","noResults":"Відповідних ініціатив не знайдено.","oneEntry":"1 запис","regionLabel":"Регіон","regionsCount":"Регіони","reset":"Скинути","searchLabel":"Пошук","searchPlaceholder":"Місто, регіон або сайт","showMap":"Показати мапу","statusDefault":"Оберіть мову й введіть місце, щоб знайти найближчі ініціативи.","statusLocationFailed":"Не вдалося визначити місце. Можна ввести місто вручну.","statusLocationDenied":"Доступ до місцезнаходження заборонено. Дозвольте його в налаштуваннях браузера або введіть місце.","statusLocationInsecure":"Доступ до місцезнаходження працює лише через безпечне HTTPS-з’єднання.","statusLocationTimeout":"Визначення місцезнаходження триває надто довго. Спробуйте ще раз або введіть місце.","statusLocationUnsupported":"Ваш браузер не підтримує доступ до місця.","statusPlaceError":"Не вдалося виконати пошук місця.","statusPlaceNotFound":"Місце не знайдено.","statusSearchingPlace":"Пошук місця...","statusSortedPrefix":"Відсортовано за відстанню до","statusWaitingLocation":"Очікування дозволу на місце...","title":"Ініціативи проти платіжної картки","transit":"Громадський транспорт","updatedLabel":"Останнє оновлення","useLocation":"Використати місце","website":"Сайт","yourLocation":"вашого місця"}}</script>
+  <script type="application/json" id="language-data">[{"code":"de","label":"Deutsch","dir":"ltr"},{"code":"en","label":"English","dir":"ltr"},{"code":"ar","label":"العربية","dir":"rtl"},{"code":"ru","label":"Русский","dir":"ltr"},{"code":"ti","label":"ትግርኛ","dir":"ltr"},{"code":"fa","label":"فارسی","dir":"rtl"},{"code":"kmr","label":"Kurmancî","dir":"ltr"},{"code":"tr","label":"Türkçe","dir":"ltr"},{"code":"fr","label":"Français","dir":"ltr"},{"code":"uk","label":"Українська","dir":"ltr"}]</script>
+  <script>
+    const initiatives = JSON.parse(document.getElementById("initiative-data").textContent);
+    const translations = JSON.parse(document.getElementById("translation-data").textContent);
+    const languages = JSON.parse(document.getElementById("language-data").textContent);
+    const languageSwitcher = document.getElementById("language-switcher");
+    const locator = document.getElementById("locator");
+    const locationInput = document.getElementById("location");
+    const useLocation = document.getElementById("use-location");
+    const locationStatus = document.getElementById("location-status");
+    const results = document.getElementById("results");
+    const nearest = document.getElementById("nearest");
+    const nearestGrid = document.getElementById("nearest-grid");
+    const nearestCount = document.getElementById("nearest-count");
+    const showMapButton = document.getElementById("show-map");
+    const mapStatus = document.getElementById("map-status");
+    const mapElement = document.getElementById("map");
+    const search = document.getElementById("search");
+    const region = document.getElementById("region");
+    const list = document.getElementById("list");
+    const listCount = document.getElementById("list-count");
+    const noResults = document.getElementById("no-results");
+    const filters = document.getElementById("filters");
+    let currentLanguage = chooseInitialLanguage();
+    let currentOrigin = null;
+    let map = null;
+    let markerLayer = null;
+    let originLayer = null;
+    let leafletLoading = null;
+    let locationRequestPending = false;
+
+    init();
+
+    function init() {
+      renderLanguageSwitcher();
+      applyLanguage(currentLanguage);
+      renderList(initiatives);
+      bindEvents();
+    }
+
+    function bindEvents() {
+      search.addEventListener("input", applyFilters);
+      region.addEventListener("change", applyFilters);
+      filters.addEventListener("reset", () => requestAnimationFrame(applyFilters));
+      locator.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const place = locationInput.value.trim();
+        if (!place) return;
+        setStatus("statusSearchingPlace");
+        try {
+          const origin = await geocodePlace(place);
+          showNearest(origin, origin.label);
+        } catch (error) {
+          locationStatus.textContent = error.message;
+        }
+      });
+      useLocation.addEventListener("click", () => {
+        if (locationRequestPending) return;
+        if (!window.isSecureContext) {
+          setStatus("statusLocationInsecure");
+          return;
+        }
+        if (!navigator.geolocation) {
+          setStatus("statusLocationUnsupported");
+          return;
+        }
+        locationRequestPending = true;
+        useLocation.disabled = true;
+        useLocation.setAttribute("aria-busy", "true");
+        setStatus("statusWaitingLocation");
+        try {
+          navigator.geolocation.getCurrentPosition(
+            (position) => {
+              finishLocationRequest();
+              showNearest({
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
+              }, t("yourLocation"));
+            },
+            (error) => {
+              finishLocationRequest();
+              if (error.code === error.PERMISSION_DENIED) {
+                setStatus("statusLocationDenied");
+              } else if (error.code === error.TIMEOUT) {
+                setStatus("statusLocationTimeout");
+              } else {
+                setStatus("statusLocationFailed");
+              }
+            },
+            { enableHighAccuracy: false, timeout: 30000, maximumAge: 300000 }
+          );
+        } catch {
+          finishLocationRequest();
+          setStatus("statusLocationFailed");
+        }
+      });
+      showMapButton.addEventListener("click", () => enableMap());
+    }
+
+    function finishLocationRequest() {
+      locationRequestPending = false;
+      useLocation.disabled = false;
+      useLocation.removeAttribute("aria-busy");
+    }
+
+    function chooseInitialLanguage() {
+      const params = new URLSearchParams(location.search);
+      const requested = params.get("lang") || localStorage.getItem("language") || navigator.language.slice(0, 2);
+      if (languages.some((language) => language.code === requested)) return requested;
+      if (requested === "ku") return "kmr";
+      return "de";
+    }
+
+    function renderLanguageSwitcher() {
+      languageSwitcher.innerHTML = languages.map((language) =>
+        '<button type="button" data-lang="' + escapeHtml(language.code) + '">' + escapeHtml(language.label) + '</button>'
+      ).join("");
+      languageSwitcher.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-lang]");
+        if (!button) return;
+        applyLanguage(button.dataset.lang);
+      });
+    }
+
+    function applyLanguage(code) {
+      currentLanguage = translations[code] ? code : "de";
+      const language = languages.find((item) => item.code === currentLanguage);
+      document.documentElement.lang = currentLanguage;
+      document.documentElement.dir = language?.dir || "ltr";
+      localStorage.setItem("language", currentLanguage);
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        element.textContent = t(element.dataset.i18n);
+      });
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+        element.placeholder = t(element.dataset.i18nPlaceholder);
+      });
+      languageSwitcher.querySelectorAll("button").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.lang === currentLanguage));
+      });
+      applyFilters();
+      if (currentOrigin) showNearest(currentOrigin, currentOrigin.label, { preserveScroll: true });
+    }
+
+    function t(key) {
+      return translations[currentLanguage]?.[key] ?? translations.de[key] ?? key;
+    }
+
+    function setStatus(key) {
+      locationStatus.textContent = t(key);
+    }
+
+    function renderList(items) {
+      const grouped = groupBy(items, (item) => item.region);
+      const regions = [...grouped.keys()].sort((a, b) => a.localeCompare(b, "de"));
+      list.innerHTML = regions.map((name) => {
+        const entries = grouped.get(name);
+        return '<section class="section region-section" data-region="' + escapeHtml(name) + '">' +
+          '<div class="section-head"><h2>' + escapeHtml(name) + '</h2><span class="count">' + formatEntries(entries.length) + '</span></div>' +
+          '<div class="grid">' + entries.map((item) => renderCard(item)).join("") + '</div>' +
+          '</section>';
+      }).join("");
+      listCount.textContent = formatEntries(items.length);
+    }
+
+    function renderCard(item, distance) {
+      const links = [];
+      if (item.url) links.push('<a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>');
+      for (const link of item.transitLinks || []) {
+        links.push('<a href="' + escapeHtml(link.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(link.label || t("transit")) + '</a>');
+      }
+      const distanceText = Number.isFinite(distance) ? '<span class="distance">' + Math.round(distance) + ' ' + t("distanceKm") + '</span> · ' : "";
+      return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
+        '<div><h3>' + escapeHtml(item.name) + '</h3><p>' + distanceText + escapeHtml([item.city, item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
+        '<div class="links">' + links.join("") + '</div>' +
+        '</article>';
+    }
+
+    function applyFilters() {
+      const term = normalize(search.value.trim());
+      const selectedRegion = region.value;
+      const filtered = initiatives.filter((item) => {
+        const haystack = normalize([item.name, item.city, item.region, item.country, item.domain].join(" "));
+        return (!term || haystack.includes(term)) && (!selectedRegion || item.region === selectedRegion);
+      });
+      renderList(filtered);
+      noResults.style.display = filtered.length === 0 ? "block" : "none";
+    }
+
+    function showNearest(origin, label, options = {}) {
+      currentOrigin = { ...origin, label };
+      const ranked = initiatives
+        .filter((item) => item.coordinates)
+        .map((item) => ({
+          ...item,
+          distance: distanceInKm(origin.lat, origin.lon, item.coordinates.lat, item.coordinates.lon)
+        }))
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 12);
+
+      nearestGrid.innerHTML = ranked.map((item) => renderCard(item, item.distance)).join("");
+      nearestCount.textContent = formatEntries(ranked.length);
+      results.hidden = false;
+      locationStatus.textContent = t("statusSortedPrefix") + " " + label + ".";
+      if (map) updateMap(ranked, origin);
+      if (!options.preserveScroll) nearest.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+
+    async function geocodePlace(place) {
+      const localMatch = findLocalPlace(place);
+      if (localMatch) return localMatch;
+
+      const params = new URLSearchParams({
+        q: place,
+        format: "jsonv2",
+        limit: "1",
+        countrycodes: "de,at"
+      });
+      const response = await fetch("https://nominatim.openstreetmap.org/search?" + params);
+      if (!response.ok) throw new Error(t("statusPlaceError"));
+      const [result] = await response.json();
+      if (!result) throw new Error(t("statusPlaceNotFound"));
+      return {
+        lat: Number(result.lat),
+        lon: Number(result.lon),
+        label: result.display_name.split(",").slice(0, 2).join(", ")
+      };
+    }
+
+    function findLocalPlace(place) {
+      const query = normalizePlace(place);
+      if (!query) return null;
+
+      const exactMatch = initiatives.find((item) => {
+        if (!item.coordinates) return false;
+        return localPlaceKeys(item).some((key) => normalizePlace(key) === query);
+      });
+      if (exactMatch) return localOrigin(exactMatch);
+
+      const partialMatch = initiatives.find((item) => {
+        if (!item.coordinates || query.length < 4) return false;
+        return localPlaceKeys(item).some((key) => normalizePlace(key).includes(query));
+      });
+      return partialMatch ? localOrigin(partialMatch) : null;
+    }
+
+    function localPlaceKeys(item) {
+      return [
+        item.name,
+        item.city,
+        item.region,
+        item.coordinates?.label,
+        ...(item.aliases || [])
+      ].filter(Boolean);
+    }
+
+    function localOrigin(item) {
+      return {
+        lat: item.coordinates.lat,
+        lon: item.coordinates.lon,
+        label: item.city || item.name
+      };
+    }
+
+    async function enableMap() {
+      mapStatus.textContent = t("mapLoading");
+      await loadLeaflet();
+      mapElement.style.display = "block";
+      if (!map) {
+        map = L.map(mapElement, { scrollWheelZoom: false });
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+        markerLayer = L.layerGroup().addTo(map);
+        originLayer = L.layerGroup().addTo(map);
+      }
+      updateMap(currentOrigin ? null : initiatives.slice(0, 200), currentOrigin);
+      mapStatus.textContent = t("mapReady");
+      setTimeout(() => map.invalidateSize(), 0);
+    }
+
+    function updateMap(items, origin) {
+      if (!map) return;
+      const visible = items ?? initiatives
+        .filter((item) => item.coordinates)
+        .map((item) => currentOrigin ? {
+          ...item,
+          distance: distanceInKm(currentOrigin.lat, currentOrigin.lon, item.coordinates.lat, item.coordinates.lon)
+        } : item)
+        .sort((a, b) => (a.distance ?? 0) - (b.distance ?? 0))
+        .slice(0, currentOrigin ? 80 : 200);
+      markerLayer.clearLayers();
+      originLayer.clearLayers();
+      const bounds = [];
+      for (const item of visible) {
+        if (!item.coordinates) continue;
+        const latLng = [item.coordinates.lat, item.coordinates.lon];
+        bounds.push(latLng);
+        L.marker(latLng).addTo(markerLayer).bindPopup(renderPopup(item));
+      }
+      if (origin) {
+        const originLatLng = [origin.lat, origin.lon];
+        bounds.push(originLatLng);
+        L.circleMarker(originLatLng, { radius: 8, color: "#0f6760", fillOpacity: 0.8 }).addTo(originLayer).bindPopup(t("yourLocation"));
+      }
+      if (bounds.length) map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
+    }
+
+    function renderPopup(item) {
+      return '<strong>' + escapeHtml(item.name) + '</strong><br>' +
+        escapeHtml([item.city, item.region].filter(Boolean).join(" · ")) +
+        (item.url ? '<br><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>' : "");
+    }
+
+    function loadLeaflet() {
+      if (window.L) return Promise.resolve();
+      if (leafletLoading) return leafletLoading;
+      leafletLoading = new Promise((resolve, reject) => {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = "assets/leaflet/leaflet.css";
+        document.head.append(link);
+        const script = document.createElement("script");
+        script.src = "assets/leaflet/leaflet.js";
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.append(script);
+      });
+      return leafletLoading;
+    }
+
+    function formatEntries(count) {
+      return count === 1 ? t("oneEntry") : count + " " + t("entries");
+    }
+
+    function groupBy(items, keyFn) {
+      const map = new Map();
+      for (const item of items) {
+        const key = keyFn(item);
+        if (!map.has(key)) map.set(key, []);
+        map.get(key).push(item);
+      }
+      return map;
+    }
+
+    function normalize(value) {
+      return value.toLocaleLowerCase(currentLanguage === "de" ? "de-DE" : undefined);
+    }
+
+    function normalizePlace(value) {
+      return String(value)
+        .normalize("NFKD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("de-DE")
+        .replace(/ß/g, "ss")
+        .replace(/[^a-z0-9]+/g, " ")
+        .trim();
+    }
+
+    function distanceInKm(lat1, lon1, lat2, lon2) {
+      const radius = 6371;
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+      const a = Math.sin(dLat / 2) ** 2 +
+        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) ** 2;
+      return radius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    }
+
+    function toRad(value) {
+      return value * Math.PI / 180;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+  </script>
+</body>
+</html>

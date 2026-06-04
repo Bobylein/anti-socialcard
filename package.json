@@ -1,0 +1,17 @@
+{
+  "name": "anti-socialcard-de",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "update": "node scripts/update-site.mjs",
+    "serve": "python3 -m http.server 4173"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "yaml": "^2.9.0"
+  }
+}
