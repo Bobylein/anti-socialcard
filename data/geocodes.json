@@ -1618,5 +1618,10 @@
     "lat": 54.1325779,
     "lon": 10.6131515,
     "label": "65, Albert-Mahlstedt-Straße, Dosenredder, Neudorf, Eutin, Kreis Ostholstein, Schleswig-Holstein, 23701, Deutschland"
+  },
+  "v3|Deutschland|Berlin|Berlin": {
+    "lat": 52.5136844,
+    "lon": 13.3939867,
+    "label": "Berlin-Brandenburgische Akademie der Wissenschaften, Friedrichstadt, Mitte, Berlin, Deutschland"
   }
 }

@@ -168,6 +168,7 @@ async function copyLeafletAssets() {
 function parseInitiatives(html) {
   const tokens = [...html.matchAll(/<h([2-4])\b[^>]*>([\s\S]*?)<\/h\1>/gi)];
   const initiatives = [];
+  const scrapedUpdatedAt = new Date().toISOString().slice(0, 10);
   let country = "";
   let region = "";
 
@@ -203,6 +204,7 @@ function parseInitiatives(html) {
       region: normalizedRegion,
       country: normalizedCountry,
       url,
+      updatedAt: scrapedUpdatedAt,
       sources: [{ label: "Seebrücke", url: SOURCE_URL }]
     }));
   }
@@ -266,14 +268,16 @@ function normalizeInitiative(raw) {
 function normalizeLocations(raw) {
   const values = Array.isArray(raw.locations) && raw.locations.length
     ? raw.locations
-    : [{ address: raw.address, coordinates: raw.coordinates }];
+    : [{ address: raw.address, coordinates: raw.coordinates, updatedAt: raw.updatedAt }];
   return values
     .map((location) => ({
       name: String(location?.name ?? "").trim(),
       address: String(location?.address ?? "").trim(),
+      openingHours: String(location?.openingHours ?? "").trim(),
+      updatedAt: String(location?.updatedAt ?? "").trim(),
       coordinates: normalizeCoordinates(location?.coordinates)
     }))
-    .filter((location) => location.name || location.address || location.coordinates);
+    .filter((location) => location.name || location.address || location.openingHours || location.updatedAt || location.coordinates);
 }
 
 function normalizeLinks(value) {
@@ -344,7 +348,7 @@ function validateInitiatives(initiatives) {
 async function addCoordinates(initiatives, cache) {
   for (const initiative of initiatives) {
     if (!initiative.locations.length) {
-      initiative.locations.push({ name: "", address: "", coordinates: initiative.coordinates });
+      initiative.locations.push({ name: "", address: "", openingHours: "", updatedAt: "", coordinates: initiative.coordinates });
     }
     for (const location of initiative.locations) {
       if (location.coordinates) continue;
@@ -804,6 +808,10 @@ function renderPage(data, translations) {
       margin-top: 5px;
     }
 
+    .initiative .location-details {
+      margin-top: 5px;
+    }
+
     .links {
       display: flex;
       flex-wrap: wrap;
@@ -1131,14 +1139,28 @@ function renderPage(data, translations) {
       const distanceText = Number.isFinite(distance) ? '<span class="distance">' + Math.round(distance) + ' ' + t("distanceKm") + '</span> · ' : "";
       const title = item.city || item.name;
       const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
-      const locationText = item.nearestLocation
-        ? [item.nearestLocation.name, item.nearestLocation.address].filter(Boolean).join(" · ")
-        : getLocations(item).map((location) => location.name).filter(Boolean).join(" · ");
-      const locationName = locationText ? '<p class="location-name">' + escapeHtml(locationText) + '</p>' : "";
+      const cardLocations = item.nearestLocation ? [item.nearestLocation] : getLocations(item);
+      const locationDetails = cardLocations.map((location) => renderLocationDetails(location)).filter(Boolean).join("");
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
-        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationName + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
+        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationDetails + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
         '<div class="links">' + links.join("") + '</div>' +
         '</article>';
+    }
+
+    function renderLocationDetails(location) {
+      const title = [location.name, location.address].filter(Boolean).join(" · ");
+      const details = [
+        location.openingHours ? t("openingHoursLabel") + ": " + location.openingHours : "",
+        location.updatedAt ? t("updatedLabel") + ": " + formatDate(location.updatedAt) : ""
+      ].filter(Boolean).join(" · ");
+      if (!title && !details) return "";
+      return '<p class="location-name">' + escapeHtml(title) + '</p>' +
+        (details ? '<p class="location-details">' + escapeHtml(details) + '</p>' : "");
+    }
+
+    function formatDate(value) {
+      const date = new Date(value + (value.length === 10 ? "T00:00:00Z" : ""));
+      return Number.isNaN(date.valueOf()) ? value : new Intl.DateTimeFormat(currentLanguage).format(date);
     }
 
     function applyFilters() {
@@ -1237,7 +1259,7 @@ function renderPage(data, translations) {
 
     function getLocations(item) {
       if (item.locations?.length) return item.locations;
-      return item.coordinates ? [{ name: "", address: item.address || "", coordinates: item.coordinates }] : [];
+      return item.coordinates ? [{ name: "", address: item.address || "", openingHours: "", updatedAt: "", coordinates: item.coordinates }] : [];
     }
 
     async function enableMap() {
@@ -1298,6 +1320,8 @@ function renderPage(data, translations) {
       return '<strong>' + escapeHtml(item.name) + '</strong><br>' +
         (location.name ? escapeHtml(location.name) + '<br>' : "") +
         escapeHtml(locationLabel) +
+        (location.openingHours ? '<br>' + escapeHtml(t("openingHoursLabel") + ": " + location.openingHours) : "") +
+        (location.updatedAt ? '<br>' + escapeHtml(t("updatedLabel") + ": " + formatDate(location.updatedAt)) : "") +
         (item.url ? '<br><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>' : "");
     }
 

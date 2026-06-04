@@ -39,5 +39,6 @@
   "updatedLabel": "Zuletzt aktualisiert",
   "useLocation": "Standort nutzen",
   "website": "Website",
-  "yourLocation": "deinem Standort"
+  "yourLocation": "deinem Standort",
+  "openingHoursLabel": "Öffnungszeiten"
 }
