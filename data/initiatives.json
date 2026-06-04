@@ -1,6 +1,6 @@
 {
   "sourceUrl": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte",
-  "updatedAt": "2026-06-04T14:34:35.222Z",
+  "updatedAt": "2026-06-04T14:58:44.596Z",
   "languages": [
     {
       "code": "de",
@@ -127,7 +127,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarte-stoppen.org/",
@@ -171,7 +171,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarte-stoppen.de/de/",
@@ -215,7 +215,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte-karlsruhe.de/",
@@ -259,7 +259,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkar.wixsite.com/neinzurbezahlkartelb",
@@ -340,7 +340,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://kartentausch.epistello.org/",
@@ -384,12 +384,12 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
-        "ok": false,
-        "status": null,
-        "finalUrl": "",
-        "method": "",
-        "error": "timeout"
+        "checkedAt": "2026-06-04T14:58:34.985Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://connectosn.noblogs.org/",
+        "method": "HEAD",
+        "error": ""
       }
     },
     {
@@ -428,7 +428,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nobezahlkartestgt.noblogs.org/",
@@ -472,7 +472,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://keep.tuebingen.social/bezahlkarte/de",
@@ -553,7 +553,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/aschaffenburg/",
@@ -597,7 +597,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://augsburgerfluechtlingsrat.blogspot.com/p/bezahlkarte-tauschaktion.html",
@@ -715,7 +715,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://offen-muenchen.de/",
@@ -833,7 +833,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://offen-muenchen.de/",
@@ -919,7 +919,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://kartentausch-herzo.de/",
@@ -963,7 +963,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://offen-muenchen.de/",
@@ -1081,7 +1081,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://offen-muenchen.de/",
@@ -1125,7 +1125,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-bayern.de/vorstellung-initiative-gegen-die-bezahlkarte-nuernberg/",
@@ -1206,7 +1206,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://seebruecke-passau.de/kartentauschaktion/",
@@ -1250,7 +1250,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.kartentausch-regensburg.de/",
@@ -1294,7 +1294,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bktrosenheim.noblogs.org/",
@@ -1338,7 +1338,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarte.kulturladen.org/",
@@ -1382,7 +1382,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.wuerzburg-solidarisch.de/nein-zur-bezahlkarte/",
@@ -1435,7 +1435,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/",
@@ -1479,7 +1479,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/",
@@ -1523,7 +1523,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1567,7 +1567,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1611,7 +1611,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1655,7 +1655,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1699,7 +1699,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/en/how-to/",
@@ -1743,7 +1743,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1787,7 +1787,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1831,7 +1831,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1875,7 +1875,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1921,8 +1921,8 @@
       "websiteCheck": null
     },
     {
-      "id": "seebruecke-deutschland-hamburg-hamburg",
-      "name": "Hamburg",
+      "id": "hamburg",
+      "name": "Hamburg sagt NEIN zur Bezahlkarte",
       "city": "Hamburg",
       "region": "Hamburg",
       "country": "Deutschland",
@@ -1931,32 +1931,87 @@
       "url": "https://www.bezahlkarte-nein.de/",
       "domain": "bezahlkarte-nein.de",
       "coordinates": {
-        "lat": 53.5501721,
-        "lon": 10.0013165,
-        "label": "Hamburg, Deutschland"
+        "lat": 53.554357,
+        "lon": 9.9709719,
+        "label": "Heiligengeistfeld, Simon-von-Utrecht-Straße, St. Pauli, Hamburg-Mitte, Hamburg, 20359, Deutschland"
       },
       "locations": [
         {
-          "name": "",
-          "address": "",
-          "openingHours": "",
+          "name": "Fanräume St. Pauli Millerntorstadion",
+          "address": "Heiligengeistfeld, 20359 Hamburg",
+          "openingHours": "1st and 3rd Monday of the month 5pm - 7pm",
           "coordinates": {
-            "lat": 53.5501721,
-            "lon": 10.0013165,
-            "label": "Hamburg, Deutschland"
+            "lat": 53.554357,
+            "lon": 9.9709719,
+            "label": "Heiligengeistfeld, Simon-von-Utrecht-Straße, St. Pauli, Hamburg-Mitte, Hamburg, 20359, Deutschland"
+          }
+        },
+        {
+          "name": "Cafe Exil",
+          "address": "Hammer Str. 10, 22041 Hamburg",
+          "openingHours": "WOMEN ONLY, Every 1st Friday of the month 2pm - 5pm",
+          "coordinates": {
+            "lat": 53.5693786,
+            "lon": 10.0610333,
+            "label": "Uninest Student Residences, 10, Hammer Straße, Marienthal, Wandsbek, Hamburg, 22041, Deutschland"
+          }
+        },
+        {
+          "name": "INFOLADEN WILHEMSBURG",
+          "address": "Fährstr. 48, 21107 Hamburg",
+          "openingHours": "Every 1st Monday of the month 3pm - 5pm",
+          "coordinates": {
+            "lat": 53.5157005,
+            "lon": 9.9868151,
+            "label": "48, Fährstraße, Reiherstiegviertel, Wilhelmsburg, Hamburg-Mitte, Hamburg, 21107, Deutschland"
+          }
+        },
+        {
+          "name": "Die LINKE",
+          "address": "Wallgraben 24, 21073 Hamburg Harburg",
+          "openingHours": "1st and 3rd Monday of the month 5pm - 7pm",
+          "coordinates": {
+            "lat": 53.4626077,
+            "lon": 9.9782122,
+            "label": "24, Wallgraben, Harburg, Hamburg, 21073, Deutschland"
+          }
+        },
+        {
+          "name": "Die LINKE",
+          "address": "Schopstraße 1, 20255 Hamburg Eimsbüttel",
+          "openingHours": "1st and 3rd Monday of the month 5pm - 7pm",
+          "coordinates": {
+            "lat": 53.5782058,
+            "lon": 9.9459182,
+            "label": "1, Schopstraße, Eimsbüttel, Hamburg, 20255, Deutschland"
+          }
+        },
+        {
+          "name": "Die LINKE",
+          "address": "Am Felde 2, 22765 Hamburg Altona",
+          "openingHours": "1st and 3rd Monday of the month 5pm - 7pm",
+          "coordinates": {
+            "lat": 53.5484302,
+            "lon": 9.9326827,
+            "label": "2, Am Felde, Ottensen, Altona, Hamburg, 22765, Deutschland"
+          }
+        },
+        {
+          "name": "Die LINKE",
+          "address": "Borgfelder Str. 83, 20537 Hamburg, Mitte",
+          "openingHours": "1st and 3rd Monday of the month 5pm - 7pm",
+          "coordinates": {
+            "lat": 53.5552182,
+            "lon": 10.0394177,
+            "label": "83, Borgfelder Straße, Borgfelde, Hamburg-Mitte, Hamburg, 20537, Deutschland"
           }
         }
       ],
       "transitLinks": [],
-      "sources": [
-        {
-          "label": "Seebrücke",
-          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
-        }
-      ],
+      "sources": [],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.bezahlkarte-nein.de/",
@@ -2000,7 +2055,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/darmstadt/",
@@ -2044,7 +2099,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/frankfurt/",
@@ -2088,7 +2143,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/giessen/",
@@ -2132,7 +2187,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/hanau/",
@@ -2176,7 +2231,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/",
@@ -2220,7 +2275,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/idstein/",
@@ -2264,7 +2319,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/kassel/",
@@ -2308,7 +2363,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/limburg/",
@@ -2352,7 +2407,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/mtk/",
@@ -2396,7 +2451,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/marburg-solidarisch/",
@@ -2440,7 +2495,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/offenbach/",
@@ -2484,7 +2539,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/wetterau/",
@@ -2528,7 +2583,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/wiesbaden/",
@@ -2572,7 +2627,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/witzenhausen/",
@@ -2616,7 +2671,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hgwhilft.de/bezahlkarte/",
@@ -2660,7 +2715,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bleiberecht-mv.org/de/bezahlkarte-stoppen/",
@@ -2778,7 +2833,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarterostock.bleiberecht-mv.org/",
@@ -2859,7 +2914,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://tauschtreff-stralsund.de/de",
@@ -2903,7 +2958,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte-bs.org/",
@@ -3021,7 +3076,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hannover:Hauptseite",
@@ -3065,7 +3120,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hildesheim:Hauptseite",
@@ -3109,7 +3164,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/leer/",
@@ -3190,7 +3245,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://wonderl.ink/@neinzurbezahlkartelueneburg",
@@ -3234,7 +3289,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.nds-fluerat.org/aktionen/aktionsseite-gegen-die-diskriminierende-bezahlkarte-in-niedersachsen-und-anderswo/",
@@ -3278,7 +3333,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/oldenburg/",
@@ -3322,7 +3377,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://linktr.ee/neinzurbezahlkarteos",
@@ -3366,7 +3421,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Salzderhelden:Hauptseite",
@@ -3484,7 +3539,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/essen/",
@@ -3602,7 +3657,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/muenster/",
@@ -3683,7 +3738,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.saarland/",
@@ -3764,7 +3819,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/dresden/",
@@ -3845,7 +3900,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/leipzig/",
@@ -3926,7 +3981,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-lsa.de/wp-content/uploads/2025/12/document.pdf",
@@ -3970,7 +4025,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://dessaunazifrei.wordpress.com/bezahlkarte/",
@@ -4014,7 +4069,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarte-halle.de/",
@@ -4058,7 +4113,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.dielinke-magdeburg.de/die-linke-hilft/bezahlkarte-information-in-english/",
@@ -4102,7 +4157,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-lsa.de/bezahlkarte/",
@@ -4127,7 +4182,7 @@
       },
       "locations": [
         {
-          "name": "stadtteilladen Anni Wadle",
+          "name": "Stadtteilladen Anni Wadle",
           "address": "Kieler Str. 12, 24143 Kiel - Gaarden",
           "openingHours": "Jeden Mittwoch, 17–19 Uhr, ersten Montag im Monat 18-20 Uhr, ersten Freitag im Monat 16-18 Uhr",
           "coordinates": {
@@ -4141,7 +4196,7 @@
       "sources": [],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://stadtteilladen.gaarden.net/anti-socialcard/get-cash/",
@@ -4190,7 +4245,7 @@
       "sources": [],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://linktr.ee/AntiSocialCardOH",
@@ -4199,39 +4254,34 @@
       }
     },
     {
-      "id": "seebruecke-deutschland-schleswig-holstein-bargteheide",
-      "name": "Bargteheide",
+      "id": "bargteheide",
+      "name": "Bezahlbar Bargteheide",
       "city": "Bargteheide",
       "region": "Schleswig-Holstein",
       "country": "Deutschland",
       "address": "",
       "updatedAt": "2026-06-04",
-      "url": "https://www.instagram.com/bezahlbar_bargteheide?igsh=N3IzOGE2c3p3bnJr",
+      "url": "https://www.instagram.com/bezahlbar_bargteheide/",
       "domain": "instagram.com",
       "coordinates": {
-        "lat": 53.7279671,
-        "lon": 10.2618075,
-        "label": "Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
+        "lat": 53.7230603,
+        "lon": 10.2635538,
+        "label": "Lohe, Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
       },
       "locations": [
         {
-          "name": "",
-          "address": "",
-          "openingHours": "",
+          "name": "Bezahlbar Bargteheide",
+          "address": "Lohe 11, 22941 Bargteheide",
+          "openingHours": "Jeden 1. Freitag im Monat",
           "coordinates": {
-            "lat": 53.7279671,
-            "lon": 10.2618075,
-            "label": "Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
+            "lat": 53.7230603,
+            "lon": 10.2635538,
+            "label": "Lohe, Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
           }
         }
       ],
       "transitLinks": [],
-      "sources": [
-        {
-          "label": "Seebrücke",
-          "url": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte"
-        }
-      ],
+      "sources": [],
       "aliases": [],
       "websiteCheck": null
     },
@@ -4271,10 +4321,49 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://linke-dithmarschen.de/termine/infostand-bezahlkarte-so-nicht-in-meldorf/",
+        "method": "HEAD",
+        "error": ""
+      }
+    },
+    {
+      "id": "lübeck",
+      "name": "Nein zur Bezahlkarte HL",
+      "city": "Lübeck",
+      "region": "Schleswig-Holstein",
+      "country": "Deutschland",
+      "address": "",
+      "updatedAt": "2026-06-04",
+      "url": "https://bezahlkarte-nein-hl.de/",
+      "domain": "bezahlkarte-nein-hl.de",
+      "coordinates": {
+        "lat": 53.8705584,
+        "lon": 10.6773118,
+        "label": "11, Willy-Brandt-Allee, Innenstadt, Lübeck, Schleswig-Holstein, 23554, Deutschland"
+      },
+      "locations": [
+        {
+          "name": "Solicafé im Solizentrum",
+          "address": "Willy-Brandt-Allee 11, 23554 Lübeck",
+          "openingHours": "Jeden 2. und 4. Montag im Monat 17:00 – 19:00 Uhr",
+          "coordinates": {
+            "lat": 53.8705584,
+            "lon": 10.6773118,
+            "label": "11, Willy-Brandt-Allee, Innenstadt, Lübeck, Schleswig-Holstein, 23554, Deutschland"
+          }
+        }
+      ],
+      "transitLinks": [],
+      "sources": [],
+      "aliases": [],
+      "websiteCheck": {
+        "checkedAt": "2026-06-04T14:58:34.985Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bezahlkarte-nein-hl.de/",
         "method": "HEAD",
         "error": ""
       }
@@ -4315,7 +4404,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/erfurt/",
@@ -4359,7 +4448,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4403,7 +4492,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4447,7 +4536,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4491,7 +4580,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.seebruecke.org/mach-mit/deutschland/thueringen/erfurt",
@@ -4535,7 +4624,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4579,7 +4668,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4623,7 +4712,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4672,7 +4761,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-04T14:34:17.663Z",
+        "checkedAt": "2026-06-04T14:58:34.985Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://linksvondermur.noblogs.org/initiative-gegen-bezahlkarte",

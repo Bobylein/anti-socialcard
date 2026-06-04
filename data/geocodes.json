@@ -1638,5 +1638,51 @@
     "lat": 54.3143769,
     "lon": 10.143578,
     "label": "12, Kieler Straße, Gaarden-Ost, Kiel, Schleswig-Holstein, 24143, Deutschland"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Willy-Brand-Allee 11, 23554 Lübeck": null,
+  "v3|Deutschland|Schleswig-Holstein|Lohe 11, 22941 Bargteheide": {
+    "lat": 53.7230603,
+    "lon": 10.2635538,
+    "label": "Lohe, Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
+  },
+  "v3|Deutschland|Hamburg|Heiligengeistfeld, 20359 Hamburg": {
+    "lat": 53.554357,
+    "lon": 9.9709719,
+    "label": "Heiligengeistfeld, Simon-von-Utrecht-Straße, St. Pauli, Hamburg-Mitte, Hamburg, 20359, Deutschland"
+  },
+  "v3|Deutschland|Hamburg|Hammer Str. 10, 22041 Hamburg": {
+    "lat": 53.5693786,
+    "lon": 10.0610333,
+    "label": "Uninest Student Residences, 10, Hammer Straße, Marienthal, Wandsbek, Hamburg, 22041, Deutschland"
+  },
+  "v3|Deutschland|Hamburg|Fährstr. 48, 21107 Hamburg": {
+    "lat": 53.5157005,
+    "lon": 9.9868151,
+    "label": "48, Fährstraße, Reiherstiegviertel, Wilhelmsburg, Hamburg-Mitte, Hamburg, 21107, Deutschland"
+  },
+  "v3|Deutschland|Hamburg|Wallgraben 24, 21073 Hamburg Harburg": {
+    "lat": 53.4626077,
+    "lon": 9.9782122,
+    "label": "24, Wallgraben, Harburg, Hamburg, 21073, Deutschland"
+  },
+  "v3|Deutschland|Hamburg|Schopstraße 1, 20255 Hamburg Eimsbüttel": {
+    "lat": 53.5782058,
+    "lon": 9.9459182,
+    "label": "1, Schopstraße, Eimsbüttel, Hamburg, 20255, Deutschland"
+  },
+  "v3|Deutschland|Hamburg|Am Felde 2, 22765 Hamburg Altona": {
+    "lat": 53.5484302,
+    "lon": 9.9326827,
+    "label": "2, Am Felde, Ottensen, Altona, Hamburg, 22765, Deutschland"
+  },
+  "v3|Deutschland|Hamburg|Borgfelder Str. 83, 20537 Hamburg, Mitte": {
+    "lat": 53.5552182,
+    "lon": 10.0394177,
+    "label": "83, Borgfelder Straße, Borgfelde, Hamburg-Mitte, Hamburg, 20537, Deutschland"
+  },
+  "v3|Deutschland|Schleswig-Holstein|Willy-Brandt-Allee 11, 23554 Lübeck": {
+    "lat": 53.8705584,
+    "lon": 10.6773118,
+    "label": "11, Willy-Brandt-Allee, Innenstadt, Lübeck, Schleswig-Holstein, 23554, Deutschland"
   }
 }
