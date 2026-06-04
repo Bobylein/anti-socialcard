@@ -250,6 +250,7 @@ function normalizeInitiative(raw) {
     city: String(city ?? "").trim(),
     region: String(region ?? "").trim(),
     country,
+    address: String(raw.address ?? "").trim(),
     url,
     domain: url ? new URL(url).hostname.replace(/^www\./, "") : "",
     coordinates: normalizeCoordinates(raw.coordinates),
@@ -328,10 +329,11 @@ function validateInitiatives(initiatives) {
 async function addCoordinates(initiatives, cache) {
   for (const initiative of initiatives) {
     if (initiative.coordinates) continue;
-    const key = `${GEOCODE_CACHE_VERSION}|${initiative.country}|${initiative.region}|${initiative.city || initiative.name}`;
+    const location = initiative.address || initiative.city || initiative.name;
+    const key = `${GEOCODE_CACHE_VERSION}|${initiative.country}|${initiative.region}|${location}`;
     if (!(key in cache)) {
       const legacyKey = `v2|${initiative.country}|${initiative.region}|${initiative.name}`;
-      if (legacyKey in cache) {
+      if (!initiative.address && legacyKey in cache) {
         cache[key] = cache[legacyKey];
       } else {
         cache[key] = await geocodeInitiative(initiative);
@@ -437,6 +439,25 @@ function isSocialMediaUrl(value) {
 
 async function geocodeInitiative(initiative) {
   const country = initiative.country === "Österreich" ? "Austria" : "Germany";
+  if (initiative.address) {
+    try {
+      const result = await fetchGeocode(new URLSearchParams({
+        q: [initiative.address, initiative.city, initiative.region, country].filter(Boolean).join(", "),
+        format: "jsonv2",
+        limit: "1",
+        addressdetails: "0"
+      }));
+      if (!result) return null;
+      return {
+        lat: Number(result.lat),
+        lon: Number(result.lon),
+        label: result.display_name
+      };
+    } catch {
+      return null;
+    }
+  }
+
   const params = new URLSearchParams({
     format: "jsonv2",
     limit: "1",

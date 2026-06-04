@@ -39,8 +39,9 @@ overrides:
 
 initiatives:
   - id: eutin
-    name: Anti-SocialCard OH
+    name: Anti-SocialCard OH / Alberta!
     city: Eutin
+    address: Albert-Mahlstedt Str. 65, 23701 Eutin
     region: Schleswig-Holstein
     country: Deutschland
     url: https://linktr.ee/AntiSocialCardOH
@@ -56,11 +57,8 @@ initiatives:
 #     city: Stadt
 #     region: Bundesland
 #     country: Deutschland
+#     address: Musterstraße 1, 12345 Stadt
 #     url: https://example.org/
-#     coordinates:
-#       lat: 52.0
-#       lon: 13.0
-#       label: Musterstraße 1, 12345 Stadt, Deutschland
 #     transitLinks:
 #       - label: Lokaler ÖPNV
 #         url: https://example.org/transit
