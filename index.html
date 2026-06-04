@@ -674,6 +674,7 @@
       mapStatus.textContent = t("mapLoading");
       await loadLeaflet();
       mapElement.style.display = "block";
+      const origin = currentOrigin;
       if (!map) {
         map = L.map(mapElement, { scrollWheelZoom: false });
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -683,9 +684,12 @@
         markerLayer = L.layerGroup().addTo(map);
         originLayer = L.layerGroup().addTo(map);
       }
-      updateMap(currentOrigin ? null : initiatives.slice(0, 200), currentOrigin);
+      updateMap(origin ? null : initiatives.slice(0, 200), origin);
       mapStatus.textContent = t("mapReady");
-      setTimeout(() => map.invalidateSize(), 0);
+      setTimeout(() => {
+        map.invalidateSize();
+        if (origin) map.setView([origin.lat, origin.lon], 12);
+      }, 0);
     }
 
     function updateMap(items, origin) {
