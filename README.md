@@ -24,11 +24,23 @@ openingHours: "Every Wednesday, 17:00–19:00; Every first Friday, 16:00–18:00
 
 Optional generated translations live in `data/opening-hours-i18n.json`. They are used only when their stored source text still exactly matches the current catalog value; otherwise the original text is displayed. Curated initiatives maintain one `updatedAt` date at initiative level; scraped initiatives receive the current scrape date automatically. The updater geocodes addresses, stores the resulting coordinates in `data/geocodes.json`, and displays every named location on the map. Legacy single `address` and manually supplied `coordinates` remain supported.
 
+For route planning, add validated `openingSlots` alongside the human-readable `openingHours`. Weekdays use ISO values `1` (Monday) through `7` (Sunday); `weeksOfMonth` is optional.
+
+```yaml
+openingSlots:
+  - weekdays: [1]
+    weeksOfMonth: [1, 3]
+    start: "17:00"
+    end: "19:00"
+```
+
 UI translations live in `data/i18n/*.json`. All translation files must contain the same keys.
 
 ## Location search
 
 The static page includes JavaScript for finding nearby initiatives. Visitors can enter a city or postcode, or use browser location access. Typed locations are resolved through OpenStreetMap Nominatim in the browser; current-location access requires HTTPS or localhost. The Leaflet map is opt-in and loads OpenStreetMap tiles only after activation.
+
+Public transport time is used as an approximate city-to-city sorting value. It selects the shortest representative rail connection between the central stations, falling back to other public transport where necessary, and measures from the first transit departure to the last transit arrival. Initial waiting time, local walking, and urban access legs are excluded. Place and postcode searches use the central station for detailed Transitous links; complete street addresses and browser geolocation remain exact. Each concrete initiative location has its own Transitous link for detailed door-to-door planning.
 
 ## Regular updates
 

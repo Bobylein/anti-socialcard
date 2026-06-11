@@ -297,9 +297,20 @@ function normalizeLocations(raw) {
       name: String(location?.name ?? "").trim(),
       address: String(location?.address ?? "").trim(),
       openingHours: String(location?.openingHours ?? "").trim(),
+      openingSlots: normalizeOpeningSlots(location?.openingSlots),
       coordinates: normalizeCoordinates(location?.coordinates)
     }))
-    .filter((location) => location.name || location.address || location.openingHours || location.coordinates);
+    .filter((location) => location.name || location.address || location.openingHours || location.openingSlots.length || location.coordinates);
+}
+
+function normalizeOpeningSlots(value) {
+  if (!Array.isArray(value)) return [];
+  return value.map((slot) => ({
+    weekdays: Array.isArray(slot?.weekdays) ? slot.weekdays.map(Number) : [],
+    weeksOfMonth: Array.isArray(slot?.weeksOfMonth) ? slot.weeksOfMonth.map(Number) : [],
+    start: String(slot?.start ?? "").trim(),
+    end: String(slot?.end ?? "").trim()
+  }));
 }
 
 function addOpeningHoursKeys(initiatives) {
@@ -401,6 +412,17 @@ function validateInitiatives(initiatives) {
       if (/\b\d{1,2}(?::\d{2})?\s*[ap]\.?m\.?\b/i.test(location.openingHours)) {
         throw new Error(`Opening hours must use 24-hour HH:MM format in catalog data: ${item.id}`);
       }
+      for (const slot of location.openingSlots) {
+        if (!slot.weekdays.length || slot.weekdays.some((day) => !Number.isInteger(day) || day < 1 || day > 7)) {
+          throw new Error(`Invalid openingSlots weekdays in ${item.id}`);
+        }
+        if (slot.weeksOfMonth.some((week) => !Number.isInteger(week) || week < 1 || week > 5)) {
+          throw new Error(`Invalid openingSlots weeksOfMonth in ${item.id}`);
+        }
+        if (![slot.start, slot.end].every((time) => /^([01]\d|2[0-3]):[0-5]\d$/.test(time))) {
+          throw new Error(`Invalid openingSlots time in ${item.id}`);
+        }
+      }
     }
   }
 }
@@ -408,7 +430,7 @@ function validateInitiatives(initiatives) {
 async function addCoordinates(initiatives, cache) {
   for (const initiative of initiatives) {
     if (!initiative.locations.length) {
-      initiative.locations.push({ name: "", address: "", openingHours: "", coordinates: initiative.coordinates });
+      initiative.locations.push({ name: "", address: "", openingHours: "", openingSlots: [], coordinates: initiative.coordinates });
     }
     for (const location of initiative.locations) {
       if (location.coordinates) continue;
@@ -891,6 +913,8 @@ function renderPage(data, translations, openingHoursTranslations) {
       background: var(--accent-soft);
     }
 
+    .location .links { margin-top: 8px; }
+
     .initiative .location-name {
       color: var(--ink);
       font-weight: 690;
@@ -954,6 +978,34 @@ function renderPage(data, translations, openingHoursTranslations) {
     }
 
     .distance { color: var(--accent); font-weight: 760; }
+
+    .journey {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--paper);
+    }
+
+    .journey-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 680;
+    }
+
+    .journey-status {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .transitous-link {
+      border-color: var(--accent) !important;
+      color: var(--accent);
+    }
 
     .card-footer {
       display: flex;
@@ -1096,7 +1148,13 @@ function renderPage(data, translations, openingHoursTranslations) {
   </main>
 
   <footer>
-    <div class="wrap" data-i18n="footer"></div>
+    <div class="wrap">
+      <span data-i18n="footer"></span>
+      <span> </span>
+      <a href="https://transitous.org/sources/" target="_blank" rel="noopener noreferrer" data-i18n="transitousAttribution">Fahrplandaten: Transitous.</a>
+      <span> </span>
+      <a href="https://github.com/Bobylein/anti-socialcard" target="_blank" rel="noopener noreferrer" data-i18n="contactLink">Kontakt und Quellcode.</a>
+    </div>
   </footer>
 
   <script type="application/json" id="initiative-data">${escapeScriptJson(toPageInitiatives(data.initiatives))}</script>
@@ -1127,15 +1185,22 @@ function renderPage(data, translations, openingHoursTranslations) {
     const listCount = document.getElementById("list-count");
     const noResults = document.getElementById("no-results");
     const filters = document.getElementById("filters");
+    const TRANSITOUS_URL = "https://api.transitous.org/api/v6/plan";
+    const ROUTE_CACHE_KEY = "anti-socialcard-transitous-city-v4";
+    const REVERSE_GEOCODE_CACHE_KEY = "anti-socialcard-origin-labels-v1";
+    const BERLIN_TIME_ZONE = "Europe/Berlin";
     let currentLanguage = chooseInitialLanguage();
     let currentOrigin = null;
+    let originRouteLabel = "";
     let map = null;
     let markerLayer = null;
     let originLayer = null;
     let leafletLoading = null;
     let locationRequestPending = false;
     let rankedNearest = [];
-    let nearestVisibleCount = 5;
+    let nearestVisibleCount = 10;
+    let routingGeneration = 0;
+    const cityStationCache = new Map();
 
     init();
 
@@ -1153,6 +1218,7 @@ function renderPage(data, translations, openingHoursTranslations) {
       loadMoreButton.addEventListener("click", () => {
         nearestVisibleCount += 5;
         renderNearest();
+        routeVisibleInitiatives();
       });
       locator.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -1184,10 +1250,12 @@ function renderPage(data, translations, openingHoursTranslations) {
           navigator.geolocation.getCurrentPosition(
             (position) => {
               finishLocationRequest();
-              showNearest({
+              const origin = {
                 lat: position.coords.latitude,
                 lon: position.coords.longitude
-              }, t("yourLocation"));
+              };
+              showNearest(origin, t("yourLocation"));
+              resolveOriginLabel(origin);
             },
             (error) => {
               finishLocationRequest();
@@ -1250,7 +1318,10 @@ function renderPage(data, translations, openingHoursTranslations) {
         button.setAttribute("aria-pressed", String(button.dataset.lang === currentLanguage));
       });
       applyFilters();
-      if (currentOrigin) showNearest(currentOrigin, currentOrigin.label, { preserveScroll: true });
+      if (currentOrigin) {
+        renderNearest();
+        locationStatus.textContent = t("statusSortedPrefix") + " " + currentOrigin.label + ".";
+      }
     }
 
     function t(key) {
@@ -1274,7 +1345,7 @@ function renderPage(data, translations, openingHoursTranslations) {
       listCount.textContent = formatEntries(items.length);
     }
 
-    function renderCard(item, distance) {
+    function renderCard(item, distance, routeState) {
       const links = [];
       if (item.url) links.push('<a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>');
       for (const link of item.transitLinks || []) {
@@ -1283,25 +1354,47 @@ function renderPage(data, translations, openingHoursTranslations) {
       const distanceText = Number.isFinite(distance) ? '<span class="distance">' + Math.round(distance) + ' ' + t("distanceKm") + '</span> · ' : "";
       const title = item.city || item.name;
       const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
-      const locations = getLocations(item).map((location) => renderLocationDetails(location)).filter(Boolean).join("");
+      const locations = getLocations(item).map((location) => renderLocationDetails(location, Number.isFinite(distance) ? item : null)).filter(Boolean).join("");
       const locationDetails = locations ? '<div class="locations">' + locations + '</div>' : "";
+      const journey = Number.isFinite(distance) ? renderJourney(routeState) : "";
       const updatedAt = item.updatedAt ? '<span class="updated-at">' + escapeHtml(t("updatedLabel") + ": " + formatDate(item.updatedAt)) + '</span>' : "";
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
-        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationDetails + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' +
+        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationDetails + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' + journey +
         '<div class="card-footer"><div class="links">' + links.join("") + '</div>' + updatedAt + '</div>' +
         '</article>';
     }
 
-    function renderLocationDetails(location) {
+    function renderJourney(routeState) {
+      if (!routeState || routeState.status === "pending") {
+        return '<div class="journey"><span class="journey-status">' + escapeHtml(t("transitWaiting")) + '</span></div>';
+      }
+      if (routeState.status === "loading") {
+        return '<div class="journey"><span class="journey-status">' + escapeHtml(t("transitLoading")) + '</span></div>';
+      }
+      if (routeState.status === "error") {
+        return '<div class="journey"><span class="journey-status">' + escapeHtml(t("transitUnavailable")) + '</span></div>';
+      }
+      return '<div class="journey"><div class="journey-summary"><span>' +
+        escapeHtml(t("cityTravelTime") + ": " + formatDuration(routeState.duration)) +
+        '</span></div><span class="journey-status">' +
+        escapeHtml(routeState.fromStation + " → " + routeState.toStation) +
+        '</span></div>';
+    }
+
+    function renderLocationDetails(location, item) {
       const title = [location.name, location.address].filter(Boolean).join(" · ");
       const openingHourRows = formatOpeningHours(translatedOpeningHours(location));
       const openingHours = openingHourRows.length
         ? '<div class="opening-hours"><span class="opening-hours-label">' + escapeHtml(t("openingHoursLabel")) + '</span><span class="opening-hours-value">' +
           openingHourRows.map((row) => '<span class="opening-hours-row">' + escapeHtml(row) + '</span>').join("") + '</span></div>'
         : "";
-      if (!title && !openingHours) return "";
+      const routeLink = item && location.coordinates
+        ? '<div class="links"><a class="transitous-link" href="' + escapeHtml(buildTransitousUrl(item, location)) +
+          '" target="_blank" rel="noopener noreferrer">' + escapeHtml(t("transitousRoute")) + '</a></div>'
+        : "";
+      if (!title && !openingHours && !routeLink) return "";
       return '<div class="location"><p class="location-name">' + escapeHtml(title) + '</p>' +
-        openingHours + '</div>';
+        openingHours + routeLink + '</div>';
     }
 
     function formatOpeningHours(value) {
@@ -1374,6 +1467,14 @@ function renderPage(data, translations, openingHoursTranslations) {
       return Number.isNaN(date.valueOf()) ? value : new Intl.DateTimeFormat(currentLanguage).format(date);
     }
 
+    function formatDuration(seconds) {
+      const minutes = Math.max(0, Math.round(seconds / 60));
+      const hours = Math.floor(minutes / 60);
+      const remaining = minutes % 60;
+      if (!hours) return minutes + " " + t("minutesShort");
+      return hours + " " + t("hoursShort") + (remaining ? " " + remaining + " " + t("minutesShort") : "");
+    }
+
     function applyFilters() {
       const term = normalize(search.value.trim());
       const selectedRegion = region.value;
@@ -1386,7 +1487,9 @@ function renderPage(data, translations, openingHoursTranslations) {
     }
 
     function showNearest(origin, label, options = {}) {
+      routingGeneration += 1;
       currentOrigin = { ...origin, label };
+      originRouteLabel = origin.label || "";
       rankedNearest = initiatives
         .map((item) => {
           const nearestLocation = getLocations(item)
@@ -1396,12 +1499,19 @@ function renderPage(data, translations, openingHoursTranslations) {
               distance: distanceInKm(origin.lat, origin.lon, location.coordinates.lat, location.coordinates.lon)
             }))
             .sort((a, b) => a.distance - b.distance)[0];
-          return nearestLocation ? { ...item, nearestLocation, distance: nearestLocation.distance } : null;
+          return nearestLocation ? {
+            ...item,
+            nearestLocation,
+            distance: nearestLocation.distance,
+            cityKey: cityRouteKey(item),
+            routeState: { status: "pending" }
+          } : null;
         })
         .filter(Boolean)
         .sort((a, b) => a.distance - b.distance);
-      if (!options.preserveScroll) nearestVisibleCount = 5;
+      if (!options.preserveScroll) nearestVisibleCount = 10;
       renderNearest();
+      routeVisibleInitiatives();
 
       results.hidden = false;
       locationStatus.textContent = t("statusSortedPrefix") + " " + label + ".";
@@ -1409,32 +1519,401 @@ function renderPage(data, translations, openingHoursTranslations) {
     }
 
     function renderNearest() {
-      const visible = rankedNearest.slice(0, nearestVisibleCount);
-      nearestGrid.innerHTML = visible.map((item) => renderCard(item, item.distance)).join("");
+      const visible = sortedVisibleInitiatives();
+      nearestGrid.innerHTML = visible.map((item) => renderCard(item, item.distance, item.routeState)).join("");
       nearestCount.textContent = formatEntries(visible.length);
-      loadMoreButton.hidden = visible.length >= rankedNearest.length;
+      loadMoreButton.hidden = nearestVisibleCount >= rankedNearest.length;
       if (map && currentOrigin) updateMap(visible, currentOrigin);
+    }
+
+    function sortedVisibleInitiatives() {
+      return rankedNearest.slice(0, nearestVisibleCount).sort((left, right) => {
+        const leftDuration = left.routeState.status === "success" ? left.routeState.duration : Infinity;
+        const rightDuration = right.routeState.status === "success" ? right.routeState.duration : Infinity;
+        if (leftDuration !== rightDuration) return leftDuration - rightDuration;
+        const leftFailed = left.routeState.status === "error";
+        const rightFailed = right.routeState.status === "error";
+        if (leftFailed !== rightFailed) return leftFailed ? 1 : -1;
+        return left.distance - right.distance;
+      });
+    }
+
+    async function routeVisibleInitiatives() {
+      const generation = routingGeneration;
+      const visible = rankedNearest.slice(0, nearestVisibleCount);
+      const pending = [...new Map(visible
+        .filter((item) => item.routeState.status === "pending")
+        .map((item) => [item.cityKey, item])).values()];
+      let nextIndex = 0;
+
+      async function worker() {
+        while (nextIndex < pending.length && generation === routingGeneration) {
+          const item = pending[nextIndex++];
+          setCityRouteState(item.cityKey, { status: "loading" });
+          renderNearest();
+          try {
+            setCityRouteState(item.cityKey, { status: "success", ...await fetchCityTravelTime(item) });
+          } catch {
+            setCityRouteState(item.cityKey, { status: "error" });
+          }
+          renderNearest();
+        }
+      }
+
+      await Promise.all(Array.from({ length: Math.min(2, pending.length) }, () => worker()));
+    }
+
+    function setCityRouteState(cityKey, state) {
+      for (const item of rankedNearest) {
+        if (item.cityKey === cityKey) item.routeState = state;
+      }
+    }
+
+    async function fetchCityTravelTime(item) {
+      const [fromStation, toStation] = await Promise.all([
+        resolveCityStation(currentOrigin.stationQuery || currentOrigin.label),
+        resolveCityStation(item.city)
+      ]);
+      if (!fromStation || !toStation) throw new Error("No city station");
+      if (fromStation.id === toStation.id) {
+        return { duration: 0, fromStation: fromStation.name, toStation: toStation.name };
+      }
+      const routeTime = representativeRouteTime();
+      const cacheKey = transitCacheKey(fromStation, toStation, routeTime);
+      const cached = readRouteCache(cacheKey);
+      if (cached) return cached;
+
+      const params = new URLSearchParams({
+        fromPlace: fromStation.id,
+        toPlace: toStation.id,
+        time: routeTime.time.toISOString(),
+        arriveBy: "false",
+        timetableView: "false",
+        numItineraries: "3",
+        maxItineraries: "3",
+        directModes: "",
+        detailedLegs: "false",
+        detailedTransfers: "false",
+        language: currentLanguage
+      });
+      const response = await fetch(TRANSITOUS_URL + "?" + params);
+      if (!response.ok) throw new Error("Transitous " + response.status);
+      const data = await response.json();
+      const candidates = (data.itineraries || [])
+        .map(typicalTransitDuration)
+        .filter((candidate) => Number.isFinite(candidate.duration) && candidate.duration >= 0);
+      if (!candidates.length) throw new Error("No transit itinerary");
+      const railCandidates = candidates.filter((candidate) => candidate.hasRail);
+      const durations = (railCandidates.length ? railCandidates : candidates)
+        .map((candidate) => candidate.duration);
+      const result = {
+        duration: Math.min(...durations),
+        fromStation: fromStation.name,
+        toStation: toStation.name
+      };
+      writeRouteCache(cacheKey, result, true);
+      return result;
+    }
+
+    function typicalTransitDuration(itinerary) {
+      const transitLegs = (itinerary.legs || []).filter((leg) => leg.mode !== "WALK");
+      if (!transitLegs.length) return { duration: Number(itinerary.duration), hasRail: false };
+      const start = new Date(transitLegs[0].startTime);
+      const end = new Date(transitLegs[transitLegs.length - 1].endTime);
+      const duration = (end - start) / 1000;
+      return {
+        duration: Number.isFinite(duration) && duration >= 0 ? duration : Number(itinerary.duration),
+        hasRail: transitLegs.some((leg) => /RAIL|SUBURBAN/.test(leg.mode))
+      };
+    }
+
+    function cityRouteKey(item) {
+      return normalizePlace([item.city, item.region, item.country].filter(Boolean).join("|"));
+    }
+
+    function representativeRouteTime() {
+      const now = new Date();
+      for (let offset = 1; offset <= 7; offset += 1) {
+        const candidate = new Date(now.getTime() + offset * 24 * 60 * 60 * 1000);
+        const parts = berlinDateParts(candidate);
+        const weekday = isoWeekday(parts.year, parts.month, parts.day);
+        if (weekday <= 5) {
+          return { time: berlinLocalDate(parts.year, parts.month, parts.day, "10:00") };
+        }
+      }
+      return { time: now };
+    }
+
+    async function resolveCityStation(city) {
+      const key = normalizePlace(city);
+      if (!key) return null;
+      if (cityStationCache.has(key)) return cityStationCache.get(key);
+      const promise = fetchCityStation(city, key);
+      cityStationCache.set(key, promise);
+      return promise;
+    }
+
+    async function fetchCityStation(city, cityKey) {
+      const params = new URLSearchParams({ text: city + " Hauptbahnhof" });
+      const response = await fetch("https://api.transitous.org/api/v1/geocode?" + params);
+      if (!response.ok) return null;
+      const results = await response.json();
+      const matchingStops = results.filter((result) =>
+        result.type === "STOP" && stationMatchesCity(result, cityKey)
+      );
+      const station =
+        matchingStops.find((result) => /\\b(hauptbahnhof|hbf)\\b/i.test(result.name)) ||
+        matchingStops.find((result) => /\\bbahnhof\\b/i.test(result.name)) ||
+        matchingStops.find((result) => /\\b(zob|central bus station)\\b/i.test(result.name)) ||
+        matchingStops[0];
+      return station ? { id: station.id, name: station.name, lat: Number(station.lat), lon: Number(station.lon) } : null;
+    }
+
+    function stationMatchesCity(station, cityKey) {
+      return normalizePlace(station.name).includes(cityKey) ||
+        station.areas?.some((area) => normalizePlace(area.name) === cityKey);
+    }
+
+    function transitCacheKey(fromStation, toStation, routeTime) {
+      const parts = berlinDateParts(routeTime.time);
+      return ["city-v4", fromStation.id, toStation.id, parts.year, parts.month, parts.day].join("|");
+    }
+
+    function readRouteCache(key) {
+      try {
+        const cache = JSON.parse(localStorage.getItem(ROUTE_CACHE_KEY) || "{}");
+        const entry = cache[key];
+        if (!entry || entry.expiresAt <= Date.now()) return null;
+        return entry.route;
+      } catch {
+        return null;
+      }
+    }
+
+    function writeRouteCache(key, route, future) {
+      try {
+        const cache = JSON.parse(localStorage.getItem(ROUTE_CACHE_KEY) || "{}");
+        const now = Date.now();
+        for (const [entryKey, entry] of Object.entries(cache)) {
+          if (!entry?.expiresAt || entry.expiresAt <= now) delete cache[entryKey];
+        }
+        cache[key] = {
+          createdAt: now,
+          expiresAt: now + (future ? 6 * 60 * 60 * 1000 : 5 * 60 * 1000),
+          route
+        };
+        const entries = Object.entries(cache).sort((a, b) => b[1].createdAt - a[1].createdAt).slice(0, 200);
+        localStorage.setItem(ROUTE_CACHE_KEY, JSON.stringify(Object.fromEntries(entries)));
+      } catch {
+        // Routing still works when storage is disabled or full.
+      }
     }
 
     async function geocodePlace(place) {
       const localMatch = findLocalPlace(place);
-      if (localMatch) return localMatch;
+      if (localMatch) return preferCentralStation(place, localMatch);
 
       const params = new URLSearchParams({
         q: place,
         format: "jsonv2",
         limit: "1",
-        countrycodes: "de,at"
+        countrycodes: "de,at",
+        addressdetails: "1"
       });
       const response = await fetch("https://nominatim.openstreetmap.org/search?" + params);
       if (!response.ok) throw new Error(t("statusPlaceError"));
       const [result] = await response.json();
       if (!result) throw new Error(t("statusPlaceNotFound"));
-      return {
+      const origin = {
         lat: Number(result.lat),
         lon: Number(result.lon),
-        label: result.display_name.split(",").slice(0, 2).join(", ")
+        label: result.display_name.split(",").slice(0, 2).join(", "),
+        stationQuery: result.address?.city ||
+          result.address?.town ||
+          result.address?.village ||
+          result.address?.municipality ||
+          result.address?.postcode ||
+          place
       };
+      return preferCentralStation(place, origin);
+    }
+
+    async function preferCentralStation(place, fallback) {
+      if (looksLikeFullAddress(place)) return fallback;
+      try {
+        const city = fallback.stationQuery || fallback.label || place;
+        const station = await resolveCityStation(city);
+        if (!station) return fallback;
+        return {
+          lat: Number(station.lat),
+          lon: Number(station.lon),
+          label: station.name,
+          stationQuery: city,
+          transitousPlace: station.id
+        };
+      } catch {
+        return fallback;
+      }
+    }
+
+    function looksLikeFullAddress(value) {
+      const input = String(value).trim();
+      const withoutPostcode = input.replace(/\\b\\d{5}\\b/, "");
+      const hasHouseNumber = /\\b\\d+[a-z]?\\b/i.test(withoutPostcode);
+      const hasStreet = /\\b(stra(?:ße|sse|ss|ße)|str\\.?|weg|allee|platz|gasse|ufer|chaussee|damm|ring)\\b/i.test(input);
+      return hasHouseNumber && hasStreet;
+    }
+
+    function transitousOriginPlace() {
+      return currentOrigin.transitousPlace || currentOrigin.lat + "," + currentOrigin.lon;
+    }
+
+    async function resolveOriginLabel(origin) {
+      const key = origin.lat.toFixed(4) + "," + origin.lon.toFixed(4);
+      try {
+        const cache = JSON.parse(localStorage.getItem(REVERSE_GEOCODE_CACHE_KEY) || "{}");
+        if (cache[key]) {
+          const cached = typeof cache[key] === "string" ? { label: cache[key], city: "" } : cache[key];
+          originRouteLabel = cached.label;
+          currentOrigin.stationQuery = cached.city || "";
+          retryCityRouting();
+          renderNearest();
+          return;
+        }
+        const params = new URLSearchParams({
+          lat: origin.lat,
+          lon: origin.lon,
+          format: "jsonv2",
+          zoom: "16",
+          addressdetails: "1"
+        });
+        const response = await fetch("https://nominatim.openstreetmap.org/reverse?" + params);
+        if (!response.ok) return;
+        const result = await response.json();
+        const label = result.display_name?.split(",").slice(0, 3).join(", ").trim();
+        if (!label) return;
+        originRouteLabel = label;
+        const city = result.address?.city ||
+          result.address?.town ||
+          result.address?.village ||
+          result.address?.municipality ||
+          "";
+        currentOrigin.stationQuery = city;
+        cache[key] = { label, city };
+        localStorage.setItem(REVERSE_GEOCODE_CACHE_KEY, JSON.stringify(cache));
+        retryCityRouting();
+        renderNearest();
+      } catch {
+        // Coordinates keep the Transitous link usable without reverse geocoding.
+      }
+    }
+
+    function retryCityRouting() {
+      if (!currentOrigin.stationQuery) return;
+      for (const item of rankedNearest) {
+        if (item.routeState.status === "error") item.routeState = { status: "pending" };
+      }
+      routeVisibleInitiatives();
+    }
+
+    function buildTransitousUrl(item, location) {
+      const destination = [location.name, location.address].filter(Boolean).join(" · ") ||
+        location.coordinates?.label ||
+        item.city ||
+        item.name;
+      const routeTime = routeTimeForLocation(location);
+      const params = new URLSearchParams({
+        fromPlace: transitousOriginPlace(),
+        toPlace: location.coordinates.lat + "," + location.coordinates.lon,
+        fromName: originRouteLabel || currentOrigin.label || t("yourLocation"),
+        toName: destination,
+        time: formatTransitousDateTime(routeTime.time),
+        arriveBy: String(routeTime.arriveBy)
+      });
+      return "https://api.transitous.org?" + params;
+    }
+
+    function routeTimeForLocation(location) {
+      const now = new Date();
+      const slots = location.openingSlots || [];
+      if (!slots.length) return { time: now, arriveBy: false };
+      const current = berlinDateParts(now);
+      for (const slot of slots) {
+        const interval = slotInterval(current, slot);
+        if (interval && now >= interval.start && now < interval.end) {
+          return { time: now, arriveBy: false };
+        }
+      }
+      for (let offset = 0; offset <= 56; offset += 1) {
+        const candidate = new Date(now.getTime() + offset * 24 * 60 * 60 * 1000);
+        const parts = berlinDateParts(candidate);
+        const nextInterval = slots
+          .map((slot) => slotInterval(parts, slot))
+          .filter((interval) => interval?.start > now)
+          .sort((left, right) => left.start - right.start)[0];
+        if (nextInterval) {
+          return { time: new Date(nextInterval.start.getTime() - 10 * 60 * 1000), arriveBy: true };
+        }
+      }
+      return { time: now, arriveBy: false };
+    }
+
+    function slotInterval(parts, slot) {
+      const weekday = isoWeekday(parts.year, parts.month, parts.day);
+      const weekOfMonth = Math.ceil(parts.day / 7);
+      if (!slot.weekdays.includes(weekday)) return null;
+      if (slot.weeksOfMonth?.length && !slot.weeksOfMonth.includes(weekOfMonth)) return null;
+      return {
+        start: berlinLocalDate(parts.year, parts.month, parts.day, slot.start),
+        end: berlinLocalDate(parts.year, parts.month, parts.day, slot.end)
+      };
+    }
+
+    function berlinDateParts(date) {
+      const parts = new Intl.DateTimeFormat("en-CA", {
+        timeZone: BERLIN_TIME_ZONE,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).formatToParts(date);
+      const values = Object.fromEntries(parts.map((part) => [part.type, Number(part.value)]));
+      return { year: values.year, month: values.month, day: values.day };
+    }
+
+    function berlinLocalDate(year, month, day, time) {
+      const [hour, minute] = time.split(":").map(Number);
+      const guess = new Date(Date.UTC(year, month - 1, day, hour, minute));
+      const parts = new Intl.DateTimeFormat("en-CA", {
+        timeZone: BERLIN_TIME_ZONE,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23"
+      }).formatToParts(guess);
+      const local = Object.fromEntries(parts.map((part) => [part.type, Number(part.value)]));
+      const represented = Date.UTC(local.year, local.month - 1, local.day, local.hour, local.minute);
+      return new Date(guess.getTime() - (represented - guess.getTime()));
+    }
+
+    function isoWeekday(year, month, day) {
+      const dayOfWeek = new Date(Date.UTC(year, month - 1, day)).getUTCDay();
+      return dayOfWeek === 0 ? 7 : dayOfWeek;
+    }
+
+    function formatTransitousDateTime(date) {
+      const parts = new Intl.DateTimeFormat("sv-SE", {
+        timeZone: BERLIN_TIME_ZONE,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        hourCycle: "h23"
+      }).formatToParts(date);
+      const value = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+      return value.year + "-" + value.month + "-" + value.day + "T" + value.hour + ":" + value.minute;
     }
 
     function findLocalPlace(place) {
@@ -1470,13 +1949,14 @@ function renderPage(data, translations, openingHoursTranslations) {
       return {
         lat: location.coordinates.lat,
         lon: location.coordinates.lon,
-        label: item.city || item.name
+        label: item.city || item.name,
+        stationQuery: item.city || item.name
       };
     }
 
     function getLocations(item) {
       if (item.locations?.length) return item.locations;
-      return item.coordinates ? [{ name: "", address: item.address || "", openingHours: "", coordinates: item.coordinates }] : [];
+      return item.coordinates ? [{ name: "", address: item.address || "", openingHours: "", openingSlots: [], coordinates: item.coordinates }] : [];
     }
 
     async function enableMap() {
