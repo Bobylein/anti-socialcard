@@ -2,10 +2,10 @@
   "version": 1,
   "entries": {
     "kiel": {
-      "parserVersion": 2,
-      "etag": "\"2d56e94748243746871e3aff98202350\"",
-      "modifiedAt": "2026-06-12T19:49:54.000Z",
-      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "parserVersion": 3,
+      "etag": "\"60d89d3c73a61784224d351a354b1a74\"",
+      "modifiedAt": "2026-06-12T20:00:34.000Z",
+      "checkedAt": "2026-06-12T20:16:13.591Z",
       "data": {
         "status": "active",
         "name": "Anti-SocialCard Kiel",
@@ -17,7 +17,7 @@
           {
             "name": "Stadtteilladen Anni Wadle",
             "address": "Kieler Str. 12, 24143 Kiel - Gaarden",
-            "notes": "TestOrtshinweis",
+            "notes": "",
             "openingSlots": [
               {
                 "weekdays": [
@@ -37,7 +37,7 @@
                 ],
                 "start": "18:00",
                 "end": "20:00",
-                "notes": "Test Terminhinweis"
+                "notes": ""
               },
               {
                 "weekdays": [
@@ -58,10 +58,10 @@
       }
     },
     "eutin": {
-      "parserVersion": 2,
+      "parserVersion": 3,
       "etag": "\"dfa0c2d9887cb416ea5f5dd86fd4e5ed\"",
       "modifiedAt": "2026-06-12T19:34:49.000Z",
-      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "checkedAt": "2026-06-12T20:16:13.591Z",
       "data": {
         "status": "active",
         "name": "Anti-SocialCard OH",
@@ -110,10 +110,10 @@
       }
     },
     "lübeck": {
-      "parserVersion": 2,
+      "parserVersion": 3,
       "etag": "\"5737e8b4c893ba9ba1b2aa096855fd5d\"",
       "modifiedAt": "2026-06-12T19:34:50.000Z",
-      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "checkedAt": "2026-06-12T20:16:13.591Z",
       "data": {
         "status": "active",
         "name": "Nein zur Bezahlkarte HL",
@@ -147,10 +147,10 @@
       }
     },
     "bargteheide": {
-      "parserVersion": 2,
+      "parserVersion": 3,
       "etag": "\"f293c087c5d55f249cd7f87bb8d1b81b\"",
       "modifiedAt": "2026-06-12T19:34:50.000Z",
-      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "checkedAt": "2026-06-12T20:16:13.591Z",
       "data": {
         "status": "active",
         "name": "Bezahlbar Bargteheide",
@@ -171,10 +171,10 @@
       }
     },
     "hamburg": {
-      "parserVersion": 2,
+      "parserVersion": 3,
       "etag": "\"8f3e9011866d6a9d1f50b2590366b53c\"",
       "modifiedAt": "2026-06-12T19:40:19.000Z",
-      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "checkedAt": "2026-06-12T20:16:13.591Z",
       "data": {
         "status": "active",
         "name": "Hamburg sagt NEIN zur Bezahlkarte",

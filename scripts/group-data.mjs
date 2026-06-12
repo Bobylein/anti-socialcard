@@ -1,7 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 
 export const GROUP_CACHE_VERSION = 1;
-const GROUP_PARSER_VERSION = 2;
+const GROUP_PARSER_VERSION = 3;
 const MAX_FILE_BYTES = 128 * 1024;
 const MAX = {
   name: 120,
@@ -294,13 +294,22 @@ function parseEventsTable(section = "") {
 function parseTable(section, expectedHeaders, path) {
   const lines = section.split("\n").map((line) => line.trim()).filter(Boolean);
   assert(lines.length >= 2, `${path}: table required`);
-  const headers = parseTableRow(lines[0], `${path}: header`);
+  const rawHeaders = parseTableRow(lines[0], `${path}: header`);
+  const usedColumns = rawHeaders
+    .map((header, index) => header ? index : null)
+    .filter((index) => index !== null);
+  const headers = usedColumns.map((index) => rawHeaders[index]);
   assert(JSON.stringify(headers) === JSON.stringify(expectedHeaders), `${path}: invalid columns`);
   const separator = parseTableRow(lines[1], `${path}: separator`);
-  assert(separator.length === headers.length && separator.every((value) => /^:?-{3,}:?$/.test(value)), `${path}: invalid table separator`);
+  assert(separator.length === rawHeaders.length && separator.every((value, index) =>
+    rawHeaders[index] ? /^:?-{3,}:?$/.test(value) : !value || /^:?-+:?$/.test(value)
+  ), `${path}: invalid table separator`);
   return lines.slice(2).flatMap((line, index) => {
-    const row = parseTableRow(line, `${path}[${index + 1}]`);
-    assert(row.length === headers.length, `${path}[${index + 1}]: expected ${headers.length} columns`);
+    const rawRow = parseTableRow(line, `${path}[${index + 1}]`);
+    assert(rawRow.length === rawHeaders.length, `${path}[${index + 1}]: expected ${rawHeaders.length} columns`);
+    const unnamedValues = rawRow.filter((_, columnIndex) => !rawHeaders[columnIndex]);
+    assert(unnamedValues.every((value) => !value), `${path}[${index + 1}]: unnamed columns must be empty`);
+    const row = usedColumns.map((columnIndex) => rawRow[columnIndex]);
     return row.every((value) => !value) ? [] : [row];
   });
 }

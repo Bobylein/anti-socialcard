@@ -76,6 +76,42 @@ test("ignores completely empty table rows", () => {
   assert.equal(parseGroupMarkdown("kiel", withEmptyRow, NOW).locations.length, 1);
 });
 
+test("ignores empty unnamed table columns", () => {
+  const withEmptyColumn = ACTIVE
+    .replace(
+      "| Name | Adresse | Wochentage |",
+      "| Name | Adresse | | Wochentage |"
+    )
+    .replace(
+      "| --- | --- | --- | --- | --- | --- | --- | --- |",
+      "| --- | --- | -- | --- | --- | --- | --- | --- | --- |"
+    )
+    .replace(
+      "| Stadtteilladen | Kieler Str. 12, 24143 Kiel | Mittwoch |",
+      "| Stadtteilladen | Kieler Str. 12, 24143 Kiel | | Mittwoch |"
+    );
+  const data = parseGroupMarkdown("kiel", withEmptyColumn, NOW);
+  assert.equal(data.locations.length, 1);
+  assert.deepEqual(data.locations[0].openingSlots[0].weekdays, [3]);
+});
+
+test("rejects data in unnamed table columns", () => {
+  const withUnnamedData = ACTIVE
+    .replace(
+      "| Name | Adresse | Wochentage |",
+      "| Name | Adresse | | Wochentage |"
+    )
+    .replace(
+      "| --- | --- | --- | --- | --- | --- | --- | --- |",
+      "| --- | --- | -- | --- | --- | --- | --- | --- | --- |"
+    )
+    .replace(
+      "| Stadtteilladen | Kieler Str. 12, 24143 Kiel | Mittwoch |",
+      "| Stadtteilladen | Kieler Str. 12, 24143 Kiel | Inhalt | Mittwoch |"
+    );
+  assert.throws(() => parseGroupMarkdown("kiel", withUnnamedData, NOW), /unnamed columns must be empty/);
+});
+
 test("accepts hidden files without content fields", () => {
   assert.deepEqual(parseGroupMarkdown("kiel", `# Gruppendaten
 
@@ -123,7 +159,7 @@ test("unchanged ETags avoid downloads", async () => {
     version: 1,
     entries: {
       kiel: {
-        parserVersion: 2,
+        parserVersion: 3,
         etag: "\"same\"",
         modifiedAt: "2026-06-12T10:00:00Z",
         checkedAt: "2026-06-12T10:00:00Z",
@@ -158,7 +194,7 @@ test("invalid changed files retain the last valid cache entry", async () => {
     version: 1,
     entries: {
       kiel: {
-        parserVersion: 2,
+        parserVersion: 3,
         etag: "\"old\"",
         modifiedAt: "2026-06-12T10:00:00Z",
         checkedAt: "2026-06-12T10:00:00Z",
@@ -195,7 +231,7 @@ test("changed ETags download, normalize and report field diffs", async () => {
     version: 1,
     entries: {
       kiel: {
-        parserVersion: 2,
+        parserVersion: 3,
         etag: "\"old\"",
         modifiedAt: "2026-06-12T10:00:00Z",
         checkedAt: "2026-06-12T10:00:00Z",
@@ -232,7 +268,7 @@ test("missing credentials fail unless cache fallback is explicitly enabled", asy
     version: 1,
     entries: {
       kiel: {
-        parserVersion: 2,
+        parserVersion: 3,
         etag: "\"old\"",
         modifiedAt: "2026-06-12T10:00:00Z",
         checkedAt: "2026-06-12T10:00:00Z",
