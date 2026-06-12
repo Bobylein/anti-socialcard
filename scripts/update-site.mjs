@@ -2,7 +2,8 @@ import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
 import { parse as parseYaml } from "yaml";
 
 const SOURCE_URL = "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte";
-const GEOCODE_URL = "https://nominatim.openstreetmap.org/search";
+const BUILD_GEOCODE_URL = "https://nominatim.openstreetmap.org/search";
+const PUBLIC_GEOCODE_API_URL = "/geocode";
 const GEOCODE_CACHE_VERSION = "v3";
 const WEBSITE_CHECK_TIMEOUT_MS = 10000;
 const WEBSITE_CHECK_CONCURRENCY = 4;
@@ -558,7 +559,7 @@ async function geocodeInitiative(initiative, address = "") {
 }
 
 async function fetchGeocode(params) {
-  const response = await fetch(`${GEOCODE_URL}?${params}`, {
+  const response = await fetch(`${BUILD_GEOCODE_URL}?${params}`, {
     headers: {
       "user-agent": "Anti-SocialCard.de updater; static initiative directory"
     }
@@ -1137,6 +1138,7 @@ function renderPage(data, translations) {
       </div>
       <h1 data-i18n="title">Initiativen gegen die Bezahlkarte</h1>
       <p class="intro" data-i18n="intro">Eine Übersicht lokaler Gruppen und Tauschaktionen.</p>
+      <p class="status" id="location-status" role="status" aria-live="polite" data-i18n="statusDefault"></p>
       <form class="quick-start" id="locator">
         <label>
           <span data-i18n="locationLabel">Dein Ort</span>
@@ -1146,16 +1148,16 @@ function renderPage(data, translations) {
         <button class="secondary" type="button" id="use-location" data-i18n="useLocation">Standort nutzen</button>
         <ul class="place-suggestions" id="place-suggestions" aria-label="Mögliche Orte" data-i18n-aria-label="placeSuggestionsLabel" hidden></ul>
         <p class="location-privacy">
-          <span data-i18n="locationPrivacyNotice">Die Ortssuche nutzt OpenStreetMap Nominatim. Dabei werden Suchbegriff beziehungsweise Standortkoordinaten und deine IP-Adresse übertragen.</span>
-          <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer" data-i18n="locationPrivacyLink">Datenschutzerklärung</a>
+          <span data-i18n="locationPrivacyNotice">Die Ortssuche wird über unseren Cloudflare-Dienst an OpenStreetMap Nominatim weitergeleitet. Dabei verarbeiten Cloudflare und Nominatim Suchbegriff beziehungsweise Standortkoordinaten, IP-Adresse und technische Verbindungsdaten.</span>
+          <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" data-i18n="locationCloudflarePrivacyLink">Cloudflare-Datenschutz</a>
+          <span> · </span>
+          <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer" data-i18n="locationPrivacyLink">OSMF-Datenschutz</a>
         </p>
       </form>
     </div>
   </header>
 
   <main class="wrap">
-    <p class="status" id="location-status" role="status" aria-live="polite" data-i18n="statusDefault"></p>
-
     <section class="transit-preferences" id="transit-preferences" aria-labelledby="transit-preferences-title" hidden>
       <h2 id="transit-preferences-title" data-i18n="transitConsentTitle">Fahrzeiten mit öffentlichen Verkehrsmitteln anzeigen?</h2>
       <p data-i18n="transitConsentDescription">Dafür fragen wir Transitous ab und speichern Ergebnisse sechs Stunden in deinem Browser. So vermeiden wir wiederholte Anfragen.</p>
@@ -1272,6 +1274,7 @@ function renderPage(data, translations) {
     const listCount = document.getElementById("list-count");
     const noResults = document.getElementById("no-results");
     const filters = document.getElementById("filters");
+    const GEOCODE_API_URL = ${escapeScriptJson(PUBLIC_GEOCODE_API_URL)}.replace(/\\/+$/, "");
     const TRANSITOUS_URL = "https://api.transitous.org/api/v6/plan";
     const TRANSIT_PREFERENCE_KEY = "anti-socialcard-transit-preference-v1";
     const ROUTE_CACHE_KEY = "anti-socialcard-transitous-city-v8";
@@ -1995,7 +1998,7 @@ function renderPage(data, translations) {
       });
       let response;
       try {
-        response = await fetch("https://nominatim.openstreetmap.org/search?" + params);
+        response = await fetch(GEOCODE_API_URL + "/search?" + params);
       } catch {
         const localMatch = findLocalPlace(place);
         if (localMatch) return [localMatch];
@@ -2125,7 +2128,7 @@ function renderPage(data, translations) {
           zoom: "16",
           addressdetails: "1"
         });
-        const response = await fetch("https://nominatim.openstreetmap.org/reverse?" + params);
+        const response = await fetch(GEOCODE_API_URL + "/reverse?" + params);
         if (!response.ok) return;
         const result = await response.json();
         const label = result.display_name?.split(",").slice(0, 3).join(", ").trim();

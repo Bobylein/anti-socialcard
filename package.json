@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "npm run update && node scripts/prepare-deploy.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "dev": "npm run build && wrangler dev",
     "update": "node scripts/update-site.mjs",
     "serve": "python3 -m http.server 4173"
   },
@@ -13,5 +16,8 @@
   "dependencies": {
     "leaflet": "^1.9.4",
     "yaml": "^2.9.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
   }
 }

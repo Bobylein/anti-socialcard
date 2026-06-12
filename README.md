@@ -43,7 +43,7 @@ UI translations live in `data/i18n/*.json`. All translation files must contain t
 
 ## Location search
 
-The static page includes JavaScript for finding nearby initiatives. Visitors can enter a city or postcode, or use browser location access. Typed locations are resolved through OpenStreetMap Nominatim in the browser; current-location access requires HTTPS or localhost. The Leaflet map is opt-in and loads OpenStreetMap tiles only after activation.
+The static page includes JavaScript for finding nearby initiatives. Visitors can enter a city or postcode, or use browser location access. The same Cloudflare Worker that serves the website proxies and caches manually triggered OpenStreetMap Nominatim searches under `/geocode`; current-location access requires HTTPS or localhost. The Leaflet map is opt-in and loads OpenStreetMap tiles only after activation.
 
 Public transport time is used as an approximate city-to-city sorting value. It selects the shortest representative rail connection between the central stations, falling back to other public transport where necessary, and measures from the first transit departure to the last transit arrival. Initial waiting time, local walking, and urban access legs are excluded. Place and postcode searches use the central station for detailed Transitous links; complete street addresses and browser geolocation remain exact. Each concrete initiative location has its own Transitous link for detailed door-to-door planning.
 
@@ -53,8 +53,21 @@ Public transport time is used as an approximate city-to-city sorting value. It s
 
 ## Local preview
 
-The site is a static HTML file, so opening `index.html` in a browser is enough. You can also run a local static server:
+To preview the complete Cloudflare Worker, including location search:
 
 ```bash
-npm run serve
+npm run dev
 ```
+
+Wrangler prints the local URL after the build has completed. `npm run serve` remains available for a static preview without the geocoding proxy.
+
+## Cloudflare deployment
+
+The Worker named `tauschaktionen-finder` serves both the generated site and the geocoding proxy. Log in once and then deploy:
+
+```bash
+npx wrangler login
+npm run deploy
+```
+
+`npm run deploy` regenerates the site, prepares only the public files in `dist/`, and updates the existing `tauschaktionen-finder.peter161.workers.dev` Worker. No separate Worker or dashboard upload is required.
