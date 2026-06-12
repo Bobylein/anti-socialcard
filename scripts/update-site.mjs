@@ -583,7 +583,7 @@ function renderPage(data, translations) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Mehrsprachige Übersicht von Initiativen und Tauschaktionen gegen die Bezahlkarte für Geflüchtete.">
-  <title>Anti-SocialCard.de</title>
+  <title>Tauschaktionen Finder</title>
   <style>
     :root {
       color-scheme: light;
@@ -770,6 +770,56 @@ function renderPage(data, translations) {
       margin: 0 0 14px;
       color: var(--muted);
       font-size: 0.94rem;
+    }
+
+    .transit-preferences {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .transit-preferences h2, .transit-preferences p { margin: 0; }
+
+    .transit-preferences p {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .transit-preference-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .transit-preference-actions button {
+      flex: 1 1 220px;
+      background: var(--panel);
+      color: var(--ink);
+      border-color: var(--line);
+    }
+
+    .transit-privacy summary {
+      width: fit-content;
+      cursor: pointer;
+      color: var(--accent);
+      font-weight: 690;
+    }
+
+    .transit-privacy p { margin-top: 8px; }
+
+    .footer-settings {
+      min-height: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: inherit;
+      text-decoration: underline;
+      font-weight: inherit;
     }
 
     .section {
@@ -1066,7 +1116,7 @@ function renderPage(data, translations) {
       .quick-start { padding: 14px; }
       .section-head { align-items: flex-start; flex-direction: column; }
       button { width: 100%; }
-      .language-switcher button { width: auto; }
+      .language-switcher button, .footer-settings { width: auto; }
       #map { min-height: 340px; }
       .grid, #nearest-grid { grid-template-columns: 1fr; }
       #nearest-grid > .initiative:last-child:nth-child(odd) { grid-column: auto; }
@@ -1077,7 +1127,7 @@ function renderPage(data, translations) {
   <header>
     <div class="wrap hero">
       <div class="topline">
-        <p class="brand">Anti-SocialCard.de</p>
+        <p class="brand">Tauschaktionen Finder</p>
         <nav class="language-switcher" id="language-switcher" aria-label="Language"></nav>
       </div>
       <h1 data-i18n="title">Initiativen gegen die Bezahlkarte</h1>
@@ -1096,6 +1146,19 @@ function renderPage(data, translations) {
 
   <main class="wrap">
     <p class="status" id="location-status" role="status" aria-live="polite" data-i18n="statusDefault"></p>
+
+    <section class="transit-preferences" id="transit-preferences" aria-labelledby="transit-preferences-title" hidden>
+      <h2 id="transit-preferences-title" data-i18n="transitConsentTitle">Fahrzeiten mit öffentlichen Verkehrsmitteln anzeigen?</h2>
+      <p data-i18n="transitConsentDescription">Dafür fragen wir Transitous ab und speichern Ergebnisse sechs Stunden in deinem Browser. So vermeiden wir wiederholte Anfragen.</p>
+      <div class="transit-preference-actions">
+        <button type="button" class="secondary" id="enable-transit" data-i18n="transitEnable">ÖPNV-Zeiten aktivieren</button>
+        <button type="button" class="secondary" id="decline-transit" data-i18n="transitDecline">Nur Entfernungen anzeigen</button>
+      </div>
+      <details class="transit-privacy">
+        <summary data-i18n="transitPrivacySummary">Datenschutzhinweise</summary>
+        <p data-i18n="transitPrivacyDetails">Bei Aktivierung werden dein gewählter Ausgangsort und die Ziele an Transitous übertragen. Routenergebnisse werden höchstens sechs Stunden lokal gespeichert. Du kannst die Funktion jederzeit deaktivieren und den Cache löschen.</p>
+      </details>
+    </section>
 
     <div id="results" hidden>
       <section class="section" id="nearest" aria-live="polite">
@@ -1162,6 +1225,8 @@ function renderPage(data, translations) {
       <span> </span>
       <a href="https://transitous.org/sources/" target="_blank" rel="noopener noreferrer" data-i18n="transitousAttribution">Fahrplandaten: Transitous.</a>
       <span> </span>
+      <button type="button" class="footer-settings" id="transit-settings" data-i18n="transitSettings">Datenschutz- und ÖPNV-Einstellungen</button>
+      <span> </span>
       <a href="https://github.com/Bobylein/anti-socialcard" target="_blank" rel="noopener noreferrer" data-i18n="contactLink">Kontakt und Quellcode.</a>
     </div>
   </footer>
@@ -1179,6 +1244,10 @@ function renderPage(data, translations) {
     const placeSuggestions = document.getElementById("place-suggestions");
     const useLocation = document.getElementById("use-location");
     const locationStatus = document.getElementById("location-status");
+    const transitPreferences = document.getElementById("transit-preferences");
+    const enableTransitButton = document.getElementById("enable-transit");
+    const declineTransitButton = document.getElementById("decline-transit");
+    const transitSettingsButton = document.getElementById("transit-settings");
     const results = document.getElementById("results");
     const nearest = document.getElementById("nearest");
     const nearestGrid = document.getElementById("nearest-grid");
@@ -1195,10 +1264,15 @@ function renderPage(data, translations) {
     const noResults = document.getElementById("no-results");
     const filters = document.getElementById("filters");
     const TRANSITOUS_URL = "https://api.transitous.org/api/v6/plan";
-    const ROUTE_CACHE_KEY = "anti-socialcard-transitous-city-v7";
-    const REVERSE_GEOCODE_CACHE_KEY = "anti-socialcard-origin-labels-v1";
+    const TRANSIT_PREFERENCE_KEY = "anti-socialcard-transit-preference-v1";
+    const ROUTE_CACHE_KEY = "anti-socialcard-transitous-city-v8";
+    const LEGACY_CACHE_KEYS = [
+      "anti-socialcard-transitous-city-v7",
+      "anti-socialcard-origin-labels-v1"
+    ];
     const BERLIN_TIME_ZONE = "Europe/Berlin";
     let currentLanguage = chooseInitialLanguage();
+    let transitPreference = readTransitPreference();
     let currentOrigin = null;
     let originRouteLabel = "";
     let map = null;
@@ -1211,6 +1285,7 @@ function renderPage(data, translations) {
     let nearestSortMode = "distance";
     let routingGeneration = 0;
     const cityStationCache = new Map();
+    const reverseGeocodeCache = new Map();
 
     init();
 
@@ -1262,6 +1337,12 @@ function renderPage(data, translations) {
         await selectPlace(place, selected);
       });
       locationInput.addEventListener("input", clearPlaceSuggestions);
+      enableTransitButton.addEventListener("click", enableTransit);
+      declineTransitButton.addEventListener("click", disableTransit);
+      transitSettingsButton.addEventListener("click", () => {
+        renderTransitPreferences(true);
+        transitPreferences.scrollIntoView({ block: "center", behavior: "smooth" });
+      });
       useLocation.addEventListener("click", () => {
         clearPlaceSuggestions();
         if (locationRequestPending) return;
@@ -1352,6 +1433,7 @@ function renderPage(data, translations) {
         button.setAttribute("aria-pressed", String(button.dataset.lang === currentLanguage));
       });
       applyFilters();
+      renderTransitPreferences(!transitPreferences.hidden);
       if (currentOrigin) {
         renderNearest();
         locationStatus.textContent = t("statusSortedPrefix") + " " + currentOrigin.label + ".";
@@ -1364,6 +1446,62 @@ function renderPage(data, translations) {
 
     function setStatus(key) {
       locationStatus.textContent = t(key);
+    }
+
+    function readTransitPreference() {
+      try {
+        const value = localStorage.getItem(TRANSIT_PREFERENCE_KEY);
+        return value === "enabled" || value === "disabled" ? value : "unknown";
+      } catch {
+        return "unknown";
+      }
+    }
+
+    function writeTransitPreference(value) {
+      transitPreference = value;
+      try {
+        localStorage.setItem(TRANSIT_PREFERENCE_KEY, value);
+      } catch {
+        // The preference remains active for this page view when storage is unavailable.
+      }
+    }
+
+    function renderTransitPreferences(forceOpen = false) {
+      const shouldShow = forceOpen || (currentOrigin && transitPreference === "unknown");
+      transitPreferences.hidden = !shouldShow;
+      enableTransitButton.hidden = transitPreference === "enabled";
+      declineTransitButton.textContent = transitPreference === "enabled"
+        ? t("transitDisable")
+        : t("transitDecline");
+    }
+
+    function enableTransit() {
+      writeTransitPreference("enabled");
+      transitPreferences.hidden = true;
+      markRoutesPending();
+      renderNearest();
+      routeVisibleInitiatives();
+    }
+
+    function disableTransit() {
+      routingGeneration += 1;
+      writeTransitPreference("disabled");
+      try {
+        localStorage.removeItem(ROUTE_CACHE_KEY);
+        for (const key of LEGACY_CACHE_KEYS) localStorage.removeItem(key);
+      } catch {
+        // There may be no accessible cache to remove.
+      }
+      nearestSortMode = "distance";
+      for (const item of rankedNearest) item.routeState = { status: "disabled" };
+      transitPreferences.hidden = true;
+      renderNearest();
+    }
+
+    function markRoutesPending() {
+      for (const item of rankedNearest) {
+        if (item.routeState.status !== "success") item.routeState = { status: "pending" };
+      }
     }
 
     function renderList(items) {
@@ -1393,14 +1531,17 @@ function renderPage(data, translations) {
       const proximity = Number.isFinite(distance) ? renderProximity(distance, routeState) : "";
       const updatedAt = item.updatedAt ? '<span class="updated-at">' + escapeHtml(t("updatedLabel") + ": " + formatDate(item.updatedAt)) + '</span>' : "";
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
-        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + initiativeNotes + locationDetails + '<p>' + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' + proximity +
+        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + initiativeNotes + locationDetails + '</div>' + proximity +
         '<div class="card-footer"><div class="links">' + links.join("") + '</div>' + updatedAt + '</div>' +
         '</article>';
     }
 
     function renderProximity(distance, routeState) {
       const distanceText = '<span class="distance">' + Math.round(distance) + ' ' + escapeHtml(t("distanceKm")) + '</span>';
-      if (!routeState || routeState.status === "pending") {
+      if (!routeState || routeState.status === "disabled") {
+        return '<div class="proximity"><div class="proximity-summary">' + distanceText + '</div></div>';
+      }
+      if (routeState.status === "pending") {
         return '<div class="proximity"><div class="proximity-summary">' + distanceText + '</div><span class="proximity-status">' + escapeHtml(t("transitWaiting")) + '</span></div>';
       }
       if (routeState.status === "loading") {
@@ -1425,7 +1566,7 @@ function renderPage(data, translations) {
             (row.notes ? '<span class="slot-notes">' + escapeHtml(row.notes) + '</span>' : "") + '</span>').join("") + '</span></div>'
         : "";
       const notes = location.notes ? renderNotes(location.notes) : "";
-      const routeLink = item && location.coordinates
+      const routeLink = transitPreference === "enabled" && item && location.coordinates
         ? '<div class="links"><a class="transitous-link" href="' + escapeHtml(buildTransitousUrl(item, location)) +
           '" target="_blank" rel="noopener noreferrer">' + escapeHtml(t("transitousRoute")) + '</a></div>'
         : "";
@@ -1579,7 +1720,7 @@ function renderPage(data, translations) {
             nearestLocation,
             distance: nearestLocation.distance,
             cityKey: cityRouteKey(item),
-            routeState: { status: "pending" }
+            routeState: { status: transitPreference === "enabled" ? "pending" : "disabled" }
           } : null;
         })
         .filter(Boolean)
@@ -1587,6 +1728,7 @@ function renderPage(data, translations) {
       if (!options.preserveScroll) nearestVisibleCount = 10;
       renderNearest();
       routeVisibleInitiatives();
+      renderTransitPreferences();
 
       results.hidden = false;
       locationStatus.textContent = t("statusSortedPrefix") + " " + label + ".";
@@ -1617,6 +1759,11 @@ function renderPage(data, translations) {
     }
 
     function updateNearestSortButton() {
+      sortNearestButton.hidden = transitPreference !== "enabled";
+      if (transitPreference !== "enabled") {
+        sortNearestButton.disabled = true;
+        return;
+      }
       const visible = rankedNearest.slice(0, nearestVisibleCount);
       const routingComplete = visible.length > 0 &&
         visible.every((item) => item.routeState.status === "success" || item.routeState.status === "error");
@@ -1630,6 +1777,7 @@ function renderPage(data, translations) {
     }
 
     async function routeVisibleInitiatives() {
+      if (transitPreference !== "enabled") return;
       const generation = routingGeneration;
       const visible = rankedNearest.slice(0, nearestVisibleCount);
       const pending = [...new Map(visible
@@ -1741,6 +1889,7 @@ function renderPage(data, translations) {
     }
 
     async function resolveCityStation(city) {
+      if (transitPreference !== "enabled") return null;
       const key = normalizePlace(city);
       if (!key) return null;
       if (cityStationCache.has(key)) return cityStationCache.get(key);
@@ -1916,6 +2065,7 @@ function renderPage(data, translations) {
     }
 
     async function preferCentralStation(place, fallback) {
+      if (transitPreference !== "enabled") return fallback;
       if (looksLikeFullAddress(place)) return fallback;
       try {
         const city = fallback.stationQuery || fallback.label || place;
@@ -1948,9 +2098,8 @@ function renderPage(data, translations) {
     async function resolveOriginLabel(origin) {
       const key = origin.lat.toFixed(4) + "," + origin.lon.toFixed(4);
       try {
-        const cache = JSON.parse(localStorage.getItem(REVERSE_GEOCODE_CACHE_KEY) || "{}");
-        if (cache[key]) {
-          const cached = typeof cache[key] === "string" ? { label: cache[key], city: "" } : cache[key];
+        if (reverseGeocodeCache.has(key)) {
+          const cached = reverseGeocodeCache.get(key);
           originRouteLabel = cached.label;
           currentOrigin.stationQuery = cached.city || "";
           retryCityRouting();
@@ -1976,8 +2125,7 @@ function renderPage(data, translations) {
           result.address?.municipality ||
           "";
         currentOrigin.stationQuery = city;
-        cache[key] = { label, city };
-        localStorage.setItem(REVERSE_GEOCODE_CACHE_KEY, JSON.stringify(cache));
+        reverseGeocodeCache.set(key, { label, city });
         retryCityRouting();
         renderNearest();
       } catch {
@@ -1986,6 +2134,7 @@ function renderPage(data, translations) {
     }
 
     function retryCityRouting() {
+      if (transitPreference !== "enabled") return;
       if (!currentOrigin.stationQuery) return;
       for (const item of rankedNearest) {
         if (item.routeState.status === "error") item.routeState = { status: "pending" };
