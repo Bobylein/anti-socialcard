@@ -10,6 +10,8 @@
   "locatedCount": "avec lieu",
   "locationLabel": "Votre lieu",
   "locationPlaceholder": "par ex. Leipzig, Bremen ou 12043",
+  "locationPrivacyNotice": "La recherche de lieu utilise OpenStreetMap Nominatim. Le terme recherché ou les coordonnées de localisation ainsi que votre adresse IP sont transmis.",
+  "locationPrivacyLink": "Politique de confidentialité",
   "placeSuggestionsLabel": "Lieux possibles",
   "mapLoading": "Chargement de la carte...",
   "mapOptIn": "La carte ne charge les tuiles OpenStreetMap externes qu’après activation.",

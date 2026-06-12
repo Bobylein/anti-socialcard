@@ -10,6 +10,8 @@
   "locatedCount": "ምስ ቦታ",
   "locationLabel": "ቦታኻ",
   "locationPlaceholder": "ንኣብነት Leipzig, Bremen ወይ 12043",
+  "locationPrivacyNotice": "ምድላይ ቦታ OpenStreetMap Nominatim ይጥቀም። ናይ ምድላይ ቃል ወይ መዋቕር ቦታን ኣድራሻ IPኻን ይለኣኽ።",
+  "locationPrivacyLink": "ፖሊሲ ብሕትነት",
   "placeSuggestionsLabel": "ክኾኑ ዝኽእሉ ቦታታት",
   "mapLoading": "ካርታ ይጽዓን ኣሎ...",
   "mapOptIn": "ካርታ ደጋዊ OpenStreetMap ድሕሪ ምንቃሕ ጥራይ ይጽዕን።",

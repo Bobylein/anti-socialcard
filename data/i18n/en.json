@@ -10,6 +10,8 @@
   "locatedCount": "with location",
   "locationLabel": "Your location",
   "locationPlaceholder": "e.g. Leipzig, Bremen or 12043",
+  "locationPrivacyNotice": "Location search uses OpenStreetMap Nominatim. Your search term or location coordinates and your IP address are transmitted.",
+  "locationPrivacyLink": "Privacy policy",
   "placeSuggestionsLabel": "Possible places",
   "mapLoading": "Loading map...",
   "mapOptIn": "The map loads external OpenStreetMap tiles only after activation.",

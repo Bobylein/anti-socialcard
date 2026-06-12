@@ -10,6 +10,8 @@
   "locatedCount": "konumlu",
   "locationLabel": "Konumunuz",
   "locationPlaceholder": "örn. Leipzig, Bremen veya 12043",
+  "locationPrivacyNotice": "Konum araması OpenStreetMap Nominatim kullanır. Arama teriminiz veya konum koordinatlarınız ve IP adresiniz aktarılır.",
+  "locationPrivacyLink": "Gizlilik politikası",
   "placeSuggestionsLabel": "Olası yerler",
   "mapLoading": "Harita yükleniyor...",
   "mapOptIn": "Harita dış OpenStreetMap döşemelerini yalnızca etkinleştirmeden sonra yükler.",

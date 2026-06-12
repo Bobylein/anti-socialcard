@@ -10,6 +10,8 @@
   "locatedCount": "bi cih",
   "locationLabel": "Cihê te",
   "locationPlaceholder": "mînak Leipzig, Bremen an 12043",
+  "locationPrivacyNotice": "Lêgerîna cihê OpenStreetMap Nominatim bi kar tîne. Peyva lêgerînê an koordînatên cihê û navnîşana IP ya te tên şandin.",
+  "locationPrivacyLink": "Polîtîkaya nepeniyê",
   "placeSuggestionsLabel": "Cihên gengaz",
   "mapLoading": "Nexşe tê barkirin...",
   "mapOptIn": "Nexşe tenê piştî çalakirinê tileên derveyî OpenStreetMap bar dike.",

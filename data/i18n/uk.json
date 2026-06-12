@@ -10,6 +10,8 @@
   "locatedCount": "з координатами",
   "locationLabel": "Ваше місце",
   "locationPlaceholder": "наприклад Leipzig, Bremen або 12043",
+  "locationPrivacyNotice": "Пошук місця використовує OpenStreetMap Nominatim. Передаються пошуковий запит або координати місцезнаходження, а також ваша IP-адреса.",
+  "locationPrivacyLink": "Політика конфіденційності",
   "placeSuggestionsLabel": "Можливі місця",
   "mapLoading": "Мапа завантажується...",
   "mapOptIn": "Мапа завантажує зовнішні тайли OpenStreetMap лише після активації.",

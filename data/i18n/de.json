@@ -10,6 +10,8 @@
   "locatedCount": "mit Standort",
   "locationLabel": "Dein Ort",
   "locationPlaceholder": "z. B. Leipzig, Bremen oder 12043",
+  "locationPrivacyNotice": "Die Ortssuche nutzt OpenStreetMap Nominatim. Dabei werden Suchbegriff beziehungsweise Standortkoordinaten und deine IP-Adresse übertragen.",
+  "locationPrivacyLink": "Datenschutzerklärung",
   "placeSuggestionsLabel": "Mögliche Orte",
   "mapLoading": "Karte wird geladen...",
   "mapOptIn": "Die Karte lädt erst nach Aktivierung externe OpenStreetMap-Kacheln.",

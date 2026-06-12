@@ -10,6 +10,8 @@
   "locatedCount": "مع موقع",
   "locationLabel": "موقعك",
   "locationPlaceholder": "مثلا Leipzig أو Bremen أو 12043",
+  "locationPrivacyNotice": "يستخدم البحث عن الموقع خدمة OpenStreetMap Nominatim. يتم نقل عبارة البحث أو إحداثيات الموقع وعنوان IP الخاص بك.",
+  "locationPrivacyLink": "سياسة الخصوصية",
   "placeSuggestionsLabel": "أماكن محتملة",
   "mapLoading": "يتم تحميل الخريطة...",
   "mapOptIn": "تُحمّل الخريطة مربعات OpenStreetMap الخارجية فقط بعد التفعيل.",

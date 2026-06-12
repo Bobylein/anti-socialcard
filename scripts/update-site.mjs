@@ -696,6 +696,16 @@ function renderPage(data, translations) {
       list-style: none;
     }
 
+    .location-privacy {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .location-privacy a { color: inherit; }
+
     .place-suggestions button {
       width: 100%;
       min-height: 0;
@@ -890,12 +900,8 @@ function renderPage(data, translations) {
     }
 
     #nearest-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    #nearest-grid > .initiative:last-child:nth-child(odd) {
-      grid-column: 1 / -1;
+      grid-template-columns: 1fr;
+      gap: 10px;
     }
 
     .load-more {
@@ -1118,8 +1124,7 @@ function renderPage(data, translations) {
       button { width: 100%; }
       .language-switcher button, .footer-settings { width: auto; }
       #map { min-height: 340px; }
-      .grid, #nearest-grid { grid-template-columns: 1fr; }
-      #nearest-grid > .initiative:last-child:nth-child(odd) { grid-column: auto; }
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1140,6 +1145,10 @@ function renderPage(data, translations) {
         <button type="submit" data-i18n="findNearest">Nächste finden</button>
         <button class="secondary" type="button" id="use-location" data-i18n="useLocation">Standort nutzen</button>
         <ul class="place-suggestions" id="place-suggestions" aria-label="Mögliche Orte" data-i18n-aria-label="placeSuggestionsLabel" hidden></ul>
+        <p class="location-privacy">
+          <span data-i18n="locationPrivacyNotice">Die Ortssuche nutzt OpenStreetMap Nominatim. Dabei werden Suchbegriff beziehungsweise Standortkoordinaten und deine IP-Adresse übertragen.</span>
+          <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener noreferrer" data-i18n="locationPrivacyLink">Datenschutzerklärung</a>
+        </p>
       </form>
     </div>
   </header>
@@ -1730,6 +1739,7 @@ function renderPage(data, translations) {
       if (!options.preserveScroll) nearestVisibleCount = 10;
       renderNearest();
       routeVisibleInitiatives();
+      nearestGrid.before(transitPreferences);
       renderTransitPreferences();
 
       results.hidden = false;
