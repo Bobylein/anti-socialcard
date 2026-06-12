@@ -1,6 +1,6 @@
 {
   "sourceUrl": "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte",
-  "updatedAt": "2026-06-11T23:33:54.089Z",
+  "updatedAt": "2026-06-12T00:24:46.377Z",
   "languages": [
     {
       "code": "de",
@@ -61,7 +61,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/neinzurbezahlkarteesslingen",
       "domain": "instagram.com",
       "coordinates": {
@@ -73,8 +73,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.7427584,
             "lon": 9.3071685,
@@ -82,6 +82,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -99,7 +100,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://bezahlkarte-stoppen.org/",
       "domain": "bezahlkarte-stoppen.org",
       "coordinates": {
@@ -111,8 +112,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 47.9960901,
             "lon": 7.8494005,
@@ -120,6 +121,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -129,12 +131,12 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
-        "ok": false,
-        "status": null,
-        "finalUrl": "",
-        "method": "",
-        "error": "timeout"
+        "checkedAt": "2026-06-12T00:24:35.871Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bezahlkarte-stoppen.org/",
+        "method": "HEAD",
+        "error": ""
       }
     },
     {
@@ -144,7 +146,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://bezahlkarte-stoppen.de/de/",
       "domain": "bezahlkarte-stoppen.de",
       "coordinates": {
@@ -156,8 +158,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.4093582,
             "lon": 8.694724,
@@ -165,6 +167,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -174,7 +177,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarte-stoppen.de/de/",
@@ -189,7 +192,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte-karlsruhe.de/",
       "domain": "nein-zur-bezahlkarte-karlsruhe.de",
       "coordinates": {
@@ -201,8 +204,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.0068705,
             "lon": 8.4034195,
@@ -210,6 +213,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -219,12 +223,12 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
-        "ok": false,
-        "status": null,
-        "finalUrl": "",
-        "method": "",
-        "error": "timeout"
+        "checkedAt": "2026-06-12T00:24:35.871Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://nein-zur-bezahlkarte-karlsruhe.de/",
+        "method": "HEAD",
+        "error": ""
       }
     },
     {
@@ -234,7 +238,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkar.wixsite.com/neinzurbezahlkartelb",
       "domain": "nein-zur-bezahlkar.wixsite.com",
       "coordinates": {
@@ -246,8 +250,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.8953937,
             "lon": 9.1895147,
@@ -255,6 +259,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -264,7 +269,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkar.wixsite.com/neinzurbezahlkartelb",
@@ -279,7 +284,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/bezahlkartestoppen_ma",
       "domain": "instagram.com",
       "coordinates": {
@@ -291,8 +296,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.4892913,
             "lon": 8.4673098,
@@ -300,6 +305,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -317,7 +323,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://kartentausch.epistello.org/",
       "domain": "kartentausch.epistello.org",
       "coordinates": {
@@ -329,8 +335,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.4069119,
             "lon": 9.0602912,
@@ -338,6 +344,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -347,7 +354,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://kartentausch.epistello.org/",
@@ -362,7 +369,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://connectosn.noblogs.org/",
       "domain": "connectosn.noblogs.org",
       "coordinates": {
@@ -374,8 +381,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.6265854,
             "lon": 9.3365463,
@@ -383,6 +390,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -392,7 +400,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://connectosn.noblogs.org/",
@@ -407,7 +415,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nobezahlkartestgt.noblogs.org/",
       "domain": "nobezahlkartestgt.noblogs.org",
       "coordinates": {
@@ -419,8 +427,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.7784485,
             "lon": 9.1800132,
@@ -428,6 +436,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -437,7 +446,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nobezahlkartestgt.noblogs.org/",
@@ -452,7 +461,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://keep.tuebingen.social/bezahlkarte/de",
       "domain": "keep.tuebingen.social",
       "coordinates": {
@@ -464,8 +473,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.5203263,
             "lon": 9.053596,
@@ -473,6 +482,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -482,7 +492,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://keep.tuebingen.social/bezahlkarte/de",
@@ -497,7 +507,7 @@
       "region": "Baden-Württemberg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/neinzurbezahlkarte_ulm",
       "domain": "instagram.com",
       "coordinates": {
@@ -509,8 +519,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.3984968,
             "lon": 9.9912458,
@@ -518,6 +528,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -535,7 +546,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.de/aschaffenburg/",
       "domain": "neinzurbezahlkarte.de",
       "coordinates": {
@@ -547,8 +558,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.9738133,
             "lon": 9.1446665,
@@ -556,6 +567,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -565,7 +577,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/aschaffenburg/",
@@ -580,7 +592,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://augsburgerfluechtlingsrat.blogspot.com/p/bezahlkarte-tauschaktion.html",
       "domain": "augsburgerfluechtlingsrat.blogspot.com",
       "coordinates": {
@@ -592,8 +604,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.3690341,
             "lon": 10.8979522,
@@ -601,6 +613,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -610,7 +623,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://augsburgerfluechtlingsrat.blogspot.com/p/bezahlkarte-tauschaktion.html",
@@ -625,7 +638,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/kartentausch_bamberg",
       "domain": "instagram.com",
       "coordinates": {
@@ -637,8 +650,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.8916044,
             "lon": 10.8868478,
@@ -646,6 +659,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -663,7 +677,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/kartentausch.bt/",
       "domain": "instagram.com",
       "coordinates": {
@@ -675,8 +689,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.9446345,
             "lon": 11.5743543,
@@ -684,6 +698,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -701,7 +716,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://offen-muenchen.de/",
       "domain": "offen-muenchen.de",
       "coordinates": {
@@ -713,8 +728,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.0782763,
             "lon": 11.9694372,
@@ -722,6 +737,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -731,7 +747,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://offen-muenchen.de/",
@@ -746,7 +762,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/offen_eichstaett",
       "domain": "instagram.com",
       "coordinates": {
@@ -758,8 +774,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.8863328,
             "lon": 11.1989396,
@@ -767,6 +783,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -784,7 +801,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/kartentausch_er",
       "domain": "instagram.com",
       "coordinates": {
@@ -796,8 +813,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.5977469,
             "lon": 11.0037372,
@@ -805,6 +822,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -822,7 +840,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://offen-muenchen.de/",
       "domain": "offen-muenchen.de",
       "coordinates": {
@@ -834,8 +852,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.4008273,
             "lon": 11.7439565,
@@ -843,6 +861,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -852,7 +871,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://offen-muenchen.de/",
@@ -867,7 +886,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/kartentausch_fuerth",
       "domain": "instagram.com",
       "coordinates": {
@@ -879,8 +898,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.4771169,
             "lon": 10.988667,
@@ -888,6 +907,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [
         {
           "label": "VGN",
@@ -910,7 +930,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://kartentausch-herzo.de/",
       "domain": "kartentausch-herzo.de",
       "coordinates": {
@@ -922,8 +942,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.5738171,
             "lon": 10.8926968,
@@ -931,6 +951,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -940,7 +961,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://kartentausch-herzo.de/",
@@ -955,7 +976,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://offen-muenchen.de/",
       "domain": "offen-muenchen.de",
       "coordinates": {
@@ -967,8 +988,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.7630165,
             "lon": 11.4250395,
@@ -976,6 +997,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -985,7 +1007,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://offen-muenchen.de/",
@@ -1000,7 +1022,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/seebruecke.kempten",
       "domain": "instagram.com",
       "coordinates": {
@@ -1012,8 +1034,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 47.7267063,
             "lon": 10.3168835,
@@ -1021,6 +1043,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1038,7 +1061,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/solidarische_wechselstube_la",
       "domain": "instagram.com",
       "coordinates": {
@@ -1050,8 +1073,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.536217,
             "lon": 12.1516551,
@@ -1059,6 +1082,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1076,7 +1100,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://offen-muenchen.de/",
       "domain": "offen-muenchen.de",
       "coordinates": {
@@ -1088,8 +1112,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.1371079,
             "lon": 11.5753822,
@@ -1097,6 +1121,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1106,7 +1131,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://offen-muenchen.de/",
@@ -1121,7 +1146,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-bayern.de/vorstellung-initiative-gegen-die-bezahlkarte-nuernberg",
       "domain": "fluechtlingsrat-bayern.de",
       "coordinates": {
@@ -1133,8 +1158,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.453872,
             "lon": 11.077298,
@@ -1142,6 +1167,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1151,7 +1177,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-bayern.de/vorstellung-initiative-gegen-die-bezahlkarte-nuernberg/",
@@ -1166,7 +1192,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "http://instagram.com/kartentausch_nbg_sued",
       "domain": "instagram.com",
       "coordinates": {
@@ -1178,8 +1204,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.453872,
             "lon": 11.077298,
@@ -1187,6 +1213,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1204,7 +1231,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://seebruecke-passau.de/kartentauschaktion",
       "domain": "seebruecke-passau.de",
       "coordinates": {
@@ -1216,8 +1243,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 48.5748229,
             "lon": 13.4609744,
@@ -1225,6 +1252,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1234,7 +1262,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://seebruecke-passau.de/kartentauschaktion/",
@@ -1249,7 +1277,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.kartentausch-regensburg.de/",
       "domain": "kartentausch-regensburg.de",
       "coordinates": {
@@ -1261,8 +1289,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.0195333,
             "lon": 12.0974869,
@@ -1270,6 +1298,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1279,7 +1308,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.kartentausch-regensburg.de/",
@@ -1294,7 +1323,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://bktrosenheim.noblogs.org/",
       "domain": "bktrosenheim.noblogs.org",
       "coordinates": {
@@ -1306,8 +1335,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 47.8557873,
             "lon": 12.1272983,
@@ -1315,6 +1344,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1324,7 +1354,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bktrosenheim.noblogs.org/",
@@ -1339,7 +1369,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://bezahlkarte.kulturladen.org/",
       "domain": "bezahlkarte.kulturladen.org",
       "coordinates": {
@@ -1351,8 +1381,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 47.8059338,
             "lon": 11.0315421,
@@ -1360,6 +1390,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1369,7 +1400,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarte.kulturladen.org/",
@@ -1384,7 +1415,7 @@
       "region": "Bayern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://wuerzburg-nein-bezahlkarte.de/",
       "domain": "wuerzburg-nein-bezahlkarte.de",
       "coordinates": {
@@ -1396,8 +1427,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.7933723,
             "lon": 9.9309779,
@@ -1405,6 +1436,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1414,7 +1446,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.wuerzburg-solidarisch.de/nein-zur-bezahlkarte/",
@@ -1429,7 +1461,7 @@
       "region": "Berlin",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1441,8 +1473,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.520008,
             "lon": 13.404954,
@@ -1450,6 +1482,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [
         {
           "label": "BVG",
@@ -1468,7 +1501,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/",
@@ -1483,7 +1516,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1495,8 +1528,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.8455492,
             "lon": 13.2461296,
@@ -1504,6 +1537,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1513,7 +1547,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/",
@@ -1528,7 +1562,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1540,8 +1574,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.1923564,
             "lon": 12.7584313,
@@ -1549,6 +1583,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1558,7 +1593,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1573,7 +1608,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1585,8 +1620,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.7567447,
             "lon": 14.3357307,
@@ -1594,6 +1629,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1603,7 +1639,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1618,7 +1654,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1630,8 +1666,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.8350807,
             "lon": 13.7996542,
@@ -1639,6 +1675,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1648,7 +1685,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1663,7 +1700,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1675,8 +1712,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.0762716,
             "lon": 11.8627933,
@@ -1684,6 +1721,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1693,7 +1731,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1708,7 +1746,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/en/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1720,8 +1758,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.4009309,
             "lon": 13.0591397,
@@ -1729,6 +1767,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1738,7 +1777,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/en/how-to/",
@@ -1753,7 +1792,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1765,8 +1804,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.5318238,
             "lon": 14.380704,
@@ -1774,6 +1813,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1783,7 +1823,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1798,7 +1838,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1810,8 +1850,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.5814009,
             "lon": 13.8833952,
@@ -1819,6 +1859,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1828,7 +1869,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1843,7 +1884,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1855,8 +1896,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.3805562,
             "lon": 13.2685278,
@@ -1864,6 +1905,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1873,7 +1915,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1888,7 +1930,7 @@
       "region": "Brandenburg",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://nein-zur-bezahlkarte.de/how-to/",
       "domain": "nein-zur-bezahlkarte.de",
       "coordinates": {
@@ -1900,8 +1942,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.0112877,
             "lon": 11.7374296,
@@ -1909,6 +1951,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1918,7 +1961,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://nein-zur-bezahlkarte.de/how-to/",
@@ -1933,7 +1976,7 @@
       "region": "Bremen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/nein_zur_schikanekarte_bremen/",
       "domain": "instagram.com",
       "coordinates": {
@@ -1945,8 +1988,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.144869,
             "lon": 8.6932343,
@@ -1954,6 +1997,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -1983,7 +2027,6 @@
         {
           "name": "Fanräume St. Pauli Millerntorstadion",
           "address": "Heiligengeistfeld, 20359 Hamburg",
-          "openingHours": "Every first and third Monday of the month, 17:00–19:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -1994,20 +2037,20 @@
                 3
               ],
               "start": "17:00",
-              "end": "19:00"
+              "end": "19:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 53.554357,
             "lon": 9.9709719,
             "label": "Heiligengeistfeld, Simon-von-Utrecht-Straße, St. Pauli, Hamburg-Mitte, Hamburg, 20359, Deutschland"
-          },
-          "openingHoursKey": "hamburg|fanraume-st-pauli-millerntorstadion|heiligengeistfeld-20359-hamburg"
+          }
         },
         {
           "name": "Cafe Exil",
           "address": "Hammer Str. 10, 22041 Hamburg",
-          "openingHours": "Women only; Every first Friday of the month, 14:00–17:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -2017,20 +2060,20 @@
                 1
               ],
               "start": "14:00",
-              "end": "17:00"
+              "end": "17:00",
+              "notes": "Only for FLINTA people."
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 53.5693786,
             "lon": 10.0610333,
             "label": "Uninest Student Residences, 10, Hammer Straße, Marienthal, Wandsbek, Hamburg, 22041, Deutschland"
-          },
-          "openingHoursKey": "hamburg|cafe-exil|hammer-str-10-22041-hamburg"
+          }
         },
         {
           "name": "INFOLADEN WILHEMSBURG",
           "address": "Fährstr. 48, 21107 Hamburg",
-          "openingHours": "Every first Monday of the month, 15:00–17:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -2040,20 +2083,20 @@
                 1
               ],
               "start": "15:00",
-              "end": "17:00"
+              "end": "17:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 53.5157005,
             "lon": 9.9868151,
             "label": "48, Fährstraße, Reiherstiegviertel, Wilhelmsburg, Hamburg-Mitte, Hamburg, 21107, Deutschland"
-          },
-          "openingHoursKey": "hamburg|infoladen-wilhemsburg|fahrstr-48-21107-hamburg"
+          }
         },
         {
           "name": "Die LINKE",
           "address": "Wallgraben 24, 21073 Hamburg Harburg",
-          "openingHours": "Every first and third Monday of the month, 17:00–19:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -2064,20 +2107,20 @@
                 3
               ],
               "start": "17:00",
-              "end": "19:00"
+              "end": "19:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 53.4626077,
             "lon": 9.9782122,
             "label": "24, Wallgraben, Harburg, Hamburg, 21073, Deutschland"
-          },
-          "openingHoursKey": "hamburg|die-linke|wallgraben-24-21073-hamburg-harburg"
+          }
         },
         {
           "name": "Die LINKE",
           "address": "Schopstraße 1, 20255 Hamburg Eimsbüttel",
-          "openingHours": "Every first and third Monday of the month, 17:00–19:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -2088,20 +2131,20 @@
                 3
               ],
               "start": "17:00",
-              "end": "19:00"
+              "end": "19:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 53.5782058,
             "lon": 9.9459182,
             "label": "1, Schopstraße, Eimsbüttel, Hamburg, 20255, Deutschland"
-          },
-          "openingHoursKey": "hamburg|die-linke|schopstrasse-1-20255-hamburg-eimsbuttel"
+          }
         },
         {
           "name": "Die LINKE",
           "address": "Am Felde 2, 22765 Hamburg Altona",
-          "openingHours": "Every first and third Monday of the month, 17:00–19:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -2112,20 +2155,20 @@
                 3
               ],
               "start": "17:00",
-              "end": "19:00"
+              "end": "19:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 53.5484302,
             "lon": 9.9326827,
             "label": "2, Am Felde, Ottensen, Altona, Hamburg, 22765, Deutschland"
-          },
-          "openingHoursKey": "hamburg|die-linke|am-felde-2-22765-hamburg-altona"
+          }
         },
         {
           "name": "Die LINKE",
           "address": "Borgfelder Str. 83, 20537 Hamburg, Mitte",
-          "openingHours": "Every first and third Monday of the month, 17:00–19:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -2136,22 +2179,24 @@
                 3
               ],
               "start": "17:00",
-              "end": "19:00"
+              "end": "19:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 53.5552182,
             "lon": 10.0394177,
             "label": "83, Borgfelder Straße, Borgfelde, Hamburg-Mitte, Hamburg, 20537, Deutschland"
-          },
-          "openingHoursKey": "hamburg|die-linke|borgfelder-str-83-20537-hamburg-mitte"
+          }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.bezahlkarte-nein.de/",
@@ -2166,7 +2211,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/darmstadt/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2178,8 +2223,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.872775,
             "lon": 8.651177,
@@ -2187,6 +2232,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2196,7 +2242,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/darmstadt/",
@@ -2211,7 +2257,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/frankfurt/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2223,8 +2269,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.1106444,
             "lon": 8.6820917,
@@ -2232,6 +2278,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2241,7 +2288,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/frankfurt/",
@@ -2256,7 +2303,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/giessen/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2268,8 +2315,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.5862066,
             "lon": 8.6742306,
@@ -2277,6 +2324,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2286,7 +2334,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/giessen/",
@@ -2301,7 +2349,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/hanau/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2313,8 +2361,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.132881,
             "lon": 8.9169797,
@@ -2322,6 +2370,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2331,7 +2380,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/hanau/",
@@ -2346,7 +2395,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2358,8 +2407,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.6080651,
             "lon": 9.0284647,
@@ -2367,6 +2416,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2376,7 +2426,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/",
@@ -2391,7 +2441,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/idstein/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2403,8 +2453,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.2147,
             "lon": 8.2902,
@@ -2412,6 +2462,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2421,7 +2472,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/idstein/",
@@ -2436,7 +2487,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/kassel/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2448,8 +2499,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.3157833,
             "lon": 9.4978479,
@@ -2457,6 +2508,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2466,7 +2518,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/kassel/",
@@ -2481,7 +2533,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/limburg/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2493,8 +2545,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.3880447,
             "lon": 8.063531,
@@ -2502,6 +2554,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2511,7 +2564,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/limburg/",
@@ -2526,7 +2579,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/mtk/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2538,8 +2591,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.0995751,
             "lon": 8.4264122,
@@ -2547,6 +2600,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2556,7 +2610,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/mtk/",
@@ -2571,7 +2625,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/marburg-solidarisch/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2583,8 +2637,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.8090106,
             "lon": 8.7704695,
@@ -2592,6 +2646,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2601,7 +2656,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/marburg-solidarisch/",
@@ -2616,7 +2671,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/offenbach/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2628,8 +2683,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.1055002,
             "lon": 8.7610698,
@@ -2637,6 +2692,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2646,7 +2702,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/offenbach/",
@@ -2661,7 +2717,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/wetterau/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2673,8 +2729,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.3551,
             "lon": 8.8621,
@@ -2682,6 +2738,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2691,7 +2748,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/wetterau/",
@@ -2706,7 +2763,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/wiesbaden/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2718,8 +2775,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.0820384,
             "lon": 8.2416556,
@@ -2727,6 +2784,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2736,7 +2794,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/wiesbaden/",
@@ -2751,7 +2809,7 @@
       "region": "Hessen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hessensagtnein.de/t/witzenhausen/",
       "domain": "hessensagtnein.de",
       "coordinates": {
@@ -2763,8 +2821,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.3331901,
             "lon": 9.8434192,
@@ -2772,6 +2830,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2781,7 +2840,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hessensagtnein.de/t/witzenhausen/",
@@ -2796,7 +2855,7 @@
       "region": "Mecklenburg-Vorpommern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://hgwhilft.de/bezahlkarte/",
       "domain": "hgwhilft.de",
       "coordinates": {
@@ -2808,8 +2867,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 54.095791,
             "lon": 13.3815238,
@@ -2817,6 +2876,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2826,7 +2886,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://hgwhilft.de/bezahlkarte/",
@@ -2841,7 +2901,7 @@
       "region": "Mecklenburg-Vorpommern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.bleiberecht-mv.org/bezahlkarte-stoppen",
       "domain": "bleiberecht-mv.org",
       "coordinates": {
@@ -2853,8 +2913,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.7735064,
             "lon": 12.5755471,
@@ -2862,6 +2922,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2871,7 +2932,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bleiberecht-mv.org/de/bezahlkarte-stoppen/",
@@ -2886,7 +2947,7 @@
       "region": "Mecklenburg-Vorpommern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/tausch_initiative_mse/",
       "domain": "instagram.com",
       "coordinates": {
@@ -2898,8 +2959,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.5838993,
             "lon": 13.0638679,
@@ -2907,6 +2968,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2924,7 +2986,7 @@
       "region": "Mecklenburg-Vorpommern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/netzwerk_fluechtlinge_pch/",
       "domain": "instagram.com",
       "coordinates": {
@@ -2936,8 +2998,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.4258455,
             "lon": 11.8475244,
@@ -2945,6 +3007,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2962,7 +3025,7 @@
       "region": "Mecklenburg-Vorpommern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://bezahlkarterostock.bleiberecht-mv.org/",
       "domain": "bezahlkarterostock.bleiberecht-mv.org",
       "coordinates": {
@@ -2974,8 +3037,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 54.0886707,
             "lon": 12.1400211,
@@ -2983,6 +3046,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -2992,7 +3056,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarterostock.bleiberecht-mv.org/",
@@ -3007,7 +3071,7 @@
       "region": "Mecklenburg-Vorpommern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/neinzurbezahlkarteschwerin",
       "domain": "instagram.com",
       "coordinates": {
@@ -3019,8 +3083,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.6288297,
             "lon": 11.4148038,
@@ -3028,6 +3092,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3045,7 +3110,7 @@
       "region": "Mecklenburg-Vorpommern",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://tauschtreff-stralsund.de/de",
       "domain": "tauschtreff-stralsund.de",
       "coordinates": {
@@ -3057,8 +3122,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 54.3096314,
             "lon": 13.0820846,
@@ -3066,6 +3131,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3075,7 +3141,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://tauschtreff-stralsund.de/de",
@@ -3090,7 +3156,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte-bs.org/",
       "domain": "neinzurbezahlkarte-bs.org",
       "coordinates": {
@@ -3102,8 +3168,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.2646577,
             "lon": 10.5236066,
@@ -3111,6 +3177,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3120,7 +3187,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte-bs.org/",
@@ -3135,7 +3202,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/neinzurbezahlkarteostfriesland",
       "domain": "instagram.com",
       "coordinates": {
@@ -3147,8 +3214,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.3670541,
             "lon": 7.2058304,
@@ -3156,6 +3223,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3173,7 +3241,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/neinzurbezahlkarte.goettingen",
       "domain": "instagram.com",
       "coordinates": {
@@ -3185,8 +3253,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.5328328,
             "lon": 9.9351811,
@@ -3194,6 +3262,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3211,7 +3280,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hannover:Hauptseite",
       "domain": "niedersachsen.bezahlkarte-nein.de",
       "coordinates": {
@@ -3223,8 +3292,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.3744779,
             "lon": 9.7385532,
@@ -3232,6 +3301,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3241,7 +3311,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hannover:Hauptseite",
@@ -3256,7 +3326,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hildesheim:Hauptseite",
       "domain": "niedersachsen.bezahlkarte-nein.de",
       "coordinates": {
@@ -3268,8 +3338,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.1527188,
             "lon": 9.9518083,
@@ -3277,6 +3347,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3286,7 +3357,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Hildesheim:Hauptseite",
@@ -3301,7 +3372,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.de/leer/",
       "domain": "neinzurbezahlkarte.de",
       "coordinates": {
@@ -3313,8 +3384,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.2332168,
             "lon": 7.4567555,
@@ -3322,6 +3393,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3331,7 +3403,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/leer/",
@@ -3346,7 +3418,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.whatsapp.com/channel/0029Vb77lMm60eBac4pWL33C",
       "domain": "whatsapp.com",
       "coordinates": {
@@ -3358,8 +3430,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.5224659,
             "lon": 7.316584,
@@ -3367,6 +3439,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3384,7 +3457,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://wonderl.ink/@neinzurbezahlkartelueneburg",
       "domain": "wonderl.ink",
       "coordinates": {
@@ -3396,8 +3469,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.248706,
             "lon": 10.407855,
@@ -3405,6 +3478,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3414,7 +3488,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://wonderl.ink/@neinzurbezahlkartelueneburg",
@@ -3429,7 +3503,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.nds-fluerat.org/aktionen/aktionsseite-gegen-die-diskriminierende-bezahlkarte-in-niedersachsen-und-anderswo/",
       "domain": "nds-fluerat.org",
       "coordinates": {
@@ -3441,8 +3515,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.8398531,
             "lon": 9.075962,
@@ -3450,6 +3524,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3459,7 +3534,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.nds-fluerat.org/aktionen/aktionsseite-gegen-die-diskriminierende-bezahlkarte-in-niedersachsen-und-anderswo/",
@@ -3474,7 +3549,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.de/oldenburg/",
       "domain": "neinzurbezahlkarte.de",
       "coordinates": {
@@ -3486,8 +3561,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 53.1389753,
             "lon": 8.2146017,
@@ -3495,6 +3570,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3504,7 +3580,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/oldenburg/",
@@ -3519,7 +3595,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://linktr.ee/neinzurbezahlkarteos",
       "domain": "linktr.ee",
       "coordinates": {
@@ -3531,8 +3607,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.2719595,
             "lon": 8.047635,
@@ -3540,6 +3616,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3549,7 +3626,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://linktr.ee/neinzurbezahlkarteos",
@@ -3564,7 +3641,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://niedersachsen.bezahlkarte-nein.de/wiki/Salzderhelden:Hauptseite",
       "domain": "niedersachsen.bezahlkarte-nein.de",
       "coordinates": {
@@ -3576,8 +3653,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.7977841,
             "lon": 9.9127987,
@@ -3585,6 +3662,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3594,7 +3672,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://niedersachsen.bezahlkarte-nein.de/wiki/Salzderhelden:Hauptseite",
@@ -3609,7 +3687,7 @@
       "region": "Niedersachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/bk_nein_danke",
       "domain": "instagram.com",
       "coordinates": {
@@ -3621,8 +3699,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.9233083,
             "lon": 11.12666,
@@ -3630,6 +3708,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3647,7 +3726,7 @@
       "region": "Nordrhein-Westfalen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/abolish.bezahlkarte.bonn/",
       "domain": "instagram.com",
       "coordinates": {
@@ -3659,8 +3738,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.7352621,
             "lon": 7.1024635,
@@ -3668,6 +3747,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3685,7 +3765,7 @@
       "region": "Nordrhein-Westfalen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.de/essen/",
       "domain": "neinzurbezahlkarte.de",
       "coordinates": {
@@ -3697,8 +3777,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.4582235,
             "lon": 7.0158171,
@@ -3706,6 +3786,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3715,7 +3796,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/essen/",
@@ -3730,7 +3811,7 @@
       "region": "Nordrhein-Westfalen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/tauschsystem.hammersache",
       "domain": "instagram.com",
       "coordinates": {
@@ -3742,8 +3823,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.681281,
             "lon": 7.8191185,
@@ -3751,6 +3832,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3768,7 +3850,7 @@
       "region": "Nordrhein-Westfalen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/neinzurbezahlkarte_koeln/",
       "domain": "instagram.com",
       "coordinates": {
@@ -3780,8 +3862,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.938361,
             "lon": 6.959974,
@@ -3789,6 +3871,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3806,7 +3889,7 @@
       "region": "Nordrhein-Westfalen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.de/muenster/",
       "domain": "neinzurbezahlkarte.de",
       "coordinates": {
@@ -3818,8 +3901,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.9625101,
             "lon": 7.6251879,
@@ -3827,6 +3910,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3836,7 +3920,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/muenster/",
@@ -3851,7 +3935,7 @@
       "region": "Nordrhein-Westfalen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/bergischesgegenbezahlkarte/",
       "domain": "instagram.com",
       "coordinates": {
@@ -3863,8 +3947,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.264018,
             "lon": 7.1780374,
@@ -3872,6 +3956,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3889,7 +3974,7 @@
       "region": "Saarland",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.saarland/",
       "domain": "neinzurbezahlkarte.saarland",
       "coordinates": {
@@ -3901,8 +3986,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 49.3841872,
             "lon": 6.9537369,
@@ -3910,6 +3995,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3919,7 +4005,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.saarland/",
@@ -3934,7 +4020,7 @@
       "region": "Sachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/cashfuralle/",
       "domain": "instagram.com",
       "coordinates": {
@@ -3946,8 +4032,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.8323531,
             "lon": 12.918914,
@@ -3955,6 +4041,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -3972,7 +4059,7 @@
       "region": "Sachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.de/dresden/",
       "domain": "neinzurbezahlkarte.de",
       "coordinates": {
@@ -3984,8 +4071,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.0493286,
             "lon": 13.7381437,
@@ -3993,6 +4080,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4002,7 +4090,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/dresden/",
@@ -4017,7 +4105,7 @@
       "region": "Sachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/gegendiebezahlkarte_fg?igsh=d2Zpamxwb21kcnhy",
       "domain": "instagram.com",
       "coordinates": {
@@ -4029,8 +4117,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.9169415,
             "lon": 13.3428889,
@@ -4038,6 +4126,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4055,7 +4144,7 @@
       "region": "Sachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.de/leipzig/",
       "domain": "neinzurbezahlkarte.de",
       "coordinates": {
@@ -4067,8 +4156,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.3406321,
             "lon": 12.3747329,
@@ -4076,6 +4165,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4085,7 +4175,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/leipzig/",
@@ -4100,7 +4190,7 @@
       "region": "Sachsen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.instagram.com/bezahlkartentausch.zwickau?igsh=ODhldDVpaGV1ODdx",
       "domain": "instagram.com",
       "coordinates": {
@@ -4112,8 +4202,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.7185043,
             "lon": 12.4939267,
@@ -4121,6 +4211,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4138,7 +4229,7 @@
       "region": "Sachsen-Anhalt",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-lsa.de/wp-content/uploads/2025/12/document.pdf",
       "domain": "fluechtlingsrat-lsa.de",
       "coordinates": {
@@ -4150,8 +4241,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.7939656,
             "lon": 11.7373854,
@@ -4159,6 +4250,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4168,7 +4260,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-lsa.de/wp-content/uploads/2025/12/document.pdf",
@@ -4183,7 +4275,7 @@
       "region": "Sachsen-Anhalt",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://dessaunazifrei.wordpress.com/bezahlkarte/",
       "domain": "dessaunazifrei.wordpress.com",
       "coordinates": {
@@ -4195,8 +4287,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.8309956,
             "lon": 12.2430723,
@@ -4204,6 +4296,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4213,7 +4306,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://dessaunazifrei.wordpress.com/bezahlkarte/",
@@ -4228,7 +4321,7 @@
       "region": "Sachsen-Anhalt",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://bezahlkarte-halle.de/",
       "domain": "bezahlkarte-halle.de",
       "coordinates": {
@@ -4240,8 +4333,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.4824354,
             "lon": 11.9712985,
@@ -4249,6 +4342,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4258,12 +4352,12 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
-        "ok": false,
-        "status": null,
-        "finalUrl": "",
-        "method": "",
-        "error": "timeout"
+        "checkedAt": "2026-06-12T00:24:35.871Z",
+        "ok": true,
+        "status": 200,
+        "finalUrl": "https://bezahlkarte-halle.de/",
+        "method": "HEAD",
+        "error": ""
       }
     },
     {
@@ -4273,7 +4367,7 @@
       "region": "Sachsen-Anhalt",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.dielinke-magdeburg.de/die-linke-hilft/bezahlkarte-information-in-english/",
       "domain": "dielinke-magdeburg.de",
       "coordinates": {
@@ -4285,8 +4379,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.1314783,
             "lon": 11.6400789,
@@ -4294,6 +4388,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4303,7 +4398,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.dielinke-magdeburg.de/die-linke-hilft/bezahlkarte-information-in-english/",
@@ -4318,7 +4413,7 @@
       "region": "Sachsen-Anhalt",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-lsa.de/bezahlkarte/",
       "domain": "fluechtlingsrat-lsa.de",
       "coordinates": {
@@ -4330,8 +4425,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 52.8528456,
             "lon": 11.1539699,
@@ -4339,6 +4434,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4348,7 +4444,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-lsa.de/bezahlkarte/",
@@ -4375,7 +4471,6 @@
         {
           "name": "Stadtteilladen Anni Wadle",
           "address": "Kieler Str. 12, 24143 Kiel - Gaarden",
-          "openingHours": "Every Wednesday, 17:00–19:00; Every first Monday of the month, 18:00–20:00; Every first Friday of the month, 16:00–18:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -4383,7 +4478,8 @@
               ],
               "weeksOfMonth": [],
               "start": "17:00",
-              "end": "19:00"
+              "end": "19:00",
+              "notes": ""
             },
             {
               "weekdays": [
@@ -4393,7 +4489,8 @@
                 1
               ],
               "start": "18:00",
-              "end": "20:00"
+              "end": "20:00",
+              "notes": ""
             },
             {
               "weekdays": [
@@ -4403,22 +4500,24 @@
                 1
               ],
               "start": "16:00",
-              "end": "18:00"
+              "end": "18:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 54.3143769,
             "lon": 10.143578,
             "label": "12, Kieler Straße, Gaarden-Ost, Kiel, Schleswig-Holstein, 24143, Deutschland"
-          },
-          "openingHoursKey": "kiel|stadtteilladen-anni-wadle|kieler-str-12-24143-kiel-gaarden"
+          }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://stadtteilladen.gaarden.net/anti-socialcard/get-cash/",
@@ -4445,7 +4544,6 @@
         {
           "name": "Alberta!",
           "address": "Albert-Mahlstedt Str. 65, 23701 Eutin",
-          "openingHours": "Every Friday, 15:00–18:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -4453,20 +4551,20 @@
               ],
               "weeksOfMonth": [],
               "start": "15:00",
-              "end": "18:00"
+              "end": "18:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 54.1325779,
             "lon": 10.6131515,
             "label": "65, Albert-Mahlstedt-Straße, Dosenredder, Neudorf, Eutin, Kreis Ostholstein, Schleswig-Holstein, 23701, Deutschland"
-          },
-          "openingHoursKey": "eutin|alberta|albert-mahlstedt-str-65-23701-eutin"
+          }
         },
         {
           "name": "Forum e.V.",
           "address": "Bismarckstr. 2, 23701 Eutin",
-          "openingHours": "Every first Tuesday of the month, 10:00–12:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -4476,22 +4574,24 @@
                 1
               ],
               "start": "10:00",
-              "end": "12:00"
+              "end": "12:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 54.1383415,
             "lon": 10.6083038,
             "label": "2, Bismarckstraße, Hochkamp, Fissau, Eutin, Kreis Ostholstein, Schleswig-Holstein, 23701, Deutschland"
-          },
-          "openingHoursKey": "eutin|forum-e-v|bismarckstr-2-23701-eutin"
+          }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://linktr.ee/AntiSocialCardOH",
@@ -4518,16 +4618,16 @@
         {
           "name": "Bezahlbar Bargteheide",
           "address": "Lohe 11, 22941 Bargteheide",
-          "openingHours": "Every first Friday of the month",
           "openingSlots": [],
+          "notes": "Exchange event every first Friday of the month; see the website for the current time.",
           "coordinates": {
             "lat": 53.7230603,
             "lon": 10.2635538,
             "label": "Lohe, Bargteheide, Kreis Stormarn, Schleswig-Holstein, 22941, Deutschland"
-          },
-          "openingHoursKey": "bargteheide|bezahlbar-bargteheide|lohe-11-22941-bargteheide"
+          }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [],
       "aliases": [],
@@ -4540,7 +4640,7 @@
       "region": "Schleswig-Holstein",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://linke-dithmarschen.de/termine/infostand-bezahlkarte-so-nicht-in-meldorf/",
       "domain": "linke-dithmarschen.de",
       "coordinates": {
@@ -4552,8 +4652,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 54.08988,
             "lon": 9.070633,
@@ -4561,6 +4661,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4570,7 +4671,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://linke-dithmarschen.de/termine/infostand-bezahlkarte-so-nicht-in-meldorf/",
@@ -4597,7 +4698,6 @@
         {
           "name": "Solicafé im Solizentrum",
           "address": "Willy-Brandt-Allee 11, 23554 Lübeck",
-          "openingHours": "Every second and fourth Monday of the month, 17:00–19:00",
           "openingSlots": [
             {
               "weekdays": [
@@ -4608,22 +4708,24 @@
                 4
               ],
               "start": "17:00",
-              "end": "19:00"
+              "end": "19:00",
+              "notes": ""
             }
           ],
+          "notes": "",
           "coordinates": {
             "lat": 53.8705584,
             "lon": 10.6773118,
             "label": "11, Willy-Brandt-Allee, Innenstadt, Lübeck, Schleswig-Holstein, 23554, Deutschland"
-          },
-          "openingHoursKey": "lubeck|solicafe-im-solizentrum|willy-brandt-allee-11-23554-lubeck"
+          }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://bezahlkarte-nein-hl.de/",
@@ -4638,7 +4740,7 @@
       "region": "Thüringen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://neinzurbezahlkarte.de/erfurt/",
       "domain": "neinzurbezahlkarte.de",
       "coordinates": {
@@ -4650,8 +4752,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.9777974,
             "lon": 11.0287364,
@@ -4659,6 +4761,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4668,7 +4771,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://neinzurbezahlkarte.de/erfurt/",
@@ -4683,7 +4786,7 @@
       "region": "Thüringen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte#tabs-0-18434900-1756830376-5",
       "domain": "fluechtlingsrat-thr.de",
       "coordinates": {
@@ -4695,8 +4798,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.8765528,
             "lon": 12.0832674,
@@ -4704,6 +4807,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4713,7 +4817,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4728,7 +4832,7 @@
       "region": "Thüringen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte#tabs-0-18434900-1756830376-5",
       "domain": "fluechtlingsrat-thr.de",
       "coordinates": {
@@ -4740,8 +4844,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.6477963,
             "lon": 12.1734848,
@@ -4749,6 +4853,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4758,7 +4863,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4773,7 +4878,7 @@
       "region": "Thüringen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
       "domain": "fluechtlingsrat-thr.de",
       "coordinates": {
@@ -4785,8 +4890,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.9281717,
             "lon": 11.5879359,
@@ -4794,6 +4899,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4803,7 +4909,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4818,7 +4924,7 @@
       "region": "Thüringen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.seebruecke.org/mach-mit/deutschland/thueringen/erfurt",
       "domain": "seebruecke.org",
       "coordinates": {
@@ -4830,8 +4936,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.2094255,
             "lon": 10.4589044,
@@ -4839,6 +4945,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4848,7 +4955,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.seebruecke.org/mach-mit/deutschland/thueringen/erfurt",
@@ -4863,7 +4970,7 @@
       "region": "Thüringen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
       "domain": "fluechtlingsrat-thr.de",
       "coordinates": {
@@ -4875,8 +4982,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 51.5051574,
             "lon": 10.7925317,
@@ -4884,6 +4991,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4893,7 +5001,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4908,7 +5016,7 @@
       "region": "Thüringen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
       "domain": "fluechtlingsrat-thr.de",
       "coordinates": {
@@ -4920,8 +5028,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.9014721,
             "lon": 11.0377839,
@@ -4929,6 +5037,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4938,7 +5047,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4953,7 +5062,7 @@
       "region": "Thüringen",
       "country": "Deutschland",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
       "domain": "fluechtlingsrat-thr.de",
       "coordinates": {
@@ -4965,8 +5074,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 50.9793301,
             "lon": 11.3297921,
@@ -4974,6 +5083,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [],
       "sources": [
         {
@@ -4983,7 +5093,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://www.fluechtlingsrat-thr.de/themen/bezahlkarte",
@@ -4998,7 +5108,7 @@
       "region": "Österreich",
       "country": "Österreich",
       "address": "",
-      "updatedAt": "2026-06-11",
+      "updatedAt": "2026-06-12",
       "url": "https://linksvondermur.noblogs.org/initiative-gegen-bezahlkarte",
       "domain": "linksvondermur.noblogs.org",
       "coordinates": {
@@ -5010,8 +5120,8 @@
         {
           "name": "",
           "address": "",
-          "openingHours": "",
           "openingSlots": [],
+          "notes": "",
           "coordinates": {
             "lat": 47.0708678,
             "lon": 15.4382786,
@@ -5019,6 +5129,7 @@
           }
         }
       ],
+      "notes": "",
       "transitLinks": [
         {
           "label": "Verbund Linie",
@@ -5033,7 +5144,7 @@
       ],
       "aliases": [],
       "websiteCheck": {
-        "checkedAt": "2026-06-11T23:33:29.908Z",
+        "checkedAt": "2026-06-12T00:24:35.871Z",
         "ok": true,
         "status": 200,
         "finalUrl": "https://linksvondermur.noblogs.org/initiative-gegen-bezahlkarte",

@@ -49,7 +49,6 @@ initiatives:
     locations:
       - name: Stadtteilladen Anni Wadle
         address: Kieler Str. 12, 24143 Kiel - Gaarden
-        openingHours: "Every Wednesday, 17:00–19:00; Every first Monday of the month, 18:00–20:00; Every first Friday of the month, 16:00–18:00"
         openingSlots:
           - { weekdays: [3], start: "17:00", end: "19:00" }
           - { weekdays: [1], weeksOfMonth: [1], start: "18:00", end: "20:00" }
@@ -64,12 +63,10 @@ initiatives:
     locations:
       - name: Alberta!
         address: Albert-Mahlstedt Str. 65, 23701 Eutin
-        openingHours: "Every Friday, 15:00–18:00"
         openingSlots:
           - { weekdays: [5], start: "15:00", end: "18:00" }
       - name: Forum e.V.
         address: Bismarckstr. 2, 23701 Eutin
-        openingHours: "Every first Tuesday of the month, 10:00–12:00"
         openingSlots:
           - { weekdays: [2], weeksOfMonth: [1], start: "10:00", end: "12:00" }
   - id: lübeck
@@ -82,7 +79,6 @@ initiatives:
     locations:
       - name: Solicafé im Solizentrum
         address: Willy-Brandt-Allee 11, 23554 Lübeck
-        openingHours: "Every second and fourth Monday of the month, 17:00–19:00"
         openingSlots:
           - { weekdays: [1], weeksOfMonth: [2, 4], start: "17:00", end: "19:00" }
   - id: bargteheide
@@ -95,7 +91,7 @@ initiatives:
     locations:
       - name: Bezahlbar Bargteheide
         address: Lohe 11, 22941 Bargteheide
-        openingHours: "Every first Friday of the month"
+        notes: "Exchange event every first Friday of the month; see the website for the current time."
   - id: hamburg
     name: Hamburg sagt NEIN zur Bezahlkarte
     city: Hamburg
@@ -106,37 +102,30 @@ initiatives:
     locations:
       - name: Fanräume St. Pauli Millerntorstadion
         address: Heiligengeistfeld, 20359 Hamburg
-        openingHours: "Every first and third Monday of the month, 17:00–19:00"
         openingSlots:
           - { weekdays: [1], weeksOfMonth: [1, 3], start: "17:00", end: "19:00" }
       - name: Cafe Exil
         address: Hammer Str. 10, 22041 Hamburg
-        openingHours: "Women only; Every first Friday of the month, 14:00–17:00"
         openingSlots:
-          - { weekdays: [5], weeksOfMonth: [1], start: "14:00", end: "17:00" }
+          - { weekdays: [5], weeksOfMonth: [1], start: "14:00", end: "17:00", notes: "Nur für FLINTA" }
       - name: INFOLADEN WILHEMSBURG
         address: Fährstr. 48, 21107 Hamburg
-        openingHours: "Every first Monday of the month, 15:00–17:00"
         openingSlots:
           - { weekdays: [1], weeksOfMonth: [1], start: "15:00", end: "17:00" }
       - name: Die LINKE
         address: Wallgraben 24, 21073 Hamburg Harburg
-        openingHours: "Every first and third Monday of the month, 17:00–19:00"
         openingSlots:
           - { weekdays: [1], weeksOfMonth: [1, 3], start: "17:00", end: "19:00" }
       - name: Die LINKE
         address: Schopstraße 1, 20255 Hamburg Eimsbüttel
-        openingHours: "Every first and third Monday of the month, 17:00–19:00"
         openingSlots:
           - { weekdays: [1], weeksOfMonth: [1, 3], start: "17:00", end: "19:00" }
       - name: Die LINKE
         address: Am Felde 2, 22765 Hamburg Altona
-        openingHours: "Every first and third Monday of the month, 17:00–19:00"
         openingSlots:
           - { weekdays: [1], weeksOfMonth: [1, 3], start: "17:00", end: "19:00" }
       - name: Die LINKE
         address: Borgfelder Str. 83, 20537 Hamburg, Mitte
-        openingHours: "Every first and third Monday of the month, 17:00–19:00"
         openingSlots:
           - { weekdays: [1], weeksOfMonth: [1, 3], start: "17:00", end: "19:00" }
 
@@ -152,10 +141,12 @@ initiatives:
 #     locations:
 #       - name: Ladenname
 #         address: Musterstraße 1, 12345 Stadt
-#         openingHours: Monday to Friday, 10:00–18:00
+#         notes: Allgemeine Hinweise zum Standort
+#         openingSlots:
+#           - { weekdays: [1, 2, 3, 4, 5], start: "10:00", end: "18:00" }
 #       - name: Zweiter Tauschort
 #         address: Beispielweg 2, 12345 Stadt
-#         openingHours: By appointment
+#         notes: By appointment
 #     url: https://example.org/
 #     transitLinks:
 #       - label: Lokaler ÖPNV

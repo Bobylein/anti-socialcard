@@ -9,7 +9,6 @@ const WEBSITE_CHECK_CONCURRENCY = 4;
 const DATA_PATH = new URL("../data/initiatives.json", import.meta.url);
 const CATALOG_PATH = new URL("../data/catalog.yml", import.meta.url);
 const I18N_DIR = new URL("../data/i18n/", import.meta.url);
-const OPENING_HOURS_I18N_PATH = new URL("../data/opening-hours-i18n.json", import.meta.url);
 const GEOCODE_CACHE_PATH = new URL("../data/geocodes.json", import.meta.url);
 const INDEX_PATH = new URL("../index.html", import.meta.url);
 const LEAFLET_DIST = new URL("../node_modules/leaflet/dist/", import.meta.url);
@@ -69,17 +68,14 @@ const SOCIAL_MEDIA_DOMAINS = [
 ];
 
 async function main() {
-  const [html, catalog, translations, openingHoursTranslations, geocodeCache] = await Promise.all([
+  const [html, catalog, translations, geocodeCache] = await Promise.all([
     fetchSource(),
     readCatalog(),
     readTranslations(),
-    readOpeningHoursTranslations(),
     readGeocodeCache()
   ]);
   const scraped = parseInitiatives(html);
   const initiatives = mergeInitiatives(scraped, catalog);
-  addOpeningHoursKeys(initiatives);
-  const validOpeningHoursTranslations = normalizeOpeningHoursTranslations(initiatives, openingHoursTranslations);
 
   if (scraped.length < 20) {
     throw new Error(`Parsed only ${scraped.length} initiatives; source structure may have changed.`);
@@ -100,9 +96,8 @@ async function main() {
   await mkdir(new URL("../data/", import.meta.url), { recursive: true });
   await copyLeafletAssets();
   await writeFile(GEOCODE_CACHE_PATH, `${JSON.stringify(geocodeCache, null, 2)}\n`);
-  await writeFile(OPENING_HOURS_I18N_PATH, `${JSON.stringify(validOpeningHoursTranslations, null, 2)}\n`);
   await writeFile(DATA_PATH, `${JSON.stringify(data, null, 2)}\n`);
-  await writeFile(INDEX_PATH, renderPage(data, translations, validOpeningHoursTranslations));
+  await writeFile(INDEX_PATH, renderPage(data, translations));
 
   console.log(`Updated ${initiatives.length} initiatives (${scraped.length} scraped, ${catalog.initiatives.length} curated).`);
 }
@@ -152,15 +147,6 @@ async function readTranslations() {
   }
 
   return translations;
-}
-
-async function readOpeningHoursTranslations() {
-  try {
-    return JSON.parse(await readFile(OPENING_HOURS_I18N_PATH, "utf8"));
-  } catch (error) {
-    if (error.code === "ENOENT") return {};
-    throw error;
-  }
 }
 
 async function readGeocodeCache() {
@@ -281,6 +267,7 @@ function normalizeInitiative(raw) {
     domain: url ? new URL(url).hostname.replace(/^www\./, "") : "",
     coordinates: normalizeCoordinates(raw.coordinates),
     locations,
+    notes: String(raw.notes ?? "").trim(),
     transitLinks,
     sources,
     aliases: Array.isArray(raw.aliases) ? raw.aliases.map(String) : [],
@@ -296,11 +283,11 @@ function normalizeLocations(raw) {
     .map((location) => ({
       name: String(location?.name ?? "").trim(),
       address: String(location?.address ?? "").trim(),
-      openingHours: String(location?.openingHours ?? "").trim(),
       openingSlots: normalizeOpeningSlots(location?.openingSlots),
+      notes: String(location?.notes ?? "").trim(),
       coordinates: normalizeCoordinates(location?.coordinates)
     }))
-    .filter((location) => location.name || location.address || location.openingHours || location.openingSlots.length || location.coordinates);
+    .filter((location) => location.name || location.address || location.openingSlots.length || location.notes || location.coordinates);
 }
 
 function normalizeOpeningSlots(value) {
@@ -309,40 +296,8 @@ function normalizeOpeningSlots(value) {
     weekdays: Array.isArray(slot?.weekdays) ? slot.weekdays.map(Number) : [],
     weeksOfMonth: Array.isArray(slot?.weeksOfMonth) ? slot.weeksOfMonth.map(Number) : [],
     start: String(slot?.start ?? "").trim(),
-    end: String(slot?.end ?? "").trim()
-  }));
-}
-
-function addOpeningHoursKeys(initiatives) {
-  for (const initiative of initiatives) {
-    for (const location of initiative.locations) {
-      if (!location.openingHours) continue;
-      location.openingHoursKey = [
-        openingHoursKeyPart(initiative.id),
-        openingHoursKeyPart(location.name || "location"),
-        openingHoursKeyPart(location.address || "no-address")
-      ].join("|");
-    }
-  }
-}
-
-function openingHoursKeyPart(value) {
-  return slugify(String(value).replaceAll("ß", "ss"));
-}
-
-function normalizeOpeningHoursTranslations(initiatives, values) {
-  const sources = new Map(initiatives.flatMap((initiative) =>
-    initiative.locations
-      .filter((location) => location.openingHoursKey)
-      .map((location) => [location.openingHoursKey, location.openingHours])
-  ));
-  return Object.fromEntries(Object.entries(values ?? {}).flatMap(([key, entry]) => {
-    const source = sources.get(key);
-    if (!source || entry?.source !== source) return [];
-    const translations = Object.fromEntries(Object.entries(entry.translations ?? {})
-      .filter(([code, text]) => LANGUAGES.some((language) => language.code === code) && String(text).trim())
-      .map(([code, text]) => [code, String(text).trim()]));
-    return Object.keys(translations).length ? [[key, { source, translations }]] : [];
+    end: String(slot?.end ?? "").trim(),
+    notes: String(slot?.notes ?? "").trim()
   }));
 }
 
@@ -409,9 +364,6 @@ function validateInitiatives(initiatives) {
       new URL(link);
     }
     for (const location of item.locations) {
-      if (/\b\d{1,2}(?::\d{2})?\s*[ap]\.?m\.?\b/i.test(location.openingHours)) {
-        throw new Error(`Opening hours must use 24-hour HH:MM format in catalog data: ${item.id}`);
-      }
       for (const slot of location.openingSlots) {
         if (!slot.weekdays.length || slot.weekdays.some((day) => !Number.isInteger(day) || day < 1 || day > 7)) {
           throw new Error(`Invalid openingSlots weekdays in ${item.id}`);
@@ -430,7 +382,7 @@ function validateInitiatives(initiatives) {
 async function addCoordinates(initiatives, cache) {
   for (const initiative of initiatives) {
     if (!initiative.locations.length) {
-      initiative.locations.push({ name: "", address: "", openingHours: "", openingSlots: [], coordinates: initiative.coordinates });
+      initiative.locations.push({ name: "", address: "", openingSlots: [], notes: "", coordinates: initiative.coordinates });
     }
     for (const location of initiative.locations) {
       if (location.coordinates) continue;
@@ -616,7 +568,7 @@ async function fetchGeocode(params) {
   return result ?? null;
 }
 
-function renderPage(data, translations, openingHoursTranslations) {
+function renderPage(data, translations) {
   const regions = [...new Set(data.initiatives.map((item) => item.region))].sort((a, b) => a.localeCompare(b, "de"));
   const geocodedCount = data.initiatives.filter((item) => item.coordinates).length;
   const updated = new Intl.DateTimeFormat("de-DE", {
@@ -733,6 +685,38 @@ function renderPage(data, translations, openingHoursTranslations) {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
+    }
+
+    .place-suggestions {
+      grid-column: 1 / -1;
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .place-suggestions button {
+      width: 100%;
+      min-height: 0;
+      padding: 10px 12px;
+      border-color: var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      text-align: start;
+      font-weight: 650;
+    }
+
+    .place-suggestions button:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .place-suggestions small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-weight: 500;
     }
 
     label {
@@ -954,6 +938,19 @@ function renderPage(data, translations, openingHoursTranslations) {
       border-top: 1px dashed rgba(15, 103, 96, 0.18);
     }
 
+    .initiative .notes {
+      margin-top: 7px;
+      color: var(--ink);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+
+    .initiative .slot-notes {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
     .links {
       display: flex;
       flex-wrap: wrap;
@@ -977,18 +974,16 @@ function renderPage(data, translations, openingHoursTranslations) {
       background: var(--accent-soft);
     }
 
-    .distance { color: var(--accent); font-weight: 760; }
-
-    .journey {
+    .proximity {
       display: grid;
-      gap: 8px;
+      gap: 4px;
       padding: 10px;
       border: 1px solid var(--line);
       border-radius: 7px;
       background: var(--paper);
     }
 
-    .journey-summary {
+    .proximity-summary {
       display: flex;
       flex-wrap: wrap;
       gap: 6px 14px;
@@ -997,9 +992,19 @@ function renderPage(data, translations, openingHoursTranslations) {
       font-weight: 680;
     }
 
-    .journey-status {
+    .distance { color: var(--accent); font-weight: 760; }
+
+    .proximity-status {
       color: var(--muted);
       font-size: 0.86rem;
+    }
+
+    .nearest-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
     }
 
     .transitous-link {
@@ -1080,10 +1085,11 @@ function renderPage(data, translations, openingHoursTranslations) {
       <form class="quick-start" id="locator">
         <label>
           <span data-i18n="locationLabel">Dein Ort</span>
-          <input id="location" autocomplete="off" data-i18n-placeholder="locationPlaceholder">
+          <input id="location" autocomplete="off" aria-controls="place-suggestions" data-i18n-placeholder="locationPlaceholder">
         </label>
         <button type="submit" data-i18n="findNearest">Nächste finden</button>
         <button class="secondary" type="button" id="use-location" data-i18n="useLocation">Standort nutzen</button>
+        <ul class="place-suggestions" id="place-suggestions" aria-label="Mögliche Orte" data-i18n-aria-label="placeSuggestionsLabel" hidden></ul>
       </form>
     </div>
   </header>
@@ -1095,7 +1101,10 @@ function renderPage(data, translations, openingHoursTranslations) {
       <section class="section" id="nearest" aria-live="polite">
         <div class="section-head">
           <h2 data-i18n="nearestTitle">Nächste Initiativen</h2>
-          <span class="count" id="nearest-count"></span>
+          <div class="nearest-actions">
+            <span class="count" id="nearest-count"></span>
+            <button type="button" class="secondary" id="sort-nearest" disabled></button>
+          </div>
         </div>
         <div class="grid" id="nearest-grid"></div>
         <button type="button" class="secondary load-more" id="load-more" data-i18n="loadMore">Mehr laden</button>
@@ -1159,22 +1168,22 @@ function renderPage(data, translations, openingHoursTranslations) {
 
   <script type="application/json" id="initiative-data">${escapeScriptJson(toPageInitiatives(data.initiatives))}</script>
   <script type="application/json" id="translation-data">${escapeScriptJson(translations)}</script>
-  <script type="application/json" id="opening-hours-translation-data">${escapeScriptJson(openingHoursTranslations)}</script>
   <script type="application/json" id="language-data">${escapeScriptJson(LANGUAGES)}</script>
   <script>
     const initiatives = JSON.parse(document.getElementById("initiative-data").textContent);
     const translations = JSON.parse(document.getElementById("translation-data").textContent);
-    const openingHoursTranslations = JSON.parse(document.getElementById("opening-hours-translation-data").textContent);
     const languages = JSON.parse(document.getElementById("language-data").textContent);
     const languageSwitcher = document.getElementById("language-switcher");
     const locator = document.getElementById("locator");
     const locationInput = document.getElementById("location");
+    const placeSuggestions = document.getElementById("place-suggestions");
     const useLocation = document.getElementById("use-location");
     const locationStatus = document.getElementById("location-status");
     const results = document.getElementById("results");
     const nearest = document.getElementById("nearest");
     const nearestGrid = document.getElementById("nearest-grid");
     const nearestCount = document.getElementById("nearest-count");
+    const sortNearestButton = document.getElementById("sort-nearest");
     const loadMoreButton = document.getElementById("load-more");
     const showMapButton = document.getElementById("show-map");
     const mapStatus = document.getElementById("map-status");
@@ -1186,7 +1195,7 @@ function renderPage(data, translations, openingHoursTranslations) {
     const noResults = document.getElementById("no-results");
     const filters = document.getElementById("filters");
     const TRANSITOUS_URL = "https://api.transitous.org/api/v6/plan";
-    const ROUTE_CACHE_KEY = "anti-socialcard-transitous-city-v4";
+    const ROUTE_CACHE_KEY = "anti-socialcard-transitous-city-v7";
     const REVERSE_GEOCODE_CACHE_KEY = "anti-socialcard-origin-labels-v1";
     const BERLIN_TIME_ZONE = "Europe/Berlin";
     let currentLanguage = chooseInitialLanguage();
@@ -1199,6 +1208,7 @@ function renderPage(data, translations, openingHoursTranslations) {
     let locationRequestPending = false;
     let rankedNearest = [];
     let nearestVisibleCount = 10;
+    let nearestSortMode = "distance";
     let routingGeneration = 0;
     const cityStationCache = new Map();
 
@@ -1217,22 +1227,43 @@ function renderPage(data, translations, openingHoursTranslations) {
       filters.addEventListener("reset", () => requestAnimationFrame(applyFilters));
       loadMoreButton.addEventListener("click", () => {
         nearestVisibleCount += 5;
+        nearestSortMode = "distance";
         renderNearest();
         routeVisibleInitiatives();
+      });
+      sortNearestButton.addEventListener("click", () => {
+        nearestSortMode = nearestSortMode === "transit" ? "distance" : "transit";
+        renderNearest();
       });
       locator.addEventListener("submit", async (event) => {
         event.preventDefault();
         const place = locationInput.value.trim();
         if (!place) return;
+        clearPlaceSuggestions();
         setStatus("statusSearchingPlace");
         try {
-          const origin = await geocodePlace(place);
-          showNearest(origin, origin.label);
+          const places = await geocodePlaces(place);
+          if (places.length === 1) {
+            await selectPlace(place, places[0]);
+          } else {
+            renderPlaceSuggestions(places);
+            setStatus("statusChoosePlace");
+          }
         } catch (error) {
           locationStatus.textContent = error.message;
         }
       });
+      placeSuggestions.addEventListener("click", async (event) => {
+        const button = event.target.closest("button[data-place-index]");
+        if (!button) return;
+        const place = locationInput.value.trim();
+        const selected = placeSuggestions.currentPlaces?.[Number(button.dataset.placeIndex)];
+        if (!selected) return;
+        await selectPlace(place, selected);
+      });
+      locationInput.addEventListener("input", clearPlaceSuggestions);
       useLocation.addEventListener("click", () => {
+        clearPlaceSuggestions();
         if (locationRequestPending) return;
         if (!window.isSecureContext) {
           setStatus("statusLocationInsecure");
@@ -1314,6 +1345,9 @@ function renderPage(data, translations, openingHoursTranslations) {
       document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
         element.placeholder = t(element.dataset.i18nPlaceholder);
       });
+      document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+        element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
+      });
       languageSwitcher.querySelectorAll("button").forEach((button) => {
         button.setAttribute("aria-pressed", String(button.dataset.lang === currentLanguage));
       });
@@ -1351,76 +1385,103 @@ function renderPage(data, translations, openingHoursTranslations) {
       for (const link of item.transitLinks || []) {
         links.push('<a href="' + escapeHtml(link.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(link.label || t("transit")) + '</a>');
       }
-      const distanceText = Number.isFinite(distance) ? '<span class="distance">' + Math.round(distance) + ' ' + t("distanceKm") + '</span> · ' : "";
       const title = item.city || item.name;
       const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
+      const initiativeNotes = item.notes ? renderNotes(item.notes) : "";
       const locations = getLocations(item).map((location) => renderLocationDetails(location, Number.isFinite(distance) ? item : null)).filter(Boolean).join("");
       const locationDetails = locations ? '<div class="locations">' + locations + '</div>' : "";
-      const journey = Number.isFinite(distance) ? renderJourney(routeState) : "";
+      const proximity = Number.isFinite(distance) ? renderProximity(distance, routeState) : "";
       const updatedAt = item.updatedAt ? '<span class="updated-at">' + escapeHtml(t("updatedLabel") + ": " + formatDate(item.updatedAt)) + '</span>' : "";
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
-        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + locationDetails + '<p>' + distanceText + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' + journey +
+        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + initiativeNotes + locationDetails + '<p>' + escapeHtml([item.region, item.country].filter(Boolean).join(" · ")) + '</p></div>' + proximity +
         '<div class="card-footer"><div class="links">' + links.join("") + '</div>' + updatedAt + '</div>' +
         '</article>';
     }
 
-    function renderJourney(routeState) {
+    function renderProximity(distance, routeState) {
+      const distanceText = '<span class="distance">' + Math.round(distance) + ' ' + escapeHtml(t("distanceKm")) + '</span>';
       if (!routeState || routeState.status === "pending") {
-        return '<div class="journey"><span class="journey-status">' + escapeHtml(t("transitWaiting")) + '</span></div>';
+        return '<div class="proximity"><div class="proximity-summary">' + distanceText + '</div><span class="proximity-status">' + escapeHtml(t("transitWaiting")) + '</span></div>';
       }
       if (routeState.status === "loading") {
-        return '<div class="journey"><span class="journey-status">' + escapeHtml(t("transitLoading")) + '</span></div>';
+        return '<div class="proximity"><div class="proximity-summary">' + distanceText + '</div><span class="proximity-status">' + escapeHtml(t("transitLoading")) + '</span></div>';
       }
       if (routeState.status === "error") {
-        return '<div class="journey"><span class="journey-status">' + escapeHtml(t("transitUnavailable")) + '</span></div>';
+        return '<div class="proximity"><div class="proximity-summary">' + distanceText + '</div><span class="proximity-status">' + escapeHtml(t("transitUnavailable")) + '</span></div>';
       }
-      return '<div class="journey"><div class="journey-summary"><span>' +
+      return '<div class="proximity"><div class="proximity-summary">' + distanceText + '<span>' +
         escapeHtml(t("cityTravelTime") + ": " + formatDuration(routeState.duration)) +
-        '</span></div><span class="journey-status">' +
+        '</span></div><span class="proximity-status">' +
         escapeHtml(routeState.fromStation + " → " + routeState.toStation) +
         '</span></div>';
     }
 
     function renderLocationDetails(location, item) {
       const title = [location.name, location.address].filter(Boolean).join(" · ");
-      const openingHourRows = formatOpeningHours(translatedOpeningHours(location));
+      const openingHourRows = formatOpeningSlots(location.openingSlots);
       const openingHours = openingHourRows.length
         ? '<div class="opening-hours"><span class="opening-hours-label">' + escapeHtml(t("openingHoursLabel")) + '</span><span class="opening-hours-value">' +
-          openingHourRows.map((row) => '<span class="opening-hours-row">' + escapeHtml(row) + '</span>').join("") + '</span></div>'
+          openingHourRows.map((row) => '<span class="opening-hours-row">' + escapeHtml(row.schedule) +
+            (row.notes ? '<span class="slot-notes">' + escapeHtml(row.notes) + '</span>' : "") + '</span>').join("") + '</span></div>'
         : "";
+      const notes = location.notes ? renderNotes(location.notes) : "";
       const routeLink = item && location.coordinates
         ? '<div class="links"><a class="transitous-link" href="' + escapeHtml(buildTransitousUrl(item, location)) +
           '" target="_blank" rel="noopener noreferrer">' + escapeHtml(t("transitousRoute")) + '</a></div>'
         : "";
-      if (!title && !openingHours && !routeLink) return "";
+      if (!title && !openingHours && !notes && !routeLink) return "";
       return '<div class="location"><p class="location-name">' + escapeHtml(title) + '</p>' +
-        openingHours + routeLink + '</div>';
+        openingHours + notes + routeLink + '</div>';
     }
 
-    function formatOpeningHours(value) {
-      if (!value) return [];
-      return value.split(/[;\\n]+/).map((row) => row.trim()).filter(Boolean).map((row) => {
-        const ranges = [];
-        const withRangePlaceholders = row.replace(
-          /\\b([01]?\\d|2[0-3]):([0-5]\\d)\\s*[–—-]\\s*([01]?\\d|2[0-3]):([0-5]\\d)\\b/g,
-          (_, startHour, startMinute, endHour, endMinute) => {
-            ranges.push(formatTimeRange(Number(startHour), Number(startMinute), Number(endHour), Number(endMinute)));
-            return "__OPENING_HOURS_RANGE_" + (ranges.length - 1) + "__";
-          }
+    function renderNotes(value) {
+      return '<p class="notes"><strong>' + escapeHtml(t("notesLabel")) + ':</strong> ' + escapeHtml(value) + '</p>';
+    }
+
+    function formatOpeningSlots(slots = []) {
+      return slots.map((slot) => {
+        const weekdays = new Intl.ListFormat(currentLanguage, { style: "long", type: "conjunction" }).format(
+          slot.weekdays.map(formatWeekday)
         );
-        const withTimes = withRangePlaceholders.replace(
-          /\\b([01]?\\d|2[0-3]):([0-5]\\d)\\b/g,
-          (_, hour, minute) => formatTime(Number(hour), Number(minute))
-        );
-        return withTimes.replace(/__OPENING_HOURS_RANGE_(\\d+)__/g, (_, index) => ranges[Number(index)]);
+        const recurrence = slot.weeksOfMonth?.length
+          ? formatMonthlyRecurrence(slot, weekdays)
+          : t("openingSlotWeekly").replace("{weekday}", weekdays);
+        const [startHour, startMinute] = slot.start.split(":").map(Number);
+        const [endHour, endMinute] = slot.end.split(":").map(Number);
+        return {
+          schedule: recurrence + " · " + formatTimeRange(startHour, startMinute, endHour, endMinute),
+          notes: slot.notes || ""
+        };
       });
     }
 
-    function translatedOpeningHours(location) {
-      const entry = openingHoursTranslations[location.openingHoursKey];
-      return entry?.source === location.openingHours && entry.translations?.[currentLanguage]
-        ? entry.translations[currentLanguage]
-        : location.openingHours;
+    function formatMonthlyRecurrence(slot, weekdays) {
+      const ordinalKey = usesFeminineOrdinals(slot)
+        ? "openingSlotOrdinalsFeminine"
+        : "openingSlotOrdinals";
+      const ordinalValues = t(ordinalKey);
+      const ordinals = new Intl.ListFormat(currentLanguage, { style: "long", type: "conjunction" }).format(
+        slot.weeksOfMonth.map((week) => ordinalValues[week - 1])
+      );
+      return capitalizeFirst(t("openingSlotMonthly")
+        .replace("{ordinals}", ordinals)
+        .replace("{weekday}", weekdays));
+    }
+
+    function usesFeminineOrdinals(slot) {
+      if (slot.weekdays.length !== 1) return false;
+      const weekday = slot.weekdays[0];
+      return ((currentLanguage === "ru" || currentLanguage === "uk") && [3, 5].includes(weekday)) ||
+        (currentLanguage === "ar" && weekday === 5);
+    }
+
+    function capitalizeFirst(value) {
+      return value ? value.charAt(0).toLocaleUpperCase(currentLanguage) + value.slice(1) : value;
+    }
+
+    function formatWeekday(weekday) {
+      const date = new Date(Date.UTC(2024, 0, Number(weekday)));
+      return new Intl.DateTimeFormat(currentLanguage, { weekday: "long", timeZone: "UTC" }).format(date);
     }
 
     function formatTime(hour, minute) {
@@ -1479,7 +1540,20 @@ function renderPage(data, translations, openingHoursTranslations) {
       const term = normalize(search.value.trim());
       const selectedRegion = region.value;
       const filtered = initiatives.filter((item) => {
-        const haystack = normalize([item.name, item.city, item.region, item.country, item.domain, ...getLocations(item).flatMap((location) => [location.name, location.address, translatedOpeningHours(location)])].join(" "));
+        const haystack = normalize([
+          item.name,
+          item.city,
+          item.region,
+          item.country,
+          item.domain,
+          item.notes,
+          ...getLocations(item).flatMap((location) => [
+            location.name,
+            location.address,
+            location.notes,
+            ...(location.openingSlots || []).map((slot) => slot.notes)
+          ])
+        ].join(" "));
         return (!term || haystack.includes(term)) && (!selectedRegion || item.region === selectedRegion);
       });
       renderList(filtered);
@@ -1488,6 +1562,7 @@ function renderPage(data, translations, openingHoursTranslations) {
 
     function showNearest(origin, label, options = {}) {
       routingGeneration += 1;
+      nearestSortMode = "distance";
       currentOrigin = { ...origin, label };
       originRouteLabel = origin.label || "";
       rankedNearest = initiatives
@@ -1522,12 +1597,15 @@ function renderPage(data, translations, openingHoursTranslations) {
       const visible = sortedVisibleInitiatives();
       nearestGrid.innerHTML = visible.map((item) => renderCard(item, item.distance, item.routeState)).join("");
       nearestCount.textContent = formatEntries(visible.length);
+      updateNearestSortButton();
       loadMoreButton.hidden = nearestVisibleCount >= rankedNearest.length;
       if (map && currentOrigin) updateMap(visible, currentOrigin);
     }
 
     function sortedVisibleInitiatives() {
-      return rankedNearest.slice(0, nearestVisibleCount).sort((left, right) => {
+      const visible = rankedNearest.slice(0, nearestVisibleCount);
+      if (nearestSortMode === "distance") return visible;
+      return visible.sort((left, right) => {
         const leftDuration = left.routeState.status === "success" ? left.routeState.duration : Infinity;
         const rightDuration = right.routeState.status === "success" ? right.routeState.duration : Infinity;
         if (leftDuration !== rightDuration) return leftDuration - rightDuration;
@@ -1536,6 +1614,19 @@ function renderPage(data, translations, openingHoursTranslations) {
         if (leftFailed !== rightFailed) return leftFailed ? 1 : -1;
         return left.distance - right.distance;
       });
+    }
+
+    function updateNearestSortButton() {
+      const visible = rankedNearest.slice(0, nearestVisibleCount);
+      const routingComplete = visible.length > 0 &&
+        visible.every((item) => item.routeState.status === "success" || item.routeState.status === "error");
+      sortNearestButton.disabled = !routingComplete;
+      sortNearestButton.setAttribute("aria-pressed", String(nearestSortMode === "transit"));
+      sortNearestButton.textContent = nearestSortMode === "transit"
+        ? t("sortByDistance")
+        : routingComplete
+          ? t("sortByTransit")
+          : t("sortByTransitLoading");
     }
 
     async function routeVisibleInitiatives() {
@@ -1570,10 +1661,8 @@ function renderPage(data, translations, openingHoursTranslations) {
     }
 
     async function fetchCityTravelTime(item) {
-      const [fromStation, toStation] = await Promise.all([
-        resolveCityStation(currentOrigin.stationQuery || currentOrigin.label),
-        resolveCityStation(item.city)
-      ]);
+      const fromStation = originRoutingPoint();
+      const toStation = await resolveCityStation(item.city);
       if (!fromStation || !toStation) throw new Error("No city station");
       if (fromStation.id === toStation.id) {
         return { duration: 0, fromStation: fromStation.name, toStation: toStation.name };
@@ -1591,7 +1680,6 @@ function renderPage(data, translations, openingHoursTranslations) {
         timetableView: "false",
         numItineraries: "3",
         maxItineraries: "3",
-        directModes: "",
         detailedLegs: "false",
         detailedTransfers: "false",
         language: currentLanguage
@@ -1613,6 +1701,14 @@ function renderPage(data, translations, openingHoursTranslations) {
       };
       writeRouteCache(cacheKey, result, true);
       return result;
+    }
+
+    function originRoutingPoint() {
+      if (!currentOrigin) return null;
+      return {
+        id: transitousOriginPlace(),
+        name: originRouteLabel || currentOrigin.label || t("yourLocation")
+      };
     }
 
     function typicalTransitDuration(itinerary) {
@@ -1648,15 +1744,33 @@ function renderPage(data, translations, openingHoursTranslations) {
       const key = normalizePlace(city);
       if (!key) return null;
       if (cityStationCache.has(key)) return cityStationCache.get(key);
-      const promise = fetchCityStation(city, key);
+      const promise = fetchCityStation(city, key)
+        .then((station) => {
+          if (!station) cityStationCache.delete(key);
+          return station;
+        })
+        .catch((error) => {
+          cityStationCache.delete(key);
+          throw error;
+        });
       cityStationCache.set(key, promise);
       return promise;
     }
 
     async function fetchCityStation(city, cityKey) {
       const params = new URLSearchParams({ text: city + " Hauptbahnhof" });
-      const response = await fetch("https://api.transitous.org/api/v1/geocode?" + params);
-      if (!response.ok) return null;
+      let response;
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          response = await fetch("https://api.transitous.org/api/v1/geocode?" + params);
+          if (response.ok) break;
+          if (response.status !== 429 && response.status < 500) return null;
+        } catch {
+          // Retry transient network failures once.
+        }
+        if (attempt === 0) await new Promise((resolve) => setTimeout(resolve, 500));
+      }
+      if (!response?.ok) return null;
       const results = await response.json();
       const matchingStops = results.filter((result) =>
         result.type === "STOP" && stationMatchesCity(result, cityKey)
@@ -1676,7 +1790,7 @@ function renderPage(data, translations, openingHoursTranslations) {
 
     function transitCacheKey(fromStation, toStation, routeTime) {
       const parts = berlinDateParts(routeTime.time);
-      return ["city-v4", fromStation.id, toStation.id, parts.year, parts.month, parts.day].join("|");
+      return ["city-v7", fromStation.id, toStation.id, parts.year, parts.month, parts.day].join("|");
     }
 
     function readRouteCache(key) {
@@ -1709,33 +1823,96 @@ function renderPage(data, translations, openingHoursTranslations) {
       }
     }
 
-    async function geocodePlace(place) {
-      const localMatch = findLocalPlace(place);
-      if (localMatch) return preferCentralStation(place, localMatch);
-
+    async function geocodePlaces(place) {
       const params = new URLSearchParams({
         q: place,
         format: "jsonv2",
-        limit: "1",
+        limit: "6",
         countrycodes: "de,at",
-        addressdetails: "1"
+        addressdetails: "1",
+        namedetails: "1"
       });
-      const response = await fetch("https://nominatim.openstreetmap.org/search?" + params);
-      if (!response.ok) throw new Error(t("statusPlaceError"));
-      const [result] = await response.json();
-      if (!result) throw new Error(t("statusPlaceNotFound"));
-      const origin = {
+      let response;
+      try {
+        response = await fetch("https://nominatim.openstreetmap.org/search?" + params);
+      } catch {
+        const localMatch = findLocalPlace(place);
+        if (localMatch) return [localMatch];
+        throw new Error(t("statusPlaceError"));
+      }
+      if (!response.ok) {
+        const localMatch = findLocalPlace(place);
+        if (localMatch) return [localMatch];
+        throw new Error(t("statusPlaceError"));
+      }
+      const results = await response.json();
+      const places = results.map((result) => formatGeocodeResult(result, place))
+        .filter((result, index, entries) =>
+          entries.findIndex((entry) => entry.lat === result.lat && entry.lon === result.lon) === index);
+      if (!places.length) {
+        const localMatch = findLocalPlace(place);
+        if (localMatch) return [localMatch];
+        throw new Error(t("statusPlaceNotFound"));
+      }
+      return places;
+    }
+
+    function formatGeocodeResult(result, fallback) {
+      const address = result.address || {};
+      const placeName = result.namedetails?.name ||
+        result.name ||
+        address.village ||
+        address.town ||
+        address.city ||
+        address.suburb ||
+        address.municipality ||
+        fallback;
+      const postcode = address.postcode || "";
+      const state = address.state || "";
+      const nearby = [
+        address.city,
+        address.town,
+        address.municipality,
+        address.county
+      ].find((value) => value && normalizePlace(value) !== normalizePlace(placeName)) || "";
+      return {
         lat: Number(result.lat),
         lon: Number(result.lon),
-        label: result.display_name.split(",").slice(0, 2).join(", "),
-        stationQuery: result.address?.city ||
-          result.address?.town ||
-          result.address?.village ||
-          result.address?.municipality ||
-          result.address?.postcode ||
-          place
+        label: [placeName, postcode].filter(Boolean).join(" "),
+        detail: [state, nearby].filter(Boolean).join(" · "),
+        stationQuery: address.city ||
+          address.town ||
+          address.village ||
+          address.municipality ||
+          postcode ||
+          fallback
       };
-      return preferCentralStation(place, origin);
+    }
+
+    function renderPlaceSuggestions(places) {
+      placeSuggestions.currentPlaces = places;
+      placeSuggestions.innerHTML = places.map((place, index) =>
+        '<li><button type="button" data-place-index="' + index + '">' +
+        escapeHtml(place.label) +
+        (place.detail ? '<small>' + escapeHtml(place.detail) + '</small>' : "") +
+        '</button></li>'
+      ).join("");
+      placeSuggestions.hidden = false;
+      placeSuggestions.querySelector("button")?.focus();
+    }
+
+    function clearPlaceSuggestions() {
+      placeSuggestions.hidden = true;
+      placeSuggestions.innerHTML = "";
+      placeSuggestions.currentPlaces = null;
+    }
+
+    async function selectPlace(query, place) {
+      clearPlaceSuggestions();
+      locationInput.value = place.label;
+      setStatus("statusSearchingPlace");
+      const origin = await preferCentralStation(query, place);
+      showNearest(origin, place.label);
     }
 
     async function preferCentralStation(place, fallback) {
@@ -1956,7 +2133,7 @@ function renderPage(data, translations, openingHoursTranslations) {
 
     function getLocations(item) {
       if (item.locations?.length) return item.locations;
-      return item.coordinates ? [{ name: "", address: item.address || "", openingHours: "", openingSlots: [], coordinates: item.coordinates }] : [];
+      return item.coordinates ? [{ name: "", address: item.address || "", openingSlots: [], notes: "", coordinates: item.coordinates }] : [];
     }
 
     async function enableMap() {
@@ -2014,11 +2191,13 @@ function renderPage(data, translations, openingHoursTranslations) {
 
     function renderPopup(item, location) {
       const locationLabel = location.coordinates?.label || location.address || [item.city, item.region].filter(Boolean).join(" · ");
-      const openingHours = formatOpeningHours(translatedOpeningHours(location));
+      const openingHours = formatOpeningSlots(location.openingSlots);
       return '<strong>' + escapeHtml(item.name) + '</strong><br>' +
         (location.name ? escapeHtml(location.name) + '<br>' : "") +
         escapeHtml(locationLabel) +
-        (openingHours.length ? '<br><br><strong>' + escapeHtml(t("openingHoursLabel")) + '</strong><br>' + openingHours.map(escapeHtml).join("<br>") : "") +
+        (openingHours.length ? '<br><br><strong>' + escapeHtml(t("openingHoursLabel")) + '</strong><br>' +
+          openingHours.map((row) => escapeHtml(row.schedule) + (row.notes ? '<br><small>' + escapeHtml(row.notes) + '</small>' : "")).join("<br>") : "") +
+        (location.notes ? '<br><br><strong>' + escapeHtml(t("notesLabel")) + '</strong><br>' + escapeHtml(location.notes) : "") +
         (item.url ? '<br><a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + t("website") + '</a>' : "");
     }
 
