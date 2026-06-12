@@ -17,9 +17,17 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
+      - run: npm test
       - run: npm run update
+        env:
+          NEXTCLOUD_SHARE_URL: ${{ secrets.NEXTCLOUD_SHARE_URL }}
+          NEXTCLOUD_SHARE_PASSWORD: ${{ secrets.NEXTCLOUD_SHARE_PASSWORD }}
+          NEXTCLOUD_URL: ${{ secrets.NEXTCLOUD_URL }}
+          NEXTCLOUD_USERNAME: ${{ secrets.NEXTCLOUD_USERNAME }}
+          NEXTCLOUD_APP_PASSWORD: ${{ secrets.NEXTCLOUD_APP_PASSWORD }}
+          NEXTCLOUD_FOLDER: ${{ secrets.NEXTCLOUD_FOLDER }}
       - name: Commit generated files
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update initiative overview"
-          file_pattern: "data/initiatives.json data/geocodes.json assets/leaflet index.html logs"
+          file_pattern: "data/initiatives.json data/group-cache.json data/geocodes.json assets/leaflet index.html"

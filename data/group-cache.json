@@ -1,0 +1,371 @@
+{
+  "version": 1,
+  "entries": {
+    "kiel": {
+      "parserVersion": 2,
+      "etag": "\"2d56e94748243746871e3aff98202350\"",
+      "modifiedAt": "2026-06-12T19:49:54.000Z",
+      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "data": {
+        "status": "active",
+        "name": "Anti-SocialCard Kiel",
+        "city": "Kiel",
+        "region": "Schleswig-Holstein",
+        "country": "Deutschland",
+        "website": "https://stadtteilladen.gaarden.net/anti-socialcard/get-cash/",
+        "locations": [
+          {
+            "name": "Stadtteilladen Anni Wadle",
+            "address": "Kieler Str. 12, 24143 Kiel - Gaarden",
+            "notes": "TestOrtshinweis",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  3
+                ],
+                "weeksOfMonth": [],
+                "start": "17:00",
+                "end": "19:00",
+                "notes": ""
+              },
+              {
+                "weekdays": [
+                  1
+                ],
+                "weeksOfMonth": [
+                  1
+                ],
+                "start": "18:00",
+                "end": "20:00",
+                "notes": "Test Terminhinweis"
+              },
+              {
+                "weekdays": [
+                  5
+                ],
+                "weeksOfMonth": [
+                  1
+                ],
+                "start": "16:00",
+                "end": "18:00",
+                "notes": ""
+              }
+            ]
+          }
+        ],
+        "events": [],
+        "notes": ""
+      }
+    },
+    "eutin": {
+      "parserVersion": 2,
+      "etag": "\"dfa0c2d9887cb416ea5f5dd86fd4e5ed\"",
+      "modifiedAt": "2026-06-12T19:34:49.000Z",
+      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "data": {
+        "status": "active",
+        "name": "Anti-SocialCard OH",
+        "city": "Eutin",
+        "region": "Schleswig-Holstein",
+        "country": "Deutschland",
+        "website": "https://linktr.ee/AntiSocialCardOH",
+        "locations": [
+          {
+            "name": "Alberta!",
+            "address": "Albert-Mahlstedt Str. 65, 23701 Eutin",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  5
+                ],
+                "weeksOfMonth": [],
+                "start": "15:00",
+                "end": "18:00",
+                "notes": ""
+              }
+            ]
+          },
+          {
+            "name": "Forum e.V.",
+            "address": "Bismarckstr. 2, 23701 Eutin",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  2
+                ],
+                "weeksOfMonth": [
+                  1
+                ],
+                "start": "10:00",
+                "end": "12:00",
+                "notes": ""
+              }
+            ]
+          }
+        ],
+        "events": [],
+        "notes": ""
+      }
+    },
+    "lübeck": {
+      "parserVersion": 2,
+      "etag": "\"5737e8b4c893ba9ba1b2aa096855fd5d\"",
+      "modifiedAt": "2026-06-12T19:34:50.000Z",
+      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "data": {
+        "status": "active",
+        "name": "Nein zur Bezahlkarte HL",
+        "city": "Lübeck",
+        "region": "Schleswig-Holstein",
+        "country": "Deutschland",
+        "website": "https://bezahlkarte-nein-hl.de/",
+        "locations": [
+          {
+            "name": "Solicafé im Solizentrum",
+            "address": "Willy-Brandt-Allee 11, 23554 Lübeck",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  1
+                ],
+                "weeksOfMonth": [
+                  2,
+                  4
+                ],
+                "start": "17:00",
+                "end": "19:00",
+                "notes": ""
+              }
+            ]
+          }
+        ],
+        "events": [],
+        "notes": ""
+      }
+    },
+    "bargteheide": {
+      "parserVersion": 2,
+      "etag": "\"f293c087c5d55f249cd7f87bb8d1b81b\"",
+      "modifiedAt": "2026-06-12T19:34:50.000Z",
+      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "data": {
+        "status": "active",
+        "name": "Bezahlbar Bargteheide",
+        "city": "Bargteheide",
+        "region": "Schleswig-Holstein",
+        "country": "Deutschland",
+        "website": "https://www.instagram.com/bezahlbar_bargteheide/",
+        "locations": [
+          {
+            "name": "Bezahlbar Bargteheide",
+            "address": "Lohe 11, 22941 Bargteheide",
+            "notes": "Exchange event every first Friday of the month; see the website for the current time.",
+            "openingSlots": []
+          }
+        ],
+        "events": [],
+        "notes": ""
+      }
+    },
+    "hamburg": {
+      "parserVersion": 2,
+      "etag": "\"8f3e9011866d6a9d1f50b2590366b53c\"",
+      "modifiedAt": "2026-06-12T19:40:19.000Z",
+      "checkedAt": "2026-06-12T19:57:27.240Z",
+      "data": {
+        "status": "active",
+        "name": "Hamburg sagt NEIN zur Bezahlkarte",
+        "city": "Hamburg",
+        "region": "Hamburg",
+        "country": "Deutschland",
+        "website": "https://www.bezahlkarte-nein.de/",
+        "locations": [
+          {
+            "name": "Fanräume St. Pauli Millerntorstadion",
+            "address": "Heiligengeistfeld, 20359 Hamburg",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  1
+                ],
+                "weeksOfMonth": [
+                  1,
+                  3
+                ],
+                "start": "17:00",
+                "end": "19:00",
+                "notes": ""
+              }
+            ]
+          },
+          {
+            "name": "Cafe Exil",
+            "address": "Hammer Str. 10, 22041 Hamburg",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  5
+                ],
+                "weeksOfMonth": [
+                  1
+                ],
+                "start": "14:00",
+                "end": "17:00",
+                "notes": "Nur für FLINTA"
+              }
+            ]
+          },
+          {
+            "name": "INFOLADEN WILHELMSBURG",
+            "address": "Fährstr. 48, 21107 Hamburg",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  1
+                ],
+                "weeksOfMonth": [
+                  1
+                ],
+                "start": "15:00",
+                "end": "17:00",
+                "notes": ""
+              }
+            ]
+          },
+          {
+            "name": "Die LINKE",
+            "address": "Wallgraben 24, 21073 Hamburg Harburg",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  1
+                ],
+                "weeksOfMonth": [
+                  1,
+                  3
+                ],
+                "start": "17:00",
+                "end": "19:00",
+                "notes": ""
+              }
+            ]
+          },
+          {
+            "name": "Die LINKE",
+            "address": "Schopstraße 1, 20255 Hamburg Eimsbüttel",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  1
+                ],
+                "weeksOfMonth": [
+                  1,
+                  3
+                ],
+                "start": "17:00",
+                "end": "19:00",
+                "notes": ""
+              }
+            ]
+          },
+          {
+            "name": "Die LINKE",
+            "address": "Am Felde 2, 22765 Hamburg Altona",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  1
+                ],
+                "weeksOfMonth": [
+                  1,
+                  3
+                ],
+                "start": "17:00",
+                "end": "19:00",
+                "notes": ""
+              }
+            ]
+          },
+          {
+            "name": "Die LINKE",
+            "address": "Borgfelder Str. 83, 20537 Hamburg, Mitte",
+            "notes": "",
+            "openingSlots": [
+              {
+                "weekdays": [
+                  1
+                ],
+                "weeksOfMonth": [
+                  1,
+                  3
+                ],
+                "start": "17:00",
+                "end": "19:00",
+                "notes": ""
+              }
+            ]
+          }
+        ],
+        "events": [],
+        "notes": ""
+      }
+    },
+    "seebruecke-deutschland-bayern-furth": {
+      "etag": "migration-v1",
+      "modifiedAt": "2026-06-12T00:00:00.000Z",
+      "checkedAt": "2026-06-12T00:00:00.000Z",
+      "data": {
+        "status": "active",
+        "name": "Fürth",
+        "city": "Fürth",
+        "region": "Bayern",
+        "country": "Deutschland",
+        "website": "https://www.instagram.com/kartentausch_fuerth",
+        "locations": [],
+        "events": [],
+        "notes": ""
+      }
+    },
+    "seebruecke-deutschland-berlin-berlin-brandenburg": {
+      "etag": "migration-v1",
+      "modifiedAt": "2026-06-12T00:00:00.000Z",
+      "checkedAt": "2026-06-12T00:00:00.000Z",
+      "data": {
+        "status": "active",
+        "name": "Berlin/Brandenburg",
+        "city": "Berlin",
+        "region": "Berlin",
+        "country": "Deutschland",
+        "website": "https://nein-zur-bezahlkarte.de/",
+        "locations": [],
+        "events": [],
+        "notes": ""
+      }
+    },
+    "seebruecke-osterreich-osterreich-graz": {
+      "etag": "migration-v1",
+      "modifiedAt": "2026-06-12T00:00:00.000Z",
+      "checkedAt": "2026-06-12T00:00:00.000Z",
+      "data": {
+        "status": "active",
+        "name": "Graz",
+        "city": "Graz",
+        "region": "Österreich",
+        "country": "Österreich",
+        "website": "https://linksvondermur.noblogs.org/initiative-gegen-bezahlkarte",
+        "locations": [],
+        "events": [],
+        "notes": ""
+      }
+    }
+  }
+}

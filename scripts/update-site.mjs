@@ -1,5 +1,12 @@
-import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
-import { parse as parseYaml } from "yaml";
+import { appendFile, cp, mkdir, readFile, writeFile } from "node:fs/promises";
+import {
+  emptyGroupReport,
+  mergeGroupInitiatives,
+  readGroupCache,
+  syncGroupData,
+  writeGroupCache
+} from "./group-data.mjs";
+import { loadEnvFile } from "./load-env.mjs";
 
 const SOURCE_URL = "https://www.seebruecke.org/aktuelles/kampagnen/bezahlkarte";
 const BUILD_GEOCODE_URL = "https://nominatim.openstreetmap.org/search";
@@ -8,7 +15,7 @@ const GEOCODE_CACHE_VERSION = "v3";
 const WEBSITE_CHECK_TIMEOUT_MS = 10000;
 const WEBSITE_CHECK_CONCURRENCY = 4;
 const DATA_PATH = new URL("../data/initiatives.json", import.meta.url);
-const CATALOG_PATH = new URL("../data/catalog.yml", import.meta.url);
+const GROUP_CACHE_PATH = new URL("../data/group-cache.json", import.meta.url);
 const I18N_DIR = new URL("../data/i18n/", import.meta.url);
 const GEOCODE_CACHE_PATH = new URL("../data/geocodes.json", import.meta.url);
 const INDEX_PATH = new URL("../index.html", import.meta.url);
@@ -24,6 +31,7 @@ const COMPARED_INITIATIVE_FIELDS = [
   "url",
   "coordinates",
   "locations",
+  "events",
   "notes",
   "transitLinks",
   "sources",
@@ -84,15 +92,21 @@ const SOCIAL_MEDIA_DOMAINS = [
 ];
 
 async function main(report) {
-  const [html, catalog, translations, geocodeCache, previousData] = await Promise.all([
+  const [html, translations, geocodeCache, previousData, groupCache] = await Promise.all([
     fetchSource(),
-    readCatalog(),
     readTranslations(),
     readGeocodeCache(),
-    readPreviousData()
+    readPreviousData(),
+    readGroupCache(GROUP_CACHE_PATH)
   ]);
   const scraped = parseInitiatives(html);
-  const initiatives = mergeInitiatives(scraped, catalog, report);
+  const groupSync = await syncGroupData({
+    cache: groupCache,
+    allowFallback: process.env.ALLOW_GROUP_CACHE_FALLBACK === "true"
+  });
+  const initiatives = mergeGroupInitiatives(scraped, groupSync.entries).map(normalizeInitiative);
+  report.groups = groupSync.report;
+  report.warnings.push(...groupSync.report.warnings);
 
   if (scraped.length < 20) {
     throw new Error(`Parsed only ${scraped.length} initiatives; source structure may have changed.`);
@@ -112,18 +126,19 @@ async function main(report) {
   report.summary = {
     total: initiatives.length,
     scraped: scraped.length,
-    curated: catalog.initiatives.length
+    managed: Object.keys(groupSync.entries).length
   };
   report.changes = compareDatasets(previousData, data);
   report.websiteTransitions = compareWebsiteChecks(previousData, data);
 
   await mkdir(new URL("../data/", import.meta.url), { recursive: true });
   await copyLeafletAssets();
+  await writeGroupCache(GROUP_CACHE_PATH, groupSync.cache);
   await writeFile(GEOCODE_CACHE_PATH, `${JSON.stringify(geocodeCache, null, 2)}\n`);
   await writeFile(DATA_PATH, `${JSON.stringify(data, null, 2)}\n`);
   await writeFile(INDEX_PATH, renderPage(data, translations));
 
-  console.log(`Updated ${initiatives.length} initiatives (${scraped.length} scraped, ${catalog.initiatives.length} curated).`);
+  console.log(`Updated ${initiatives.length} initiatives (${scraped.length} scraped, ${report.summary.managed} managed).`);
 }
 
 async function readPreviousData() {
@@ -147,19 +162,6 @@ async function fetchSource() {
   }
 
   return response.text();
-}
-
-async function readCatalog() {
-  try {
-    const parsed = parseYaml(await readFile(CATALOG_PATH, "utf8")) ?? {};
-    return {
-      initiatives: Array.isArray(parsed.initiatives) ? parsed.initiatives : [],
-      overrides: Array.isArray(parsed.overrides) ? parsed.overrides : []
-    };
-  } catch (error) {
-    if (error.code === "ENOENT") return { initiatives: [], overrides: [] };
-    throw error;
-  }
 }
 
 async function readTranslations() {
@@ -245,42 +247,6 @@ function parseInitiatives(html) {
   return initiatives;
 }
 
-function mergeInitiatives(scraped, catalog, report) {
-  const byId = new Map(scraped.map((item) => [item.id, item]));
-  const scrapedIds = new Set(byId.keys());
-
-  for (const rawOverride of catalog.overrides) {
-    const { match, ...fields } = rawOverride ?? {};
-    const existing = findInitiative(byId, match);
-    if (!existing) {
-      const warning = `No initiative matched override: ${JSON.stringify(match)}`;
-      report.warnings.push(warning);
-      console.warn(warning);
-      continue;
-    }
-    byId.set(existing.id, normalizeInitiative(deepMerge(existing, fields)));
-  }
-
-  for (const rawInitiative of catalog.initiatives) {
-    const item = normalizeInitiative(rawInitiative);
-    const existing = byId.get(item.id);
-    for (const candidate of byId.values()) {
-      if (scrapedIds.has(candidate.id) && samePlace(candidate, item)) {
-        byId.delete(candidate.id);
-      }
-    }
-    byId.set(item.id, normalizeInitiative(deepMerge(existing ?? {}, item)));
-  }
-
-  return [...byId.values()];
-}
-
-function samePlace(left, right) {
-  return normalizeComparable(left.city) === normalizeComparable(right.city) &&
-    normalizeComparable(left.region) === normalizeComparable(right.region) &&
-    normalizeComparable(left.country) === normalizeComparable(right.country);
-}
-
 function normalizeInitiative(raw) {
   const url = raw.url ? String(raw.url) : "";
   const country = raw.country ? String(raw.country) : "Deutschland";
@@ -289,6 +255,7 @@ function normalizeInitiative(raw) {
   const sources = normalizeLinks(raw.sources);
   const transitLinks = normalizeLinks(raw.transitLinks);
   const locations = normalizeLocations(raw);
+  const events = normalizeEvents(raw.events);
 
   return {
     id: raw.id ? String(raw.id) : `manual-${slugify(country)}-${slugify(region)}-${slugify(raw.name)}`,
@@ -302,12 +269,27 @@ function normalizeInitiative(raw) {
     domain: url ? new URL(url).hostname.replace(/^www\./, "") : "",
     coordinates: normalizeCoordinates(raw.coordinates),
     locations,
+    events,
     notes: String(raw.notes ?? "").trim(),
     transitLinks,
     sources,
     aliases: Array.isArray(raw.aliases) ? raw.aliases.map(String) : [],
     websiteCheck: normalizeWebsiteCheck(raw.websiteCheck)
   };
+}
+
+function normalizeEvents(value) {
+  if (!Array.isArray(value)) return [];
+  return value.map((event) => ({
+    title: String(event?.title ?? "").trim(),
+    date: String(event?.date ?? "").trim(),
+    start: String(event?.start ?? "").trim(),
+    end: String(event?.end ?? "").trim(),
+    locationName: String(event?.locationName ?? "").trim(),
+    address: String(event?.address ?? "").trim(),
+    notes: String(event?.notes ?? "").trim(),
+    coordinates: normalizeCoordinates(event?.coordinates)
+  }));
 }
 
 function normalizeLocations(raw) {
@@ -370,22 +352,6 @@ function normalizeWebsiteCheck(value) {
   };
 }
 
-function findInitiative(byId, match = {}) {
-  if (match.id && byId.has(match.id)) return byId.get(match.id);
-  const normalized = {
-    name: normalizeComparable(match.name),
-    region: normalizeComparable(match.region ?? match.state),
-    country: normalizeComparable(match.country)
-  };
-
-  return [...byId.values()].find((item) => {
-    const names = [item.name, item.city, ...item.aliases].map(normalizeComparable);
-    return (!normalized.name || names.includes(normalized.name)) &&
-      (!normalized.region || normalizeComparable(item.region) === normalized.region) &&
-      (!normalized.country || normalizeComparable(item.country) === normalized.country);
-  });
-}
-
 function validateInitiatives(initiatives) {
   const ids = new Set();
 
@@ -411,6 +377,12 @@ function validateInitiatives(initiatives) {
         }
       }
     }
+    for (const event of item.events) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(event.date) ||
+          ![event.start, event.end].every((time) => /^([01]\d|2[0-3]):[0-5]\d$/.test(time))) {
+        throw new Error(`Invalid event in ${item.id}`);
+      }
+    }
   }
 }
 
@@ -433,6 +405,24 @@ async function addCoordinates(initiatives, cache) {
         }
       }
       location.coordinates = cache[key];
+    }
+    for (const event of initiative.events) {
+      if (event.coordinates) continue;
+      const matchedLocation = initiative.locations.find((location) =>
+        event.locationName && normalizeComparable(location.name) === normalizeComparable(event.locationName)
+      );
+      if (!event.address && matchedLocation?.coordinates) {
+        event.coordinates = matchedLocation.coordinates;
+        continue;
+      }
+      const query = event.address || matchedLocation?.address;
+      if (!query) continue;
+      const key = `${GEOCODE_CACHE_VERSION}|${initiative.country}|${initiative.region}|${query}`;
+      if (!(key in cache)) {
+        cache[key] = await geocodeInitiative(initiative, query);
+        await delay(1100);
+      }
+      event.coordinates = cache[key];
     }
     initiative.coordinates = initiative.locations.find((location) => location.coordinates)?.coordinates ?? null;
   }
@@ -604,9 +594,15 @@ function websiteCheckState(check) {
 
 async function writeRunLog(report) {
   await mkdir(LOGS_DIR, { recursive: true });
-  const finishedAt = new Date();
   const timestamp = report.startedAt.toISOString().replace(/[:.]/g, "-");
   const logPath = new URL(`${timestamp}.md`, LOGS_DIR);
+  const lines = reportLines(report);
+  await writeFile(logPath, `${lines.join("\n")}\n`);
+  console.log(`Wrote update log to logs/${timestamp}.md`);
+}
+
+function reportLines(report) {
+  const finishedAt = new Date();
   const lines = [
     `# Update log ${report.startedAt.toISOString()}`,
     "",
@@ -617,7 +613,7 @@ async function writeRunLog(report) {
 
   if (report.summary) {
     lines.push(
-      `- Initiatives: ${report.summary.total} total, ${report.summary.scraped} scraped, ${report.summary.curated} curated`
+      `- Initiatives: ${report.summary.total} total, ${report.summary.scraped} scraped, ${report.summary.managed} managed`
     );
   }
 
@@ -627,11 +623,58 @@ async function writeRunLog(report) {
 
   appendWebsiteFailures(lines, report.websiteFailures);
   appendWebsiteTransitions(lines, report.websiteTransitions);
+  appendGroupReport(lines, report.groups);
   appendDatasetChanges(lines, report.changes);
   appendListSection(lines, "Warnings", report.warnings);
+  return lines;
+}
 
-  await writeFile(logPath, `${lines.join("\n")}\n`);
-  console.log(`Wrote update log to logs/${timestamp}.md`);
+async function writeWorkflowSummary(report) {
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+  await appendFile(process.env.GITHUB_STEP_SUMMARY, `${reportLines(report).join("\n")}\n`);
+}
+
+function appendGroupReport(lines, groups) {
+  lines.push("", "## Group files", "");
+  if (!groups) {
+    lines.push("- Group synchronization did not run.");
+    return;
+  }
+  lines.push(
+    `- New: ${groups.added.length}`,
+    `- Changed: ${groups.changed.length}`,
+    `- Hidden: ${groups.hidden.length}`,
+    `- Invalid: ${groups.invalid.length}`,
+    `- Missing: ${groups.missing.length}`,
+    `- Stale: ${groups.stale.length}`,
+    `- Unchanged: ${groups.unchanged.length}`
+  );
+  appendGroupChanges(lines, "New group files", groups.added);
+  appendGroupChanges(lines, "Changed group files", groups.changed);
+  appendGroupChanges(lines, "Hidden group files", groups.hidden);
+  appendListSection(lines, "Invalid group files", groups.invalid.map((item) =>
+    `\`${item.id}\`: ${item.error}${item.fallback ? " (using cached data)" : " (ignored)"}`
+  ));
+  appendListSection(lines, "Missing group files", groups.missing.map((id) =>
+    `\`${id}\` (using cached data)`
+  ));
+  appendListSection(lines, "Stale group files", groups.stale.map((id) =>
+    `\`${id}\` has not changed for more than 180 days`
+  ));
+}
+
+function appendGroupChanges(lines, title, entries) {
+  lines.push("", `### ${title} (${entries.length})`, "");
+  if (!entries.length) {
+    lines.push("- None");
+    return;
+  }
+  for (const entry of entries) {
+    lines.push(`- \`${entry.id}\``);
+    for (const change of entry.changes) {
+      lines.push(`  - \`${change.field}\`: ${formatLogValue(change.before)} -> ${formatLogValue(change.after)}`);
+    }
+  }
 }
 
 function appendWebsiteFailures(lines, failures) {
@@ -1222,6 +1265,24 @@ function renderPage(data, translations) {
       font-size: 0.8rem;
     }
 
+    .events {
+      display: grid;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .event {
+      padding: 9px 10px;
+      border: 1px solid rgba(15, 103, 96, 0.25);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+
+    .initiative .event-title {
+      color: var(--ink);
+      font-weight: 690;
+    }
+
     .links {
       display: flex;
       flex-wrap: wrap;
@@ -1761,12 +1822,15 @@ function renderPage(data, translations) {
       const title = item.city || item.name;
       const initiativeName = item.city ? '<p class="initiative-name">' + escapeHtml(item.name) + '</p>' : "";
       const initiativeNotes = item.notes ? renderNotes(item.notes) : "";
-      const locations = getLocations(item).map((location) => renderLocationDetails(location, Number.isFinite(distance) ? item : null)).filter(Boolean).join("");
+      const locations = (item.locations || []).map((location) =>
+        renderLocationDetails(location, item, Number.isFinite(distance))
+      ).filter(Boolean).join("");
       const locationDetails = locations ? '<div class="locations">' + locations + '</div>' : "";
+      const events = renderEvents(item.events || []);
       const proximity = Number.isFinite(distance) ? renderProximity(distance, routeState) : "";
       const updatedAt = item.updatedAt ? '<span class="updated-at">' + escapeHtml(t("updatedLabel") + ": " + formatDate(item.updatedAt)) + '</span>' : "";
       return '<article class="initiative" data-id="' + escapeHtml(item.id) + '">' +
-        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + initiativeNotes + locationDetails + '</div>' + proximity +
+        '<div><h3>' + escapeHtml(title) + '</h3>' + initiativeName + initiativeNotes + locationDetails + events + '</div>' + proximity +
         '<div class="card-footer"><div class="links">' + links.join("") + '</div>' + updatedAt + '</div>' +
         '</article>';
     }
@@ -1792,7 +1856,7 @@ function renderPage(data, translations) {
         '</span></div>';
     }
 
-    function renderLocationDetails(location, item) {
+    function renderLocationDetails(location, item, includeRoute) {
       const title = [location.name, location.address].filter(Boolean).join(" · ");
       const openingHourRows = formatOpeningSlots(location.openingSlots);
       const openingHours = openingHourRows.length
@@ -1801,13 +1865,28 @@ function renderPage(data, translations) {
             (row.notes ? '<span class="slot-notes">' + escapeHtml(row.notes) + '</span>' : "") + '</span>').join("") + '</span></div>'
         : "";
       const notes = location.notes ? renderNotes(location.notes) : "";
-      const routeLink = transitPreference === "enabled" && item && location.coordinates
+      const events = renderEvents((item.events || []).filter((event) =>
+        event.locationName && normalizePlace(event.locationName) === normalizePlace(location.name)
+      ));
+      const routeLink = transitPreference === "enabled" && includeRoute && location.coordinates
         ? '<div class="links"><a class="transitous-link" href="' + escapeHtml(buildTransitousUrl(item, location)) +
           '" target="_blank" rel="noopener noreferrer">' + escapeHtml(t("transitousRoute")) + '</a></div>'
         : "";
-      if (!title && !openingHours && !notes && !routeLink) return "";
+      if (!title && !openingHours && !notes && !events && !routeLink) return "";
       return '<div class="location"><p class="location-name">' + escapeHtml(title) + '</p>' +
-        openingHours + notes + routeLink + '</div>';
+        openingHours + notes + events + routeLink + '</div>';
+    }
+
+    function renderEvents(events) {
+      if (!events.length) return "";
+      return '<div class="events">' + events.map((event) => {
+        const place = [event.locationName, event.address].filter(Boolean).join(" · ");
+        return '<div class="event"><p class="event-title">' + escapeHtml(event.title) + '</p>' +
+          '<p><strong>' + escapeHtml(t("eventDateLabel")) + ':</strong> ' +
+          escapeHtml(formatDate(event.date) + " · " + event.start + "–" + event.end) + '</p>' +
+          (place ? '<p>' + escapeHtml(place) + '</p>' : "") +
+          (event.notes ? renderNotes(event.notes) : "") + '</div>';
+      }).join("") + '</div>';
     }
 
     function renderNotes(value) {
@@ -2526,8 +2605,22 @@ function renderPage(data, translations) {
     }
 
     function getLocations(item) {
-      if (item.locations?.length) return item.locations;
-      return item.coordinates ? [{ name: "", address: item.address || "", openingSlots: [], notes: "", coordinates: item.coordinates }] : [];
+      const locations = item.locations?.length
+        ? [...item.locations]
+        : item.coordinates
+          ? [{ name: "", address: item.address || "", openingSlots: [], notes: "", coordinates: item.coordinates }]
+          : [];
+      for (const event of item.events || []) {
+        if (!event.coordinates) continue;
+        locations.push({
+          name: event.title,
+          address: event.address,
+          openingSlots: [],
+          notes: [formatDate(event.date) + " · " + event.start + "–" + event.end, event.notes].filter(Boolean).join("\\n"),
+          coordinates: event.coordinates
+        });
+      }
+      return locations;
     }
 
     async function enableMap() {
@@ -2672,18 +2765,6 @@ function toPageInitiatives(initiatives) {
   return initiatives.map(({ sources, websiteCheck, ...item }) => item);
 }
 
-function deepMerge(base, override) {
-  const output = { ...base };
-  for (const [key, value] of Object.entries(override ?? {})) {
-    if (value && typeof value === "object" && !Array.isArray(value) && !(value instanceof Date)) {
-      output[key] = deepMerge(output[key] ?? {}, value);
-    } else {
-      output[key] = value;
-    }
-  }
-  return output;
-}
-
 function compareInitiatives(a, b) {
   return a.country.localeCompare(b.country, "de") ||
     a.region.localeCompare(b.region, "de") ||
@@ -2775,9 +2856,12 @@ const report = {
   changes: null,
   websiteFailures: [],
   websiteTransitions: [],
+  groups: emptyGroupReport(),
   warnings: [],
   error: ""
 };
+
+await loadEnvFile(new URL("../.env", import.meta.url));
 
 try {
   await main(report);
@@ -2788,6 +2872,7 @@ try {
 } finally {
   try {
     await writeRunLog(report);
+    await writeWorkflowSummary(report);
   } catch (error) {
     console.error("Failed to write update log:", error);
     process.exitCode = 1;

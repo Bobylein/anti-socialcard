@@ -1175,9 +1175,9 @@
     "label": "Freising, Landkreis Freising, Bayern, Deutschland"
   },
   "v3|Deutschland|Bayern|Fürth": {
-    "lat": 48.5915163,
-    "lon": 12.0212216,
-    "label": "Furth, Furth (VGem), Landkreis Landshut, Bayern, 84095, Deutschland"
+    "lat": 49.4771169,
+    "lon": 10.988667,
+    "label": "Fürth, Bayern, Deutschland"
   },
   "v3|Deutschland|Bayern|Herzogenaurach": {
     "lat": 49.5738171,
@@ -1620,9 +1620,9 @@
     "label": "65, Albert-Mahlstedt-Straße, Dosenredder, Neudorf, Eutin, Kreis Ostholstein, Schleswig-Holstein, 23701, Deutschland"
   },
   "v3|Deutschland|Berlin|Berlin": {
-    "lat": 52.5136844,
-    "lon": 13.3939867,
-    "label": "Berlin-Brandenburgische Akademie der Wissenschaften, Friedrichstadt, Mitte, Berlin, Deutschland"
+    "lat": 52.520008,
+    "lon": 13.404954,
+    "label": "Berlin, Deutschland"
   },
   "v3|Deutschland|Schleswig-Holstein|Eutin": {
     "lat": 54.1364642,
@@ -1684,5 +1684,10 @@
     "lat": 53.8705584,
     "lon": 10.6773118,
     "label": "11, Willy-Brandt-Allee, Innenstadt, Lübeck, Schleswig-Holstein, 23554, Deutschland"
+  },
+  "v3|Deutschland|Berlin|Berlin/Brandenburg": {
+    "lat": 52.520008,
+    "lon": 13.404954,
+    "label": "Berlin, Deutschland"
   }
 }
