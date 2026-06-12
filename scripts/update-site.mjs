@@ -1397,7 +1397,7 @@ function renderPage(data, translations) {
 
     function chooseInitialLanguage() {
       const params = new URLSearchParams(location.search);
-      const requested = params.get("lang") || localStorage.getItem("language") || navigator.language.slice(0, 2);
+      const requested = params.get("lang") || navigator.language.slice(0, 2);
       if (languages.some((language) => language.code === requested)) return requested;
       if (requested === "ku") return "kmr";
       return "de";
@@ -1419,7 +1419,9 @@ function renderPage(data, translations) {
       const language = languages.find((item) => item.code === currentLanguage);
       document.documentElement.lang = currentLanguage;
       document.documentElement.dir = language?.dir || "ltr";
-      localStorage.setItem("language", currentLanguage);
+      const url = new URL(location.href);
+      url.searchParams.set("lang", currentLanguage);
+      history.replaceState(null, "", url);
       document.querySelectorAll("[data-i18n]").forEach((element) => {
         element.textContent = t(element.dataset.i18n);
       });
