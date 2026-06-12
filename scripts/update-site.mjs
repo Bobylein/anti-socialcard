@@ -12,8 +12,23 @@ const CATALOG_PATH = new URL("../data/catalog.yml", import.meta.url);
 const I18N_DIR = new URL("../data/i18n/", import.meta.url);
 const GEOCODE_CACHE_PATH = new URL("../data/geocodes.json", import.meta.url);
 const INDEX_PATH = new URL("../index.html", import.meta.url);
+const LOGS_DIR = new URL("../logs/", import.meta.url);
 const LEAFLET_DIST = new URL("../node_modules/leaflet/dist/", import.meta.url);
 const LEAFLET_ASSETS = new URL("../assets/leaflet/", import.meta.url);
+const COMPARED_INITIATIVE_FIELDS = [
+  "name",
+  "city",
+  "region",
+  "country",
+  "address",
+  "url",
+  "coordinates",
+  "locations",
+  "notes",
+  "transitLinks",
+  "sources",
+  "aliases"
+];
 
 const LANGUAGES = [
   { code: "de", label: "Deutsch", dir: "ltr" },
@@ -68,15 +83,16 @@ const SOCIAL_MEDIA_DOMAINS = [
   "youtu.be"
 ];
 
-async function main() {
-  const [html, catalog, translations, geocodeCache] = await Promise.all([
+async function main(report) {
+  const [html, catalog, translations, geocodeCache, previousData] = await Promise.all([
     fetchSource(),
     readCatalog(),
     readTranslations(),
-    readGeocodeCache()
+    readGeocodeCache(),
+    readPreviousData()
   ]);
   const scraped = parseInitiatives(html);
-  const initiatives = mergeInitiatives(scraped, catalog);
+  const initiatives = mergeInitiatives(scraped, catalog, report);
 
   if (scraped.length < 20) {
     throw new Error(`Parsed only ${scraped.length} initiatives; source structure may have changed.`);
@@ -84,7 +100,7 @@ async function main() {
 
   validateInitiatives(initiatives);
   await addCoordinates(initiatives, geocodeCache);
-  await checkInitiativeWebsites(initiatives);
+  await checkInitiativeWebsites(initiatives, report);
   initiatives.sort(compareInitiatives);
 
   const data = {
@@ -93,6 +109,13 @@ async function main() {
     languages: LANGUAGES,
     initiatives
   };
+  report.summary = {
+    total: initiatives.length,
+    scraped: scraped.length,
+    curated: catalog.initiatives.length
+  };
+  report.changes = compareDatasets(previousData, data);
+  report.websiteTransitions = compareWebsiteChecks(previousData, data);
 
   await mkdir(new URL("../data/", import.meta.url), { recursive: true });
   await copyLeafletAssets();
@@ -101,6 +124,15 @@ async function main() {
   await writeFile(INDEX_PATH, renderPage(data, translations));
 
   console.log(`Updated ${initiatives.length} initiatives (${scraped.length} scraped, ${catalog.initiatives.length} curated).`);
+}
+
+async function readPreviousData() {
+  try {
+    return JSON.parse(await readFile(DATA_PATH, "utf8"));
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
 }
 
 async function fetchSource() {
@@ -213,7 +245,7 @@ function parseInitiatives(html) {
   return initiatives;
 }
 
-function mergeInitiatives(scraped, catalog) {
+function mergeInitiatives(scraped, catalog, report) {
   const byId = new Map(scraped.map((item) => [item.id, item]));
   const scrapedIds = new Set(byId.keys());
 
@@ -221,7 +253,9 @@ function mergeInitiatives(scraped, catalog) {
     const { match, ...fields } = rawOverride ?? {};
     const existing = findInitiative(byId, match);
     if (!existing) {
-      console.warn(`No initiative matched override: ${JSON.stringify(match)}`);
+      const warning = `No initiative matched override: ${JSON.stringify(match)}`;
+      report.warnings.push(warning);
+      console.warn(warning);
       continue;
     }
     byId.set(existing.id, normalizeInitiative(deepMerge(existing, fields)));
@@ -404,7 +438,7 @@ async function addCoordinates(initiatives, cache) {
   }
 }
 
-async function checkInitiativeWebsites(initiatives) {
+async function checkInitiativeWebsites(initiatives, report) {
   const checkedAt = new Date().toISOString();
   const urls = [...new Set(initiatives
     .map((initiative) => initiative.url)
@@ -431,7 +465,16 @@ async function checkInitiativeWebsites(initiatives) {
       continue;
     }
     initiative.websiteCheck = results.get(initiative.url) ?? null;
-    if (initiative.websiteCheck && !initiative.websiteCheck.ok) failed += 1;
+    if (initiative.websiteCheck && !initiative.websiteCheck.ok) {
+      failed += 1;
+      report.websiteFailures.push({
+        id: initiative.id,
+        name: initiative.name,
+        url: initiative.url,
+        status: initiative.websiteCheck.status,
+        error: initiative.websiteCheck.error
+      });
+    }
   }
 
   console.log(`Checked ${urls.length} non-social initiative websites (${failed} failed).`);
@@ -490,6 +533,177 @@ function websiteResult(checkedAt, response, method) {
     method,
     error: ""
   };
+}
+
+function compareDatasets(previousData, currentData) {
+  if (!previousData?.initiatives) {
+    return {
+      baselineAvailable: false,
+      added: currentData.initiatives,
+      removed: [],
+      changed: []
+    };
+  }
+
+  const previousById = new Map(previousData.initiatives.map((item) => [item.id, item]));
+  const currentById = new Map(currentData.initiatives.map((item) => [item.id, item]));
+  const added = currentData.initiatives.filter((item) => !previousById.has(item.id));
+  const removed = previousData.initiatives.filter((item) => !currentById.has(item.id));
+  const changed = [];
+
+  for (const current of currentData.initiatives) {
+    const previous = previousById.get(current.id);
+    if (!previous) continue;
+    const fields = COMPARED_INITIATIVE_FIELDS
+      .filter((field) => JSON.stringify(previous[field] ?? null) !== JSON.stringify(current[field] ?? null))
+      .map((field) => ({
+        field,
+        before: previous[field] ?? null,
+        after: current[field] ?? null
+      }));
+    if (fields.length) {
+      changed.push({
+        id: current.id,
+        name: current.name,
+        fields
+      });
+    }
+  }
+
+  return { baselineAvailable: true, added, removed, changed };
+}
+
+function compareWebsiteChecks(previousData, currentData) {
+  if (!previousData?.initiatives) return [];
+  const previousById = new Map(previousData.initiatives.map((item) => [item.id, item]));
+  const transitions = [];
+
+  for (const current of currentData.initiatives) {
+    const previous = previousById.get(current.id);
+    if (!previous || !current.websiteCheck || !previous.websiteCheck) continue;
+    const before = websiteCheckState(previous.websiteCheck);
+    const after = websiteCheckState(current.websiteCheck);
+    if (before === after) continue;
+    transitions.push({
+      id: current.id,
+      name: current.name,
+      url: current.url,
+      before,
+      after
+    });
+  }
+
+  return transitions;
+}
+
+function websiteCheckState(check) {
+  if (check.ok) return "reachable";
+  if (check.status) return `HTTP ${check.status}`;
+  return check.error || "failed";
+}
+
+async function writeRunLog(report) {
+  await mkdir(LOGS_DIR, { recursive: true });
+  const finishedAt = new Date();
+  const timestamp = report.startedAt.toISOString().replace(/[:.]/g, "-");
+  const logPath = new URL(`${timestamp}.md`, LOGS_DIR);
+  const lines = [
+    `# Update log ${report.startedAt.toISOString()}`,
+    "",
+    `- Result: ${report.error ? "failed" : "success"}`,
+    `- Finished: ${finishedAt.toISOString()}`,
+    `- Duration: ${finishedAt.getTime() - report.startedAt.getTime()} ms`
+  ];
+
+  if (report.summary) {
+    lines.push(
+      `- Initiatives: ${report.summary.total} total, ${report.summary.scraped} scraped, ${report.summary.curated} curated`
+    );
+  }
+
+  if (report.error) {
+    lines.push("", "## Fatal error", "", `- ${report.error}`);
+  }
+
+  appendWebsiteFailures(lines, report.websiteFailures);
+  appendWebsiteTransitions(lines, report.websiteTransitions);
+  appendDatasetChanges(lines, report.changes);
+  appendListSection(lines, "Warnings", report.warnings);
+
+  await writeFile(logPath, `${lines.join("\n")}\n`);
+  console.log(`Wrote update log to logs/${timestamp}.md`);
+}
+
+function appendWebsiteFailures(lines, failures) {
+  lines.push("", `## Failed initiative websites (${failures.length})`, "");
+  if (!failures.length) {
+    lines.push("- None");
+    return;
+  }
+  for (const failure of failures) {
+    const reason = failure.status ? `HTTP ${failure.status}` : failure.error || "unknown error";
+    lines.push(`- **${failure.name}** (\`${failure.id}\`): ${failure.url} - ${reason}`);
+  }
+}
+
+function appendWebsiteTransitions(lines, transitions) {
+  lines.push("", `## Website status changes (${transitions.length})`, "");
+  if (!transitions.length) {
+    lines.push("- None");
+    return;
+  }
+  for (const transition of transitions) {
+    lines.push(
+      `- **${transition.name}** (\`${transition.id}\`): ${transition.before} -> ${transition.after} - ${transition.url}`
+    );
+  }
+}
+
+function appendDatasetChanges(lines, changes) {
+  lines.push("", "## Dataset changes", "");
+  if (!changes) {
+    lines.push("- Comparison unavailable because the run failed before a dataset was created.");
+    return;
+  }
+  if (!changes.baselineAvailable) {
+    lines.push("- No previous dataset was available; all initiatives are listed as added.");
+  }
+
+  appendInitiativeList(lines, "Added", changes.added);
+  appendInitiativeList(lines, "Removed", changes.removed);
+  lines.push("", `### Changed (${changes.changed.length})`, "");
+  if (!changes.changed.length) {
+    lines.push("- None");
+    return;
+  }
+  for (const initiative of changes.changed) {
+    lines.push(`- **${initiative.name}** (\`${initiative.id}\`)`);
+    for (const change of initiative.fields) {
+      lines.push(`  - \`${change.field}\`: ${formatLogValue(change.before)} -> ${formatLogValue(change.after)}`);
+    }
+  }
+}
+
+function appendInitiativeList(lines, title, initiatives) {
+  lines.push("", `### ${title} (${initiatives.length})`, "");
+  if (!initiatives.length) {
+    lines.push("- None");
+    return;
+  }
+  for (const initiative of initiatives) {
+    lines.push(`- **${initiative.name}** (\`${initiative.id}\`)${initiative.url ? ` - ${initiative.url}` : ""}`);
+  }
+}
+
+function appendListSection(lines, title, values) {
+  lines.push("", `## ${title} (${values.length})`, "");
+  lines.push(...(values.length ? values.map((value) => `- ${value}`) : ["- None"]));
+}
+
+function formatLogValue(value) {
+  const serialized = JSON.stringify(value);
+  const shortened = serialized.length > 500 ? `${serialized.slice(0, 497)}...` : serialized;
+  return `\`${shortened.replace(/`/g, "\\`")}\``;
 }
 
 function isSocialMediaUrl(value) {
@@ -1167,7 +1381,10 @@ function renderPage(data, translations) {
       </div>
       <details class="transit-privacy">
         <summary data-i18n="transitPrivacySummary">Datenschutzhinweise</summary>
-        <p data-i18n="transitPrivacyDetails">Bei Aktivierung werden dein gewählter Ausgangsort und die Ziele an Transitous übertragen. Routenergebnisse werden höchstens sechs Stunden lokal gespeichert. Du kannst die Funktion jederzeit deaktivieren und den Cache löschen.</p>
+        <p>
+          <span data-i18n="transitPrivacyDetails">Bei Aktivierung werden dein gewählter Ausgangsort, die Ziele und Routenoptionen an Transitous übertragen. Transitous kann deine IP-Adresse, den Anfragezeitpunkt, den User-Agent und die angefragten Routendaten bis zu zwei Tage in Serverprotokollen speichern. Routenergebnisse werden höchstens sechs Stunden in deinem Browser gespeichert. Du kannst die Funktion jederzeit deaktivieren und den lokalen Cache löschen.</span>
+          <a href="https://transitous.org/privacy/" target="_blank" rel="noopener noreferrer" data-i18n="transitPrivacyLink">Transitous-Datenschutz</a>
+        </p>
       </details>
     </section>
 
@@ -1238,6 +1455,8 @@ function renderPage(data, translations) {
       <span> </span>
       <button type="button" class="footer-settings" id="transit-settings" data-i18n="transitSettings">Datenschutz- und ÖPNV-Einstellungen</button>
       <span> </span>
+      <a href="mailto:anti-socialcard@systemli.org">anti-socialcard@systemli.org</a>
+      <span> </span>
       <a href="https://github.com/Bobylein/anti-socialcard" target="_blank" rel="noopener noreferrer" data-i18n="contactLink">Kontakt und Quellcode.</a>
     </div>
   </footer>
@@ -1293,7 +1512,7 @@ function renderPage(data, translations) {
     let leafletLoading = null;
     let locationRequestPending = false;
     let rankedNearest = [];
-    let nearestVisibleCount = 10;
+    let nearestVisibleCount = 5;
     let nearestSortMode = "distance";
     let routingGeneration = 0;
     const cityStationCache = new Map();
@@ -1514,7 +1733,9 @@ function renderPage(data, translations) {
 
     function markRoutesPending() {
       for (const item of rankedNearest) {
-        if (item.routeState.status !== "success") item.routeState = { status: "pending" };
+        if (item.routeState.status !== "success") {
+          item.routeState = { status: transitPreference === "enabled" ? "pending" : "disabled" };
+        }
       }
     }
 
@@ -1739,7 +1960,8 @@ function renderPage(data, translations) {
         })
         .filter(Boolean)
         .sort((a, b) => a.distance - b.distance);
-      if (!options.preserveScroll) nearestVisibleCount = 10;
+      markRoutesPending();
+      if (!options.preserveScroll) nearestVisibleCount = 5;
       renderNearest();
       routeVisibleInitiatives();
       nearestGrid.before(transitPreferences);
@@ -1763,14 +1985,22 @@ function renderPage(data, translations) {
       const visible = rankedNearest.slice(0, nearestVisibleCount);
       if (nearestSortMode === "distance") return visible;
       return visible.sort((left, right) => {
-        const leftDuration = left.routeState.status === "success" ? left.routeState.duration : Infinity;
-        const rightDuration = right.routeState.status === "success" ? right.routeState.duration : Infinity;
+        const leftDuration = transitSortDuration(left);
+        const rightDuration = transitSortDuration(right);
         if (leftDuration !== rightDuration) return leftDuration - rightDuration;
         const leftFailed = left.routeState.status === "error";
         const rightFailed = right.routeState.status === "error";
         if (leftFailed !== rightFailed) return leftFailed ? 1 : -1;
         return left.distance - right.distance;
       });
+    }
+
+    function transitSortDuration(item) {
+      if (item.routeState.status === "success") return item.routeState.duration;
+      const originCity = normalizePlace(currentOrigin?.stationQuery || "");
+      const destinationCity = normalizePlace(item.city || "");
+      if (item.routeState.status === "error" && originCity && originCity === destinationCity) return 0;
+      return Infinity;
     }
 
     function updateNearestSortButton() {
@@ -2151,7 +2381,7 @@ function renderPage(data, translations) {
     function retryCityRouting() {
       if (transitPreference !== "enabled") return;
       if (!currentOrigin.stationQuery) return;
-      for (const item of rankedNearest) {
+      for (const item of rankedNearest.slice(0, nearestVisibleCount)) {
         if (item.routeState.status === "error") item.routeState = { status: "pending" };
       }
       routeVisibleInitiatives();
@@ -2539,7 +2769,27 @@ function escapeScriptJson(value) {
   return JSON.stringify(value).replaceAll("</", "<\\/");
 }
 
-main().catch((error) => {
+const report = {
+  startedAt: new Date(),
+  summary: null,
+  changes: null,
+  websiteFailures: [],
+  websiteTransitions: [],
+  warnings: [],
+  error: ""
+};
+
+try {
+  await main(report);
+} catch (error) {
+  report.error = error.stack || String(error);
   console.error(error);
   process.exitCode = 1;
-});
+} finally {
+  try {
+    await writeRunLog(report);
+  } catch (error) {
+    console.error("Failed to write update log:", error);
+    process.exitCode = 1;
+  }
+}

@@ -1,6 +1,9 @@
+import { DurableObject } from "cloudflare:workers";
+
 const NOMINATIM_URL = "https://nominatim.openstreetmap.org";
 const APPLICATION_URL = "https://tauschaktionen-finder.peter161.workers.dev/";
 const CACHE_SECONDS = 30 * 24 * 60 * 60;
+const NOMINATIM_INTERVAL_MS = 1000;
 const SEARCH_PARAMETERS = new Set([
   "q",
   "countrycodes",
@@ -19,18 +22,55 @@ export default {
     const url = new URL(request.url);
 
     if (url.pathname === "/geocode/search") {
-      return proxyGeocode(request, url, "search", SEARCH_PARAMETERS, context);
+      return proxyGeocode(request, url, "search", SEARCH_PARAMETERS, env, context);
     }
 
     if (url.pathname === "/geocode/reverse") {
-      return proxyGeocode(request, url, "reverse", REVERSE_PARAMETERS, context);
+      return proxyGeocode(request, url, "reverse", REVERSE_PARAMETERS, env, context);
     }
 
     return env.ASSETS.fetch(request);
   }
 };
 
-async function proxyGeocode(request, requestUrl, endpoint, allowedParameters, context) {
+export class NominatimLimiter extends DurableObject {
+  constructor(ctx, env) {
+    super(ctx, env);
+    this.queue = Promise.resolve();
+    this.nextRequestAt = 0;
+    this.ctx.blockConcurrencyWhile(async () => {
+      this.nextRequestAt = await this.ctx.storage.get("nextRequestAt") || 0;
+    });
+  }
+
+  async fetch(request) {
+    const url = new URL(request.url);
+    if (request.method !== "GET" || url.origin !== NOMINATIM_URL) {
+      return jsonError("Invalid upstream request.", 400);
+    }
+
+    const pending = this.queue.then(() => this.forward(request));
+    this.queue = pending.then(
+      () => undefined,
+      () => undefined
+    );
+    return pending;
+  }
+
+  async forward(request) {
+    const delay = this.nextRequestAt - Date.now();
+    if (delay > 0) {
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+
+    const responsePromise = fetch(request);
+    this.nextRequestAt = Date.now() + NOMINATIM_INTERVAL_MS;
+    await this.ctx.storage.put("nextRequestAt", this.nextRequestAt);
+    return responsePromise;
+  }
+}
+
+async function proxyGeocode(request, requestUrl, endpoint, allowedParameters, env, context) {
   if (request.method !== "GET") {
     return jsonError("Method not allowed.", 405, { Allow: "GET" });
   }
@@ -66,13 +106,16 @@ async function proxyGeocode(request, requestUrl, endpoint, allowedParameters, co
 
   let upstreamResponse;
   try {
-    upstreamResponse = await fetch(upstreamUrl, {
+    const upstreamRequest = new Request(upstreamUrl, {
       headers: {
         Accept: "application/json",
         Referer: APPLICATION_URL,
         "User-Agent": `Tauschaktionen-Finder/1.0 (${APPLICATION_URL})`
-      },
-      signal: AbortSignal.timeout(10000)
+      }
+    });
+    const limiter = env.NOMINATIM_LIMITER.getByName("global");
+    upstreamResponse = await limiter.fetch(upstreamRequest, {
+      signal: AbortSignal.timeout(15000)
     });
   } catch {
     return jsonError("Geocoding service unavailable.", 502);

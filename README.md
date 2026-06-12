@@ -10,6 +10,8 @@ npm run update
 
 The updater fetches the Seebrücke Bezahlkarte campaign page, merges curated additions and overrides from `data/catalog.yml`, geocodes missing initiative locations with a local cache in `data/geocodes.json`, writes `data/initiatives.json`, vendors Leaflet assets to `assets/leaflet/`, and regenerates `index.html`.
 
+Every updater run writes a timestamped Markdown report to `logs/`. Reports list failed initiative websites, website status transitions, warnings, and initiative-level changes compared with the previous `data/initiatives.json`. Volatile check and update timestamps are excluded from the content comparison. Failed updater runs also produce a report with the fatal error when the filesystem remains writable.
+
 ## Curated data
 
 Use `data/catalog.yml` for initiatives missing from the scraper, corrections to scraped entries, and manually checked local public transport links. Keep `id` values stable for curated initiatives.
@@ -43,7 +45,7 @@ UI translations live in `data/i18n/*.json`. All translation files must contain t
 
 ## Location search
 
-The static page includes JavaScript for finding nearby initiatives. Visitors can enter a city or postcode, or use browser location access. The same Cloudflare Worker that serves the website proxies and caches manually triggered OpenStreetMap Nominatim searches under `/geocode`; current-location access requires HTTPS or localhost. The Leaflet map is opt-in and loads OpenStreetMap tiles only after activation.
+The static page includes JavaScript for finding nearby initiatives. Visitors can enter a city or postcode, or use browser location access. The same Cloudflare Worker that serves the website proxies and caches manually triggered OpenStreetMap Nominatim searches under `/geocode`. A singleton Durable Object spaces cache misses at least one second apart before forwarding them to Nominatim. Current-location access requires HTTPS or localhost. The Leaflet map is opt-in and loads OpenStreetMap tiles only after activation.
 
 Public transport time is used as an approximate city-to-city sorting value. It selects the shortest representative rail connection between the central stations, falling back to other public transport where necessary, and measures from the first transit departure to the last transit arrival. Initial waiting time, local walking, and urban access legs are excluded. Place and postcode searches use the central station for detailed Transitous links; complete street addresses and browser geolocation remain exact. Each concrete initiative location has its own Transitous link for detailed door-to-door planning.
 
