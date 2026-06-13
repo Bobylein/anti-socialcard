@@ -127,6 +127,7 @@ test("accepts hidden files without content fields", () => {
 test("rejects unknown fields, unsafe URLs, weekday numbers and invalid events", () => {
   assert.throws(() => parseGroupMarkdown("kiel", ACTIVE.replace("| Name | Anti-SocialCard Kiel |", "| Unbekannt | Wert |"), NOW), /unknown field/);
   assert.throws(() => parseGroupMarkdown("kiel", ACTIVE.replace("https://example.org/", "javascript:alert(1)"), NOW), /http\/https/);
+  assert.throws(() => parseGroupMarkdown("kiel", ACTIVE.replace("https://example.org/", "https://user:secret@example.org/"), NOW), /credentials/);
   assert.throws(() => parseGroupMarkdown("kiel", ACTIVE.replace("Mittwoch | jede", "3 | jede"), NOW), /weekday names/);
   assert.throws(() => parseGroupMarkdown("kiel", ACTIVE.replace("15:00 | 18:00 | Stadtteilladen", "15:00 | 14:00 | Stadtteilladen"), NOW), /after Von/);
 });

@@ -8,7 +8,7 @@ Static, multilingual overview of initiatives and exchange actions against the Be
 npm run update
 ```
 
-The updater fetches the Seebrücke Bezahlkarte campaign page, merges self-managed group files from Nextcloud, geocodes missing initiative and event locations with `data/geocodes.json`, writes `data/initiatives.json`, vendors Leaflet assets to `assets/leaflet/`, and regenerates `index.html`.
+The updater fetches the Seebrücke Bezahlkarte campaign page, merges self-managed group files from Nextcloud, geocodes missing initiative and event locations with `data/geocodes.json`, writes `data/initiatives.json`, copies browser sources from `src/browser/` to `assets/`, vendors Leaflet assets to `assets/leaflet/`, and regenerates `index.html`.
 
 Every updater run writes a timestamped Markdown report to the ignored local `logs/` directory. In GitHub Actions, the complete report is published in the public job summary instead of being committed. Reports list failed initiative websites, website status transitions, warnings, and initiative-level changes compared with the previous `data/initiatives.json`. Volatile check and update timestamps are excluded from the content comparison.
 
@@ -72,7 +72,7 @@ Public transport time is used as an approximate city-to-city sorting value. It s
 
 ## Regular updates
 
-`.github/workflows/update-site.yml` runs tests and the updater every day at 04:17 UTC, writes a compact job summary, and commits generated data, caches, reports, vendored Leaflet assets, and `index.html`.
+`.github/workflows/update-site.yml` runs tests and the updater every day at 04:17 UTC, writes a compact job summary, and commits generated data, caches, reports, browser assets, vendored Leaflet assets, and `index.html`.
 
 ## Local preview
 

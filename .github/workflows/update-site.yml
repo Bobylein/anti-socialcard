@@ -30,4 +30,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update initiative overview"
-          file_pattern: "data/initiatives.json data/group-cache.json data/geocodes.json assets/leaflet index.html"
+          file_pattern: "data/initiatives.json data/group-cache.json data/geocodes.json assets/site.css assets/site.js assets/leaflet index.html"

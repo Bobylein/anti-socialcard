@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { normalizeHttpUrl } from "./url-security.mjs";
 
 export const GROUP_CACHE_VERSION = 1;
 const GROUP_PARSER_VERSION = 3;
@@ -530,14 +531,7 @@ function optionalText(value, path, maxLength) {
 function optionalHttpUrl(value, path) {
   if (value === undefined || value === null || value === "") return "";
   assert(typeof value === "string" && value.length <= MAX.website, `${path}: invalid URL`);
-  let url;
-  try {
-    url = new URL(value);
-  } catch {
-    throw new Error(`${path}: invalid URL`);
-  }
-  assert(["http:", "https:"].includes(url.protocol), `${path}: only http/https allowed`);
-  return url.toString();
+  return normalizeHttpUrl(value, { path });
 }
 
 function scalarString(value) {
